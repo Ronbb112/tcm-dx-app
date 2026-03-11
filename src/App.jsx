@@ -99,16 +99,66 @@ const FORMULAS = [
 ];
 
 const TREES = [
-  { id:"ren_shen", name:"Ren Shen", nameHe:"רן שן", element:"earth", focus:"חיזוק צ'י טחול, חולשת מערכת עיכול" },
-  { id:"fu_zi", name:"Fu Zi", nameHe:"פו ז'י", element:"water", focus:"חימום יאנג כליות, תמיכה לבבית במטופלים חלשים/קשישים" },
-  { id:"chai_hu", name:"Chai Hu", nameHe:"צ'אי הו", element:"wood", focus:"כבד ורמת שאו יאנג — סטרס, מתח, הפרעות איברים" },
-  { id:"huang_lian", name:"Huang Lian", nameHe:"הואנג ליין", element:"fire", focus:"ניקוי אש ורטיבות-חום מלב, קיבה וג'יאו עליון" },
-  { id:"ban_xia", name:"Ban Xia", nameHe:"באן שיה", element:"earth", focus:"פירוק ליחה ורטיבות — חזה וסרעפת" },
-  { id:"da_huang", name:"Da Huang", nameHe:"דא הואנג", element:"earth", focus:"שילשול חום יאנג מינג, פירוק סטגנציה עיקשת ודם" },
-  { id:"huang_qi", name:"Huang Qi", nameHe:"הואנג צ'י", element:"metal", focus:"חיזוק צ'י מגן (Wei Qi) וצ'י ריאות — חיסון" },
-  { id:"tao_ren", name:"Tao Ren", nameHe:"טאו רן", element:"fire", focus:"הנעת דם — גושים קבועים וסטגנציה כרונית" },
-  { id:"gui_zhi", name:"Gui Zhi", nameHe:"גווי ז'י", element:"metal", focus:"הרמוניזציה חיצונית (טאי יאנג), ויסות קרדיווסקולרי" },
-  { id:"jue_yin", name:"Jue Yin", nameHe:"ג'ואה יין", element:"wood", focus:"שכבה העמוקה ביותר — חוסר איזון יין-יאנג קיצוני" },
+  { id:"ren_shen", name:"Ren Shen", nameHe:"רן שן", element:"earth", focus:"חיזוק צ'י טחול, חולשת מערכת עיכול",
+    description:"העץ המרכזי לחיזוק צ'י — בסיס לפורמולות טוניפיקציה של טחול וקיבה. משמש כשיש עייפות כרונית, תיאבון ירוד, שרירים רפויים, ודופק חלש.",
+    layer:"טאי יין (Tai Yin)", organ:"טחול/קיבה",
+    keyActions:["חיזוק צ'י טחול","העלאת יאנג צ'י","ייצור נוזלים","חיזוק ריאות"],
+    diagnosticClues:"בטן רכה/אטונית, טבור שקוע, חולשה תת-טבורית. לשון חיוורת עם סימני שיניים. דופק חלש בגוואן ימני.",
+    contraindications:"לא לשימוש בשי חזק (עודף), חום רטיבות פנימי, או סטגנציית צ'י חמורה ללא תנועה" },
+  { id:"fu_zi", name:"Fu Zi", nameHe:"פו ז'י", element:"water", focus:"חימום יאנג כליות, תמיכה לבבית במטופלים חלשים/קשישים",
+    description:"העץ החם ביותר — משחזר יאנג קורס (שאו יין קור). קריטי למטופלים עם קור פנימי עמוק, לחץ דם נמוך, ברדיקרדיה. הצמח הרעיל ביותר בפרמקופיאה — חייב עיבוד נכון.",
+    layer:"שאו יין (Shao Yin)", organ:"כליות/לב",
+    keyActions:["חימום יאנג כליות","שחזור יאנג קורס","חימום ג'יאו תחתון","גירוש קור פנימי"],
+    diagnosticClues:"גפיים קרות, רצון רק לישון, דופק עמוק וחלש מאוד. בטן תחתונה קרה למגע. שתן שקוף ומרובה.",
+    contraindications:"אסור בהיריון. אסור עם חום אמיתי (יין שו עם חום מדומה). חובה לבשל לפחות 60 דקות" },
+  { id:"chai_hu", name:"Chai Hu", nameHe:"צ'אי הו", element:"wood", focus:"כבד ורמת שאו יאנג — סטרס, מתח, הפרעות איברים",
+    description:"עץ הציר (Pivot) — מרמוניזציה בין חיצוני לפנימי. הפורמולות הנפוצות ביותר בקליניקה: Xiao Chai Hu Tang, Si Ni San. מתמחה בסטגנציית כבד, בעיות רגשיות, ותסמינים משתנים.",
+    layer:"שאו יאנג (Shao Yang)", organ:"כבד/מרה",
+    keyActions:["הרמוניזציית שאו יאנג","שחרור סטגנציית כבד","הרמת צ'י","ויסות רגשי"],
+    diagnosticClues:"מתח תת-צלעי ימני (ST21R), Pigen חיובי. טעם מר בבוקר, תסמינים מחמירים מסטרס. דופק מתוח (Wiry).",
+    contraindications:"לא לשימוש ביאנג עולה של כבד ללא עיגון. זהירות בשילוב עם יין שו כבד" },
+  { id:"huang_lian", name:"Huang Lian", nameHe:"הואנג ליין", element:"fire", focus:"ניקוי אש ורטיבות-חום מלב, קיבה וג'יאו עליון",
+    description:"המנקה החזק ביותר של חום — מתמחה בחום-רטיבות בג'יאו אמצעי ועליון. נדודי שינה, חומצת קיבה, אפטות, עצבנות. שורש מר מאוד — מסמן את עוצמת פעולתו.",
+    layer:"יאנג מינג (Yang Ming)", organ:"לב/קיבה",
+    keyActions:["ניקוי אש לב","ייבוש רטיבות-חום","הורדת חום קיבה","עצירת הקאות/שלשול מחום"],
+    diagnosticClues:"מתח תת-צלעי שמאלי (ST21L) עם קשיחות. לשון אדומה עם ציפוי צהוב שמנוני. חומצת קיבה, נדודי שינה עם חלומות מטרידים.",
+    contraindications:"לא לשימוש ממושך — מייבש ופוגע בצ'י טחול. אסור בקור פנימי (טאי יין/שאו יין)" },
+  { id:"ban_xia", name:"Ban Xia", nameHe:"באן שיה", element:"earth", focus:"פירוק ליחה ורטיבות — חזה וסרעפת",
+    description:"עץ הליחה המרכזי — מפרק ליחה בכל הרמות (חזה, סרעפת, קיבה). Wen Dan Tang היא הפורמולה המייצגת. מתמחה בבעיות מליחה: סחרחורת, בחילות, גודש חזה, כיח.",
+    layer:"טאי יין / שאו יאנג", organ:"טחול/ריאות/קיבה",
+    keyActions:["פירוק ליחה","הורדת צ'י עולה (הקאות)","ייבוש רטיבות","פתיחת חזה"],
+    diagnosticClues:"ST21R קשיח (ליחה-שומן). צלילי מים בקיבה (Splashing Water). כיח מוגזם, בחילות בוקר. לשון עם ציפוי לבן עבה ושמנוני.",
+    contraindications:"אסור בהיריון. זהירות ביין שו עם יובש. הצמח רעיל ללא עיבוד — חובה לבשל עם זנגביל" },
+  { id:"da_huang", name:"Da Huang", nameHe:"דא הואנג", element:"earth", focus:"שילשול חום יאנג מינג, פירוק סטגנציה עיקשת ודם",
+    description:"עץ השילשול — מנקה חום ועצירות ברמת יאנג מינג. Cheng Qi Tang בוריאציות שונות. גם מניע דם (סטגנציית דם כרונית). משמש באבחון בטן כשהבטן קשה כלוח.",
+    layer:"יאנג מינג (Yang Ming)", organ:"קיבה/מעי גס",
+    keyActions:["שילשול חום יאנג מינג","פירוק עצירות","הנעת דם","ניקוי רעלנים"],
+    diagnosticClues:"בטן קשה כלוח (אפיגסטרי). עצירות עם חום — פנים אדומות, עצבנות, ריח רע. דופק גדול ומלא. T12 Huato רגיש.",
+    contraindications:"אסור בהיריון. לא בשלשול/חולשת טחול. לא בקור פנימי. להשתמש בזהירות בקשישים" },
+  { id:"huang_qi", name:"Huang Qi", nameHe:"הואנג צ'י", element:"metal", focus:"חיזוק צ'י מגן (Wei Qi) וצ'י ריאות — חיסון",
+    description:"עץ החיסון — מחזק את צ'י המגן (Wei Qi) וצ'י ריאות. Bu Zhong Yi Qi Tang היא הפורמולה המייצגת. מרים את היאנג צ'י — למניעת צניחת איברים, הזעת יתר, חיסון חלש.",
+    layer:"טאי יין / טאי יאנג", organ:"ריאות/טחול",
+    keyActions:["חיזוק Wei Qi","הרמת יאנג צ'י","עצירת הזעה","חיזוק שריר"],
+    diagnosticClues:"מטופל עם הצטננויות חוזרות, הזעת יתר ספונטנית. צ'י חלש — קול חלש, עייפות. דופק חלש בצון ימני.",
+    contraindications:"לא לשימוש בשי חיצוני (הצטננות אקוטית). זהירות ביאנג עולה של כבד" },
+  { id:"tao_ren", name:"Tao Ren", nameHe:"טאו רן", element:"fire", focus:"הנעת דם — גושים קבועים וסטגנציה כרונית",
+    description:"עץ הדם — מתמחה בפירוק סטגנציית דם (Xue Yu). Xue Fu Zhu Yu Tang, Tao He Cheng Qi Tang. לטיפול בכאב קבוע, גושים, פיגמנטציה. קשור חזק למערכת ניקוד Xue Yu.",
+    layer:"ג'ואה יין / יאנג מינג", organ:"כבד/לב",
+    keyActions:["הנעת דם","פירוק גושים","שחרור כאב קבוע","טיפול בפיגמנטציה"],
+    diagnosticClues:"כהות שפתיים/חניכיים, פיגמנטציה עפעפיים, ורידים סגולים מתחת ללשון. PP פריאומביליקלי חיובי. גוש קבוע (Ji) בבטן.",
+    contraindications:"אסור בהיריון. זהירות בדימום פעיל. לא לשימוש בשו דם ללא סטגנציה" },
+  { id:"gui_zhi", name:"Gui Zhi", nameHe:"גווי ז'י", element:"metal", focus:"הרמוניזציה חיצונית (טאי יאנג), ויסות קרדיווסקולרי",
+    description:"עץ ההרמוניזציה — Gui Zhi Tang היא אם כל הפורמולות. מחמם ומפזר קור חיצוני, מווסת דופק לב, מחזק את פני השטח. גם משמש לפעימות צפות בבטן (שי).",
+    layer:"טאי יאנג (Tai Yang)", organ:"ריאות/לב/שרירים",
+    keyActions:["הרמוניזציית ין-וואי","פיזור קור חיצוני","חימום כלי דם","ויסות דופק לב"],
+    diagnosticClues:"הצטננות עם הזעה (טאי יאנג שי), דופק צף ואיטי. פעימה צפה בבטן (שי — Gui Zhi). רגישות לרוח וקור.",
+    contraindications:"לא לשימוש בחום פנימי (יאנג מינג). זהירות ביין שו עם סימני חום" },
+  { id:"jue_yin", name:"Jue Yin", nameHe:"ג'ואה יין", element:"wood", focus:"שכבה העמוקה ביותר — חוסר איזון יין-יאנג קיצוני",
+    description:"השכבה העמוקה ביותר — חום למעלה וקור למטה בו-זמנית. Wu Mei Wan היא הפורמולה המייצגת. אוטואימוניות, מחלות כרוניות מורכבות, תולעים. כשהגוף 'מבולבל' בין חום לקור.",
+    layer:"ג'ואה יין (Jue Yin)", organ:"כבד/קרום הלב",
+    keyActions:["הרמוניזציית חום-קור","טיפול באוטואימוניות","גירוש תולעים","ויסות ג'ואה יין"],
+    diagnosticClues:"תסמינים מעורבים — חום ברגליים+קור בבטן, שלשול עם צמא. בטן עם אזורים חמים וקרים. תסמינים לא עקביים שמשתנים.",
+    contraindications:"אבחון מורכב — יש לוודא שזו באמת רמת ג'ואה יין ולא סתם תמונה מעורבת" },
 ];
 
 const SIX_LAYERS = [
@@ -164,16 +214,46 @@ const ABDOMEN_ZONES = [
       { name:"נדודי שינה", points:"K1 (מוקסה ישירה בלבד), Anmian" },
     ]},
   { id:"subcostal", name:"תת-צלעי", nameEn:"Subcostal", element:"wood", points:"ST21L, ST21R",
-    description:"אזור תת-צלעי — ST21 משני הצדדים. ימין = מרה/ליחה (Ban Xia) — קשיחות מצריכת שומן/חלבון מהחי. שמאל = קיבה/רטיבות (Huang Lian) — רכות מסוכר/פחמימות ריקות, קשיחות = דא באו/שו לי → בלבול מנטלי. מתח תת-צלעי = סימן היכר לסטגנציית כבד",
+    description:"אזור תת-צלעי — ST21 משני הצדדים. שני אזורים קליניים נפרדים: ימין = שאו יאנג (מרה/ליחה), שמאל = יאנג מינג (קיבה/חום-רטיבות). מתח תת-צלעי = סימן היכר לסטגנציית כבד",
     diagnosticGuide:"ST21R קשיח → עץ Ban Xia (ליחה-שומן, Wen Dan Tang). ST21L רך → רטיבות סוכר/לבלב. ST21L קשיח → עץ Huang Lian (חום-רטיבות, Huang Lian Tang). פעימה צפה = שי (Gui Zhi), פעימה עמוקה = שו (Tian Wang Bu Xin Dan)",
-    findings:["מתח ימין","מתח שמאל","מתח דו-צדדי","רגישות","קשיחות","גוש","רכות שמאל","פעימה"],
+    subcostalZones: {
+      right: {
+        name:"תת-צלעי ימין — שאו יאנג",
+        nameEn:"Right Subcostal — Shao Yang",
+        layer:"שאו יאנג (Shao Yang)",
+        element:"wood",
+        organ:"מרה / כבד",
+        keyPoint:"ST21R + Pigen",
+        description:"אזור שאו יאנג — מתח או קשיחות מצד ימין מצביע על בעיית ציר (Pivot). קשיחות = ליחה-שומן מצריכת חלבון מהחי, שומן, מוצרי חלב. גוש = Pigen (גוש קבוע בצד ימין בלבד).",
+        findings:["קשיחות (ליחה-שומן)","מתח (סטגנציה)","גוש Pigen","רגישות בלחיצה","מלאות"],
+        trees:["Ban Xia — ליחה (Wen Dan Tang, Ban Xia Xie Xin Tang)","Chai Hu — הרמוניזציה (Xiao Chai Hu Tang, Da Chai Hu Tang)"],
+        formulas:["Xiao Chai Hu Tang — הרמוניזציית שאו יאנג","Da Chai Hu Tang — שאו יאנג + יאנג מינג (עם עצירות)","Wen Dan Tang — ליחה-שומן בסרעפת","Chai Hu Jia Long Gu Mu Li Tang — סטרס/אוטואימוני"],
+        clinicalNotes:"טעם מר בבוקר, חום וצמרמורות לסירוגין, כאב צלעות = אישור שאו יאנג. Dan Nang Xin רגיש = אישור מרה."
+      },
+      left: {
+        name:"תת-צלעי שמאל — יאנג מינג",
+        nameEn:"Left Subcostal — Yang Ming",
+        layer:"יאנג מינג (Yang Ming)",
+        element:"fire",
+        organ:"קיבה / טחול",
+        keyPoint:"ST21L + CV12",
+        description:"אזור יאנג מינג — שמאל מתקשר לקיבה ולחום-רטיבות. רכות = רטיבות מסוכר/פחמימות ריקות (לבלב חלש). קשיחות = חום-רטיבות (Huang Lian). קשיחות עם דא באו/שו לי = בלבול מנטלי.",
+        findings:["רכות (רטיבות/סוכר)","קשיחות (חום-רטיבות)","מתח (כבד על קיבה)","פעימה צפה (שי)","פעימה עמוקה (שו)"],
+        trees:["Huang Lian — חום-רטיבות (Huang Lian Tang, Ban Xia Xie Xin Tang)","Da Huang — שילשול חום (Cheng Qi Tang)"],
+        formulas:["Huang Lian Tang — חום-רטיבות קיבה","Ban Xia Xie Xin Tang — חום+קור מעורב בקיבה","Xiao Xian Xiong Tang — ליחה-חום בחזה","Zuo Jin Wan — כבד עולה על קיבה (חומצת קיבה)"],
+        clinicalNotes:"חומצת קיבה, בחילות, ריח רע מהפה = חום-רטיבות. תשוקה למתוק + רכות = רטיבות טחול. פעימה צפה = שי → Gui Zhi, פעימה עמוקה = שו → Tian Wang Bu Xin Dan."
+      }
+    },
+    findings:["מתח ימין (שאו יאנג)","מתח שמאל (יאנג מינג)","מתח דו-צדדי","רגישות","קשיחות ימין (ליחה)","קשיחות שמאל (חום-רטיבות)","גוש Pigen (ימין)","רכות שמאל (רטיבות)","פעימה צפה (שי)","פעימה עמוקה (שו)"],
     protocols:[
       { name:"שאו יאנג (ימין)", points:"ST21R, Pigen, GB34R, GB40R, Dan Nang Xin, TW5R" },
+      { name:"יאנג מינג — חום-רטיבות (שמאל)", points:"ST21L, CV12, ST44B, LI11R, PC6L" },
       { name:"כבד-קיבה (שמאל)", points:"ST21L, CV12, LV14R, PC6L, ST36L" },
       { name:"כבד עולה על קיבה", points:"ST21L&R, CV12, LV3B, ST36B, SP4 (רגל חלשה)" },
       { name:"סטגנציית צ'י כבד", points:"ST21L, ST25L, LV3B, LV14R, GB34R" },
       { name:"דאי מאי + תת-צלעי", points:"ST21L&R, GB41, GB26, Huanzhong (רגל אטונית)" },
       { name:"מתח דו-צדדי (שי)", points:"ST21L&R, LV3B, LI4B, PC6B, ST34R" },
+      { name:"שאו יאנג + יאנג מינג (דו-צדדי)", points:"ST21L&R, Pigen, CV12, GB34R, ST44B" },
     ]},
   { id:"epigastric", name:"אפיגסטרי", nameEn:"Epigastrium", element:"earth", points:"CV12",
     description:"קיבה — עיכול, גזים, צלילי מים. 'אכילת זוחל' = סטגנציית קיבה",
@@ -730,6 +810,21 @@ export default function TCMApp() {
                 <div style={{ display:"flex", alignItems:"center", gap:6, marginBottom:6 }}><ElementBadge element={zone.element} /><span style={{ fontSize:15, fontWeight:700 }}>{zone.name}</span><span style={{ fontSize:11, color:"#64748b" }}>{zone.points}</span></div>
                 <p style={{ fontSize:12, color:"#94a3b8", marginBottom:10 }}>{zone.description}</p>
                 {zone.diagnosticGuide && <div style={{ padding:8, background:"#1e1b4b", borderRadius:8, marginBottom:10, fontSize:11, color:"#c084fc", lineHeight:1.6 }}>📐 <b>מדריך אבחון:</b> {zone.diagnosticGuide}</div>}
+                {zone.subcostalZones && <div style={{ display:"grid", gridTemplateColumns:"1fr 1fr", gap:8, marginBottom:12 }}>
+                  {[zone.subcostalZones.right, zone.subcostalZones.left].map((sz, i) => {
+                    const szEl = ELEMENTS[sz.element]||ELEMENTS.wood;
+                    return <div key={i} style={{ padding:10, background:"#16162a", borderRadius:10, border:`1px solid ${szEl.color}33`, borderTop:`3px solid ${szEl.color}` }}>
+                      <div style={{ fontSize:13, fontWeight:700, color:szEl.color, marginBottom:4 }}>{sz.name}</div>
+                      <div style={{ fontSize:10, color:"#64748b", marginBottom:6 }}>{sz.keyPoint} • {sz.organ}</div>
+                      <div style={{ fontSize:11, color:"#94a3b8", lineHeight:1.5, marginBottom:6 }}>{sz.description}</div>
+                      <div style={{ fontSize:10, fontWeight:600, color:"#c084fc", marginBottom:3 }}>עצים:</div>
+                      {sz.trees.map((tr,j) => <div key={j} style={{ fontSize:10, color:"#a5b4fc", marginBottom:2 }}>• {tr}</div>)}
+                      <div style={{ fontSize:10, fontWeight:600, color:"#c084fc", marginTop:4, marginBottom:3 }}>פורמולות:</div>
+                      {sz.formulas.map((fm,j) => <div key={j} style={{ fontSize:10, color:"#94a3b8", marginBottom:2 }}>• {fm}</div>)}
+                      {sz.clinicalNotes && <div style={{ fontSize:10, color:"#f59e0b", marginTop:6, padding:"4px 6px", background:"rgba(245,158,11,0.08)", borderRadius:4 }}>💡 {sz.clinicalNotes}</div>}
+                    </div>;
+                  })}
+                </div>}
                 <div style={{ fontSize:12, fontWeight:600, color:"#94a3b8", marginBottom:6 }}>ממצאים:</div>
                 <div style={{ display:"flex", gap:5, flexWrap:"wrap", marginBottom:12 }}>
                   {zone.findings.map(f => { const on = (diagData.abdominalFindings[selectedZone]||[]).includes(f);
@@ -1278,13 +1373,21 @@ export default function TCMApp() {
               {KB_TABS.map(t => <Tab key={t.id} active={kbTab===t.id} onClick={() => setKbTab(t.id)}>{t.label}</Tab>)}
             </div>
             {kbTab === "formulas" && renderFormulas()}
-            {kbTab === "trees" && <div style={{ display:"grid", gap:8 }}>{TREES.map(t => (
-              <Card key={t.id} style={{ padding:12 }}>
-                <div style={{ display:"flex", alignItems:"center", gap:8, marginBottom:4 }}><ElementBadge element={t.element} /><span style={{ fontSize:16, fontWeight:800 }}>{t.name}</span><span style={{ fontSize:13, color:"#94a3b8" }}>{t.nameHe}</span></div>
-                <div style={{ fontSize:12, color:"#94a3b8", marginBottom:4 }}>{t.focus}</div>
-                <div style={{ fontSize:11, color:"#64748b" }}>פורמולות: {FORMULAS.filter(f => f.tree.includes(t.name.split(" ")[0])).map(f=>f.name).join(", ")||"—"}</div>
-              </Card>
-            ))}</div>}
+            {kbTab === "trees" && <div style={{ display:"grid", gap:10 }}>{TREES.map(t => {
+              const treeFormulas = FORMULAS.filter(f => f.tree.includes(t.name.split(" ")[0]));
+              const el = ELEMENTS[t.element]||ELEMENTS.earth;
+              return (
+              <Card key={t.id} style={{ padding:14, borderRight:`3px solid ${el.color}` }}>
+                <div style={{ display:"flex", alignItems:"center", gap:8, marginBottom:6 }}><ElementBadge element={t.element} /><span style={{ fontSize:17, fontWeight:800 }}>{t.name}</span><span style={{ fontSize:13, color:"#94a3b8" }}>{t.nameHe}</span>{t.layer && <span style={{ fontSize:10, padding:"2px 8px", borderRadius:8, background:el.color+"22", color:el.color, marginRight:"auto" }}>{t.layer}</span>}</div>
+                <div style={{ fontSize:12, color:"#c4b5fd", marginBottom:6, fontWeight:600 }}>{t.focus}</div>
+                {t.description && <div style={{ fontSize:12, color:"#94a3b8", marginBottom:8, lineHeight:1.6 }}>{t.description}</div>}
+                {t.keyActions && <div style={{ display:"flex", gap:4, flexWrap:"wrap", marginBottom:8 }}>{t.keyActions.map((a,i) => <span key={i} style={{ fontSize:10, padding:"2px 8px", borderRadius:8, background:"rgba(129,140,248,0.12)", color:"#a5b4fc", border:"1px solid rgba(129,140,248,0.2)" }}>{a}</span>)}</div>}
+                {t.organ && <div style={{ fontSize:11, color:"#64748b", marginBottom:4 }}>🏛️ <strong style={{ color:"#94a3b8" }}>איבר:</strong> {t.organ}</div>}
+                {t.diagnosticClues && <div style={{ fontSize:11, color:"#64748b", marginBottom:4 }}>🔍 <strong style={{ color:"#94a3b8" }}>רמזים לאבחון:</strong> {t.diagnosticClues}</div>}
+                {t.contraindications && <div style={{ fontSize:11, color:"#f87171", marginBottom:4, padding:"4px 8px", background:"rgba(248,113,113,0.08)", borderRadius:6, border:"1px solid rgba(248,113,113,0.15)" }}>⚠️ {t.contraindications}</div>}
+                <div style={{ fontSize:11, color:"#64748b", marginTop:6 }}>📋 <strong style={{ color:"#94a3b8" }}>פורמולות ({treeFormulas.length}):</strong> {treeFormulas.map(f=>f.name).join(", ")||"—"}</div>
+              </Card>);
+            })}</div>}
             {kbTab === "layers" && renderSixLayers()}
             {kbTab === "zones" && <div>
               <AbdomenDiagram selectedZone={selectedZone} onSelectZone={setSelectedZone} />
