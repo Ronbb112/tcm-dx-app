@@ -597,7 +597,7 @@ const Card = ({ children, style, onClick }) => (
 );
 
 // ===== ABDOMEN SVG =====
-const AbdomenDiagram = ({ selectedZone, onSelectZone }) => {
+const AbdomenDiagram = ({ selectedZones, onToggleZone, abdominalFindings }) => {
   const zones = [
     { id:"subcardiac", cx:150, cy:48, rx:48, ry:20 },
     { id:"subcostal", cx:85, cy:82, rx:32, ry:16, mirror:true, mirrorCx:215 },
@@ -617,11 +617,12 @@ const AbdomenDiagram = ({ selectedZone, onSelectZone }) => {
       <ellipse cx="150" cy="148" rx="108" ry="120" fill="#13132a" stroke="#2d2d44" strokeWidth="1" />
       <line x1="150" y1="25" x2="150" y2="270" stroke="#2d2d44" strokeWidth="1" strokeDasharray="4,4" />
       {zones.map(z => {
-        const zone = ABDOMEN_ZONES.find(a => a.id === z.id); const el = ELEMENTS[zone.element]; const sel = selectedZone === z.id;
+        const zone = ABDOMEN_ZONES.find(a => a.id === z.id); const el = ELEMENTS[zone.element]; const sel = selectedZones.includes(z.id); const hasFindings = (abdominalFindings[z.id]||[]).length > 0;
         return (
-          <g key={z.id} onClick={() => onSelectZone(z.id)} style={{ cursor:"pointer" }}>
-            <ellipse cx={z.cx} cy={z.cy} rx={z.rx} ry={z.ry} fill={sel?el.color+"33":el.color+"12"} stroke={sel?el.color:el.color+"55"} strokeWidth={sel?2.5:1.5} style={{ transition:"all 0.2s" }} />
-            {z.mirror && <ellipse cx={z.mirrorCx} cy={z.cy} rx={z.rx} ry={z.ry} fill={sel?el.color+"33":el.color+"12"} stroke={sel?el.color:el.color+"55"} strokeWidth={sel?2.5:1.5} style={{ transition:"all 0.2s" }} />}
+          <g key={z.id} onClick={() => onToggleZone(z.id)} style={{ cursor:"pointer" }}>
+            <ellipse cx={z.cx} cy={z.cy} rx={z.rx} ry={z.ry} fill={sel?el.color+"33":hasFindings?el.color+"22":el.color+"12"} stroke={sel?el.color:hasFindings?el.color+"aa":el.color+"55"} strokeWidth={sel?2.5:hasFindings?2:1.5} style={{ transition:"all 0.2s" }} />
+            {z.mirror && <ellipse cx={z.mirrorCx} cy={z.cy} rx={z.rx} ry={z.ry} fill={sel?el.color+"33":hasFindings?el.color+"22":el.color+"12"} stroke={sel?el.color:hasFindings?el.color+"aa":el.color+"55"} strokeWidth={sel?2.5:hasFindings?2:1.5} style={{ transition:"all 0.2s" }} />}
+            {hasFindings && !sel && <circle cx={z.mirror?z.cx+z.rx-4:z.cx+z.rx-4} cy={z.cy-z.ry+4} r="4" fill={el.color} />}
             {z.mirror ? (<>
               <text x={z.cx} y={z.cy-3} textAnchor="middle" fill={sel?"#fff":el.color} fontSize="8" fontWeight="700" style={{ pointerEvents:"none" }}>ST21L</text>
               <text x={z.cx} y={z.cy+8} textAnchor="middle" fill={sel?"#ccc":"#666"} fontSize="7" style={{ pointerEvents:"none" }}>תת-צלעי</text>
@@ -645,7 +646,8 @@ export default function TCMApp() {
   const [search, setSearch] = useState("");
   const [filterEl, setFilterEl] = useState("all");
   const [filterTree, setFilterTree] = useState("all");
-  const [selectedZone, setSelectedZone] = useState(null);
+  const [selectedZones, setSelectedZones] = useState([]);
+  const toggleZone = useCallback((id) => setSelectedZones(prev => prev.includes(id) ? prev.filter(z => z !== id) : [...prev, id]), []);
   const [diagStep, setDiagStep] = useState(0);
   const [scoreTab, setScoreTab] = useState("xueyu");
   const [diagData, setDiagData] = useState({ constitution:null, sleep:"", eating:"", moving:"", complaint:"", history:"", notes:"", abdominalFindings:{}, backFindings:{}, heatCold:null, shiXu:null, xueYuChecks:{}, patientGender:"male", patientName:"", patientAge:"" });
@@ -802,57 +804,72 @@ export default function TCMApp() {
       );
       case 2: return (
         <div style={{ display:"flex", gap:16, flexWrap:"wrap" }}>
-          <div style={{ flex:"0 0 320px" }}><AbdomenDiagram selectedZone={selectedZone} onSelectZone={setSelectedZone} /></div>
+          <div style={{ flex:"0 0 320px" }}>
+            <AbdomenDiagram selectedZones={selectedZones} onToggleZone={toggleZone} abdominalFindings={diagData.abdominalFindings} />
+            <p style={{ fontSize:10, color:"#64748b", textAlign:"center", marginTop:6 }}>💡 לחץ על כמה אזורים לבחירה מרובה</p>
+            {selectedZones.length > 1 && <div style={{ textAlign:"center", marginTop:4 }}><span onClick={() => setSelectedZones([])} style={{ fontSize:11, color:"#ef4444", cursor:"pointer", textDecoration:"underline" }}>נקה בחירה</span></div>}
+          </div>
           <div style={{ flex:1, minWidth:240 }}>
-            {selectedZone ? (() => {
-              const zone = ABDOMEN_ZONES.find(z => z.id === selectedZone); const el = ELEMENTS[zone.element];
-              return (<div>
-                <div style={{ display:"flex", alignItems:"center", gap:6, marginBottom:6 }}><ElementBadge element={zone.element} /><span style={{ fontSize:15, fontWeight:700 }}>{zone.name}</span><span style={{ fontSize:11, color:"#64748b" }}>{zone.points}</span></div>
-                <p style={{ fontSize:12, color:"#94a3b8", marginBottom:10 }}>{zone.description}</p>
-                {zone.diagnosticGuide && <div style={{ padding:8, background:"#1e1b4b", borderRadius:8, marginBottom:10, fontSize:11, color:"#c084fc", lineHeight:1.6 }}>📐 <b>מדריך אבחון:</b> {zone.diagnosticGuide}</div>}
-                {zone.subcostalZones && <div style={{ display:"grid", gridTemplateColumns:"1fr 1fr", gap:8, marginBottom:12 }}>
-                  {[zone.subcostalZones.right, zone.subcostalZones.left].map((sz, i) => {
-                    const szEl = ELEMENTS[sz.element]||ELEMENTS.wood;
-                    return <div key={i} style={{ padding:10, background:"#16162a", borderRadius:10, border:`1px solid ${szEl.color}33`, borderTop:`3px solid ${szEl.color}` }}>
-                      <div style={{ fontSize:13, fontWeight:700, color:szEl.color, marginBottom:4 }}>{sz.name}</div>
-                      <div style={{ fontSize:10, color:"#64748b", marginBottom:6 }}>{sz.keyPoint} • {sz.organ}</div>
-                      <div style={{ fontSize:11, color:"#94a3b8", lineHeight:1.5, marginBottom:6 }}>{sz.description}</div>
-                      <div style={{ fontSize:10, fontWeight:600, color:"#c084fc", marginBottom:3 }}>עצים:</div>
-                      {sz.trees.map((tr,j) => <div key={j} style={{ fontSize:10, color:"#a5b4fc", marginBottom:2 }}>• {tr}</div>)}
-                      <div style={{ fontSize:10, fontWeight:600, color:"#c084fc", marginTop:4, marginBottom:3 }}>פורמולות:</div>
-                      {sz.formulas.map((fm,j) => <div key={j} style={{ fontSize:10, color:"#94a3b8", marginBottom:2 }}>• {fm}</div>)}
-                      {sz.clinicalNotes && <div style={{ fontSize:10, color:"#f59e0b", marginTop:6, padding:"4px 6px", background:"rgba(245,158,11,0.08)", borderRadius:4 }}>💡 {sz.clinicalNotes}</div>}
-                    </div>;
-                  })}
-                </div>}
-                <div style={{ fontSize:12, fontWeight:600, color:"#94a3b8", marginBottom:6 }}>ממצאים:</div>
-                <div style={{ display:"flex", gap:5, flexWrap:"wrap", marginBottom:12 }}>
-                  {zone.findings.map(f => { const on = (diagData.abdominalFindings[selectedZone]||[]).includes(f);
-                    return <span key={f} onClick={() => { const cur=diagData.abdominalFindings[selectedZone]||[]; ud("abdominalFindings",{...diagData.abdominalFindings,[selectedZone]:on?cur.filter(x=>x!==f):[...cur,f]}); }} style={s.tag(on,el.color)}>{f}</span>;
-                  })}
-                </div>
-                <div style={{ fontSize:12, fontWeight:600, color:"#94a3b8", marginBottom:6 }}>פרוטוקולי דיקור:</div>
-                {zone.protocols.map((p,i) => (
-                  <div key={i} style={{ padding:8, background:"#16162a", borderRadius:8, marginBottom:4, fontSize:12 }}>
-                    <span style={{ color:"#c084fc", fontWeight:600 }}>{p.name}: </span><span style={{ color:"#e2e8f0" }}>{p.points}</span>
-                  </div>
-                ))}
-                {zone.navelShifting && (<div style={{ marginTop:10 }}>
-                  <div style={{ fontSize:12, fontWeight:600, color:"#94a3b8", marginBottom:6 }}>כיוון הזזת טבור:</div>
-                  {NAVEL_SHIFTING.map((ns, i) => (
-                    <div key={i} style={{ display:"flex", gap:8, alignItems:"center", padding:"6px 8px", background:"#16162a", borderRadius:8, marginBottom:4 }}>
-                      <span style={{ fontSize:16 }}>{ns.icon}</span>
-                      <span style={{ fontSize:12, fontWeight:700, color:ns.color, minWidth:50 }}>{ns.direction}</span>
-                      <span style={{ fontSize:12, color:"#94a3b8" }}>{ns.meaning}</span>
+            {selectedZones.length > 0 ? (
+              <div style={{ display:"flex", flexDirection:"column", gap:16 }}>
+                {selectedZones.map(zoneId => {
+                  const zone = ABDOMEN_ZONES.find(z => z.id === zoneId); const el = ELEMENTS[zone.element];
+                  return (
+                    <div key={zoneId} style={{ padding:12, background:"#16162a", borderRadius:12, border:`1px solid ${el.color}44`, borderRight:`4px solid ${el.color}` }}>
+                      <div style={{ display:"flex", alignItems:"center", gap:6, marginBottom:6 }}>
+                        <ElementBadge element={zone.element} />
+                        <span style={{ fontSize:15, fontWeight:700 }}>{zone.name}</span>
+                        <span style={{ fontSize:11, color:"#64748b" }}>{zone.points}</span>
+                        <span onClick={() => toggleZone(zoneId)} style={{ marginRight:"auto", marginLeft:4, fontSize:11, color:"#ef4444", cursor:"pointer", opacity:0.7 }}>✕</span>
+                      </div>
+                      <p style={{ fontSize:12, color:"#94a3b8", marginBottom:10 }}>{zone.description}</p>
+                      {zone.diagnosticGuide && <div style={{ padding:8, background:"#1e1b4b", borderRadius:8, marginBottom:10, fontSize:11, color:"#c084fc", lineHeight:1.6 }}>📐 <b>מדריך אבחון:</b> {zone.diagnosticGuide}</div>}
+                      {zone.subcostalZones && <div style={{ display:"grid", gridTemplateColumns:"1fr 1fr", gap:8, marginBottom:12 }}>
+                        {[zone.subcostalZones.right, zone.subcostalZones.left].map((sz, i) => {
+                          const szEl = ELEMENTS[sz.element]||ELEMENTS.wood;
+                          return <div key={i} style={{ padding:10, background:"#0f0f20", borderRadius:10, border:`1px solid ${szEl.color}33`, borderTop:`3px solid ${szEl.color}` }}>
+                            <div style={{ fontSize:13, fontWeight:700, color:szEl.color, marginBottom:4 }}>{sz.name}</div>
+                            <div style={{ fontSize:10, color:"#64748b", marginBottom:6 }}>{sz.keyPoint} • {sz.organ}</div>
+                            <div style={{ fontSize:11, color:"#94a3b8", lineHeight:1.5, marginBottom:6 }}>{sz.description}</div>
+                            <div style={{ fontSize:10, fontWeight:600, color:"#c084fc", marginBottom:3 }}>עצים:</div>
+                            {sz.trees.map((tr,j) => <div key={j} style={{ fontSize:10, color:"#a5b4fc", marginBottom:2 }}>• {tr}</div>)}
+                            <div style={{ fontSize:10, fontWeight:600, color:"#c084fc", marginTop:4, marginBottom:3 }}>פורמולות:</div>
+                            {sz.formulas.map((fm,j) => <div key={j} style={{ fontSize:10, color:"#94a3b8", marginBottom:2 }}>• {fm}</div>)}
+                            {sz.clinicalNotes && <div style={{ fontSize:10, color:"#f59e0b", marginTop:6, padding:"4px 6px", background:"rgba(245,158,11,0.08)", borderRadius:4 }}>💡 {sz.clinicalNotes}</div>}
+                          </div>;
+                        })}
+                      </div>}
+                      <div style={{ fontSize:12, fontWeight:600, color:"#94a3b8", marginBottom:6 }}>ממצאים:</div>
+                      <div style={{ display:"flex", gap:5, flexWrap:"wrap", marginBottom:12 }}>
+                        {zone.findings.map(f => { const on = (diagData.abdominalFindings[zoneId]||[]).includes(f);
+                          return <span key={f} onClick={() => { const cur=diagData.abdominalFindings[zoneId]||[]; ud("abdominalFindings",{...diagData.abdominalFindings,[zoneId]:on?cur.filter(x=>x!==f):[...cur,f]}); }} style={s.tag(on,el.color)}>{f}</span>;
+                        })}
+                      </div>
+                      <div style={{ fontSize:12, fontWeight:600, color:"#94a3b8", marginBottom:6 }}>פרוטוקולי דיקור:</div>
+                      {zone.protocols.map((p,i) => (
+                        <div key={i} style={{ padding:8, background:"#0f0f20", borderRadius:8, marginBottom:4, fontSize:12 }}>
+                          <span style={{ color:"#c084fc", fontWeight:600 }}>{p.name}: </span><span style={{ color:"#e2e8f0" }}>{p.points}</span>
+                        </div>
+                      ))}
+                      {zone.navelShifting && (<div style={{ marginTop:10 }}>
+                        <div style={{ fontSize:12, fontWeight:600, color:"#94a3b8", marginBottom:6 }}>כיוון הזזת טבור:</div>
+                        {NAVEL_SHIFTING.map((ns, i) => (
+                          <div key={i} style={{ display:"flex", gap:8, alignItems:"center", padding:"6px 8px", background:"#0f0f20", borderRadius:8, marginBottom:4 }}>
+                            <span style={{ fontSize:16 }}>{ns.icon}</span>
+                            <span style={{ fontSize:12, fontWeight:700, color:ns.color, minWidth:50 }}>{ns.direction}</span>
+                            <span style={{ fontSize:12, color:"#94a3b8" }}>{ns.meaning}</span>
+                          </div>
+                        ))}
+                      </div>)}
                     </div>
-                  ))}
-                </div>)}
-              </div>);
-            })() : <div style={{ textAlign:"center", color:"#64748b", padding:40, fontSize:13 }}>👆 לחץ על אזור בדיאגרמה</div>}
+                  );
+                })}
+              </div>
+            ) : <div style={{ textAlign:"center", color:"#64748b", padding:40, fontSize:13 }}>👆 לחץ על אזורים בדיאגרמה — ניתן לבחור כמה אזורים במקביל</div>}
           </div>
           {Object.keys(diagData.abdominalFindings).filter(k => diagData.abdominalFindings[k]?.length).length > 0 && (
             <div style={{ width:"100%", padding:10, background:"#16162a", borderRadius:10, marginTop:4 }}>
-              <div style={{ fontSize:12, fontWeight:700, color:"#818cf8", marginBottom:6 }}>סיכום ממצאים:</div>
+              <div style={{ fontSize:12, fontWeight:700, color:"#818cf8", marginBottom:6 }}>סיכום ממצאים ({Object.values(diagData.abdominalFindings).flat().length} ממצאים ב-{Object.keys(diagData.abdominalFindings).filter(k => diagData.abdominalFindings[k]?.length).length} אזורים):</div>
               {Object.entries(diagData.abdominalFindings).filter(([,v])=>v?.length).map(([k,v]) => {
                 const z = ABDOMEN_ZONES.find(a=>a.id===k);
                 return <div key={k} style={{ display:"flex", alignItems:"center", gap:6, marginBottom:3 }}><ElementBadge element={z.element} small /><span style={{ fontSize:12 }}>{z.name}: {v.join(", ")}</span></div>;
@@ -1339,7 +1356,7 @@ export default function TCMApp() {
           <div>
             <div style={{ display:"flex", alignItems:"center", justifyContent:"space-between", marginBottom:10 }}>
               <div style={{ fontSize:15, fontWeight:700, color:"#818cf8" }}>🔬 אבחון אינטראקטיבי</div>
-              <button onClick={() => { setDiagData({ constitution:null, sleep:"", eating:"", moving:"", complaint:"", history:"", notes:"", abdominalFindings:{}, backFindings:{}, heatCold:null, shiXu:null, xueYuChecks:{}, patientGender:"male", patientName:"", patientAge:"" }); setDiagStep(0); setSelectedZone(null); }} style={{ padding:"5px 12px", borderRadius:8, border:"1px solid #4a1515", background:"transparent", color:"#fca5a5", cursor:"pointer", fontSize:11, fontWeight:600 }}>🔄 איפוס</button>
+              <button onClick={() => { setDiagData({ constitution:null, sleep:"", eating:"", moving:"", complaint:"", history:"", notes:"", abdominalFindings:{}, backFindings:{}, heatCold:null, shiXu:null, xueYuChecks:{}, patientGender:"male", patientName:"", patientAge:"" }); setDiagStep(0); setSelectedZones([]); }} style={{ padding:"5px 12px", borderRadius:8, border:"1px solid #4a1515", background:"transparent", color:"#fca5a5", cursor:"pointer", fontSize:11, fontWeight:600 }}>🔄 איפוס</button>
             </div>
             <div style={{ display:"flex", gap:2, alignItems:"flex-start", marginBottom:14, overflowX:"auto", paddingBottom:4 }}>
               {DIAG_STEPS.map((st,i) => (
@@ -1390,9 +1407,9 @@ export default function TCMApp() {
             })}</div>}
             {kbTab === "layers" && renderSixLayers()}
             {kbTab === "zones" && <div>
-              <AbdomenDiagram selectedZone={selectedZone} onSelectZone={setSelectedZone} />
+              <AbdomenDiagram selectedZones={selectedZones} onToggleZone={toggleZone} abdominalFindings={diagData.abdominalFindings} />
               <div style={{ marginTop:12, display:"grid", gap:8 }}>{ABDOMEN_ZONES.map(z => (
-                <Card key={z.id} onClick={() => setSelectedZone(z.id)} style={{ cursor:"pointer", padding:12, border:selectedZone===z.id?`2px solid ${ELEMENTS[z.element].color}`:"1px solid #2d2d44" }}>
+                <Card key={z.id} onClick={() => toggleZone(z.id)} style={{ cursor:"pointer", padding:12, border:selectedZones.includes(z.id)?`2px solid ${ELEMENTS[z.element].color}`:"1px solid #2d2d44" }}>
                   <div style={{ display:"flex", alignItems:"center", gap:6, marginBottom:4 }}><ElementBadge element={z.element} /><span style={{ fontSize:14, fontWeight:700 }}>{z.name}</span><span style={{ fontSize:11, color:"#64748b" }}>{z.points}</span></div>
                   <div style={{ fontSize:12, color:"#94a3b8", marginBottom:6 }}>{z.description}</div>
                   {z.protocols.map((p,i) => <div key={i} style={{ fontSize:11, marginBottom:2 }}><span style={{ color:"#818cf8", fontWeight:600 }}>{p.name}:</span> <span style={{ color:"#e2e8f0" }}>{p.points}</span></div>)}
