@@ -185,8 +185,9 @@ const ABDOMEN_ZONES = [
       { name:"קו צ'י קיבה (גזים)", points:"קו ST Qi ברגל חזקה (L)" },
     ]},
   { id:"navel", name:"טבור", nameEn:"Navel", element:"earth", points:"CV8",
-    description:"טחול — חולשת מבנה, חסר צ'י. טבור נע = חולשה מבנית",
-    findings:["רכות","הזזה","אטוניה","רגישות סביב"],
+    description:"טחול — חולשת מבנה, חסר צ'י. טבור נע = חולשה מבנית. כיוון הזזת הטבור מעיד: למעלה=קיבה שי/כליות שו, למטה=כליות/GIT, שמאלה=כבד שי, ימינה=ריאות/כבד Xue Yu",
+    navelShifting: true,
+    findings:["רכות","הזזה למעלה","הזזה למטה","הזזה שמאלה","הזזה ימינה","אטוניה","רגישות סביב"],
     protocols:[
       { name:"טחול צ'י שו", points:"SP4, SP3, או SP4½ ברגל חלשה בלבד" },
       { name:"מוקסה CV8", points:"CV8 — מוקסה על מלח בלבד" },
@@ -405,6 +406,66 @@ const TONGUE_PULSE = [
   { pattern:"טחול (אדמה)", tongue:"חיוורת, סימני שיניים, ציפוי לבן", pulse:"חלש", color:"#b45309" },
 ];
 
+const WEAK_QI_SIGNS = [
+  { sign:"גוף כבד ('שרירי סוכר')", points:10 },
+  { sign:"אנרגיה נמוכה/ללא אנרגיה", points:10 },
+  { sign:"מתעייף בקלות", points:10 },
+  { sign:"חולשת מערכת עיכול (GIT)", points:10 },
+  { sign:"חיסון חלש (הצטננויות תכופות)", points:8 },
+  { sign:"לשון חיוורת ואטונית", points:8 },
+  { sign:"דופק חלש", points:8 },
+  { sign:"בטן חלשה/אטונית", points:8 },
+  { sign:"ישנוניות במהלך היום", points:6 },
+  { sign:"עיניים עמומות / קול חלש", points:6 },
+  { sign:"חולשה תת-טבורית ורגישות (SP/K)", points:6 },
+  { sign:"תיאבון ירוד", points:4 },
+  { sign:"נבהל בקלות", points:4 },
+  { sign:"צואה רופפת", points:4 },
+];
+
+const QI_STAGNATION_SIGNS = [
+  { sign:"נטייה לסטגנציה (מצב רוח/סטרס)", points:18 },
+  { sign:"גודש גרון (חומצת קיבה)", points:12 },
+  { sign:"כאב ראש עמום (משתנה/צמרמורות)", points:8 },
+  { sign:"גודש חזה (אפיגסטריום)", points:8 },
+  { sign:"סטגנציית היפוכונדריום", points:8 },
+  { sign:"נפיחות בטנית", points:8 },
+  { sign:"תסמינים מחמירים מחזורית", points:8 },
+  { sign:"קושי לקום בבוקר (עצבנות)", points:8 },
+  { sign:"אסציטס (טימפניות בטנית)", points:8 },
+  { sign:"גזים / הנפחה", points:6 },
+  { sign:"גיהוקים", points:4 },
+  { sign:"תחושת אצירת שתן", points:4 },
+];
+
+const WATER_RETENTION_SIGNS = [
+  { sign:"בצקת / צלילי מים בקיבה (Splashing)", points:15 },
+  { sign:"תפליט פלאורלי / בצקת לבבית / אסציטס", points:15 },
+  { sign:"קשיחות בוקר", points:7 },
+  { sign:"ירידה בנפח שתן", points:7 },
+  { sign:"כאב ראש פועם (תחושת כובד)", points:6 },
+  { sign:"מחלת תנועה", points:5 },
+  { sign:"סחרחורת / קלות ראש", points:5 },
+  { sign:"התעלפות (Syncope)", points:5 },
+  { sign:"PP אפיאומביליקלי עומק 3 (SP/K)", points:5 },
+  { sign:"שלשול מימי", points:5 },
+  { sign:"דיורזיס (השתנה מרובה)", points:5 },
+  { sign:"כיח מוגזם", points:4 },
+  { sign:"כובד גוף", points:3 },
+  { sign:"כאב ראש עמום", points:3 },
+  { sign:"נזלת מימית", points:3 },
+  { sign:"רגישות לרעש (Hypersialosis)", points:3 },
+  { sign:"בחילות / הקאות", points:3 },
+  { sign:"גרגורי בטן מוגברים", points:3 },
+];
+
+const NAVEL_SHIFTING = [
+  { direction:"למעלה", icon:"\u2B06\uFE0F", meaning:"צעירים: קיבה שי (עודף). מבוגרים: כליות שו (חסר)", color:"#f59e0b" },
+  { direction:"למטה", icon:"\u2B07\uFE0F", meaning:"כליות שי (כבד), כליות שו (יאנג צ'יאו), או חולשת GIT (קיבה/טחול)", color:"#3b82f6" },
+  { direction:"שמאלה", icon:"\u2B05\uFE0F", meaning:"כבד שי (עודף) — סטגנציית צ'י כבד", color:"#22c55e" },
+  { direction:"ימינה", icon:"\u27A1\uFE0F", meaning:"ריאות שי (דלקת), ריאות שו (עם כליות), או כבד שי (Xue Yu)", color:"#6b7280" },
+];
+
 // ===== STORAGE HELPERS =====
 const storage = {
   async save(key, data) {
@@ -447,12 +508,12 @@ const HeatColdBadge = ({ hc }) => {
 const Tab = ({ active, onClick, children }) => (
   <button onClick={onClick} style={{
     padding:"8px 14px", borderRadius:10, border:"none", cursor:"pointer", fontSize:12, fontWeight:600,
-    background:active?"#818cf8":"#1a1a2e", color:active?"#fff":"#94a3b8", transition:"all 0.15s", whiteSpace:"nowrap"
+    background:active?"#818cf8":"#1a1a2e", color:active?"#fff":"#94a3b8", transition:"all 0.2s", whiteSpace:"nowrap"
   }}>{children}</button>
 );
 
 const Card = ({ children, style, onClick }) => (
-  <div onClick={onClick} style={{ background:"#1a1a2e", border:"1px solid #2d2d44", borderRadius:14, padding:16, marginBottom:12, ...style }}>{children}</div>
+  <div onClick={onClick} style={{ background:"rgba(26,26,46,0.7)", border:"1px solid #2d2d44", borderRadius:14, padding:16, marginBottom:12, backdropFilter:"blur(8px)", boxShadow:"0 4px 20px rgba(0,0,0,0.15)", transition:"all 0.2s", ...style }}>{children}</div>
 );
 
 // ===== ABDOMEN SVG =====
@@ -468,6 +529,10 @@ const AbdomenDiagram = ({ selectedZone, onSelectZone }) => {
   ];
   return (
     <svg viewBox="0 0 300 280" style={{ width:"100%", maxWidth:340, margin:"0 auto", display:"block" }}>
+      <text x="150" y="18" textAnchor="middle" fill="#4b5563" fontSize="7" fontStyle="italic">↑ רמת צ'י (Qi)</text>
+      <text x="150" y="272" textAnchor="middle" fill="#4b5563" fontSize="7" fontStyle="italic">↓ רמת דם (Xue)</text>
+      <text x="28" y="148" textAnchor="middle" fill="#4b5563" fontSize="7" fontStyle="italic" transform="rotate(-90,28,148)">צ'י (Qi) ←</text>
+      <text x="272" y="148" textAnchor="middle" fill="#4b5563" fontSize="7" fontStyle="italic" transform="rotate(90,272,148)">→ דם (Xue)</text>
       <ellipse cx="150" cy="148" rx="118" ry="130" fill="#1a1a2e" stroke="#2d2d44" strokeWidth="2" />
       <ellipse cx="150" cy="148" rx="108" ry="120" fill="#13132a" stroke="#2d2d44" strokeWidth="1" />
       <line x1="150" y1="25" x2="150" y2="270" stroke="#2d2d44" strokeWidth="1" strokeDasharray="4,4" />
@@ -502,6 +567,7 @@ export default function TCMApp() {
   const [filterTree, setFilterTree] = useState("all");
   const [selectedZone, setSelectedZone] = useState(null);
   const [diagStep, setDiagStep] = useState(0);
+  const [scoreTab, setScoreTab] = useState("xueyu");
   const [diagData, setDiagData] = useState({ constitution:null, sleep:"", eating:"", moving:"", complaint:"", history:"", notes:"", abdominalFindings:{}, backFindings:{}, heatCold:null, shiXu:null, xueYuChecks:{}, patientGender:"male", patientName:"", patientAge:"" });
   const [savedDiags, setSavedDiags] = useState([]);
   const [loadingStorage, setLoadingStorage] = useState(false);
@@ -545,6 +611,14 @@ export default function TCMApp() {
 
   const xueYuLevel = xueYuScore > 40 ? 3 : xueYuScore > 20 ? 2 : xueYuScore > 0 ? 1 : 0;
 
+  const [weakQiChecks, setWeakQiChecks] = useState({});
+  const [qiStagChecks, setQiStagChecks] = useState({});
+  const [waterRetChecks, setWaterRetChecks] = useState({});
+
+  const weakQiScore = useMemo(() => WEAK_QI_SIGNS.reduce((sum, s, i) => sum + (weakQiChecks[i] ? s.points : 0), 0), [weakQiChecks]);
+  const qiStagScore = useMemo(() => QI_STAGNATION_SIGNS.reduce((sum, s, i) => sum + (qiStagChecks[i] ? s.points : 0), 0), [qiStagChecks]);
+  const waterRetScore = useMemo(() => WATER_RETENTION_SIGNS.reduce((sum, s, i) => sum + (waterRetChecks[i] ? s.points : 0), 0), [waterRetChecks]);
+
   const filteredFormulas = useMemo(() => {
     return FORMULAS.filter(f => {
       const ms = !search || [f.name, f.nameHe, f.pattern, f.indications, f.tree].some(x => x.toLowerCase().includes(search.toLowerCase()));
@@ -566,13 +640,13 @@ export default function TCMApp() {
 
   const s = {
     app:{ fontFamily:"'Noto Sans Hebrew','Noto Sans',sans-serif", background:"#0f0f1a", color:"#e2e8f0", minHeight:"100vh", direction:"rtl", fontSize:13 },
-    header:{ background:"linear-gradient(135deg,#1a1a2e,#16213e)", borderBottom:"1px solid #2d2d44", padding:"12px 16px", display:"flex", alignItems:"center", justifyContent:"space-between", flexWrap:"wrap", gap:8 },
+    header:{ background:"rgba(26,26,46,0.85)", borderBottom:"1px solid #2d2d44", padding:"12px 16px", display:"flex", alignItems:"center", justifyContent:"space-between", flexWrap:"wrap", gap:8, position:"sticky", top:0, zIndex:100, backdropFilter:"blur(16px)" },
     main:{ maxWidth:920, margin:"0 auto", padding:"16px 12px" },
     input:{ background:"#16162a", border:"1px solid #2d2d44", borderRadius:10, padding:"9px 12px", color:"#e2e8f0", fontSize:13, width:"100%", boxSizing:"border-box", outline:"none", direction:"rtl" },
     select:{ background:"#16162a", border:"1px solid #2d2d44", borderRadius:10, padding:"7px 10px", color:"#e2e8f0", fontSize:12, outline:"none" },
-    btn:(c="#818cf8") => ({ padding:"9px 18px", borderRadius:10, border:"none", cursor:"pointer", background:c, color:"#fff", fontSize:13, fontWeight:600 }),
+    btn:(c="#818cf8") => ({ padding:"9px 18px", borderRadius:10, border:"none", cursor:"pointer", background:c, color:"#fff", fontSize:13, fontWeight:600, transition:"all 0.2s", boxShadow:"0 2px 8px rgba(0,0,0,0.2)" }),
     tag:(on, c="#818cf8") => ({ padding:"5px 12px", borderRadius:20, cursor:"pointer", fontSize:12, fontWeight:600, border:`1px solid ${on?c:"#2d2d44"}`, background:on?c+"22":"transparent", color:on?c:"#94a3b8", transition:"all 0.15s" }),
-    sectionTitle:{ fontSize:15, fontWeight:700, color:"#818cf8", marginBottom:10 },
+    sectionTitle:{ fontSize:15, fontWeight:700, color:"#818cf8", marginBottom:10, background:"linear-gradient(90deg,#818cf8,#c084fc)", WebkitBackgroundClip:"text", WebkitTextFillColor:"transparent", display:"inline-block" },
   };
 
   const DIAG_STEPS = [
@@ -668,6 +742,16 @@ export default function TCMApp() {
                     <span style={{ color:"#c084fc", fontWeight:600 }}>{p.name}: </span><span style={{ color:"#e2e8f0" }}>{p.points}</span>
                   </div>
                 ))}
+                {zone.navelShifting && (<div style={{ marginTop:10 }}>
+                  <div style={{ fontSize:12, fontWeight:600, color:"#94a3b8", marginBottom:6 }}>כיוון הזזת טבור:</div>
+                  {NAVEL_SHIFTING.map((ns, i) => (
+                    <div key={i} style={{ display:"flex", gap:8, alignItems:"center", padding:"6px 8px", background:"#16162a", borderRadius:8, marginBottom:4 }}>
+                      <span style={{ fontSize:16 }}>{ns.icon}</span>
+                      <span style={{ fontSize:12, fontWeight:700, color:ns.color, minWidth:50 }}>{ns.direction}</span>
+                      <span style={{ fontSize:12, color:"#94a3b8" }}>{ns.meaning}</span>
+                    </div>
+                  ))}
+                </div>)}
               </div>);
             })() : <div style={{ textAlign:"center", color:"#64748b", padding:40, fontSize:13 }}>👆 לחץ על אזור בדיאגרמה</div>}
           </div>
@@ -760,30 +844,82 @@ export default function TCMApp() {
           </Card>
         </div>
       );
-      case 5: return (
+      case 5: {
+        const scoreTabs = [
+          { id:"xueyu", label:"\ud83e\ude78 Xue Yu", score:xueYuScore, max:100, color:xueYuLevel>=3?"#ef4444":xueYuLevel>=2?"#f97316":xueYuLevel>=1?"#f59e0b":"#64748b" },
+          { id:"weakqi", label:"\ud83d\udcaa Weak Qi", score:weakQiScore, max:102, color:weakQiScore>30?"#ef4444":weakQiScore>15?"#f59e0b":"#22c55e" },
+          { id:"qistag", label:"\ud83c\udf00 Qi Stagnation", score:qiStagScore, max:110, color:qiStagScore>30?"#ef4444":qiStagScore>15?"#f59e0b":"#22c55e" },
+          { id:"water", label:"\ud83d\udca7 Water Retention", score:waterRetScore, max:120, color:waterRetScore>30?"#ef4444":waterRetScore>15?"#f59e0b":"#22c55e" },
+        ];
+        const activeScoreTab = scoreTabs.find(t => t.id === scoreTab) || scoreTabs[0];
+        return (
         <div>
-          <div style={{ display:"flex", alignItems:"center", gap:12, marginBottom:12 }}>
-            <div style={s.sectionTitle}>🩸 ציון Xue Yu</div>
-            <span style={{ fontSize:22, fontWeight:800, color:xueYuLevel>=3?"#ef4444":xueYuLevel>=2?"#f97316":xueYuLevel>=1?"#f59e0b":"#64748b" }}>{xueYuScore} נק'</span>
-            <span style={{ fontSize:13, color:"#94a3b8" }}>Level {xueYuLevel}</span>
+          <div style={{ display:"flex", gap:4, marginBottom:12, overflowX:"auto", paddingBottom:4 }}>
+            {scoreTabs.map(t => (
+              <button key={t.id} onClick={() => setScoreTab(t.id)} style={{
+                padding:"8px 14px", borderRadius:10, border:"none", cursor:"pointer", fontSize:12, fontWeight:600,
+                background:scoreTab===t.id?"#818cf8":"#1a1a2e", color:scoreTab===t.id?"#fff":"#94a3b8", transition:"all 0.2s", whiteSpace:"nowrap"
+              }}>{t.label} ({t.score})</button>
+            ))}
+          </div>
+          <div style={{ display:"flex", alignItems:"center", gap:12, marginBottom:8 }}>
+            <span style={{ fontSize:22, fontWeight:800, color:activeScoreTab.color }}>{activeScoreTab.score} נק'</span>
+            <span style={{ fontSize:13, color:"#94a3b8" }}>{activeScoreTab.label}</span>
+          </div>
+          <div style={{ height:6, borderRadius:3, background:"#1a1a2e", marginBottom:12, overflow:"hidden" }}>
+            <div style={{ height:"100%", borderRadius:3, width: Math.min(100, activeScoreTab.score / activeScoreTab.max * 100) + "%", background: activeScoreTab.color, transition:"width 0.3s" }} />
           </div>
           <div style={{ display:"grid", gap:4 }}>
-            {XUE_YU_SIGNS.map((sg, i) => {
+            {scoreTab === "xueyu" && XUE_YU_SIGNS.map((sg, i) => {
               const pts = diagData.patientGender === "male" ? sg.male : sg.female;
               if (pts === 0) return null;
               const on = !!diagData.xueYuChecks[i];
               return (
                 <div key={i} onClick={() => ud("xueYuChecks", { ...diagData.xueYuChecks, [i]:!on })}
                   style={{ display:"flex", alignItems:"center", gap:8, padding:"8px 10px", borderRadius:8, cursor:"pointer", background:on?"#2d2d44":"#16162a", border:on?"1px solid #818cf8":"1px solid transparent" }}>
-                  <span style={{ fontSize:16, width:20, textAlign:"center" }}>{on?"✅":"⬜"}</span>
+                  <span style={{ fontSize:16, width:20, textAlign:"center" }}>{on?"\u2705":"\u2B1C"}</span>
                   <span style={{ flex:1, fontSize:12, color:on?"#e2e8f0":"#94a3b8" }}>{sg.sign}</span>
                   <span style={{ fontSize:12, fontWeight:700, color:on?"#818cf8":"#4b5563" }}>{pts}</span>
                 </div>
               );
             })}
+            {scoreTab === "weakqi" && WEAK_QI_SIGNS.map((sg, i) => {
+              const on = !!weakQiChecks[i];
+              return (
+                <div key={i} onClick={() => setWeakQiChecks(p => ({ ...p, [i]:!on }))}
+                  style={{ display:"flex", alignItems:"center", gap:8, padding:"8px 10px", borderRadius:8, cursor:"pointer", background:on?"#2d2d44":"#16162a", border:on?"1px solid #818cf8":"1px solid transparent" }}>
+                  <span style={{ fontSize:16, width:20, textAlign:"center" }}>{on?"\u2705":"\u2B1C"}</span>
+                  <span style={{ flex:1, fontSize:12, color:on?"#e2e8f0":"#94a3b8" }}>{sg.sign}</span>
+                  <span style={{ fontSize:12, fontWeight:700, color:on?"#818cf8":"#4b5563" }}>{sg.points}</span>
+                </div>
+              );
+            })}
+            {scoreTab === "qistag" && QI_STAGNATION_SIGNS.map((sg, i) => {
+              const on = !!qiStagChecks[i];
+              return (
+                <div key={i} onClick={() => setQiStagChecks(p => ({ ...p, [i]:!on }))}
+                  style={{ display:"flex", alignItems:"center", gap:8, padding:"8px 10px", borderRadius:8, cursor:"pointer", background:on?"#2d2d44":"#16162a", border:on?"1px solid #818cf8":"1px solid transparent" }}>
+                  <span style={{ fontSize:16, width:20, textAlign:"center" }}>{on?"\u2705":"\u2B1C"}</span>
+                  <span style={{ flex:1, fontSize:12, color:on?"#e2e8f0":"#94a3b8" }}>{sg.sign}</span>
+                  <span style={{ fontSize:12, fontWeight:700, color:on?"#818cf8":"#4b5563" }}>{sg.points}</span>
+                </div>
+              );
+            })}
+            {scoreTab === "water" && WATER_RETENTION_SIGNS.map((sg, i) => {
+              const on = !!waterRetChecks[i];
+              return (
+                <div key={i} onClick={() => setWaterRetChecks(p => ({ ...p, [i]:!on }))}
+                  style={{ display:"flex", alignItems:"center", gap:8, padding:"8px 10px", borderRadius:8, cursor:"pointer", background:on?"#2d2d44":"#16162a", border:on?"1px solid #818cf8":"1px solid transparent" }}>
+                  <span style={{ fontSize:16, width:20, textAlign:"center" }}>{on?"\u2705":"\u2B1C"}</span>
+                  <span style={{ flex:1, fontSize:12, color:on?"#e2e8f0":"#94a3b8" }}>{sg.sign}</span>
+                  <span style={{ fontSize:12, fontWeight:700, color:on?"#818cf8":"#4b5563" }}>{sg.points}</span>
+                </div>
+              );
+            })}
           </div>
         </div>
-      );
+        );
+      }
       case 6: return (
         <div>
           {/* Patient Summary Header */}
@@ -875,7 +1011,8 @@ export default function TCMApp() {
       <div style={{ fontSize:12, color:"#64748b", marginBottom:6 }}>{filteredFormulas.length} פורמולות</div>
       <div style={{ display:"grid", gap:6 }}>
         {filteredFormulas.map(f => (
-          <div key={f.id} style={{ padding:10, background:"#1a1a2e", border:"1px solid #2d2d44", borderRadius:10 }}>
+          <div key={f.id} style={{ padding:10, background:"#1a1a2e", border:"1px solid #2d2d44", borderRadius:10, transition:"all 0.2s", cursor:"default" }}
+            onMouseEnter={e => e.currentTarget.style.borderColor = ELEMENTS[f.element].color} onMouseLeave={e => e.currentTarget.style.borderColor = '#2d2d44'}>
             <div style={{ display:"flex", alignItems:"center", gap:6, flexWrap:"wrap", marginBottom:4 }}>
               <ElementBadge element={f.element} small /><span style={{ fontWeight:700, fontSize:14 }}>{f.name}</span><span style={{ fontSize:12, color:"#94a3b8" }}>{f.nameHe}</span>
               <span style={{ padding:"2px 8px", borderRadius:10, fontSize:10, fontWeight:600, background:"#1e1b4b", color:"#818cf8", marginRight:"auto" }}>🌿 {f.tree}</span>
@@ -1079,14 +1216,17 @@ export default function TCMApp() {
 
         {/* HOME */}
         {mode === "home" && (
-          <div style={{ textAlign:"center", paddingTop:30 }}>
-            <div style={{ fontSize:44, marginBottom:8 }}>🏥</div>
-            <h1 style={{ fontSize:24, fontWeight:800, margin:"0 0 6px" }}>TCM Diagnostic System</h1>
-            <p style={{ color:"#64748b", marginBottom:24, fontSize:13 }}>מערכת אבחון אינטראקטיבית + מאגר ידע קליני מקיף • {ABDOMEN_ZONES.length} אזורי בטן</p>
+          <div style={{ textAlign:"center", background:"radial-gradient(ellipse at 50% 0%, rgba(129,140,248,0.08) 0%, transparent 60%)", paddingTop:40 }}>
+            <div style={{ fontSize:52, marginBottom:8 }}>🏥</div>
+            <h1 style={{ fontSize:28, fontWeight:800, margin:"0 0 6px" }}>TCM Diagnostic System</h1>
+            <p style={{ color:"#64748b", marginBottom:12, fontSize:13 }}>מערכת אבחון אינטראקטיבית + מאגר ידע קליני מקיף • {ABDOMEN_ZONES.length} אזורי בטן</p>
+            <div style={{ display:"flex", gap:16, justifyContent:"center", flexWrap:"wrap", marginBottom:28, fontSize:13, color:"#64748b" }}>
+              <span>{FORMULAS.length} פורמולות</span><span>•</span><span>{ABDOMEN_ZONES.length} אזורי בטן</span><span>•</span><span>6 שכבות</span><span>•</span><span>{TREES.length} עצים</span><span>•</span><span>{EXTRA_POINTS.reduce((s,c)=>s+c.points.length,0)} נק' מיוחדות</span>
+            </div>
             <div style={{ display:"flex", gap:12, justifyContent:"center", flexWrap:"wrap", marginBottom:24 }}>
               {[["diagnose","🔬","אבחון אינטראקטיבי","7 שלבים + Xue Yu + שמירה","#818cf8"],["kb","📚","מאגר ידע",`${FORMULAS.length} פורמולות, 6 שכבות, ${EXTRA_POINTS.reduce((s,c)=>s+c.points.length,0)} נק' מיוחדות`,"#22c55e"],["saved","💾","אבחונים שמורים",`${savedDiags.length} שמורים`,"#f59e0b"]].map(([m,icon,title,sub,c]) => (
-                <div key={m} onClick={() => setMode(m)} style={{ width:200, padding:16, borderRadius:14, cursor:"pointer", background:"#1a1a2e", border:"1px solid #2d2d44", transition:"transform 0.2s" }}
-                  onMouseEnter={e => e.currentTarget.style.transform="translateY(-3px)"} onMouseLeave={e => e.currentTarget.style.transform="translateY(0)"}>
+                <div key={m} onClick={() => setMode(m)} style={{ width:220, padding:16, borderRadius:14, cursor:"pointer", background:"#1a1a2e", border:"1px solid #2d2d44", transition:"all 0.3s", boxShadow:"0 4px 20px rgba(0,0,0,0.2)" }}
+                  onMouseEnter={e => { e.currentTarget.style.transform="translateY(-3px)"; e.currentTarget.style.boxShadow="0 8px 32px rgba(129,140,248,0.15)"; }} onMouseLeave={e => { e.currentTarget.style.transform="translateY(0)"; e.currentTarget.style.boxShadow="0 4px 20px rgba(0,0,0,0.2)"; }}>
                   <div style={{ fontSize:32, marginBottom:6 }}>{icon}</div>
                   <div style={{ fontSize:15, fontWeight:700, color:c }}>{title}</div>
                   <div style={{ fontSize:11, color:"#64748b", marginTop:2 }}>{sub}</div>
@@ -1153,6 +1293,11 @@ export default function TCMApp() {
                   <div style={{ display:"flex", alignItems:"center", gap:6, marginBottom:4 }}><ElementBadge element={z.element} /><span style={{ fontSize:14, fontWeight:700 }}>{z.name}</span><span style={{ fontSize:11, color:"#64748b" }}>{z.points}</span></div>
                   <div style={{ fontSize:12, color:"#94a3b8", marginBottom:6 }}>{z.description}</div>
                   {z.protocols.map((p,i) => <div key={i} style={{ fontSize:11, marginBottom:2 }}><span style={{ color:"#818cf8", fontWeight:600 }}>{p.name}:</span> <span style={{ color:"#e2e8f0" }}>{p.points}</span></div>)}
+                  <div style={{ marginTop:6, fontSize:11, color:"#64748b" }}>
+                    <span style={{ fontWeight:600 }}>פורמולות {ELEMENTS[z.element].name}: </span>
+                    {FORMULAS.filter(f => f.element === z.element).slice(0,5).map(f => f.name).join(", ")}
+                    {FORMULAS.filter(f => f.element === z.element).length > 5 && ` (+${FORMULAS.filter(f => f.element === z.element).length - 5})`}
+                  </div>
                 </Card>
               ))}</div>
             </div>}
