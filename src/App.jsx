@@ -164,8 +164,9 @@ const ABDOMEN_ZONES = [
       { name:"נדודי שינה", points:"K1 (מוקסה ישירה בלבד), Anmian" },
     ]},
   { id:"subcostal", name:"תת-צלעי", nameEn:"Subcostal", element:"wood", points:"ST21L, ST21R",
-    description:"אזור תת-צלעי — ST21 משני הצדדים. ימין = שאו יאנג / מרה / כבד. שמאל = קיבה / כבד-קיבה. מתח תת-צלעי = סימן היכר לסטגנציית כבד",
-    findings:["מתח ימין","מתח שמאל","מתח דו-צדדי","רגישות","קשיחות","גוש"],
+    description:"אזור תת-צלעי — ST21 משני הצדדים. ימין = מרה/ליחה (Ban Xia) — קשיחות מצריכת שומן/חלבון מהחי. שמאל = קיבה/רטיבות (Huang Lian) — רכות מסוכר/פחמימות ריקות, קשיחות = דא באו/שו לי → בלבול מנטלי. מתח תת-צלעי = סימן היכר לסטגנציית כבד",
+    diagnosticGuide:"ST21R קשיח → עץ Ban Xia (ליחה-שומן, Wen Dan Tang). ST21L רך → רטיבות סוכר/לבלב. ST21L קשיח → עץ Huang Lian (חום-רטיבות, Huang Lian Tang). פעימה צפה = שי (Gui Zhi), פעימה עמוקה = שו (Tian Wang Bu Xin Dan)",
+    findings:["מתח ימין","מתח שמאל","מתח דו-צדדי","רגישות","קשיחות","גוש","רכות שמאל","פעימה"],
     protocols:[
       { name:"שאו יאנג (ימין)", points:"ST21R, Pigen, GB34R, GB40R, Dan Nang Xin, TW5R" },
       { name:"כבד-קיבה (שמאל)", points:"ST21L, CV12, LV14R, PC6L, ST36L" },
@@ -193,8 +194,8 @@ const ABDOMEN_ZONES = [
       { name:"סוכר/תשוקות", points:"Bai Chong Wu (שמאל), Nei Huai Jian" },
     ]},
   { id:"left", name:"בטן שמאל", nameEn:"Left Abdomen", element:"wood", points:"ST25L",
-    description:"כבד — סטגנציית צ'י, סטרס, הורמונים, מתח שריר רקטוס שמאלי",
-    findings:["מתח","כאב","קשיחות","גוש","מתח רקטוס"],
+    description:"כבד — רמת צ'י. סטגנציה תפקודית, סטרס, הורמונים, מתח שריר רקטוס שמאלי. קשור להפרעות שחלות/אשכים ומתח רגשי. מתח קיצוני ברקטוס שמאלי = ג'ואה יין (Wu Mei Wan). סטגנציית דם 'חדשה' → עץ Tao Ren. פעימה עמוקה עם PP = צ'י כבד, דורש Long Gu + Mu Li לעיגון",
+    findings:["מתח","כאב","קשיחות","גוש","מתח רקטוס","פעימה עמוקה"],
     protocols:[
       { name:"הרמוניה כללית", points:"ST25L, TW5R, LV14R, LV3B, LV5L, SP10L" },
       { name:"כבד מרידיאן (יפני)", points:"ST25L, LV4, LV5, SP10, LU5" },
@@ -204,8 +205,8 @@ const ABDOMEN_ZONES = [
       { name:"כבד חום", points:"ST25L, LV8L, LV4L. +K10L לחום חמור, +K6L ליין שו" },
     ]},
   { id:"right", name:"בטן ימין", nameEn:"Right Abdomen", element:"metal", points:"ST25R",
-    description:"ריאות/מעי גס — חיסון, סטגנציית דם כרונית",
-    findings:["מתח","רגישות","קשיחות"],
+    description:"ריאות/מעי גס — רמת דם (Xue). סטגנציית דם כרונית 'ישנה', חיסון/לימפה, דלקת מעי כרונית. ממצאי Xue Yu: קשיחות, גושים קבועים (Ji), בטן כלוח, עור יבש/מפוספס, פיגמנטציה כהה, ורידים סגולים תת-לשוניים. צמחים עדיפים על דיקור — עץ Da Huang לסטגנציה ישנה. PP פריאומביליקלי ימין = 10 נק' ב-Xue Yu",
+    findings:["מתח","רגישות","קשיחות","גוש קבוע (Ji)","עור יבש/מפוספס","פעימה עמוקה"],
     protocols:[
       { name:"סטגנציית מתכת (כתף/צוואר)", points:"ST25/26R, LU2R, LU9L" },
       { name:"מתכת עודף (כתף/גוף עליון)", points:"TW3B, SI3B, LI4B, LU5R, LU5/6R, LU8" },
@@ -335,6 +336,38 @@ const DIET_RULES = {
     { element:"fire", avoid:"", note:"מטופלי חום (יאנג מינג) נוטים לתשוקה למזון גולמי ובשר" },
   ],
 };
+
+const PALPATION_TECHNIQUE = [
+  { level:1, name:"שטח (Level 1)", description:"הערכת איכות עור — לח vs יבש, טמפרטורה. משתמשים בכף היד (H8)", icon:"🖐️" },
+  { level:2, name:"אמצע (Level 2)", description:"הרגשת רמת צ'י — סטגנציה תפקודית, טונוס שרירי. לחץ בינוני", icon:"👆" },
+  { level:3, name:"עומק (Level 3)", description:"לחיצה בזווית 90° — הערכת קשיחות איבר, גושים קבועים, פעימה עמוקה", icon:"👊" },
+];
+
+const PALPATION_SIGNS = [
+  { finding:"קשיחות / לוח קשיח", meaning:"שי (עודף) או Xue Yu (סטגנציית דם)", color:"#ef4444" },
+  { finding:"רכות / אטוניה", meaning:"שו (חסר) או רטיבות פשוטה", color:"#3b82f6" },
+  { finding:"ריבאונד (הרקמה דוחפת חזרה)", meaning:"אישור מצב שי", color:"#f59e0b" },
+  { finding:"פעימה צפה", meaning:"שי — לעיתים דורש עץ Gui Zhi", color:"#f97316" },
+  { finding:"פעימה עמוקה", meaning:"שו — חסר יין לב/כליות, לעיתים Tian Wang Bu Xin Dan", color:"#8b5cf6" },
+  { finding:"כאב מקרין (הקרנה)", meaning:"מעורבות ברמת מרידיאן ולא רק סטגנציה מקומית", color:"#22c55e" },
+];
+
+const PALPATION_WARNINGS = [
+  { warning:"גוש קבוע (Ji)", detail:"אסור ללחוץ ישירות על הגוש — רק על השוליים שלו כדי למנוע פגיעה" },
+  { warning:"בדיקת Splashing Water", detail:"לא לחזור על מישוש יותר מכמה שניות — כואב למטופל" },
+  { warning:"תגובת פנים", detail:"תמיד לעקוב אחרי הבעת הפנים של המטופל בלחיצה עמוקה — כאב מקרין מאשר מעורבות מרידיאנית" },
+];
+
+const ST21_GUIDE = [
+  { side:"ימין", finding:"קשיחות", element:"earth", tree:"Ban Xia", meaning:"ליחה-לב משומן/חלבון מהחי → מתח סרעפת וצוואר", formula:"Wen Dan Tang, Ban Xia Xie Xin Tang", color:"#b45309" },
+  { side:"שמאל", finding:"רכות", element:"earth", tree:"Huang Lian", meaning:"רטיבות מסוכר/פחמימות ריקות → גירוי לבלב", formula:"Er Chen Tang, Ping Wei San", color:"#f59e0b" },
+  { side:"שמאל", finding:"קשיחות", element:"fire", tree:"Huang Lian", meaning:"דא באו/שו לי → משפיע על מוח, בלבול מנטלי, התנהגות מאנית", formula:"Huang Lian Tang, Huang Lian E Jiao Tang", color:"#ef4444" },
+];
+
+const ST25_COMPARISON = [
+  { side:"שמאל (ST25L)", element:"wood", level:"צ'י (Qi)", nature:"תפקודי — סטגנציה, סטרס, מתח מרידיאני", stasis:"סטגנציית דם 'חדשה' — גינקולוגי, שחלות, מתח תפקודי", tree:"Tao Ren, Chai Hu", jueYin:"מתח קיצוני ברקטוס שמאלי = ג'ואה יין → Wu Mei Wan", xueYuScore:"PP פריאומביליקלי שמאל = 5 נק'", color:"#22c55e" },
+  { side:"ימין (ST25R)", element:"metal", level:"דם (Xue)", nature:"מבני — הצטברות כרונית, חיסון, דלקת מעי", stasis:"סטגנציית דם 'ישנה' — גושים Ji, קרוהן, דלקת כרונית", tree:"Da Huang (עדיף על דיקור)", jueYin:"—", xueYuScore:"PP פריאומביליקלי ימין = 10 נק' (דומיננטי)", color:"#6b7280" },
+];
 
 const DIAGNOSTIC_SIGNS = [
   { name:"סימן האצבע השנייה", description:"אצבע שנייה גדולה פיזית מהראשונה → בעיות קיבה מבניות (constitutional)" },
@@ -622,6 +655,7 @@ export default function TCMApp() {
               return (<div>
                 <div style={{ display:"flex", alignItems:"center", gap:6, marginBottom:6 }}><ElementBadge element={zone.element} /><span style={{ fontSize:15, fontWeight:700 }}>{zone.name}</span><span style={{ fontSize:11, color:"#64748b" }}>{zone.points}</span></div>
                 <p style={{ fontSize:12, color:"#94a3b8", marginBottom:10 }}>{zone.description}</p>
+                {zone.diagnosticGuide && <div style={{ padding:8, background:"#1e1b4b", borderRadius:8, marginBottom:10, fontSize:11, color:"#c084fc", lineHeight:1.6 }}>📐 <b>מדריך אבחון:</b> {zone.diagnosticGuide}</div>}
                 <div style={{ fontSize:12, fontWeight:600, color:"#94a3b8", marginBottom:6 }}>ממצאים:</div>
                 <div style={{ display:"flex", gap:5, flexWrap:"wrap", marginBottom:12 }}>
                   {zone.findings.map(f => { const on = (diagData.abdominalFindings[selectedZone]||[]).includes(f);
@@ -896,6 +930,66 @@ export default function TCMApp() {
 
   const renderClinical = () => (
     <div>
+      {/* ST25 Comparison */}
+      <div style={s.sectionTitle}>🔀 ST25 שמאל vs ימין — צ'י מול דם</div>
+      <div style={{ display:"grid", gridTemplateColumns:"1fr 1fr", gap:10, marginBottom:20 }}>
+        {ST25_COMPARISON.map((c,i) => (
+          <Card key={i} style={{ padding:14, borderTop:`3px solid ${c.color}` }}>
+            <div style={{ fontSize:16, fontWeight:800, color:c.color, marginBottom:6 }}>{c.side}</div>
+            <div style={{ display:"flex", gap:6, marginBottom:8 }}><ElementBadge element={c.element} small /><span style={{ fontSize:12, color:"#818cf8", fontWeight:700 }}>רמת {c.level}</span></div>
+            <div style={{ fontSize:12, color:"#e2e8f0", marginBottom:4 }}><b style={{ color:"#f472b6" }}>אופי:</b> {c.nature}</div>
+            <div style={{ fontSize:12, color:"#e2e8f0", marginBottom:4 }}><b style={{ color:"#ef4444" }}>סטגנציית דם:</b> {c.stasis}</div>
+            <div style={{ fontSize:12, color:"#e2e8f0", marginBottom:4 }}><b style={{ color:"#22c55e" }}>עצים:</b> {c.tree}</div>
+            {c.jueYin !== "—" && <div style={{ fontSize:12, color:"#c084fc", marginBottom:4 }}><b>ג'ואה יין:</b> {c.jueYin}</div>}
+            <div style={{ fontSize:11, padding:"4px 8px", background:"#1e1b4b", borderRadius:6, color:"#818cf8", fontWeight:600 }}>{c.xueYuScore}</div>
+          </Card>
+        ))}
+      </div>
+
+      {/* ST21 Guide */}
+      <div style={s.sectionTitle}>📐 מדריך אבחון ST21 — בחירת עץ פורמולה</div>
+      <div style={{ display:"grid", gap:6, marginBottom:20 }}>
+        {ST21_GUIDE.map((g,i) => (
+          <div key={i} style={{ padding:12, background:"#16162a", borderRadius:10, borderRight:`3px solid ${g.color}` }}>
+            <div style={{ display:"flex", alignItems:"center", gap:8, marginBottom:4 }}>
+              <span style={{ fontSize:14, fontWeight:800, color:g.color }}>ST21 {g.side}</span>
+              <span style={{ padding:"2px 8px", borderRadius:10, fontSize:10, fontWeight:600, background:g.finding==="קשיחות"?"#7f1d1d":"#1e3a5f", color:g.finding==="קשיחות"?"#fca5a5":"#93c5fd" }}>{g.finding}</span>
+              <span style={{ fontSize:11, color:"#818cf8", marginRight:"auto" }}>🌿 {g.tree}</span>
+            </div>
+            <div style={{ fontSize:12, color:"#e2e8f0", marginBottom:4 }}>{g.meaning}</div>
+            <div style={{ fontSize:12, color:"#22c55e", fontWeight:600 }}>💊 {g.formula}</div>
+          </div>
+        ))}
+      </div>
+
+      {/* Palpation Technique */}
+      <div style={s.sectionTitle}>🖐️ טכניקת מישוש בטני — 3 רמות</div>
+      <div style={{ display:"grid", gap:6, marginBottom:12 }}>
+        {PALPATION_TECHNIQUE.map(p => (
+          <div key={p.level} style={{ display:"flex", gap:10, padding:10, background:"#16162a", borderRadius:10, alignItems:"center" }}>
+            <span style={{ fontSize:22 }}>{p.icon}</span>
+            <div><div style={{ fontWeight:700, fontSize:13, color:"#818cf8" }}>Level {p.level} — {p.name}</div><div style={{ fontSize:12, color:"#94a3b8" }}>{p.description}</div></div>
+          </div>
+        ))}
+      </div>
+      <div style={{ fontSize:13, fontWeight:700, color:"#94a3b8", marginBottom:8 }}>סימנים ומשמעותם:</div>
+      <div style={{ display:"grid", gap:4, marginBottom:12 }}>
+        {PALPATION_SIGNS.map((ps,i) => (
+          <div key={i} style={{ display:"flex", gap:8, padding:8, background:"#16162a", borderRadius:8, alignItems:"center" }}>
+            <span style={{ width:8, height:8, borderRadius:"50%", background:ps.color, flexShrink:0 }} />
+            <span style={{ fontSize:12, fontWeight:700, color:"#e2e8f0", minWidth:180 }}>{ps.finding}</span>
+            <span style={{ fontSize:12, color:"#94a3b8" }}>{ps.meaning}</span>
+          </div>
+        ))}
+      </div>
+      <div style={{ display:"grid", gap:4, marginBottom:20 }}>
+        {PALPATION_WARNINGS.map((pw,i) => (
+          <div key={i} style={{ padding:8, background:"#1a0e0e", border:"1px solid #4a1515", borderRadius:8 }}>
+            <span style={{ fontWeight:700, fontSize:12, color:"#fca5a5" }}>⚠️ {pw.warning}: </span><span style={{ fontSize:12, color:"#d4a0a0" }}>{pw.detail}</span>
+          </div>
+        ))}
+      </div>
+
       <div style={s.sectionTitle}>כללי סדר טיפול</div>
       <div style={{ display:"grid", gap:6, marginBottom:20 }}>
         {TREATMENT_RULES.map((r,i) => (
