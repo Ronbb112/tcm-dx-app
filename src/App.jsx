@@ -21,7 +21,7 @@ const FORMULAS = [
   { id:"f7", name:"Zhi Gan Cao Tang", nameHe:"ז'י גאן צאו טאנג", element:"fire", tree:"Gui Zhi", pattern:"Heart Qi & Blood Xu", indications:"דפיקות לב, דופק לא סדיר", heatCold:"cold" },
   { id:"f8", name:"An Shen Bu Xin Pian", nameHe:"אן שן בו שין פיאן", element:"fire", tree:"Xue", pattern:"Chronic Insomnia (Xu)", indications:"נדודי שינה כרוניים מחסר", heatCold:"cold" },
   { id:"f8b", name:"Te Xiao Zao Ren An Mian Pian", nameHe:"טה שיאו זאו רן אן מיאן פיאן", element:"fire", tree:"Xue", pattern:"Chronic Fever/Xu Insomnia", indications:"נדודי שינה כרוניים עם חום מחסר", heatCold:"heat" },
-  { id:"f8c", name:"Ding Zhi Wan", nameHe:"דינג ז'י וואן", element:"fire", tree:"Qi", pattern:"SP & Heart Qi Xu / Spirit", indications:"דיכאון, קושי בקבלת החלטות", heatCold:"cold" },
+  { id:"f8c", name:"Ding Zhi Wan", nameHe:"דינג ז'י וואן", element:"fire", tree:"Ren Shen", pattern:"SP & Heart Qi Xu / Spirit", indications:"דיכאון, קושי בקבלת החלטות", heatCold:"cold" },
   // EARTH
   { id:"f9", name:"Si Jun Zi Tang", nameHe:"סי ג'ון ז'י טאנג", element:"earth", tree:"Ren Shen", pattern:"Spleen Qi Xu", indications:"חולשה, לשון חיוורת", heatCold:"cold" },
   { id:"f10", name:"Liu Jun Zi Tang", nameHe:"ליו ג'ון ז'י טאנג", element:"earth", tree:"Ren Shen", pattern:"SP Qi Xu + Dampness", indications:"קשיי עיכול, תשוקה למתוק", heatCold:"cold" },
@@ -50,7 +50,7 @@ const FORMULAS = [
   { id:"f28", name:"Chai Hu Shu Gan Wan", nameHe:"צ'אי הו שו גאן וואן", element:"wood", tree:"Chai Hu", pattern:"LV Qi/Blood Stagnation", indications:"כאב בטני פיזי", heatCold:"neutral" },
   { id:"f29", name:"Si Ni San", nameHe:"סי ני סאן", element:"wood", tree:"Chai Hu", pattern:"LV/ST Qi Regulation", indications:"אצבעות קרות מסטרס", heatCold:"neutral" },
   { id:"f30", name:"Chai Hu Jia Long Gu Mu Li Tang", nameHe:"צ'אי הו ג'יה לונג גו מו לי טאנג", element:"wood", tree:"Chai Hu", pattern:"Stress/Nervous Tension", indications:"מתח בגוף העליון, אוטואימוני", heatCold:"neutral" },
-  { id:"f31", name:"Long Dan Xie Gan Tang", nameHe:"לונג דאן שיה גאן טאנג", element:"wood", tree:"Qi", pattern:"LV/GB Fire + Damp-Heat", indications:"גירוד גניטלי, הפרשה צהובה", heatCold:"heat" },
+  { id:"f31", name:"Long Dan Xie Gan Tang", nameHe:"לונג דאן שיה גאן טאנג", element:"wood", tree:"Huang Lian", pattern:"LV/GB Fire + Damp-Heat", indications:"גירוד גניטלי, הפרשה צהובה", heatCold:"heat" },
   { id:"f32", name:"Si Wu Tang", nameHe:"סי וו טאנג", element:"wood", tree:"Xue", pattern:"LV Blood Xu", indications:"עור יבש, ראייה מטושטשת, ציפורניים דקות", heatCold:"cold" },
   { id:"f33", name:"Suan Zao Ren Tang", nameHe:"סואן זאו רן טאנג", element:"wood", tree:"Xue", pattern:"Insomnia from LV Blood Xu", indications:"נדודי שינה מחסר דם כבד", heatCold:"cold" },
   { id:"f34", name:"Bu Gan Tang", nameHe:"בו גאן טאנג", element:"wood", tree:"Xue", pattern:"LV Blood & Yin Xu", indications:"התכווצויות שרירים, עיניים יבשות", heatCold:"cold" },
