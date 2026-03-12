@@ -663,6 +663,30 @@ const NAVEL_SHIFTING = [
   { direction:"ימינה", icon:"\u27A1\uFE0F", meaning:"ריאות שי (דלקת), ריאות שו (עם כליות), או כבד שי (Xue Yu)", color:"#6b7280" },
 ];
 
+const HEAD_TILT = [
+  { direction:"שמאלה", icon:"⬅️", vessel:"Ren Mai (מלפנים) / Yang Wei (מאחור)", meaning:"Fire — גירוי יתר של אזור סאב-קרדיאק. קיצור SCM שמאל מלחץ וזו-ואגלי ומתח לבבי", signs:"לחץ PP סאב-קרדיאק, פלפיטציות, רגשיות יתר (רגש מנצח הגיון)", points:"CV12, CV4/5, ST25L, LU7B, K6B. תוספת: PC6L (פלפיטציות/חרדה), H5+K25R (אישור)", color:"#ef4444" },
+  { direction:"ימינה", icon:"➡️", vessel:"Yang Wei Mai", meaning:"Metal — קומפנסציה לזיהום אוזן ימין או בעיות שמיעה. שאו-יאנג מושך מרידיאנים עליונים, מסיט ראש ומותח צוואר-כתף", signs:"חריקת שיניים, נעילת לסת, כאב כתף/שכמה ימין, אינסומניה סמויה (התעוררות עייפה)", points:"TW5R, GB20. LI-type: +LV4R, Luo Zhen, LI15R. TW-type: +TW2, TW3R, Anmian. גב: Huato T1-T3, M1-M2, B43, LI16. סחרחורת: +Yi Ming", color:"#6b7280" },
+];
+
+const HEAD_TILT_VERTIGO = [
+  { direction:"הטייה שמאלה", meaning:"Yang Wei", icon:"⬅️" },
+  { direction:"הטייה ימינה", meaning:"Metal / שאו-יאנג", icon:"➡️" },
+  { direction:"מבט למעלה", meaning:"Ren Mai", icon:"⬆️" },
+  { direction:"מבט למטה (עיניים למעלה)", meaning:"Du Mai", icon:"⬇️" },
+];
+
+const LEG_STRENGTH = [
+  { type:"weak", name:"רגל חלשה (היפוטונית/אטונית)", icon:"🦵", side:"בד\"כ ימין", meaning:"צניחת רצפת אגן, חסר Kidney Yang", vessel:"Yang Qiao Mai", points:"K27L, Qipang R, CV6, ST27R, SP9R, K7R", technique:"מוקסה על מחט (קיוטושין) ×2 על CV6, Qipang, K27R, SP9R, K7R", color:"#3b82f6" },
+  { type:"strong", name:"רגל חזקה (היפרטונית)", icon:"💪", side:"בד\"כ שמאל", meaning:"חסר Kidney Yin", vessel:"Yin Qiao Mai", points:"K27R, K16L, CV4, ST27L, LV8L, K10L, K6L", technique:"הזנה והרפיית הרקמה — טיפול רק ברגל ההיפרטונית", color:"#c084fc" },
+];
+
+const THIGH_TENSION = [
+  { location:"מתח פנימי בירך", icon:"🔵", meaning:"Liver Yin / Yin Qiao Mai — בעיות גניקולוגיות. קרוב למפשעה = Jue Yin, קרוב לברך = Liver meridian", vessel:"Yin Qiao Mai", stLink:"ST25L (Wood) — מתח ברקטוס שמאלי, סטרס הורמונלי", color:"#8b5cf6" },
+  { location:"מתח חיצוני בירך (ITB/GB)", icon:"🟠", meaning:"Liver Yang / Dai Mai / Yang Wei Foot — כאבי גב, סטרס מבני", vessel:"Dai Mai", stLink:"ST25L (Wood) — Yang Wei ו-Dai Mai", color:"#f59e0b" },
+];
+
+const SPLEEN_QI_LEG = { rule:"ב-SP Qi Xu (עייפות, שלשול, תשוקה למתוק) — מטפלים רק ברגל החלשה", points:"SP4, SP6, SP9, ST36, CV6", mods:"SP3 / SP4.5 לסוכרת או תשוקה חזקה למתוק", technique:"מוקסה ישירה או מוקסה על מחט — ביום בלבד" };
+
 // ===== STORAGE HELPERS =====
 const storage = {
   async save(key, data) {
@@ -905,6 +929,57 @@ export default function TCMApp() {
               </div>
             ))}
           </div>
+          <div style={{ ...s.sectionTitle, marginTop:16 }}>🔄 הטיית ראש ומשמעות קלינית</div>
+          <div style={{ display:"grid", gap:8, marginBottom:8 }}>
+            {HEAD_TILT.map((ht,i) => (
+              <div key={i} style={{ padding:12, background:"#16162a", borderRadius:10, borderRight:`4px solid ${ht.color}` }}>
+                <div style={{ fontWeight:700, fontSize:14, color:"#e2e8f0", marginBottom:6 }}>{ht.icon} הטייה {ht.direction} — {ht.vessel}</div>
+                <div style={{ fontSize:12, color:"#c084fc", marginBottom:4 }}>{ht.meaning}</div>
+                <div style={{ fontSize:11, color:"#f59e0b", marginBottom:4 }}>🔍 סימנים: {ht.signs}</div>
+                <div style={{ fontSize:11, color:"#60a5fa" }}>📍 נקודות: {ht.points}</div>
+              </div>
+            ))}
+          </div>
+          <div style={{ padding:10, background:"#1e1e38", borderRadius:8, marginBottom:16, border:"1px solid #2d2d44" }}>
+            <div style={{ fontSize:12, fontWeight:700, color:"#94a3b8", marginBottom:6 }}>🌀 אבחנת סחרחורת לפי כיוון ראש</div>
+            <div style={{ display:"flex", gap:8, flexWrap:"wrap" }}>
+              {HEAD_TILT_VERTIGO.map((v,i) => (
+                <span key={i} style={{ fontSize:11, padding:"4px 10px", background:"#16162a", borderRadius:20, color:"#e2e8f0" }}>{v.icon} {v.direction}: <span style={{ color:"#818cf8" }}>{v.meaning}</span></span>
+              ))}
+            </div>
+          </div>
+
+          <div style={s.sectionTitle}>🦵 רגל חזקה / רגל חלשה</div>
+          <div style={{ display:"grid", gap:8, marginBottom:8 }}>
+            {LEG_STRENGTH.map((lg,i) => (
+              <div key={i} style={{ padding:12, background:"#16162a", borderRadius:10, borderRight:`4px solid ${lg.color}` }}>
+                <div style={{ fontWeight:700, fontSize:14, color:"#e2e8f0", marginBottom:4 }}>{lg.icon} {lg.name} <span style={{ fontSize:11, color:"#94a3b8" }}>({lg.side})</span></div>
+                <div style={{ fontSize:12, color:"#c084fc", marginBottom:4 }}>{lg.meaning} — {lg.vessel}</div>
+                <div style={{ fontSize:11, color:"#60a5fa", marginBottom:2 }}>📍 נקודות: {lg.points}</div>
+                <div style={{ fontSize:11, color:"#f59e0b" }}>🔥 טכניקה: {lg.technique}</div>
+              </div>
+            ))}
+          </div>
+          <div style={{ display:"grid", gap:6, marginBottom:8 }}>
+            {THIGH_TENSION.map((tt,i) => (
+              <div key={i} style={{ padding:10, background:"#16162a", borderRadius:10, borderRight:`3px solid ${tt.color}` }}>
+                <div style={{ fontWeight:700, fontSize:13, color:"#e2e8f0", marginBottom:4 }}>{tt.icon} {tt.location}</div>
+                <div style={{ fontSize:11, color:"#c084fc", marginBottom:2 }}>{tt.meaning}</div>
+                <div style={{ fontSize:11, color:"#94a3b8" }}>🔗 קשר בטני: {tt.stLink}</div>
+              </div>
+            ))}
+          </div>
+          <div style={{ padding:10, background:"#1a1a2e", borderRadius:8, marginBottom:8, border:"1px dashed #f59e0b44" }}>
+            <div style={{ fontSize:12, fontWeight:700, color:"#f59e0b", marginBottom:4 }}>⚡ SP Qi Xu — {SPLEEN_QI_LEG.rule}</div>
+            <div style={{ fontSize:11, color:"#60a5fa" }}>📍 {SPLEEN_QI_LEG.points} | {SPLEEN_QI_LEG.mods}</div>
+            <div style={{ fontSize:11, color:"#94a3b8" }}>🔥 {SPLEEN_QI_LEG.technique}</div>
+          </div>
+          <div style={{ padding:10, background:"#1a1a2e", borderRadius:8, marginBottom:16, border:"1px solid #818cf844" }}>
+            <div style={{ fontSize:12, fontWeight:700, color:"#818cf8", marginBottom:4 }}>🔗 קשר קליני: הטיית ראש + רגליים</div>
+            <div style={{ fontSize:11, color:"#e2e8f0", marginBottom:2 }}>הטייה ימינה + רגל חלשה ימין = Yang Wei מפצה על צניחת רצפת אגן → סטרס מבני בצוואר/כתף</div>
+            <div style={{ fontSize:11, color:"#e2e8f0" }}>כאב גב + רגל חלשה: קודם Yang Qiao בגב (BL62, BL59), אח״כ פרוטוקול כליות קדמי. +Qipang, K3, K7 לרגל חלשה</div>
+          </div>
+
           <div style={{ ...s.sectionTitle, marginTop:16 }}>לשון ודופק</div>
           <div style={{ display:"grid", gap:6 }}>
             {TONGUE_PULSE.map((tp,i) => (
