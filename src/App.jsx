@@ -1369,6 +1369,112 @@ export default function TCMApp() {
     ))}</div>
   );
 
+  const FLOW_STEPS = [
+    { step:1, title:"תצפית ויזואלית (Sho)", icon:"👁️", when:"המטופל נכנס לחדר — עומד/הולך", color:"#818cf8",
+      items:[
+        { check:"קונסטיטוציה", detail:"חזק (שי) / בינוני / חלש (שו) — יציבה, תנועה, קול, אנרגיה" },
+        { check:"טיפוס גוף", detail:"Qi / Xue (דם) / נוזלים — מסת שריר, עור, לחות" },
+        { check:"יחס ראש-גוף", detail:"1:7 = מאוזן. ראש גדול = יאנג. ראש קטן = יין" },
+        { check:"הטיית ראש", detail:"ימינה = Yang Wei / Metal. שמאלה = Ren Mai / Fire / SCM" },
+        { check:"כתפיים", detail:"מורמות וקדימה (במיוח ימין) = עודף ריאות / אסתמה כרונית" },
+        { check:"פנים", detail:"אדמומיות = חום. לסת קדמית = טסטוסטרון. חריקת שיניים = כבד/מתכת" },
+        { check:"עיניים", detail:"אדומות = חום. יובש = חסר דם כבד / Ren Mai" },
+        { check:"עור", detail:"יבש/פסיפס = Xue Yu. לחות/זיעה = טיפוס רטוב (נוזלים)" },
+      ]},
+    { step:2, title:"בדיקת רגליים", icon:"🦵", when:"עדיין עומד או שוכב — לפני הבטן", color:"#3b82f6",
+      items:[
+        { check:"רגל חזקה vs חלשה", detail:"חלשה (בד\"כ ימין) = Kidney Yang Xu, צניחת אגן. חזקה (בד\"כ שמאל) = Kidney Yin Xu" },
+        { check:"מתח פנימי ירך", detail:"Liver Yin / Yin Qiao Mai — בעיות גניקולוגיות" },
+        { check:"מתח חיצוני ירך (ITB)", detail:"Liver Yang / Dai Mai — כאבי גב, סטרס מבני" },
+        { check:"3 מקורות אנרגיה", detail:"שינה (Yin) / אכילה (Earth/Blood) / תנועה (Yang)" },
+      ]},
+    { step:3, title:"בדיקה ויזואלית של הבטן", icon:"👀", when:"המטופל שוכב — לפני מגע", color:"#f59e0b",
+      items:[
+        { check:"פעימות נראות", detail:"פעימה באפיגסטריום = Chong Mai / חרדה" },
+        { check:"צלקות ושומות", detail:"מיקום על מרידיאן = חסימה כרונית" },
+        { check:"נפיחות / תנועת שאיבה", detail:"נפיחות = גז/נוזלים. שאיבה = Kidney Xu" },
+        { check:"טבור — צורה", detail:"עמוק ומלא = בריא. שטוח/רחב/בקע = חולשה" },
+        { check:"טבור — הסטה", detail:"למעלה = קיבה שי/כליות שו. למטה = כליות/GIT. שמאלה = כבד שי. ימינה = ריאות/Xue Yu" },
+        { check:"טבור — טראומת לידה", detail:"מלקחיים = זיכרון. פג = ריאות חלשות. חבל קצר = Kidney Qi חלש. חבל סביב צוואר = זרימת דם למוח" },
+      ]},
+    { step:4, title:"מישוש בטן (Fukushin)", icon:"🤲", when:"3 רמות עומק × 7 אזורים", color:"#ef4444",
+      items:[
+        { check:"רמה 1 — עור", detail:"כף יד (H8): טמפרטורה (חם=Damp-Heat, קר=Yang Xu), לחות (לח=Lung Qi Xu, יבש=דם/Yin Xu), פעימה צפה=שי" },
+        { check:"רמה 2 — שריר/צ'י", detail:"טונוס (תקין vs מתוח vs רפוי). פעימת Do = תקין. Chong Mai בקו קיבה שמאל" },
+        { check:"רמה 3 — עומק/איברים", detail:"חום עמוק = Empty Heat (Yin Xu). גוש קשה קבוע (Ji) = Xue Yu. גוש רך נע (Ju) = צ'י/ליחה" },
+        { check:"🔥 Fire — סאב-קרדיאק (CV14/15)", detail:"אינסומניה, חרדה, פלפיטציות, רגישות וזו-ואגלית" },
+        { check:"🌍 Earth — אפיגסטריום (CV12)", detail:"תמיד שי: גז, מים מתיזים (splashing), הצטברות מזון" },
+        { check:"🌍 Earth — טבור (CV8)", detail:"תמיד שו: חולשת GIT, SP Qi Xu" },
+        { check:"💧 Water — בטן תחתונה (CV4/6)", detail:"Kidney Jing, הורמונים, מטבוליזם" },
+        { check:"🌿 Wood — ST25 שמאל", detail:"רמת Qi: סטגנציית צ'י כבד, מתח, סטרס הורמונלי" },
+        { check:"⚪ Metal — ST25 ימין", detail:"רמת Xue: סטגנציית דם, דלקת כרונית (קרוהן), עצירות" },
+        { check:"ST21 ימין", detail:"ליחה משומנים/GB — Heart-Phlegm, סרעפת" },
+        { check:"ST21 שמאל", detail:"לחות מסוכרים/לבלב — רך=Dampness, קשה=Da Bao/בלבול" },
+      ]},
+    { step:5, title:"לשון ודופק", icon:"👅", when:"אחרי אבחנת בטן — לאישור ממצאים", color:"#f472b6",
+      items:[
+        { check:"לשון — קצה אדום", detail:"Fire — חום בלב" },
+        { check:"לשון — חיוורת/רפויה", detail:"חסר צ'י / Xu" },
+        { check:"לשון — כהה/סגלגלה", detail:"Xue Yu — סטגנציית דם" },
+        { check:"דופק — Cun", detail:"בדיקת עודף בעמדות Cun" },
+        { check:"השוואת פעימות", detail:"פעימת בטן vs דופק רדיאלי — אבחנה מבדלת כליות" },
+      ]},
+    { step:6, title:"בדיקת גב", icon:"🔙", when:"אימות ממצאי חזית + שחרור מתח", color:"#22c55e",
+      items:[
+        { check:"אזורי אלמנטים בחוליות", detail:"Metal T1-T3 | Fire T4-T7 | Wood T8-T10 | Earth T11-L2 | Water L3-S1" },
+        { check:"קו A — חריף (Huato 0.5 cun)", detail:"שי חריף: דחיסת חוליות, כאב פתאומי. מחטים עבות, סדציה" },
+        { check:"קו B — כרוני (3 cun)", detail:"שי כרוני (2+ חודשים): שינויים מבניים, 'חורים' ברקמה" },
+        { check:"קו C — טוניפיקציה", detail:"בצד הנגדי לממצאי A/B — איזון סימטריה פנימית" },
+        { check:"Yang Qiao בגב", detail:"כאב גב + רגל חלשה: קודם BL62, BL59, אח\"כ פרוטוקול כליות קדמי" },
+      ]},
+    { step:7, title:"אבחנה מבדלת וטיפול", icon:"💊", when:"סיכום כל הממצאים", color:"#c084fc",
+      items:[
+        { check:"חום vs ללא חום", detail:"קביעה ראשונה: האם יש Heat?" },
+        { check:"שי vs שו", detail:"עודף vs חסר — קובע כיוון טיפול (סדציה vs טוניפיקציה)" },
+        { check:"אוזן תחילה", detail:"אם צריך — דיקור אוזן לפני גוף" },
+        { check:"גב לפני חזית", detail:"אם יש Yang Qiao / כאב גב — גב קודם" },
+        { check:"בחירת פורמולה", detail:"לפי Sho הסופי ומשפחת העץ המתאימה" },
+        { check:"חזק → סדציה, גב תחילה", detail:"מחטים עבות, יותר נקודות" },
+        { check:"חלש → טוניפיקציה, חזית תחילה", detail:"מחטים דקות, פחות נקודות, מוקסה" },
+      ]},
+  ];
+
+  const renderFlowchart = () => (
+    <div>
+      <div style={s.sectionTitle}>🔄 תרשים זרימת אבחון — מראש ועד כפות רגליים</div>
+      <div style={{ position:"relative", paddingRight:24 }}>
+        {FLOW_STEPS.map((fs, idx) => (
+          <div key={fs.step} style={{ position:"relative", marginBottom:idx < FLOW_STEPS.length-1 ? 0 : 0 }}>
+            {/* Vertical connector line */}
+            {idx < FLOW_STEPS.length - 1 && (
+              <div style={{ position:"absolute", right:11, top:40, bottom:-8, width:3, background:`linear-gradient(${fs.color}, ${FLOW_STEPS[idx+1].color})`, borderRadius:2, zIndex:0 }} />
+            )}
+            {/* Step circle */}
+            <div style={{ position:"absolute", right:0, top:12, width:24, height:24, borderRadius:"50%", background:fs.color, display:"flex", alignItems:"center", justifyContent:"center", fontSize:12, fontWeight:800, color:"#fff", zIndex:1, boxShadow:`0 0 12px ${fs.color}66` }}>{fs.step}</div>
+            {/* Content card */}
+            <div style={{ marginRight:36, marginBottom:12, background:"#16162a", borderRadius:14, border:`1px solid ${fs.color}44`, overflow:"hidden" }}>
+              <div style={{ padding:"12px 16px", background:`${fs.color}15`, borderBottom:`1px solid ${fs.color}33`, display:"flex", alignItems:"center", gap:10 }}>
+                <span style={{ fontSize:22 }}>{fs.icon}</span>
+                <div>
+                  <div style={{ fontWeight:800, fontSize:15, color:fs.color }}>שלב {fs.step}: {fs.title}</div>
+                  <div style={{ fontSize:11, color:"#94a3b8" }}>{fs.when}</div>
+                </div>
+              </div>
+              <div style={{ padding:"8px 12px" }}>
+                {fs.items.map((item, j) => (
+                  <div key={j} style={{ padding:"6px 8px", borderBottom:j < fs.items.length-1 ? "1px solid #2d2d4422" : "none", display:"flex", gap:8, alignItems:"flex-start" }}>
+                    <span style={{ fontSize:11, fontWeight:700, color:fs.color, minWidth:130, flexShrink:0 }}>{item.check}</span>
+                    <span style={{ fontSize:11, color:"#c8d0dc" }}>{item.detail}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+
   const renderClinical = () => (
     <div>
       {/* ST25 Comparison */}
@@ -1502,6 +1608,7 @@ export default function TCMApp() {
     { id:"ev", label:"⚡ כלים יוצ\"ד" },
     { id:"extra", label:`📍 נק' מיוחדות` },
     { id:"clinical", label:"🏥 קליני" },
+    { id:"flowchart", label:"🔄 תרשים אבחון" },
   ];
 
   return (
@@ -1643,6 +1750,7 @@ export default function TCMApp() {
             ))}</div>}
             {kbTab === "extra" && renderExtraPoints()}
             {kbTab === "clinical" && renderClinical()}
+            {kbTab === "flowchart" && renderFlowchart()}
           </div>
         )}
 
