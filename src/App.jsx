@@ -66,7 +66,7 @@ const FORMULAS = [
   { id:"f39", name:"Yu Ping Feng San", nameHe:"יו פינג פנג סאן", element:"metal", tree:"Huang Qi", pattern:"Wei Qi Xu / Allergies", indications:"חיסון חלש, אלרגיות", heatCold:"cold" },
   { id:"f40", name:"Ma Xing Shi Gan Tang", nameHe:"מא שינג שי גאן טאנג", element:"metal", tree:"Ma Huang", pattern:"Lung Heat + Wheezing", indications:"אסתמה, צמא", heatCold:"heat" },
   { id:"f41", name:"Ding Chuan Tang", nameHe:"דינג צ'ואן טאנג", element:"metal", tree:"Ma Huang", pattern:"Asthma + Yellow Phlegm", indications:"אסתמה עם כיח צהוב", heatCold:"heat" },
-  { id:"f42", name:"Su Zi Jiang Qi Tang", nameHe:"סו ז'י ג'יאנג צ'י טאנג", element:"metal", tree:"Qi", pattern:"Cold Phlegm Asthma", indications:"קוצר נשימה", heatCold:"cold" },
+  { id:"f42", name:"Su Zi Jiang Qi Tang", nameHe:"סו ז'י ג'יאנג צ'י טאנג", element:"metal", tree:"Ban Xia", pattern:"Cold Phlegm Asthma", indications:"קוצר נשימה", heatCold:"cold" },
   { id:"f43", name:"Ge Gen Tang", nameHe:"גה גן טאנג", element:"metal", tree:"Gui Zhi", pattern:"Tai Yang / Throat & Ear", indications:"זיהומי גרון ואוזניים", heatCold:"cold" },
   { id:"f44", name:"Wu Wei Xiao Du Yin", nameHe:"וו ווי שיאו דו יין", element:"metal", tree:"Qi", pattern:"Toxic Heat / Deep Skin", indications:"דלקת עור עמוקה עם מוגלה", heatCold:"heat" },
   { id:"f45", name:"Cang Er Zi San", nameHe:"צאנג אר ז'י סאן", element:"metal", tree:"Qi", pattern:"Nasal Congestion / Tai Yang", indications:"גודש באף, סינוסיטיס", heatCold:"heat" },
@@ -75,7 +75,7 @@ const FORMULAS = [
   { id:"f45d", name:"Chuan Xiong Cha Tiao San", nameHe:"צ'ואן שיונג צ'א טיאו סאן", element:"metal", tree:"Qi", pattern:"External Wind Headache", indications:"כאבי ראש וצמרמורות", heatCold:"cold" },
   { id:"f45e", name:"Bei Mu Gua Lou San", nameHe:"ביי מו גואה לואו סאן", element:"metal", tree:"Qi", pattern:"Lung Heat / Dryness", indications:"שיעול דביק", heatCold:"heat" },
   { id:"f45f", name:"Tuo Li Xiao Du Yin", nameHe:"טואו לי שיאו דו יין", element:"metal", tree:"Huang Qi", pattern:"Systemic Infection", indications:"זיהומים מערכתיים, ריפוי פצעים", heatCold:"heat" },
-  { id:"f45g", name:"Zhi Zi Chi Tang", nameHe:"ז'י ז'י צ'י טאנג", element:"metal", tree:"Qi", pattern:"Constrained Heat (Tai Yang)", indications:"חום כלוא בשכבת טאי יאנג", heatCold:"heat" },
+  { id:"f45g", name:"Zhi Zi Chi Tang", nameHe:"ז'י ז'י צ'י טאנג", element:"metal", tree:"Huang Lian", pattern:"Constrained Heat (Tai Yang)", indications:"חום כלוא בשכבת טאי יאנג", heatCold:"heat" },
   // WATER
   { id:"f46", name:"Liu Wei Di Huang Wan", nameHe:"ליו ווי די הואנג וואן", element:"water", tree:"Xue", pattern:"KD & LV Yin Xu", indications:"הזעות לילה, כאב גב תחתון. משך: עד 4 חודשים-שנה", heatCold:"heat" },
   { id:"f47", name:"Ba Wei Di Huang Wan", nameHe:"בא ווי די הואנג וואן", element:"water", tree:"Fu Zi", pattern:"KD Yang Xu", indications:"גפיים קרות, קשיי השתנה", heatCold:"cold" },
