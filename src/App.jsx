@@ -1,4 +1,5 @@
 import { useState, useMemo, useCallback, useEffect } from "react";
+import { getFormulaDetails, FORMULA_DETAILS } from "./formulaDetails";
 
 // ===== COMPLETE DATA FROM NOTEBOOKLM COURSE =====
 
@@ -905,6 +906,7 @@ const AbdomenDiagram = ({ selectedZones, onToggleZone, abdominalFindings }) => {
 export default function TCMApp() {
   const [mode, setMode] = useState("home");
   const [kbTab, setKbTab] = useState("formulas");
+  const [selectedFormula, setSelectedFormula] = useState(null);
   const [search, setSearch] = useState("");
   const [filterEl, setFilterEl] = useState("all");
   const [filterTree, setFilterTree] = useState("all");
@@ -1470,30 +1472,168 @@ export default function TCMApp() {
   };
 
   // ===== KB RENDERERS =====
-  const renderFormulas = () => (
-    <div>
-      <div style={{ display:"flex", gap:6, marginBottom:10, flexWrap:"wrap" }}>
-        <input style={{ ...s.input, flex:1, minWidth:160 }} placeholder="🔍 חפש..." value={search} onChange={e => setSearch(e.target.value)} />
-        <select style={s.select} value={filterEl} onChange={e => setFilterEl(e.target.value)}><option value="all">כל האלמנטים</option>{Object.entries(ELEMENTS).map(([k,v])=><option key={k} value={k}>{v.icon} {v.name}</option>)}</select>
-        <select style={s.select} value={filterTree} onChange={e => setFilterTree(e.target.value)}><option value="all">כל העצים</option>{uniqueTrees.map(t=><option key={t} value={t}>{t}</option>)}</select>
-      </div>
-      <div style={{ fontSize:12, color:"#64748b", marginBottom:6 }}>{filteredFormulas.length} פורמולות</div>
-      <div style={{ display:"grid", gap:6 }}>
-        {filteredFormulas.map(f => (
-          <div key={f.id} style={{ padding:10, background:"#1a1a2e", border:"1px solid #2d2d44", borderRadius:10, transition:"all 0.2s", cursor:"default" }}
-            onMouseEnter={e => e.currentTarget.style.borderColor = ELEMENTS[f.element].color} onMouseLeave={e => e.currentTarget.style.borderColor = '#2d2d44'}>
-            <div style={{ display:"flex", alignItems:"center", gap:6, flexWrap:"wrap", marginBottom:4 }}>
-              <ElementBadge element={f.element} small /><span style={{ fontWeight:700, fontSize:14 }}>{f.name}</span><span style={{ fontSize:12, color:"#94a3b8" }}>{f.nameHe}</span>
-              <span style={{ padding:"2px 8px", borderRadius:10, fontSize:10, fontWeight:600, background:"#1e1b4b", color:"#818cf8", marginRight:"auto" }}>🌿 {f.tree}</span>
-              <HeatColdBadge hc={f.heatCold} />
-            </div>
-            <div style={{ fontSize:12, color:"#c084fc", fontWeight:600 }}>{f.pattern}</div>
-            <div style={{ fontSize:12, color:"#94a3b8" }}>{f.indications}</div>
+  const renderFormulaDetail = (detail, formula) => {
+    const ROLE_COLORS = { jun:"#ef4444", chen:"#f59e0b", zuo:"#3b82f6", shi:"#22c55e" };
+    const ROLE_LABELS = { jun:"君 King", chen:"臣 Minister", zuo:"佐 Assistant", shi:"使 Envoy" };
+    return (
+      <div>
+        <button onClick={() => setSelectedFormula(null)} style={{ ...s.btn("#4b5563"), marginBottom:12, fontSize:12 }}>← חזרה לרשימה</button>
+        <div style={{ padding:16, background:"#1a1a2e", borderRadius:14, border:`2px solid ${detail.color || "#818cf8"}`, marginBottom:12 }}>
+          <div style={{ display:"flex", alignItems:"center", gap:8, marginBottom:8, flexWrap:"wrap" }}>
+            {formula && <ElementBadge element={formula.element} />}
+            <span style={{ fontSize:20, fontWeight:800 }}>{detail.name_pinyin}</span>
+            <span style={{ fontSize:16, color:"#c084fc" }}>{detail.name_chinese}</span>
+            {formula && <HeatColdBadge hc={formula.heatCold} />}
           </div>
-        ))}
+          <div style={{ fontSize:14, color:"#94a3b8", marginBottom:4 }}>{detail.name_english}</div>
+          <div style={{ display:"flex", gap:8, flexWrap:"wrap", fontSize:11 }}>
+            <span style={{ padding:"2px 8px", borderRadius:8, background:"#1e1b4b", color:"#a5b4fc" }}>{detail.category}</span>
+            <span style={{ padding:"2px 8px", borderRadius:8, background:"#1e1b4b", color:"#94a3b8" }}>{detail.source}</span>
+          </div>
+          <div style={{ fontSize:13, color:"#c084fc", fontWeight:600, marginTop:8 }}>{detail.pattern}</div>
+          <div style={{ fontSize:11, color:"#818cf8" }}>{detail.pattern_chinese}</div>
+        </div>
+
+        {/* Clinical Picture */}
+        <Card style={{ padding:14 }}>
+          <div style={{ fontSize:14, fontWeight:700, color:"#818cf8", marginBottom:8 }}>תמונה קלינית</div>
+          <div style={{ fontSize:12, color:"#e2e8f0", lineHeight:1.7, marginBottom:10 }}>{detail.clinical_picture.summary}</div>
+          <div style={{ display:"grid", gridTemplateColumns:"1fr 1fr", gap:8, marginBottom:10 }}>
+            <div style={{ padding:8, background:"#0f0f20", borderRadius:8 }}>
+              <div style={{ fontSize:11, fontWeight:700, color:"#f472b6", marginBottom:3 }}>👅 לשון</div>
+              <div style={{ fontSize:11, color:"#e2e8f0" }}>{detail.clinical_picture.tongue}</div>
+            </div>
+            <div style={{ padding:8, background:"#0f0f20", borderRadius:8 }}>
+              <div style={{ fontSize:11, fontWeight:700, color:"#60a5fa", marginBottom:3 }}>💓 דופק</div>
+              <div style={{ fontSize:11, color:"#e2e8f0" }}>{detail.clinical_picture.pulse}</div>
+            </div>
+          </div>
+          <div style={{ fontSize:12, fontWeight:600, color:"#94a3b8", marginBottom:4 }}>תסמינים מרכזיים:</div>
+          <div style={{ display:"flex", flexWrap:"wrap", gap:4, marginBottom:10 }}>
+            {detail.clinical_picture.key_symptoms.map((sym, i) => (
+              <span key={i} style={{ fontSize:11, padding:"3px 8px", borderRadius:8, background:"rgba(129,140,248,0.1)", color:"#c4b5fd", border:"1px solid rgba(129,140,248,0.2)" }}>{sym}</span>
+            ))}
+          </div>
+          {detail.clinical_picture.constitutional_type && <div style={{ fontSize:11, color:"#fbbf24", padding:8, background:"rgba(251,191,36,0.06)", borderRadius:8, marginBottom:8, border:"1px solid rgba(251,191,36,0.15)" }}>🧬 {detail.clinical_picture.constitutional_type}</div>}
+          {detail.clinical_picture.typical_patient && <div style={{ fontSize:12, color:"#e2e8f0", padding:10, background:"#0f0f20", borderRadius:8, lineHeight:1.7, borderRight:"3px solid #22c55e" }}>👤 <b style={{ color:"#22c55e" }}>מטופל טיפוסי:</b> {detail.clinical_picture.typical_patient}</div>}
+        </Card>
+
+        {/* Composition - Jun Chen Zuo Shi */}
+        <Card style={{ padding:14 }}>
+          <div style={{ fontSize:14, fontWeight:700, color:"#818cf8", marginBottom:8 }}>הרכב — 君臣佐使</div>
+          {["jun","chen","zuo","shi"].map(role => {
+            const herbs = detail.composition.filter(h => h.role === role);
+            if (!herbs.length) return null;
+            return (
+              <div key={role} style={{ marginBottom:10 }}>
+                <div style={{ fontSize:12, fontWeight:700, color:ROLE_COLORS[role], marginBottom:4 }}>{ROLE_LABELS[role]} ({herbs.length})</div>
+                {herbs.map((h, i) => (
+                  <div key={i} style={{ padding:8, background:"#0f0f20", borderRadius:8, marginBottom:4, borderRight:`3px solid ${ROLE_COLORS[role]}` }}>
+                    <div style={{ display:"flex", gap:6, alignItems:"center", flexWrap:"wrap" }}>
+                      <span style={{ fontWeight:700, fontSize:13, color:"#e2e8f0" }}>{h.pinyin}</span>
+                      <span style={{ fontSize:12, color:"#c084fc" }}>{h.chinese}</span>
+                      <span style={{ fontSize:10, color:"#64748b", fontStyle:"italic" }}>{h.latin}</span>
+                      <span style={{ marginRight:"auto", fontSize:11, fontWeight:600, color:ROLE_COLORS[role] }}>{h.dosage}</span>
+                    </div>
+                    <div style={{ fontSize:11, color:"#94a3b8", marginTop:2 }}>{h.function}</div>
+                  </div>
+                ))}
+              </div>
+            );
+          })}
+          <div style={{ fontSize:11, color:"#818cf8", marginTop:4 }}>{detail.actions_chinese}</div>
+        </Card>
+
+        {/* Contraindications */}
+        {detail.contraindications?.length > 0 && (
+          <Card style={{ padding:14, borderRight:"3px solid #ef4444" }}>
+            <div style={{ fontSize:14, fontWeight:700, color:"#ef4444", marginBottom:8 }}>⚠️ התוויות נגד</div>
+            {detail.contraindications.map((c, i) => <div key={i} style={{ fontSize:12, color:"#fca5a5", marginBottom:4, paddingRight:8 }}>• {c}</div>)}
+            {detail.cautions?.length > 0 && <>
+              <div style={{ fontSize:12, fontWeight:600, color:"#f59e0b", marginTop:8, marginBottom:4 }}>זהירויות:</div>
+              {detail.cautions.map((c, i) => <div key={i} style={{ fontSize:11, color:"#fde68a", marginBottom:3, paddingRight:8 }}>• {c}</div>)}
+            </>}
+          </Card>
+        )}
+
+        {/* Differentiators */}
+        {detail.differentiators?.length > 0 && (
+          <Card style={{ padding:14 }}>
+            <div style={{ fontSize:14, fontWeight:700, color:"#c084fc", marginBottom:8 }}>🔀 הבחנה מפורמולות דומות</div>
+            {detail.differentiators.map((d, i) => (
+              <div key={i} style={{ padding:8, background:"#0f0f20", borderRadius:8, marginBottom:6 }}>
+                <div style={{ fontSize:12, fontWeight:700, color:"#a5b4fc", marginBottom:3 }}>vs. {d.formula}</div>
+                <div style={{ fontSize:11, color:"#e2e8f0", lineHeight:1.6 }}>{d.difference}</div>
+              </div>
+            ))}
+          </Card>
+        )}
+
+        {/* Modifications */}
+        {detail.modifications?.length > 0 && (
+          <Card style={{ padding:14 }}>
+            <div style={{ fontSize:14, fontWeight:700, color:"#22c55e", marginBottom:8 }}>🔧 שינויים (加减)</div>
+            {detail.modifications.map((m, i) => (
+              <div key={i} style={{ display:"flex", gap:8, padding:6, borderBottom:"1px solid #2d2d44", fontSize:12 }}>
+                <span style={{ color:"#94a3b8", minWidth:140 }}>{m.condition}:</span>
+                <span style={{ color:"#86efac" }}>+ {m.herbs_add}</span>
+                {m.herbs_remove && <span style={{ color:"#fca5a5" }}>− {m.herbs_remove}</span>}
+              </div>
+            ))}
+          </Card>
+        )}
+
+        {/* Modern Applications */}
+        {detail.modern_applications?.length > 0 && (
+          <Card style={{ padding:14 }}>
+            <div style={{ fontSize:14, fontWeight:700, color:"#60a5fa", marginBottom:8 }}>🏥 יישומים מודרניים</div>
+            <div style={{ display:"flex", flexWrap:"wrap", gap:4 }}>
+              {detail.modern_applications.map((app, i) => (
+                <span key={i} style={{ fontSize:11, padding:"3px 8px", borderRadius:8, background:"rgba(96,165,250,0.1)", color:"#93c5fd", border:"1px solid rgba(96,165,250,0.2)" }}>{app}</span>
+              ))}
+            </div>
+          </Card>
+        )}
       </div>
-    </div>
-  );
+    );
+  };
+
+  const renderFormulas = () => {
+    if (selectedFormula) {
+      const detail = getFormulaDetails(selectedFormula.name);
+      if (detail) return renderFormulaDetail(detail, selectedFormula);
+      // If no detail found, show basic info and back button
+      setSelectedFormula(null);
+    }
+    return (
+      <div>
+        <div style={{ display:"flex", gap:6, marginBottom:10, flexWrap:"wrap" }}>
+          <input style={{ ...s.input, flex:1, minWidth:160 }} placeholder="🔍 חפש..." value={search} onChange={e => setSearch(e.target.value)} />
+          <select style={s.select} value={filterEl} onChange={e => setFilterEl(e.target.value)}><option value="all">כל האלמנטים</option>{Object.entries(ELEMENTS).map(([k,v])=><option key={k} value={k}>{v.icon} {v.name}</option>)}</select>
+          <select style={s.select} value={filterTree} onChange={e => setFilterTree(e.target.value)}><option value="all">כל העצים</option>{uniqueTrees.map(t=><option key={t} value={t}>{t}</option>)}</select>
+        </div>
+        <div style={{ fontSize:12, color:"#64748b", marginBottom:6 }}>{filteredFormulas.length} פורמולות ({Object.keys(FORMULA_DETAILS).length} עם מידע מפורט)</div>
+        <div style={{ display:"grid", gap:6 }}>
+          {filteredFormulas.map(f => {
+            const hasDetails = !!getFormulaDetails(f.name);
+            return (
+              <div key={f.id} onClick={() => hasDetails && setSelectedFormula(f)} style={{ padding:10, background:"#1a1a2e", border:"1px solid #2d2d44", borderRadius:10, transition:"all 0.2s", cursor:hasDetails?"pointer":"default" }}
+                onMouseEnter={e => e.currentTarget.style.borderColor = ELEMENTS[f.element].color} onMouseLeave={e => e.currentTarget.style.borderColor = '#2d2d44'}>
+                <div style={{ display:"flex", alignItems:"center", gap:6, flexWrap:"wrap", marginBottom:4 }}>
+                  <ElementBadge element={f.element} small /><span style={{ fontWeight:700, fontSize:14 }}>{f.name}</span><span style={{ fontSize:12, color:"#94a3b8" }}>{f.nameHe}</span>
+                  <span style={{ padding:"2px 8px", borderRadius:10, fontSize:10, fontWeight:600, background:"#1e1b4b", color:"#818cf8", marginRight:"auto" }}>🌿 {f.tree}</span>
+                  <HeatColdBadge hc={f.heatCold} />
+                  {hasDetails && <span style={{ padding:"2px 6px", borderRadius:8, fontSize:9, fontWeight:600, background:"#22c55e22", color:"#22c55e", border:"1px solid #22c55e44" }}>📖 מפורט</span>}
+                </div>
+                <div style={{ fontSize:12, color:"#c084fc", fontWeight:600 }}>{f.pattern}</div>
+                <div style={{ fontSize:12, color:"#94a3b8" }}>{f.indications}</div>
+              </div>
+            );
+          })}
+        </div>
+      </div>
+    );
+  };
 
   const renderSixLayers = () => (
     <div style={{ display:"grid", gap:10 }}>
