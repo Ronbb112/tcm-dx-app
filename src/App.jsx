@@ -96,6 +96,13 @@ const FORMULAS = [
   { id:"f55", name:"Da Cheng Qi Tang", nameHe:"דא צ'נג צ'י טאנג", element:"earth", tree:"Da Huang", pattern:"Yang Ming Interior Heat (Severe)", indications:"עצירות חמורה, נפיחות, חום גבוה, דיבור הזוי", heatCold:"heat" },
   { id:"f56", name:"Xiao Cheng Qi Tang", nameHe:"שיאו צ'נג צ'י טאנג", element:"earth", tree:"Da Huang", pattern:"Yang Ming Interior Heat (Mild)", indications:"עצירות קלה, נפיחות בטנית", heatCold:"heat" },
   { id:"f57", name:"Tiao Wei Cheng Qi Tang", nameHe:"טיאו ווי צ'נג צ'י טאנג", element:"earth", tree:"Da Huang", pattern:"Yang Ming Heat (Regulate ST)", indications:"ויסות חום קיבתי", heatCold:"heat" },
+  // ADDITIONAL FORMULAS for abdominal finding mappings
+  { id:"f58", name:"Wen Dan Tang", nameHe:"וון דאן טאנג", element:"wood", tree:"Ban Xia", pattern:"GB Phlegm-Heat", indications:"ליחה-שומן בסרעפת, חרדה, נדודי שינה, טעם מר", heatCold:"heat" },
+  { id:"f59", name:"Huang Lian Tang", nameHe:"הואנג ליאן טאנג", element:"earth", tree:"Huang Lian", pattern:"ST Damp-Heat", indications:"חום-רטיבות בקיבה, חומצת קיבה, בחילות", heatCold:"heat" },
+  { id:"f60", name:"Xiao Xian Xiong Tang", nameHe:"שיאו שיאן שיונג טאנג", element:"earth", tree:"Huang Lian", pattern:"Phlegm-Heat in Chest", indications:"ליחה-חום בחזה, קשיחות אפיגסטרית", heatCold:"heat" },
+  { id:"f61", name:"Ge Xia Zhu Yu Tang", nameHe:"גה שיה ז'ו יו טאנג", element:"wood", tree:"Chai Hu", pattern:"Blood Stasis Below Diaphragm", indications:"גוש קבוע תת-סרעפתי, כאב קבוע", heatCold:"neutral" },
+  { id:"f62", name:"Gui Pi Tang", nameHe:"גווי פי טאנג", element:"earth", tree:"Ren Shen", pattern:"SP & Heart Blood Xu", indications:"חסר דם טחול ולב, נדודי שינה, חיוורון, דימום", heatCold:"cold" },
+  { id:"f63", name:"Da Huang Mu Dan Pi Tang", nameHe:"דא הואנג מו דאן פי טאנג", element:"metal", tree:"Da Huang", pattern:"Intestinal Blood Stasis + Heat", indications:"סטגנציית דם במעי, כאב בטן ימין תחתון, דלקת", heatCold:"heat" },
 ];
 
 const TREES = [
@@ -321,6 +328,18 @@ const ABDOMEN_ZONES = [
   { id:"subcardiac", name:"תת-לבבי", nameEn:"Subcardiac", element:"fire", points:"CV15, CV14",
     description:"לב ופריקרד — נדודי שינה, חרדה, מצוקה לבבית. CV14=מכני, CV15=נפשי (דורש יותר תמיכה מילולית)",
     findings:["רגישות","קשיחות","דפיקות","מתח שמאל"],
+    findingToFormulas: {
+      "רגישות": ["Dao Chi San", "Tian Wang Bu Xin Dan", "Huang Lian E Jiao Tang"],
+      "קשיחות": ["Dan Shen Yin", "Wen Dan Tang", "Ban Xia Xie Xin Tang"],
+      "דפיקות": ["Zhi Gan Cao Tang", "Dan Shen Yin", "Tian Wang Bu Xin Dan"],
+      "מתח שמאל": ["Chai Hu Jia Long Gu Mu Li Tang", "Wen Dan Tang", "Xiao Yao San"],
+    },
+    findingToProtocols: {
+      "רגישות": ["אש — שי/עודף", "אש שו/חסר"],
+      "קשיחות": ["מכני לבבי", "מתח אפיגסטרי", "ניקוי חום"],
+      "דפיקות": ["אש — שי/עודף", "מכני לבבי", "אש שו/חסר"],
+      "מתח שמאל": ["לבבי שי (שמאל)", "נדודי שינה"],
+    },
     protocols:[
       { name:"אש — שי/עודף", points:"CV12, ST25L, PC6L, LU7R, K6B" },
       { name:"לבבי שי (שמאל)", points:"K25L, PC3L, LI15, קו Jianeiling" },
@@ -362,6 +381,30 @@ const ABDOMEN_ZONES = [
       }
     },
     findings:["מתח ימין (שאו יאנג)","מתח שמאל (יאנג מינג)","מתח דו-צדדי","רגישות","קשיחות ימין (ליחה)","קשיחות שמאל (חום-רטיבות)","גוש Pigen (ימין)","רכות שמאל (רטיבות)","פעימה צפה (שי)","פעימה עמוקה (שו)"],
+    findingToFormulas: {
+      "מתח ימין (שאו יאנג)": ["Xiao Chai Hu Tang", "Da Chai Hu Tang", "Wen Dan Tang"],
+      "מתח שמאל (יאנג מינג)": ["Ping Wei San", "Huang Lian Tang"],
+      "מתח דו-צדדי": ["Chai Hu Jia Long Gu Mu Li Tang"],
+      "רגישות": ["Xiao Chai Hu Tang", "Ban Xia Xie Xin Tang"],
+      "קשיחות ימין (ליחה)": ["Wen Dan Tang", "Da Chai Hu Tang"],
+      "קשיחות שמאל (חום-רטיבות)": ["Huang Lian Tang", "Ban Xia Xie Xin Tang", "Xiao Xian Xiong Tang"],
+      "גוש Pigen (ימין)": ["Ge Xia Zhu Yu Tang", "Da Chai Hu Tang"],
+      "רכות שמאל (רטיבות)": ["Ping Wei San", "Liu Jun Zi Tang"],
+      "פעימה צפה (שי)": ["Bai Hu Tang", "Gui Zhi Tang"],
+      "פעימה עמוקה (שו)": ["Tian Wang Bu Xin Dan", "Xiang Sha Liu Jun Zi Tang"],
+    },
+    findingToProtocols: {
+      "מתח ימין (שאו יאנג)": ["שאו יאנג (ימין)"],
+      "מתח שמאל (יאנג מינג)": ["יאנג מינג — חום-רטיבות (שמאל)", "כבד-קיבה (שמאל)"],
+      "מתח דו-צדדי": ["מתח דו-צדדי (שי)", "שאו יאנג + יאנג מינג (דו-צדדי)"],
+      "רגישות": ["שאו יאנג (ימין)", "יאנג מינג — חום-רטיבות (שמאל)"],
+      "קשיחות ימין (ליחה)": ["שאו יאנג (ימין)"],
+      "קשיחות שמאל (חום-רטיבות)": ["יאנג מינג — חום-רטיבות (שמאל)"],
+      "גוש Pigen (ימין)": ["שאו יאנג (ימין)"],
+      "רכות שמאל (רטיבות)": ["כבד-קיבה (שמאל)", "כבד עולה על קיבה"],
+      "פעימה צפה (שי)": ["מתח דו-צדדי (שי)", "סטגנציית צ'י כבד"],
+      "פעימה עמוקה (שו)": ["כבד עולה על קיבה", "דאי מאי + תת-צלעי"],
+    },
     protocols:[
       { name:"שאו יאנג (ימין)", points:"ST21R, Pigen, GB34R, GB40R, Dan Nang Xin, TW5R" },
       { name:"יאנג מינג — חום-רטיבות (שמאל)", points:"ST21L, CV12, ST44B, LI11R, PC6L" },
@@ -375,6 +418,20 @@ const ABDOMEN_ZONES = [
   { id:"epigastric", name:"אפיגסטרי", nameEn:"Epigastrium", element:"earth", points:"CV12",
     description:"קיבה — עיכול, גזים, צלילי מים. 'אכילת זוחל' = סטגנציית קיבה",
     findings:["צליל מים","גז","כאב בלחיצה","קשיחות","לוח קשיח"],
+    findingToFormulas: {
+      "צליל מים": ["Li Zhong Wan", "Wu Zhu Yu Tang", "Zhen Wu Tang"],
+      "גז": ["Huo Xiang Zheng Qi San", "Ping Wei San", "Pai Qi Yin"],
+      "כאב בלחיצה": ["Ban Xia Xie Xin Tang", "Xiao Jian Zhong Tang"],
+      "קשיחות": ["Huang Lian E Jiao Tang", "Wen Dan Tang", "Ban Xia Xie Xin Tang"],
+      "לוח קשיח": ["Bai Hu Tang", "Da Cheng Qi Tang"],
+    },
+    findingToProtocols: {
+      "צליל מים": ["קיבה הצטברות (יין)"],
+      "גז": ["קו צ'י קיבה (גזים)", "קיבה צ'י יו (יאנג)"],
+      "כאב בלחיצה": ["קיבה צ'י יו (יאנג)", "קיבה הצטברות (יין)"],
+      "קשיחות": ["קיבה הצטברות (יין)", "קיבה פנים/לסת"],
+      "לוח קשיח": ["קיבה צ'י יו (יאנג)"],
+    },
     protocols:[
       { name:"קיבה צ'י יו (יאנג)", points:"ST34R, ST44B, SP4B. +CV11/CV9 אם PP מתחת ל-CV12" },
       { name:"קיבה הצטברות (יין)", points:"CV13, CV12, CV11, ST21L&R" },
@@ -385,6 +442,24 @@ const ABDOMEN_ZONES = [
     description:"טחול — חולשת מבנה, חסר צ'י. טבור נע = חולשה מבנית. כיוון הזזת הטבור מעיד: למעלה=קיבה שי/כליות שו, למטה=כליות/GIT, שמאלה=כבד שי, ימינה=ריאות/כבד Xue Yu",
     navelShifting: true,
     findings:["רכות","הזזה למעלה","הזזה למטה","הזזה שמאלה","הזזה ימינה","אטוניה","רגישות סביב"],
+    findingToFormulas: {
+      "רכות": ["Si Jun Zi Tang", "Liu Jun Zi Tang", "Bu Zhong Yi Qi Tang"],
+      "הזזה למעלה": ["Xiao Jian Zhong Tang"],
+      "הזזה למטה": ["Ba Wei Di Huang Wan", "Zhen Wu Tang"],
+      "הזזה שמאלה": ["Xiao Yao San", "Chai Hu Shu Gan Wan"],
+      "הזזה ימינה": ["Gui Zhi Fu Ling Wan", "Tao He Cheng Qi Tang"],
+      "אטוניה": ["Si Jun Zi Tang", "Bu Zhong Yi Qi Tang"],
+      "רגישות סביב": ["Gui Zhi Fu Ling Wan", "Gui Pi Tang"],
+    },
+    findingToProtocols: {
+      "רכות": ["טחול צ'י שו", "מוקסה CV8"],
+      "הזזה למעלה": ["טחול צ'י שו"],
+      "הזזה למטה": ["תחליף CV6 חמור"],
+      "הזזה שמאלה": ["טחול צ'י שו"],
+      "הזזה ימינה": ["טחול צ'י שו"],
+      "אטוניה": ["מוקסה CV8", "תחליף CV6 חמור"],
+      "רגישות סביב": ["סוכר/תשוקות", "טחול צ'י שו"],
+    },
     protocols:[
       { name:"טחול צ'י שו", points:"SP4, SP3, או SP4½ ברגל חלשה בלבד" },
       { name:"מוקסה CV8", points:"CV8 — מוקסה על מלח בלבד" },
@@ -394,6 +469,22 @@ const ABDOMEN_ZONES = [
   { id:"left", name:"בטן שמאל", nameEn:"Left Abdomen", element:"wood", points:"ST25L",
     description:"כבד — רמת צ'י. סטגנציה תפקודית, סטרס, הורמונים, מתח שריר רקטוס שמאלי. קשור להפרעות שחלות/אשכים ומתח רגשי. מתח קיצוני ברקטוס שמאלי = ג'ואה יין (Wu Mei Wan). סטגנציית דם 'חדשה' → עץ Tao Ren. פעימה עמוקה עם PP = צ'י כבד, דורש Long Gu + Mu Li לעיגון",
     findings:["מתח","כאב","קשיחות","גוש","מתח רקטוס","פעימה עמוקה"],
+    findingToFormulas: {
+      "מתח": ["Xiao Yao San", "Chai Hu Shu Gan Wan"],
+      "כאב": ["Xue Fu Zhu Yu Tang", "Xiao Chai Hu Tang"],
+      "קשיחות": ["Da Chai Hu Tang", "Wen Dan Tang"],
+      "גוש": ["Gui Zhi Fu Ling Wan", "Da Huang Mu Dan Pi Tang", "Ge Xia Zhu Yu Tang"],
+      "מתח רקטוס": ["Wu Mei Wan", "Dang Gui Si Ni Tang"],
+      "פעימה עמוקה": ["Chai Hu Jia Long Gu Mu Li Tang"],
+    },
+    findingToProtocols: {
+      "מתח": ["הרמוניה כללית"],
+      "כאב": ["כבד מרידיאן (יפני)", "כבד מרידיאן (מערבי)"],
+      "קשיחות": ["כבד יאנג + דאי מאי", "כבד חום"],
+      "גוש": ["כבד מרידיאן (יפני)", "כבד חום"],
+      "מתח רקטוס": ["כבד מרידיאן (יפני)", "כבד יאנג + דאי מאי"],
+      "פעימה עמוקה": ["הרמוניה כללית", "חסר דם כבד"],
+    },
     protocols:[
       { name:"הרמוניה כללית", points:"ST25L, TW5R, LV14R, LV3B, LV5L, SP10L" },
       { name:"כבד מרידיאן (יפני)", points:"ST25L, LV4, LV5, SP10, LU5" },
@@ -405,6 +496,22 @@ const ABDOMEN_ZONES = [
   { id:"right", name:"בטן ימין", nameEn:"Right Abdomen", element:"metal", points:"ST25R",
     description:"ריאות/מעי גס — רמת דם (Xue). סטגנציית דם כרונית 'ישנה', חיסון/לימפה, דלקת מעי כרונית. ממצאי Xue Yu: קשיחות, גושים קבועים (Ji), בטן כלוח, עור יבש/מפוספס, פיגמנטציה כהה, ורידים סגולים תת-לשוניים. צמחים עדיפים על דיקור — עץ Da Huang לסטגנציה ישנה. PP פריאומביליקלי ימין = 10 נק' ב-Xue Yu",
     findings:["מתח","רגישות","קשיחות","גוש קבוע (Ji)","עור יבש/מפוספס","פעימה עמוקה"],
+    findingToFormulas: {
+      "מתח": ["Xue Fu Zhu Yu Tang", "Da Huang Mu Dan Pi Tang"],
+      "רגישות": ["Tao He Cheng Qi Tang", "Bai Tou Weng Tang"],
+      "קשיחות": ["Da Huang Mu Dan Pi Tang", "Xue Fu Zhu Yu Tang"],
+      "גוש קבוע (Ji)": ["Ge Xia Zhu Yu Tang", "Da Huang Mu Dan Pi Tang"],
+      "עור יבש/מפוספס": ["Si Wu Tang", "Bei Mu Gua Lou San"],
+      "פעימה עמוקה": ["Xue Fu Zhu Yu Tang", "Gui Zhi Fu Ling Wan"],
+    },
+    findingToProtocols: {
+      "מתח": ["סטגנציית מתכת (כתף/צוואר)", "מתכת עודף (כתף/גוף עליון)"],
+      "רגישות": ["סטגנציה מעי", "סטגנציית מתכת (כתף/צוואר)"],
+      "קשיחות": ["סטגנציית מתכת (כתף/צוואר)", "סטגנציה מעי"],
+      "גוש קבוע (Ji)": ["סטגנציה מעי"],
+      "עור יבש/מפוספס": ["מתכת חסר (חיסון/ריאות)", "חיסון חלש"],
+      "פעימה עמוקה": ["סטגנציית מתכת (כתף/צוואר)", "סטגנציה מעי"],
+    },
     protocols:[
       { name:"סטגנציית מתכת (כתף/צוואר)", points:"ST25/26R, LU2R, LU9L" },
       { name:"מתכת עודף (כתף/גוף עליון)", points:"TW3B, SI3B, LI4B, LU5R, LU5/6R, LU8" },
@@ -416,6 +523,20 @@ const ABDOMEN_ZONES = [
   { id:"lower", name:"בטן תחתונה", nameEn:"Lower Abdomen", element:"water", points:"CV4, CV6",
     description:"כליות — חיוניות, הורמונים, אנרגיה. בדיקת רגל היפרטונית (יין) vs אטונית (יאנג)",
     findings:["הדוקות","אטוניה","קור","רגישות עמוקה","Linea Alba עמוקה"],
+    findingToFormulas: {
+      "הדוקות": ["Liu Wei Di Huang Wan", "Zhi Bai Di Huang Wan"],
+      "אטוניה": ["Ba Wei Di Huang Wan", "You Gui Wan"],
+      "קור": ["Ba Wei Di Huang Wan", "Zhen Wu Tang", "You Gui Wan"],
+      "רגישות עמוקה": ["Ba Wei Di Huang Wan", "Gui Zhi Fu Ling Wan"],
+      "Linea Alba עמוקה": ["Ba Wei Di Huang Wan", "Zhen Wu Tang"],
+    },
+    findingToProtocols: {
+      "הדוקות": ["כליות צ'י יין (חום)"],
+      "אטוניה": ["כליות צ'י יאנג (קור)", "הרמוניה כללית"],
+      "קור": ["כליות צ'י יאנג (קור)"],
+      "רגישות עמוקה": ["הרמוניה כללית", "טראומת לידה (בטן רגישה)"],
+      "Linea Alba עמוקה": ["כליות צ'י יאנג (קור)", "הרמוניה כללית"],
+    },
     protocols:[
       { name:"הרמוניה כללית", points:"Qipang, ST27, CV6/4, K27, K16, LV8, K10, K6, K1" },
       { name:"כליות צ'י יאנג (קור)", points:"Qipang R, CV6, K27L, SP9R, K7R (מוקסה על מחט ×2)" },
@@ -797,6 +918,14 @@ export default function TCMApp() {
 
   const ud = useCallback((k, v) => setDiagData(p => ({ ...p, [k]:v })), []);
 
+  // Bug fix: restore selectedZones from abdominalFindings when returning to step 2
+  useEffect(() => {
+    if (diagStep === 2 && selectedZones.length === 0) {
+      const zonesWithFindings = Object.keys(diagData.abdominalFindings).filter(k => diagData.abdominalFindings[k]?.length > 0);
+      if (zonesWithFindings.length > 0) setSelectedZones(zonesWithFindings);
+    }
+  }, [diagStep]);
+
   // Load saved diagnoses
   useEffect(() => {
     (async () => {
@@ -820,7 +949,13 @@ export default function TCMApp() {
     setLoadingStorage(false);
   };
 
-  const loadDiagnosis = (d) => { setDiagData(d); setMode("diagnose"); setDiagStep(0); };
+  const loadDiagnosis = (d) => {
+    setDiagData(d);
+    const zonesWithFindings = Object.keys(d.abdominalFindings || {}).filter(k => d.abdominalFindings[k]?.length > 0);
+    setSelectedZones(zonesWithFindings);
+    setMode("diagnose");
+    setDiagStep(0);
+  };
 
   const deleteDiagnosis = async (key) => {
     await storage.remove(key);
@@ -853,9 +988,26 @@ export default function TCMApp() {
 
   const recommendedFormulas = useMemo(() => {
     const findings = diagData.abdominalFindings;
-    const elements = Object.keys(findings).filter(k => findings[k]?.length > 0).map(k => ABDOMEN_ZONES.find(z => z.id === k)?.element).filter(Boolean);
-    if (!elements.length) return [];
-    let c = FORMULAS.filter(f => elements.includes(f.element));
+    const activeZones = Object.keys(findings).filter(k => findings[k]?.length > 0);
+    if (!activeZones.length) return [];
+    // Collect specific formula names from findingToFormulas mappings
+    const specificNames = new Set();
+    activeZones.forEach(zoneId => {
+      const zone = ABDOMEN_ZONES.find(z => z.id === zoneId);
+      if (!zone?.findingToFormulas) return;
+      (findings[zoneId] || []).forEach(f => {
+        (zone.findingToFormulas[f] || []).forEach(name => specificNames.add(name));
+      });
+    });
+    // Match by formula name from the FORMULAS array
+    let c;
+    if (specificNames.size > 0) {
+      c = FORMULAS.filter(f => specificNames.has(f.name));
+    } else {
+      // Fallback: filter by element if no specific mappings found
+      const elements = activeZones.map(k => ABDOMEN_ZONES.find(z => z.id === k)?.element).filter(Boolean);
+      c = FORMULAS.filter(f => elements.includes(f.element));
+    }
     if (diagData.heatCold === "heat") c = c.filter(f => f.heatCold !== "cold");
     if (diagData.heatCold === "cold") c = c.filter(f => f.heatCold !== "heat");
     return c;
@@ -1251,12 +1403,25 @@ export default function TCMApp() {
           <div style={s.sectionTitle}>📍 פרוטוקולי דיקור לפי ממצא בטני</div>
           {ABDOMEN_ZONES.filter(z => diagData.abdominalFindings[z.id]?.length).length === 0 
             ? <div style={{ fontSize:12, color:"#4b5563", marginBottom:12 }}>לא סומנו ממצאים בטניים</div>
-            : ABDOMEN_ZONES.filter(z => diagData.abdominalFindings[z.id]?.length).map(z => (
+            : ABDOMEN_ZONES.filter(z => diagData.abdominalFindings[z.id]?.length).map(z => {
+            const zoneFindings = diagData.abdominalFindings[z.id] || [];
+            // Collect relevant protocol names from findingToProtocols
+            const relevantProtocolNames = new Set();
+            if (z.findingToProtocols) {
+              zoneFindings.forEach(f => {
+                (z.findingToProtocols[f] || []).forEach(pn => relevantProtocolNames.add(pn));
+              });
+            }
+            // Filter protocols: show only relevant ones, or all if no mapping exists
+            const filteredProtocols = relevantProtocolNames.size > 0
+              ? z.protocols.filter(p => relevantProtocolNames.has(p.name))
+              : z.protocols;
+            return (
             <Card key={z.id} style={{ padding:10, marginBottom:8 }}>
-              <div style={{ display:"flex", alignItems:"center", gap:6, marginBottom:4 }}><ElementBadge element={z.element} small /><span style={{ fontWeight:600 }}>{z.name}</span><span style={{ fontSize:11, color:"#64748b" }}>{(diagData.abdominalFindings[z.id]||[]).join(", ")}</span></div>
-              {z.protocols.map((p,i) => <div key={i} style={{ fontSize:12, color:"#c084fc", marginBottom:2 }}><b>{p.name}:</b> <span style={{ color:"#e2e8f0" }}>{p.points}</span></div>)}
+              <div style={{ display:"flex", alignItems:"center", gap:6, marginBottom:4 }}><ElementBadge element={z.element} small /><span style={{ fontWeight:600 }}>{z.name}</span><span style={{ fontSize:11, color:"#64748b" }}>{zoneFindings.join(", ")}</span></div>
+              {filteredProtocols.map((p,i) => <div key={i} style={{ fontSize:12, color:"#c084fc", marginBottom:2 }}><b>{p.name}:</b> <span style={{ color:"#e2e8f0" }}>{p.points}</span></div>)}
             </Card>
-          ))}
+          );})}
 
           {/* Back findings summary */}
           {Object.entries(diagData.backFindings || {}).filter(([,v])=>v?.length && !v.includes("ללא ממצא")).length > 0 && (<>
