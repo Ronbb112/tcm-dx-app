@@ -300,8 +300,8 @@ const SIX_LAYERS = [
     treatment:"שילשול דרסטי של חום ויובש. דיקור: ST34R, ST44B, SP4B",
     priority:"", color:"#f59e0b" },
   { id:"shaoyang", name:"Shao Yang", nameHe:"שאו יאנג", level:"ציר (Pivot)", element:"wood",
-    symptoms:"טעם מר, גרון יבש, סחרחורת, חום וצמרמורות לסירוגין, כאב צלעות, דופק מתוח",
-    abdominal:"כאב/מתח תת-צלעי ימני. נקודת Pigen (צד ימין בלבד)",
+    symptoms:"טעם מר, גרון יבש, סחרחורת, חום וצמרמורות לסירוגין, כאב צלעות, דופק מתוח. צד ימין בלבד! איבר כבד / מרידיאן מרה (Liver organ / GB meridian). הפרעות מטבוליות של כבד, הפרעות ויראליות ואוטואימוניות",
+    abdominal:"כאב/מתח תת-צלעי ימני. נקודת Pigen (צד ימין בלבד). בין טאי יאנג לטאי יין (Between Tai Yang & Tai Yin)",
     formulas:"Xiao Chai Hu Tang (הרמוניזציה), Da Chai Hu Tang (שילשול), Chai Hu Jia Long Gu Mu Li Tang (סטרס/אוטואימוני)",
     treatment:"הרמוניזציית ציר, עבודה על כבד דרך מרה. נקודות: Pigen, Dan Nang Xin",
     priority:"", color:"#22c55e" },
@@ -312,7 +312,7 @@ const SIX_LAYERS = [
     treatment:"חיזוק צ'י טחול וחימום. דיקור: SP4 (רגל חלשה בלבד), CV8 (מוקסה על מלח)",
     priority:"", color:"#b45309" },
   { id:"shaoyin", name:"Shao Yin", nameHe:"שאו יין", level:"עמוק", element:"water",
-    symptoms:"הזעות לילה, גלי חום, דופק דק ועדין, עייפות אחה\"צ, לחץ דם נמוך, רצון רק לישון",
+    symptoms:"הזעות לילה, גלי חום, דופק דק ועדין, עייפות אחה\"צ, לחץ דם נמוך, רצון רק לישון. כולל יד ורגל (Hand & Foot Shao Yin)",
     abdominal:"רגישות לאורך רן מאי (קו אמצע), בטן תחתונה (CV4, CV6). בדיקת רגל היפרטונית (יין) vs אטונית (יאנג)",
     formulas:"Si Ni Tang (קור), Huang Lian E Jiao Tang (חום), Liu Wei Di Huang Wan (יין שו)",
     treatment:"שחזור חיוניות ליבה. דיקור: Qipang, ST27B, CV4, CV5, CV6",
@@ -808,6 +808,282 @@ const THIGH_TENSION = [
 ];
 
 const SPLEEN_QI_LEG = { rule:"ב-SP Qi Xu (עייפות, שלשול, תשוקה למתוק) — מטפלים רק ברגל החלשה", points:"SP4, SP6, SP9, ST36, CV6", mods:"SP3 / SP4.5 לסוכרת או תשוקה חזקה למתוק", technique:"מוקסה ישירה או מוקסה על מחט — ביום בלבד" };
+
+// ===== 8 EXTRAORDINARY MERIDIANS → ABDOMINAL ZONE MAPPING =====
+const EV_ZONE_MAPPING = [
+  { id:"ez1", zone:"Fire / תת-לבבי (Subcardiac)", vessels:"Ren Mai + Yin Wei", vesselHe:"רן מאי + יין ווי", description:"אזור אש — CV14/CV15. רן מאי מחבר יין, יין ווי מחבר רגש ללב. מצוקה לבבית ונפשית, נדודי שינה, חרדה", element:"fire" },
+  { id:"ez2", zone:"Earth / אפיגסטריום וטבור", vessels:"Yin Wei + Chong Mai", vesselHe:"יין ווי + צ'ונג מאי", description:"אזור אדמה — CV12/CV8. יין ווי מחבר רגש, צ'ונג מאי הוא ים הדם. עיכול, ספיגה, חולשת GIT", element:"earth" },
+  { id:"ez3", zone:"Water / בטן תחתונה", vessels:"Yang Qiao + Yin Qiao", vesselHe:"יאנג צ'יאו + יין צ'יאו", description:"אזור מים — CV4/CV6. יאנג צ'יאו ויין צ'יאו שולטים באיברי רבייה ומימוש. כליות, הורמונים, פוריות", element:"water" },
+  { id:"ez4", zone:"Wood / אזור כבד", vessels:"Yang Wei + Dai Mai", vesselHe:"יאנג ווי + דאי מאי", description:"אזור עץ — ST25L/ST21R. יאנג ווי מחבר יאנג חיצוני, דאי מאי חוגר את המותן. סטגנציית כבד, מיגרנות, כאב גב", element:"wood" },
+  { id:"ez5", zone:"Back / אבחון גב", vessels:"Du Mai + Yang Wei", vesselHe:"דו מאי + יאנג ווי", description:"דו מאי שולט בעמוד שדרה ויאנג. יאנג ווי שולט בכתפיים/צוואר/פנים. אבחון גבי דרך Huato ו-B43", element:"metal" },
+];
+
+// ===== NAVEL DIAGNOSIS — EXPANDED =====
+const NAVEL_DIAGNOSIS = {
+  healthy: {
+    title:"טבור בריא",
+    titleEn:"Healthy Navel",
+    criteria:[
+      "עמוק ומעוצב היטב (deep, well-shaped)",
+      "רקמה חזקה סביב הטבור",
+      "ממוקם במרכז — 2/3 בין CV15 ל-CV2",
+      "ללא בקע (hernia)",
+      "לא שטוח מדי ולא עמוק מדי",
+    ]
+  },
+  shifting: [
+    { direction:"למעלה", directionEn:"Too High", young:"צעירים: קיבה שי (ST Shi) — עודף", old:"מבוגרים: כליות שו (K Xu) — חסר", icon:"⬆️", color:"#f59e0b" },
+    { direction:"למטה", directionEn:"Too Low", young:"כליות שי (LV) או כליות שו (Yang Qiao)", old:"חולשת GIT (קיבה+טחול)", icon:"⬇️", color:"#3b82f6" },
+    { direction:"שמאלה", directionEn:"Too Left", young:"כבד שי (LV Shi) — סטגנציית צ'י כבד", old:"כבד שי (LV Shi)", icon:"⬅️", color:"#22c55e" },
+    { direction:"ימינה", directionEn:"Too Right", young:"ריאות שי (דלקת כרונית, LU Shi)", old:"ריאות שו (+כליות, LU Xu+K) או כבד שי (Xue Yu)", icon:"➡️", color:"#6b7280" },
+  ],
+  birthTrauma: [
+    { type:"מלקחיים (Forceps)", effect:"צלקות, חולשת זיכרון", typeEn:"Forceps delivery" },
+    { type:"הרדמה לאם", effect:"חומרי הרדמה עוברים לעובר — השפעה על Shen", typeEn:"Anesthesia to mother" },
+    { type:"לידה מוקדמת (פג)", effect:"ריאות חלשות (Weak LU) — חיסון חלש", typeEn:"Premature birth" },
+    { type:"חבל טבור קצר מדי", effect:"חולשת צ'י כליות (Weak K Qi)", typeEn:"Cord cut too close" },
+    { type:"חבל טבור סביב צוואר", effect:"בעיות זרימת דם למוח", typeEn:"Cord around neck" },
+    { type:"חבל טבור מפותל", effect:"חולשת טחול (Weak SP)", typeEn:"Coiled cord" },
+    { type:"חבל טבור לחוץ", effect:"קצב לב גבוה (High heart rate)", typeEn:"Compressed cord" },
+  ]
+};
+
+// ===== ABDOMINAL PULSATION =====
+const ABDOMINAL_PULSATION = [
+  { type:"תקין (Healthy)", typeEn:"Healthy", location:"CV8 ברמה 2-3", description:"לא חזק ולא חלש מדי. יכול להיות גם בקו ST שמאל ברמה 2-3 (Chong Mai תקין)", level:"2-3", condition:"normal", color:"#22c55e" },
+  { type:"פעימה צפה (Floating)", typeEn:"Floating Pulsation", location:"רמה 1 — שטח", description:"מצב שי (עודף). עור חם. עם רגישות בלחיצה (PP)", level:"1", condition:"shi", color:"#f59e0b" },
+  { type:"פעימה עמוקה (Deep)", typeEn:"Deep Pulsation", location:"רמה 3 — עומק", description:"עור קר, אזור חלש, חולשה", level:"3", condition:"xu", color:"#3b82f6" },
+  { type:"פעימה חלשה (Weak)", typeEn:"Weak Pulsation", location:"רמה 3", description:"חולשת צ'י או צ'י כליות. פרוגנוזה איטית", level:"3", condition:"xu", color:"#8b5cf6" },
+  { type:"פעימה חזקה (Strong)", typeEn:"Strong Pulsation", location:"בדרך כלל רמה 1 — שי", description:"ברמה 1 = שי רגיל. ברמה 3 = חסר חמור של כליות ו/או טחול", level:"1-3", condition:"shi/xu", color:"#ef4444" },
+];
+
+// ===== LINEA ALBA DIAGNOSIS =====
+const LINEA_ALBA = [
+  { type:"שטחית (Surface)", typeEn:"Surface", location:"בדרך כלל ג'יאו עליון (UJ)", meaning:"מצב קיבה ו/או כבד (ST and/or LV condition)", color:"#f59e0b" },
+  { type:"עמוקה (Deep)", typeEn:"Deep", location:"בדרך כלל ג'יאו תחתון (LJ)", meaning:"דקה = כבד Xue Yu. עמוקה ברמה 3 = כליות יאנג שו (K Yang Xu)", color:"#3b82f6" },
+  { type:"קונסטיטוציונלית (Constitutional)", typeEn:"Constitutional", location:"לאורך הבטן", meaning:"נפוצה בטיפוסי Gui Zhi ו-Chai Hu tree", color:"#8b5cf6" },
+  { type:"עם טבור צר (Narrow Navel)", typeEn:"With Narrow Navel", location:"טבור חושף את הלינאה אלבה", meaning:"סטגנציית קיבה חמורה (Severe ST Yu)", color:"#ef4444" },
+];
+
+// ===== FOUR QUADRANT PATTERN RELATIONSHIPS =====
+const QUADRANT_PATTERNS = [
+  { id:"urq", name:"URQ — ימין עליון", nameEn:"Upper Right Quadrant", ratio:"Xue > Qi (דם מוביל צ'י)", relationship:"דם כבד מניע צ'י מרה (LV Xue → GB Qi)", function:"מניעת חום-רטיבות (Damp Heat)", disorders:"הפרעות שי (עודף) בלבד", element:"wood", color:"#22c55e" },
+  { id:"ulq", name:"ULQ — שמאל עליון", nameEn:"Upper Left Quadrant", ratio:"Qi = Qi (צ'י שווה צ'י)", relationship:"צ'י טחול עולה / צ'י קיבה יורדת (SP Qi ↑ / ST Qi ↓)", function:"איזון עיכול והובלה", disorders:"הפרעות שי (ST) או שו (SP)", element:"earth", color:"#f59e0b" },
+  { id:"lrq", name:"LRQ — ימין תחתון", nameEn:"Lower Right Quadrant", ratio:"Xue = Xue (דם שווה דם)", relationship:"דם כבד תומך בדם/יין כליות (LV Xue → K Xue/Yin)", function:"איכות דם תומכת ביין כליות", disorders:"הפרעות שי או שו", element:"water", color:"#3b82f6" },
+  { id:"llq", name:"LLQ — שמאל תחתון", nameEn:"Lower Left Quadrant", ratio:"Xue < Qi (צ'י מוביל דם)", relationship:"דם כבד מניע צ'י מעי גס (LV Xue → LI Qi)", function:"תנועת מעיים ופינוי", disorders:"הפרעות שי או שו", element:"metal", color:"#6b7280" },
+];
+
+// ===== ABDOMINAL PATTERN CATEGORIES (Big vs Small) =====
+const ABDOMEN_PATTERN_CATEGORIES = [
+  { shiXu:"שי (Shi)", size:"בטן גדולה (Big)", pattern:"הצטברות (Accumulation)", description:"הצטברות של ליחה, מזון, רטיבות, או צואה. מצבי יאנג מינג או ליחה-רטיבות", icon:"💪🔵", color:"#ef4444" },
+  { shiXu:"שי (Shi)", size:"בטן קטנה (Small)", pattern:"סטגנציית צ'י ו/או דם (Qi/Xue Yu)", description:"סטגנציה תפקודית — מתח שרירי, כאב מקומי, גושים. מצבי כבד/שאו יאנג", icon:"💪🔴", color:"#f59e0b" },
+  { shiXu:"שו (Xu)", size:"בטן גדולה (Big)", pattern:"ריאות וטחול (LU & SP)", description:"חסר צ'י מגן (Wei Qi) וצ'י טחול. בצקת, נפיחות רכה, הזעה ספונטנית", icon:"🌙🔵", color:"#3b82f6" },
+  { shiXu:"שו (Xu)", size:"בטן קטנה (Small)", pattern:"כבד וכליות (LV & K)", description:"חסר דם כבד ויין/יאנג כליות. בטן שטוחה, יבשה, חסרת טונוס", icon:"🌙🔴", color:"#8b5cf6" },
+];
+
+// ===== KIDNEY WATER PATTERNS TABLE =====
+const KIDNEY_WATER_PATTERNS = [
+  {
+    vessel:"Du Mai", vesselHe:"דו מאי",
+    organMeridian:"איבר+מרידיאן. שתייה-השתנה, מבוסס נוזלים",
+    formula:"Jin Gui Shen Qi Wan",
+    time:"17:00-19:00",
+    bodyPart:"עמוד שדרה חלק עליון, צוואר",
+    symptom:"קור מחסר יאנג (Cold from Yang Xu)",
+    characteristics:"ירידה, שאיפה, תקווה, המשכיות, יאנג ליום",
+    tongue:"רטובה, נפוחה, סימני שיניים (יאנג שו)",
+    pulse:"איטי, עמוק (יאנג שו)",
+    element:"water", color:"#1D4ED8"
+  },
+  {
+    vessel:"Ren Mai", vesselHe:"רן מאי",
+    organMeridian:"איבר+מרידיאן. מבוסס נוזלים",
+    formula:"Liu Wei Di Huang Wan",
+    time:"נרדם בקלות אך שינה קלה — אין מספיק יין להחזיק שינה",
+    bodyPart:"חזה, חלק עליון CV15",
+    symptom:"חום מחסר יין (Heat from Yin Xu)",
+    characteristics:"ירידה, שאיפה, תקווה, המשכיות, יין ללילה",
+    tongue:"חובה: מקולפת (peeled), יבשה, אדומה",
+    pulse:"צף, מהיר, דק",
+    element:"fire", color:"#DC2626"
+  },
+  {
+    vessel:"Yang Qiao", vesselHe:"יאנג צ'יאו",
+    organMeridian:"מרידיאן בלבד — איברי רבייה ומימוש",
+    formula:"You Gui Wan",
+    time:"תחילת הבוקר (Start of morning)",
+    bodyPart:"אשכים/שחלות, תחתון אחורי פנימי — מהגב לחזית, לא כולל כליות",
+    symptom:"חסר יאנג חומרי (Material Yang Xu)",
+    characteristics:"עיגון ושמירה — תחילת הבוקר",
+    tongue:"רטובה, נפוחה, סימני שיניים (יאנג שו)",
+    pulse:"איטי, עמוק (יאנג שו)",
+    element:"water", color:"#3b82f6"
+  },
+  {
+    vessel:"Yin Qiao", vesselHe:"יין צ'יאו",
+    organMeridian:"מרידיאן בלבד — איברי רבייה ומימוש",
+    formula:"Zuo Gui Yin",
+    time:"תחילת השינה — אין מספיק יין להירדם",
+    bodyPart:"אשכים/שחלות, תחתון קדמי פנימי, לא כולל כליות",
+    symptom:"חסר יין חומרי (Material Yin Xu)",
+    characteristics:"עיגון ושמירה — תחילת השינה",
+    tongue:"—",
+    pulse:"—",
+    element:"water", color:"#8b5cf6"
+  },
+];
+
+// ===== PRESSURE PAIN (PP) EXAMINATION =====
+const PP_EXAMINATION = {
+  levels: [
+    { level:1, name:"שטח (Surface)", description:"לחיצה קלה — בדיקת עור וצ'י שטחית" },
+    { level:2, name:"אמצע (Medium)", description:"לחיצה בינונית — בדיקת שריר וצ'י" },
+    { level:3, name:"עומק (Deep)", description:"לחיצה עמוקה בזווית 90° — בדיקת איברים וגושים" },
+  ],
+  types: [
+    { type:"חד (Sharp PP)", description:"כאב חד ומקומי — מצב שי אקוטי" },
+    { type:"עמום (Dull PP)", description:"כאב עמום ומפושט — מצב שו או כרוני" },
+    { type:"מקומי (Local PP)", description:"כאב ממוקד — סטגנציה מקומית" },
+    { type:"מקרין (Radiating PP)", description:"כאב מקרין — מעורבות מרידיאנית. מקרין לאזור איבר או מאי" },
+  ],
+  hypersensitive: {
+    title:"בטן רגישה יתר (Hypersensitive Abdomen)",
+    treatment:"דיקור אוזן עד 15 דקות לפני בדיקה; או טיפול ב-SP10, ST36, ST38 להרגעת הבטן"
+  }
+};
+
+// ===== BACK DIAGNOSIS — 5 ELEMENTS TABLE =====
+const BACK_5E_TABLE = [
+  { element:"metal", elementHe:"מתכת", left:"מצב שו (חסר) — נשימתי (respiratory)", right:"מצב שי (עודף) — אלרגיה (+Yang Wei)", levels:"T1-T3", color:"#6B7280" },
+  { element:"fire", elementHe:"אש", left:"בעיקר שמאל — מצב שי (עודף)", right:"אין צד ימין", levels:"T4-T7", color:"#DC2626" },
+  { element:"wood", elementHe:"עץ", left:"אין צד שמאל", right:"בעיקר ימין — מצב שי (שאו יאנג, Shao Yang)", levels:"T8-T10", color:"#15803D" },
+  { element:"earth", elementHe:"אדמה", left:"בעיקר שמאל — שו לטחול (SP Xu), שי לקיבה (ST Shi)", right:"—", levels:"T11-L2", color:"#B45309" },
+  { element:"water", elementHe:"מים", left:"בעיקר שמאל — מצב שו (חסר)", right:"—", levels:"L3-S1", color:"#1D4ED8" },
+];
+
+// ===== AUTOIMMUNE CONNECTION (Kiiko Matsumoto) =====
+const AUTOIMMUNE_CONNECTION = {
+  title:"קשר אוטואימוני — שיטת Kiiko Matsumoto",
+  titleEn:"Autoimmune Connection",
+  mechanism:[
+    "חיתוך חבל טבור מוקדם מדי",
+    "סטגנציה בווריד הטבורי (Umbilical Vein Stagnation)",
+    "פחות הורמונים, חמצן, תזונה ומרכיבי חיסון מגיעים לתינוק",
+    "עלול לבלבל את מערכת החיסון",
+    "תגובות אלרגיות ואוטואימוניות",
+  ],
+  yangMing:"DU4 (שמיים) ו-CV8 (אדמה) — קשר יאנג מינג",
+  tCells:"חיבור בין תאי T לרגע הלידה/חיתוך חבל הטבור",
+};
+
+// ===== WESTERN RED FLAGS =====
+const WESTERN_RED_FLAGS = [
+  { flag:"רגישות ריבאונד וקשיחות (Rebound Tenderness/Rigidity)", flagEn:"Rebound tenderness/rigidity", severity:"חירום", icon:"🚨", color:"#ef4444" },
+  { flag:"חום עם רגישות מפושטת (Fever + Diffuse Tenderness)", flagEn:"Fever with diffuse tenderness", severity:"חירום", icon:"🚨", color:"#ef4444" },
+  { flag:"הקאות בלתי נשלטות (Uncontrollable Vomiting)", flagEn:"Uncontrollable vomiting", severity:"חירום", icon:"🚨", color:"#ef4444" },
+  { flag:"ירידה מהירה במשקל (Rapid Weight Loss)", flagEn:"Rapid weight loss", severity:"חשד", icon:"⚠️", color:"#f59e0b" },
+  { flag:"דם בצואה — אדום/שחור (Hematochezia/Melena)", flagEn:"Hematochezia/melena", severity:"חירום", icon:"🚨", color:"#ef4444" },
+  { flag:"צהבת חדשה (New-onset Jaundice)", flagEn:"New-onset jaundice", severity:"חשד", icon:"⚠️", color:"#f59e0b" },
+];
+
+// ===== SPLASHING WATER EXAMINATION =====
+const SPLASHING_WATER = {
+  title:"בדיקת מים מתיזים (Splashing Water)",
+  titleEn:"Splashing Water Test",
+  description:"צליל נוזלים בבטן — אגירת נוזלים בקיבה או במעיים/טחול",
+  examLocations:[
+    "תת-צלעי שמאל — 1/3 למטה (L subcostal 1/3 down)",
+    "מעט מעל ST21L",
+    "אזור CV9",
+  ],
+  precautions:[
+    "לא לחזור יותר מכמה שניות — כואב למטופל",
+    "מטופל לא אוכל שעה לפני הבדיקה",
+    "מטופל לא שותה 15 דקות לפני הבדיקה",
+  ]
+};
+
+// ===== ABDOMINAL MASS (Ji / Ju) =====
+const ABDOMINAL_MASS = {
+  title:"גושים בטניים — Ji / Ju (Nan Jing פרקים 55-56)",
+  titleEn:"Abdominal Mass (Nan Jing Ch. 55-56)",
+  types:[
+    { type:"Ji (積)", typeEn:"Ji - Fixed Mass", nature:"Xue Yu / Zheng Jia", description:"גוש קבוע, קשה, לא זז — סטגנציית דם. נפוץ יותר בנשים", palpation:"לא ללחוץ על הגוש — רק על השוליים" },
+    { type:"Ju (聚)", typeEn:"Ju - Moving Mass", nature:"Qi Stagnation", description:"גוש נע, רך, משתנה — סטגנציית צ'י או ליחה", palpation:"בדיקה עדינה — הגוש עשוי לזוז" },
+  ],
+  location:"בטן תחתונה בין הטבור — לא גז/צואה, אלא קשרים, שריר, רקמה",
+  notes:"נפוץ יותר בנשים. לא ללחוץ ישירות על הגוש — רק על השוליים"
+};
+
+// ===== HEALTHY ABDOMEN CRITERIA =====
+const HEALTHY_ABDOMEN = [
+  { criterion:"טונוס", description:"לא רכה מדי ולא מתוחה מדי — אלסטית עם טונוס (elastic with tonus)", icon:"💪" },
+  { criterion:"ללא כאב", description:"ללא כאב באזורים עיקריים", icon:"✅" },
+  { criterion:"טמפרטורה", description:"חלק עליון חם מעט יותר מהתחתון", icon:"🌡️" },
+  { criterion:"פעימה", description:"פעימה רק ב-CV8 בלחיצה עמוקה, דקה מאוד", icon:"💓" },
+  { criterion:"סימטריה", description:"צד שמאל חזק מעט יותר מצד ימין", icon:"⚖️" },
+  { criterion:"Linea Alba", description:"ב-CV12 נמוכה מעט — לא דקה מדי ולא עבה מדי", icon:"📏" },
+  { criterion:"רן מאי", description:"קו רן מאי חלש מעט יותר על K מאשר על ST", icon:"🔵" },
+  { criterion:"עור", description:"לח, אלסטי, ניתן לצביטה בקלות", icon:"🖐️" },
+  { criterion:"טבור", description:"ללא בקע, לא עמוק מדי, לא שטוח מדי", icon:"⭕" },
+  { criterion:"כלוב צלעות", description:"אלסטי אך חזק", icon:"🦴" },
+];
+
+// ===== ABDOMINAL TEMPERATURE EXAMINATION =====
+const ABDOMEN_TEMPERATURE = {
+  title:"בדיקת טמפרטורת בטן",
+  titleEn:"Abdominal Temperature Examination",
+  method:"נבדקת עם כף היד (אזור H8 — Lao Gong)",
+  areas:[
+    { area:"אזורי סאן ג'יאו (San Jiao)", description:"ג'יאו עליון, אמצעי ותחתון — השוואת חום בין 3 האזורים" },
+    { area:"5 אזורי נאן ג'ינג (Nan Jing)", description:"5 אזורי אלמנטים על הבטן" },
+  ],
+  principle:"כלל 8 העקרונות: קור = שו (חסר), חום = שי (עודף)",
+  clinicalNotes:"בטן קרה = חסר יאנג (Gan Jiang / Fu Zi). בטן חמה = חום-רטיבות (Huang Lian) או חום ריק (Yin Xu)"
+};
+
+// ===== BODY CONFORMATION / CONSTITUTION DETAILS =====
+const BODY_CONFORMATION = {
+  title:"מבנה גוף — 6 אזורי בדיקה (Conformation)",
+  titleEn:"Body Conformation — 6 Areas",
+  areas:[
+    { area:"ראש ביחס לגוף", description:"ראש נכנס בגוף 7 פעמים = מאוזן. ראש גדול יותר = יאנג קונסטיטוציה. ראש קטן יותר = יין קונסטיטוציה" },
+    { area:"שי או שו", description:"מבנה שי (חזק) או שו (חלש) — קובע כיוון טיפולי" },
+    { area:"חזה / תת-לבבי (CV15)", description:"מתח באזור CV15 — קשור ללב ורגש" },
+    { area:"תת-צלעי (Subcostal)", description:"מתח LV (כבד) או ST (קיבה) — בדיקת שאו יאנג / יאנג מינג" },
+    { area:"קו אמצע (CV12)", description:"אפיגסטריום — קשיחות, גז, צלילי מים" },
+    { area:"בטן תחתונה (CV6/4, ST25/28)", description:"כליות ואגן — חיוניות, הורמונים, מימוש" },
+  ],
+  principle:"אין תסמונות — רק דפוסי בטן עם קונסטלציות של תסמינים (No syndromes — only abdominal patterns with constellations of symptoms)"
+};
+
+// ===== THREE-STEP BODY DIAGNOSIS =====
+const THREE_STEP_DIAGNOSIS = [
+  { step:1, title:"הסתכלות (Looking)", titleEn:"Looking", icon:"👁️", color:"#818cf8",
+    items:[
+      "טיפוס גוף: צ'י / דם (Xue) / נוזלים",
+      "מבנה גוף: ראש/צוואר/ירכיים",
+      "אופי המטופל — התנהגות, קול, תנועה",
+    ]
+  },
+  { step:2, title:"מגע (Touching)", titleEn:"Touching", icon:"🤲", color:"#22c55e",
+    items:[
+      "מרידיאנים: רגליים קודם, אחר כך ידיים",
+      "בטן ב-3 רמות (568 — שטח/אמצע/עומק)",
+      "צוואר/ירכיים",
+      "גב",
+      "מיקרו-אבחון (אוזן, לשון, דופק)",
+      "תלונת המטופל",
+    ]
+  },
+  { step:3, title:"ניתוח (Analyzing)", titleEn:"Analyzing", icon:"🧩", color:"#c084fc",
+    items:[
+      "שינה / אכילה / תנועה (Sleep/Eat/Move)",
+      "אבחנה כוללת",
+      "אסטרטגיית טיפול: תזונה, פורמולות, דיקור (ACP)",
+    ]
+  },
+];
 
 // ===== STORAGE HELPERS =====
 const storage = {
@@ -1904,6 +2180,279 @@ export default function TCMApp() {
     </div>
   );
 
+  // ===== ADVANCED RENDERERS =====
+  const renderAdvanced = () => (
+    <div>
+      {/* 8 Extraordinary → Zone Mapping */}
+      <div style={s.sectionTitle}>⚡ 8 כלים יוצאי דופן → מיפוי אזורי בטן</div>
+      <div style={{ display:"grid", gap:8, marginBottom:20 }}>
+        {EV_ZONE_MAPPING.map(ez => {
+          const el = ELEMENTS[ez.element];
+          return (
+            <div key={ez.id} style={{ padding:12, background:"#16162a", borderRadius:10, borderRight:`3px solid ${el.color}` }}>
+              <div style={{ display:"flex", alignItems:"center", gap:8, marginBottom:4 }}>
+                <ElementBadge element={ez.element} small />
+                <span style={{ fontWeight:700, fontSize:14, color:"#e2e8f0" }}>{ez.zone}</span>
+              </div>
+              <div style={{ fontSize:13, color:"#818cf8", fontWeight:600, marginBottom:4 }}>{ez.vessels} ({ez.vesselHe})</div>
+              <div style={{ fontSize:12, color:"#94a3b8" }}>{ez.description}</div>
+            </div>
+          );
+        })}
+      </div>
+
+      {/* Quadrant Patterns */}
+      <div style={s.sectionTitle}>🔲 יחסי 4 רבעים בבטן</div>
+      <div style={{ display:"grid", gridTemplateColumns:"1fr 1fr", gap:8, marginBottom:20 }}>
+        {QUADRANT_PATTERNS.map(q => (
+          <div key={q.id} style={{ padding:12, background:"#16162a", borderRadius:10, borderTop:`3px solid ${q.color}` }}>
+            <div style={{ fontWeight:700, fontSize:14, color:q.color, marginBottom:4 }}>{q.name}</div>
+            <div style={{ fontSize:12, color:"#818cf8", fontWeight:600, marginBottom:4 }}>{q.ratio}</div>
+            <div style={{ fontSize:12, color:"#e2e8f0", marginBottom:2 }}><b style={{ color:"#f472b6" }}>קשר:</b> {q.relationship}</div>
+            <div style={{ fontSize:12, color:"#e2e8f0", marginBottom:2 }}><b style={{ color:"#22c55e" }}>תפקיד:</b> {q.function}</div>
+            <div style={{ fontSize:11, color:"#94a3b8" }}>הפרעות: {q.disorders}</div>
+          </div>
+        ))}
+      </div>
+
+      {/* Abdomen Pattern Categories */}
+      <div style={s.sectionTitle}>📊 קטגוריות דפוסי בטן — גדולה vs קטנה</div>
+      <div style={{ display:"grid", gridTemplateColumns:"1fr 1fr", gap:8, marginBottom:20 }}>
+        {ABDOMEN_PATTERN_CATEGORIES.map((ap, i) => (
+          <div key={i} style={{ padding:12, background:"#16162a", borderRadius:10, borderRight:`3px solid ${ap.color}` }}>
+            <div style={{ fontWeight:700, fontSize:13, color:ap.color, marginBottom:4 }}>{ap.icon} {ap.shiXu} + {ap.size}</div>
+            <div style={{ fontSize:13, color:"#818cf8", fontWeight:600, marginBottom:4 }}>{ap.pattern}</div>
+            <div style={{ fontSize:12, color:"#94a3b8" }}>{ap.description}</div>
+          </div>
+        ))}
+      </div>
+
+      {/* Kidney Water Patterns */}
+      <div style={s.sectionTitle}>💧 טבלת דפוסי מים — כליות (4 כלים)</div>
+      <div style={{ display:"grid", gap:10, marginBottom:20 }}>
+        {KIDNEY_WATER_PATTERNS.map((kw, i) => {
+          const el = ELEMENTS[kw.element];
+          return (
+            <div key={i} style={{ padding:14, background:"#16162a", borderRadius:12, borderRight:`4px solid ${kw.color}` }}>
+              <div style={{ display:"flex", alignItems:"center", gap:8, marginBottom:6 }}>
+                <ElementBadge element={kw.element} small />
+                <span style={{ fontWeight:800, fontSize:16, color:"#e2e8f0" }}>{kw.vessel}</span>
+                <span style={{ fontSize:12, color:"#94a3b8" }}>{kw.vesselHe}</span>
+              </div>
+              <div style={{ fontSize:13, color:"#22c55e", fontWeight:700, marginBottom:6 }}>💊 {kw.formula}</div>
+              <div style={{ display:"grid", gridTemplateColumns:"1fr 1fr", gap:4, fontSize:12 }}>
+                <div><b style={{ color:"#94a3b8" }}>איבר/מרידיאן:</b> <span style={{ color:"#e2e8f0" }}>{kw.organMeridian}</span></div>
+                <div><b style={{ color:"#94a3b8" }}>זמן:</b> <span style={{ color:"#e2e8f0" }}>{kw.time}</span></div>
+                <div><b style={{ color:"#94a3b8" }}>אזור גוף:</b> <span style={{ color:"#e2e8f0" }}>{kw.bodyPart}</span></div>
+                <div><b style={{ color:"#94a3b8" }}>תסמין:</b> <span style={{ color:"#e2e8f0" }}>{kw.symptom}</span></div>
+                <div><b style={{ color:"#94a3b8" }}>מאפיינים:</b> <span style={{ color:"#e2e8f0" }}>{kw.characteristics}</span></div>
+                <div><b style={{ color:"#94a3b8" }}>👅 לשון:</b> <span style={{ color:"#f472b6" }}>{kw.tongue}</span></div>
+                <div style={{ gridColumn:"span 2" }}><b style={{ color:"#94a3b8" }}>💓 דופק:</b> <span style={{ color:"#60a5fa" }}>{kw.pulse}</span></div>
+              </div>
+            </div>
+          );
+        })}
+      </div>
+
+      {/* Abdominal Pulsation */}
+      <div style={s.sectionTitle}>💓 פעימות בטניות — אבחון</div>
+      <div style={{ display:"grid", gap:6, marginBottom:20 }}>
+        {ABDOMINAL_PULSATION.map((ap, i) => (
+          <div key={i} style={{ padding:10, background:"#16162a", borderRadius:10, borderRight:`3px solid ${ap.color}` }}>
+            <div style={{ fontWeight:700, fontSize:13, color:ap.color, marginBottom:4 }}>{ap.type}</div>
+            <div style={{ fontSize:12, color:"#60a5fa", marginBottom:2 }}>📍 {ap.location} (רמה {ap.level})</div>
+            <div style={{ fontSize:12, color:"#94a3b8" }}>{ap.description}</div>
+          </div>
+        ))}
+      </div>
+
+      {/* Linea Alba */}
+      <div style={s.sectionTitle}>📏 אבחון Linea Alba</div>
+      <div style={{ display:"grid", gap:6, marginBottom:20 }}>
+        {LINEA_ALBA.map((la, i) => (
+          <div key={i} style={{ padding:10, background:"#16162a", borderRadius:10, borderRight:`3px solid ${la.color}` }}>
+            <div style={{ fontWeight:700, fontSize:13, color:la.color, marginBottom:4 }}>{la.type}</div>
+            <div style={{ fontSize:12, color:"#60a5fa", marginBottom:2 }}>📍 {la.location}</div>
+            <div style={{ fontSize:12, color:"#94a3b8" }}>{la.meaning}</div>
+          </div>
+        ))}
+      </div>
+
+      {/* Navel Diagnosis */}
+      <div style={s.sectionTitle}>⭕ אבחון טבור מורחב</div>
+      <div style={{ padding:12, background:"#16162a", borderRadius:10, marginBottom:10, border:"1px solid #22c55e44" }}>
+        <div style={{ fontWeight:700, fontSize:14, color:"#22c55e", marginBottom:6 }}>✅ {NAVEL_DIAGNOSIS.healthy.title}</div>
+        {NAVEL_DIAGNOSIS.healthy.criteria.map((c, i) => (
+          <div key={i} style={{ fontSize:12, color:"#94a3b8", marginBottom:2, paddingRight:8 }}>• {c}</div>
+        ))}
+      </div>
+      <div style={{ fontSize:13, fontWeight:700, color:"#94a3b8", marginBottom:8 }}>הסטת טבור — פירוט:</div>
+      <div style={{ display:"grid", gridTemplateColumns:"1fr 1fr", gap:8, marginBottom:12 }}>
+        {NAVEL_DIAGNOSIS.shifting.map((ns, i) => (
+          <div key={i} style={{ padding:10, background:"#16162a", borderRadius:10, borderRight:`3px solid ${ns.color}` }}>
+            <div style={{ fontWeight:700, fontSize:13, color:ns.color, marginBottom:4 }}>{ns.icon} {ns.direction} ({ns.directionEn})</div>
+            <div style={{ fontSize:12, color:"#e2e8f0", marginBottom:2 }}><b style={{ color:"#f472b6" }}>צעירים:</b> {ns.young}</div>
+            <div style={{ fontSize:12, color:"#e2e8f0" }}><b style={{ color:"#60a5fa" }}>מבוגרים:</b> {ns.old}</div>
+          </div>
+        ))}
+      </div>
+      <div style={{ fontSize:13, fontWeight:700, color:"#94a3b8", marginBottom:8 }}>טראומת לידה — סוגי פגיעה:</div>
+      <div style={{ display:"grid", gap:4, marginBottom:20 }}>
+        {NAVEL_DIAGNOSIS.birthTrauma.map((bt, i) => (
+          <div key={i} style={{ display:"flex", gap:8, padding:8, background:"#16162a", borderRadius:8 }}>
+            <span style={{ fontSize:12, fontWeight:700, color:"#f59e0b", minWidth:160 }}>{bt.type}</span>
+            <span style={{ fontSize:12, color:"#94a3b8" }}>{bt.effect}</span>
+          </div>
+        ))}
+      </div>
+
+      {/* Healthy Abdomen */}
+      <div style={s.sectionTitle}>✅ קריטריונים לבטן בריאה</div>
+      <div style={{ display:"grid", gridTemplateColumns:"1fr 1fr", gap:6, marginBottom:20 }}>
+        {HEALTHY_ABDOMEN.map((ha, i) => (
+          <div key={i} style={{ padding:10, background:"#16162a", borderRadius:10, display:"flex", gap:8, alignItems:"flex-start" }}>
+            <span style={{ fontSize:18 }}>{ha.icon}</span>
+            <div>
+              <div style={{ fontWeight:700, fontSize:12, color:"#22c55e", marginBottom:2 }}>{ha.criterion}</div>
+              <div style={{ fontSize:11, color:"#94a3b8" }}>{ha.description}</div>
+            </div>
+          </div>
+        ))}
+      </div>
+
+      {/* Abdomen Temperature */}
+      <div style={s.sectionTitle}>🌡️ {ABDOMEN_TEMPERATURE.title}</div>
+      <div style={{ padding:12, background:"#16162a", borderRadius:10, marginBottom:10 }}>
+        <div style={{ fontSize:12, color:"#818cf8", fontWeight:600, marginBottom:6 }}>🖐️ {ABDOMEN_TEMPERATURE.method}</div>
+        {ABDOMEN_TEMPERATURE.areas.map((a, i) => (
+          <div key={i} style={{ fontSize:12, color:"#e2e8f0", marginBottom:4 }}><b style={{ color:"#f472b6" }}>{a.area}:</b> {a.description}</div>
+        ))}
+        <div style={{ fontSize:12, color:"#f59e0b", marginTop:6, fontWeight:600 }}>📐 {ABDOMEN_TEMPERATURE.principle}</div>
+        <div style={{ fontSize:11, color:"#94a3b8", marginTop:4 }}>💡 {ABDOMEN_TEMPERATURE.clinicalNotes}</div>
+      </div>
+
+      {/* PP Examination */}
+      <div style={{ ...s.sectionTitle, marginTop:16 }}>🔍 בדיקת רגישות בלחיצה (PP) — פירוט</div>
+      <div style={{ display:"grid", gap:6, marginBottom:10 }}>
+        {PP_EXAMINATION.levels.map(l => (
+          <div key={l.level} style={{ display:"flex", gap:10, padding:8, background:"#16162a", borderRadius:8, alignItems:"center" }}>
+            <span style={{ fontSize:16, fontWeight:800, color:"#818cf8", minWidth:24, textAlign:"center" }}>{l.level}</span>
+            <div><div style={{ fontWeight:700, fontSize:12, color:"#e2e8f0" }}>{l.name}</div><div style={{ fontSize:11, color:"#94a3b8" }}>{l.description}</div></div>
+          </div>
+        ))}
+      </div>
+      <div style={{ display:"grid", gap:4, marginBottom:10 }}>
+        {PP_EXAMINATION.types.map((t, i) => (
+          <div key={i} style={{ padding:8, background:"#16162a", borderRadius:8 }}>
+            <span style={{ fontWeight:700, fontSize:12, color:"#c084fc" }}>{t.type}: </span><span style={{ fontSize:12, color:"#94a3b8" }}>{t.description}</span>
+          </div>
+        ))}
+      </div>
+      <div style={{ padding:10, background:"#1e1b4b", borderRadius:8, marginBottom:20 }}>
+        <div style={{ fontSize:12, fontWeight:700, color:"#f59e0b", marginBottom:4 }}>⚡ {PP_EXAMINATION.hypersensitive.title}</div>
+        <div style={{ fontSize:12, color:"#94a3b8" }}>{PP_EXAMINATION.hypersensitive.treatment}</div>
+      </div>
+
+      {/* Splashing Water */}
+      <div style={s.sectionTitle}>💦 {SPLASHING_WATER.title}</div>
+      <div style={{ padding:12, background:"#16162a", borderRadius:10, marginBottom:10 }}>
+        <div style={{ fontSize:12, color:"#e2e8f0", marginBottom:6 }}>{SPLASHING_WATER.description}</div>
+        <div style={{ fontSize:12, fontWeight:600, color:"#94a3b8", marginBottom:4 }}>מיקומי בדיקה:</div>
+        {SPLASHING_WATER.examLocations.map((loc, i) => (
+          <div key={i} style={{ fontSize:12, color:"#60a5fa", marginBottom:2, paddingRight:8 }}>📍 {loc}</div>
+        ))}
+        <div style={{ fontSize:12, fontWeight:600, color:"#fca5a5", marginTop:8, marginBottom:4 }}>⚠️ אזהרות:</div>
+        {SPLASHING_WATER.precautions.map((p, i) => (
+          <div key={i} style={{ fontSize:12, color:"#d4a0a0", marginBottom:2, paddingRight:8 }}>• {p}</div>
+        ))}
+      </div>
+
+      {/* Abdominal Mass */}
+      <div style={{ ...s.sectionTitle, marginTop:16 }}>🔴 {ABDOMINAL_MASS.title}</div>
+      <div style={{ display:"grid", gridTemplateColumns:"1fr 1fr", gap:8, marginBottom:10 }}>
+        {ABDOMINAL_MASS.types.map((t, i) => (
+          <div key={i} style={{ padding:12, background:"#16162a", borderRadius:10, borderTop:`3px solid ${i===0?"#ef4444":"#f59e0b"}` }}>
+            <div style={{ fontWeight:700, fontSize:14, color:i===0?"#ef4444":"#f59e0b", marginBottom:4 }}>{t.type} ({t.typeEn})</div>
+            <div style={{ fontSize:12, color:"#818cf8", fontWeight:600, marginBottom:4 }}>{t.nature}</div>
+            <div style={{ fontSize:12, color:"#94a3b8", marginBottom:4 }}>{t.description}</div>
+            <div style={{ fontSize:11, color:"#fca5a5" }}>⚠️ {t.palpation}</div>
+          </div>
+        ))}
+      </div>
+      <div style={{ fontSize:12, color:"#94a3b8", marginBottom:20 }}>📍 {ABDOMINAL_MASS.location}</div>
+
+      {/* Back 5E Table */}
+      <div style={s.sectionTitle}>🔙 אבחון גב — טבלת 5 אלמנטים</div>
+      <div style={{ display:"grid", gap:6, marginBottom:20 }}>
+        {BACK_5E_TABLE.map((b, i) => {
+          return (
+            <div key={i} style={{ padding:12, background:"#16162a", borderRadius:10, borderRight:`3px solid ${b.color}` }}>
+              <div style={{ display:"flex", alignItems:"center", gap:8, marginBottom:4 }}>
+                <ElementBadge element={b.element} small />
+                <span style={{ fontWeight:700, fontSize:14, color:"#e2e8f0" }}>{b.elementHe}</span>
+                <span style={{ fontSize:11, color:"#64748b", marginRight:"auto" }}>חוליות: {b.levels}</span>
+              </div>
+              <div style={{ display:"grid", gridTemplateColumns:"1fr 1fr", gap:8, fontSize:12 }}>
+                <div><b style={{ color:"#60a5fa" }}>שמאל:</b> <span style={{ color:"#e2e8f0" }}>{b.left}</span></div>
+                <div><b style={{ color:"#f472b6" }}>ימין:</b> <span style={{ color:"#e2e8f0" }}>{b.right}</span></div>
+              </div>
+            </div>
+          );
+        })}
+      </div>
+
+      {/* Autoimmune Connection */}
+      <div style={s.sectionTitle}>🧬 {AUTOIMMUNE_CONNECTION.title}</div>
+      <div style={{ padding:14, background:"#16162a", borderRadius:10, marginBottom:10, border:"1px solid #818cf844" }}>
+        <div style={{ fontSize:12, fontWeight:700, color:"#94a3b8", marginBottom:6 }}>מנגנון (Kiiko Matsumoto):</div>
+        {AUTOIMMUNE_CONNECTION.mechanism.map((m, i) => (
+          <div key={i} style={{ fontSize:12, color:"#e2e8f0", marginBottom:3, paddingRight:8, display:"flex", alignItems:"center", gap:6 }}>
+            <span style={{ color:"#818cf8", fontWeight:700, fontSize:14 }}>{i+1}</span>
+            <span>{i < AUTOIMMUNE_CONNECTION.mechanism.length - 1 ? m + " →" : m}</span>
+          </div>
+        ))}
+        <div style={{ fontSize:12, color:"#f59e0b", marginTop:8 }}>📐 יאנג מינג: {AUTOIMMUNE_CONNECTION.yangMing}</div>
+        <div style={{ fontSize:12, color:"#c084fc", marginTop:4 }}>🧬 {AUTOIMMUNE_CONNECTION.tCells}</div>
+      </div>
+
+      {/* Western Red Flags */}
+      <div style={{ ...s.sectionTitle, marginTop:16 }}>🚨 דגלים אדומים — מערביים (Western Red Flags)</div>
+      <div style={{ display:"grid", gap:4, marginBottom:20 }}>
+        {WESTERN_RED_FLAGS.map((rf, i) => (
+          <div key={i} style={{ padding:10, background:rf.severity==="חירום"?"#1a0e0e":"#16162a", border:`1px solid ${rf.severity==="חירום"?"#4a1515":"#2d2d44"}`, borderRadius:8 }}>
+            <span style={{ fontWeight:700, fontSize:13, color:rf.color }}>{rf.icon} {rf.flag}</span>
+            <span style={{ fontSize:11, color:"#94a3b8", marginRight:8 }}> [{rf.severity}]</span>
+          </div>
+        ))}
+      </div>
+
+      {/* Body Conformation */}
+      <div style={s.sectionTitle}>🏋️ {BODY_CONFORMATION.title}</div>
+      <div style={{ padding:12, background:"#16162a", borderRadius:10, marginBottom:10 }}>
+        {BODY_CONFORMATION.areas.map((a, i) => (
+          <div key={i} style={{ padding:6, borderBottom:i<BODY_CONFORMATION.areas.length-1?"1px solid #2d2d4422":"none" }}>
+            <span style={{ fontSize:12, fontWeight:700, color:"#818cf8" }}>{a.area}: </span>
+            <span style={{ fontSize:12, color:"#94a3b8" }}>{a.description}</span>
+          </div>
+        ))}
+        <div style={{ fontSize:12, color:"#f59e0b", marginTop:8, fontStyle:"italic", padding:"6px 8px", background:"rgba(245,158,11,0.08)", borderRadius:6 }}>💡 {BODY_CONFORMATION.principle}</div>
+      </div>
+
+      {/* Three-Step Diagnosis */}
+      <div style={{ ...s.sectionTitle, marginTop:16 }}>🔬 אבחון גוף ב-3 שלבים</div>
+      <div style={{ display:"grid", gap:8, marginBottom:20 }}>
+        {THREE_STEP_DIAGNOSIS.map(ts => (
+          <div key={ts.step} style={{ padding:12, background:"#16162a", borderRadius:10, borderRight:`3px solid ${ts.color}` }}>
+            <div style={{ fontWeight:700, fontSize:14, color:ts.color, marginBottom:6 }}>{ts.icon} שלב {ts.step}: {ts.title} ({ts.titleEn})</div>
+            {ts.items.map((item, j) => (
+              <div key={j} style={{ fontSize:12, color:"#e2e8f0", marginBottom:2, paddingRight:8 }}>• {item}</div>
+            ))}
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+
   // ===== KB TABS =====
   const KB_TABS = [
     { id:"formulas", label:`📋 פורמולות (${FORMULAS.length})` },
@@ -1914,6 +2463,7 @@ export default function TCMApp() {
     { id:"extra", label:`📍 נק' מיוחדות` },
     { id:"clinical", label:"🏥 קליני" },
     { id:"flowchart", label:"🔄 תרשים אבחון" },
+    { id:"advanced", label:"🔬 אבחון מתקדם" },
   ];
 
   return (
@@ -2056,6 +2606,7 @@ export default function TCMApp() {
             {kbTab === "extra" && renderExtraPoints()}
             {kbTab === "clinical" && renderClinical()}
             {kbTab === "flowchart" && renderFlowchart()}
+            {kbTab === "advanced" && renderAdvanced()}
           </div>
         )}
 
