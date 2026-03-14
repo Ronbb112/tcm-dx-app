@@ -104,6 +104,34 @@ const FORMULAS = [
   { id:"f61", name:"Ge Xia Zhu Yu Tang", nameHe:"גה שיה ז'ו יו טאנג", element:"wood", tree:"Chai Hu", pattern:"Blood Stasis Below Diaphragm", indications:"גוש קבוע תת-סרעפתי, כאב קבוע", heatCold:"neutral" },
   { id:"f62", name:"Gui Pi Tang", nameHe:"גווי פי טאנג", element:"earth", tree:"Ren Shen", pattern:"SP & Heart Blood Xu", indications:"חסר דם טחול ולב, נדודי שינה, חיוורון, דימום", heatCold:"cold" },
   { id:"f63", name:"Da Huang Mu Dan Pi Tang", nameHe:"דא הואנג מו דאן פי טאנג", element:"metal", tree:"Da Huang", pattern:"Intestinal Blood Stasis + Heat", indications:"סטגנציית דם במעי, כאב בטן ימין תחתון, דלקת", heatCold:"heat" },
+  // NAN JING BOOKLET ADDITIONS
+  { id:"f64", name:"Ba Zhen Tang", nameHe:"בא ג'ן טאנג", element:"earth", tree:"Ren Shen", pattern:"Qi & Blood Xu", indications:"עייפות, חיוורון, סחרחורת, מחזור חלש", heatCold:"cold" },
+  { id:"f65", name:"Tong Xie Yao Fang", nameHe:"טונג שיה יאו פאנג", element:"wood", tree:"Chai Hu", pattern:"LV Overacting on SP (IBS)", indications:"שלשול עם כאב בטן בזמן סטרס, בורבוריגמוס", heatCold:"neutral" },
+  { id:"f66", name:"Shen Tong Zhu Yu Tang", nameHe:"שן טונג ז'ו יו טאנג", element:"wood", tree:"Xue", pattern:"Blood Stasis Body Pain", indications:"כאבי שרירים כלליים, פיברומיאלגיה, שיגרון", heatCold:"neutral" },
+  { id:"f67", name:"Gui Zhi Jia Long Gu Mu Li Tang", nameHe:"גווי ז'י ג'יה לונג גו מו לי טאנג", element:"fire", tree:"Gui Zhi", pattern:"Heart Qi Xu + Spirit Disturbance", indications:"חרדה, דפיקות, פליטות לילה", heatCold:"cold" },
+  { id:"f68", name:"Chai Hu Gui Zhi Gan Jiang Tang", nameHe:"צ'אי הו גווי ז'י גאן ג'יאנג טאנג", element:"wood", tree:"Chai Hu", pattern:"Shao Yang + Tai Yin Cold", indications:"שאו יאנג עם קור פנימי, שלשול, צמא", heatCold:"neutral" },
+  { id:"f69", name:"Ling Gui Zhu Gan Tang", nameHe:"לינג גווי ז'ו גאן טאנג", element:"earth", tree:"Gui Zhi", pattern:"SP Yang Xu + Fluid Retention", indications:"חולשה, קוצר נשימה, בצקת, רגליים קרות", heatCold:"cold" },
+  { id:"f70", name:"Mu Li San", nameHe:"מו לי סאן", element:"metal", tree:"Huang Qi", pattern:"Wei Qi Xu + Sweating", indications:"הזעת יתר מחולשה, דפיקות, קוצר נשימה", heatCold:"cold" },
+  { id:"f71", name:"Qing Xin Lian Zi Yin", nameHe:"צ'ינג שין ליאן ז'י יין", element:"fire", tree:"Ren Shen", pattern:"Heart Fire + Qi/Yin Xu", indications:"השתנה כואבת, נדודי שינה, עייפות", heatCold:"heat" },
+  { id:"f72", name:"Qing Wei San", nameHe:"צ'ינג ווי סאן", element:"earth", tree:"Huang Lian", pattern:"ST Yang Ming Fire", indications:"דלקת חניכיים, אפטות, פה יבש, שפתיים סדוקות", heatCold:"heat" },
+  { id:"f73", name:"Qing Qi Hua Tan Wan", nameHe:"צ'ינג צ'י הואה טאן וואן", element:"metal", tree:"Ban Xia", pattern:"Phlegm-Heat Cough", indications:"שיעול עם כיח צהוב עבה, קשיחות חזה", heatCold:"heat" },
+  { id:"f74", name:"Qin Jin Hua Tan Wan", nameHe:"צ'ין ג'ין הואה טאן וואן", element:"metal", tree:"Qi", pattern:"Lung Fire + Dryness Phlegm", indications:"שיעול עם כיח כהה, אסתמה, כאב חזה", heatCold:"heat" },
+  { id:"f75", name:"Run Chang Tang", nameHe:"רון צ'אנג טאנג", element:"earth", tree:"Da Huang", pattern:"Intestinal Dryness Constipation", indications:"עצירות כרונית בקשישים, עור יבש", heatCold:"neutral" },
+  { id:"f76", name:"San Huang Xie Xin Tang", nameHe:"סאן הואנג שיה שין טאנג", element:"fire", tree:"Huang Lian", pattern:"Fire Toxin (Yang Ming)", indications:"דימום מחום, אף, הקאות דם, עצירות", heatCold:"heat" },
+  { id:"f77", name:"Shen Mi Tang", nameHe:"שן מי טאנג", element:"metal", tree:"Ma Huang", pattern:"Asthma / COPD", indications:"אסתמה בילדים, ברונכיטיס, COPD", heatCold:"cold" },
+  { id:"f78", name:"Sheng Mai San", nameHe:"שנג מאי סאן", element:"fire", tree:"Ren Shen", pattern:"Qi & Yin Xu + Sweating", indications:"הזעת יתר, צמא, עייפות, שיעול כרוני", heatCold:"neutral" },
+  { id:"f79", name:"Shi Quan Da Bu Tang", nameHe:"שי צ'ואן דא בו טאנג", element:"earth", tree:"Ren Shen", pattern:"Qi & Blood & Yang Xu", indications:"חולשה כרונית, אנמיה, גפיים קרות, ירידה במשקל", heatCold:"cold" },
+  { id:"f80", name:"Si Mo Tang", nameHe:"סי מו טאנג", element:"earth", tree:"Qi", pattern:"Rebellious Qi in Chest", indications:"קשיחות בחזה וסרעפת, צפצופים, אנורקסיה", heatCold:"neutral" },
+  { id:"f81", name:"Shu Gan Tang", nameHe:"שו גאן טאנג", element:"wood", tree:"Chai Hu", pattern:"LV Blood & Qi Stasis", indications:"כאב תת-צלעי שמאלי, סטרס וכעס", heatCold:"neutral" },
+  { id:"f82", name:"Tao Hong Si Wu Tang", nameHe:"טאו הונג סי וו טאנג", element:"wood", tree:"Xue", pattern:"Blood Stasis + Blood Xu", indications:"דיסמנוריאה, אמנוריאה, מיגרנה, אקזמה", heatCold:"neutral" },
+  { id:"f83", name:"Wu Zi Yan Zong Wan", nameHe:"וו ז'י יאן זונג וואן", element:"water", tree:"Xue", pattern:"KD Yang + Jing Xu", indications:"אי-פוריות גברית, אימפוטנציה, שתן דולף", heatCold:"cold" },
+  { id:"f84", name:"Yi Qi Chong Ming Tang", nameHe:"יי צ'י צ'ונג מינג טאנג", element:"earth", tree:"Huang Qi", pattern:"SP Qi Xu + Eye/Ear", indications:"ירידה בראייה, טינטון, שלשול כרוני", heatCold:"cold" },
+  { id:"f85", name:"Fang Ji Huang Qi Tang", nameHe:"פאנג ג'י הואנג צ'י טאנג", element:"metal", tree:"Huang Qi", pattern:"Wind-Damp Edema", indications:"בצקת רגליים, כבדות גפיים", heatCold:"cold" },
+  { id:"f86", name:"Gui Zhi Shao Yao Zhi Mu Tang", nameHe:"גווי ז'י שאו יאו ז'י מו טאנג", element:"metal", tree:"Gui Zhi", pattern:"Wind-Damp Bi (Joint Pain)", indications:"כאבי מפרקים, נפיחות, חום ברגליים", heatCold:"neutral" },
+  { id:"f87", name:"Huang Lian Jie Du Tang", nameHe:"הואנג ליאן ג'יה דו טאנג", element:"fire", tree:"Huang Lian", pattern:"Fire Toxin in Three Jiaos", indications:"חום גבוה, עצבנות, נדודי שינה, פריחות", heatCold:"heat" },
+  { id:"f88", name:"Yao Tong Pain Formula", nameHe:"יאו טונג פיין", element:"water", tree:"Xue", pattern:"KD Yang + Wind-Cold in Meridians", indications:"כאב גב תחתון, חולשת מפרקים ועצמות", heatCold:"cold" },
+  { id:"f89", name:"Ding Xiang Shi Di Tang", nameHe:"דינג שיאנג שי די טאנג", element:"earth", tree:"Qi", pattern:"ST Cold Hiccups", indications:"שיהוקים מקור בקיבה", heatCold:"cold" },
+  { id:"f90", name:"Bei Xie Fen Qing Yin", nameHe:"ביי שיה פן צ'ינג יין", element:"water", tree:"Qi", pattern:"Turbid Urination", indications:"שתן עכור, חסר כליות", heatCold:"neutral" },
 ];
 
 const TREES = [
@@ -1856,6 +1884,22 @@ export default function TCMApp() {
                 {m.herbs_remove && <span style={{ color:"#fca5a5" }}>− {m.herbs_remove}</span>}
               </div>
             ))}
+          </Card>
+        )}
+
+        {/* Dror's Remarks */}
+        {detail.dpiRemarks && (
+          <Card style={{ padding:14, borderRight:"3px solid #f59e0b" }}>
+            <div style={{ fontSize:14, fontWeight:700, color:"#f59e0b", marginBottom:8 }}>📝 Dror's Remarks</div>
+            <div style={{ fontSize:12, color:"#e2e8f0", lineHeight:1.7 }}>{detail.dpiRemarks}</div>
+          </Card>
+        )}
+
+        {/* Treatment Time */}
+        {detail.treatmentTime && (
+          <Card style={{ padding:14 }}>
+            <div style={{ fontSize:14, fontWeight:700, color:"#34d399", marginBottom:8 }}>⏱ Treatment Time Estimates</div>
+            <div style={{ fontSize:12, color:"#e2e8f0", lineHeight:1.7 }}>{detail.treatmentTime}</div>
           </Card>
         )}
 

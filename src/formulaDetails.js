@@ -76,6 +76,8 @@ export const FORMULA_DETAILS = {
       { condition: "Severe Spleen Xu with diarrhea", herbs_add: "Shan Yao 15g, Yi Yi Ren 15g" },
       { condition: "Insomnia from Blood Xu", herbs_add: "Suan Zao Ren 15g, He Huan Pi 9g" },
       { condition: "Menstrual irregularity", herbs_add: "Xiang Fu 9g, Yi Mu Cao 12g" },
+      { condition: "Stress, neck disorders", herbs_add: "Tian Ma" },
+      { condition: "Dysmenorrhea", herbs_add: "Yan Hu Suo, Xiang Fu, Mu Xiang" },
     ],
 
     modern_applications: [
@@ -257,6 +259,9 @@ export const FORMULA_DETAILS = {
       { condition: "Insomnia + muscle cramps (sinew malnutrition)", herbs_add: "Suan Zao Ren 15g, Mu Gua 9g, Zhi Gan Cao 6g → becomes Bu Gan Tang" },
       { condition: "Internal cold with Blood Xu", herbs_add: "Rou Gui 3g, Wu Zhu Yu 3g → warming blood nourishment, or use Wen Jing Tang" },
       { condition: "Heavy/prolonged menstruation", herbs_add: "Ai Ye 9g, E Jiao 9g (melted)" },
+      { condition: "Heat in the Xue", herbs_add: "Sheng Di. Severe: add Chi Shao" },
+      { condition: "Short menses", herbs_add: "Di Gu Pi, Mu Dan Pi" },
+      { condition: "Cold womb", herbs_add: "Ai Ye, Xiang Fu" },
     ],
 
     modern_applications: [
@@ -346,6 +351,13 @@ export const FORMULA_DETAILS = {
       { condition: "Abdominal pain", herbs_add: "Bai Shao 12g", herbs_remove: "Huang Qin" },
       { condition: "Palpitations with urinary difficulty", herbs_add: "Fu Ling 12g, Gui Zhi 6g", herbs_remove: "Huang Qin" },
       { condition: "Cough with phlegm", herbs_add: "Wu Wei Zi 6g, Gan Jiang 3g", herbs_remove: "Ren Shen, Da Zao" },
+      { condition: "Damp accumulation", herbs_add: "Ping Wei San → becomes Chai Ping Tang" },
+      { condition: "Phlegm heat accumulation", herbs_add: "→ See Chai Xian Tang" },
+      { condition: "Tai yang, shao yang disorder with common cold", herbs_add: "→ See Chai Hu Gui Zhi Tang" },
+      { condition: "Nausea, vomiting", herbs_add: "Mu Xiang, Sha Ren → See Xiang Sha Chai Hu Tang" },
+      { condition: "Liver (organ) disorders, Hepatitis C", herbs_add: "Yin Chen Hao Tang, if xue yu + yan hu sou" },
+      { condition: "Vertigo", herbs_add: "Ju Hua, Gou Teng, Jue Ming Zi" },
+      { condition: "Headache", herbs_add: "Chuan Xiong" },
     ],
 
     modern_applications: [
@@ -357,6 +369,9 @@ export const FORMULA_DETAILS = {
       "Autoimmune conditions with alternating flares",
       "Post-COVID lingering symptoms",
     ],
+
+    dpiRemarks: "Use food stagnation herbs in relation to the food sensitivity. Xiao Chai Hu Tang regulates the Shao Yang, treats mild condition or chronic condition. Medium constitution.",
+    treatmentTime: "Variable. Use as base formula with modifications.",
 
     color: "#4b7ee5",
   },
@@ -544,6 +559,9 @@ export const FORMULA_DETAILS = {
       "Post-surgical recovery with exhaustion",
     ],
 
+    dpiRemarks: "Huang Qi tree formula. The key raising formula for sunken Qi. When SP qi sinks it manifests as prolapse, hemorrhoids, chronic fatigue. Very commonly used with Yi Qi Chong Ming Tang for eye and ear function decline.",
+    treatmentTime: "2-6 months, mid to low dosage. Long-term use possible with monitoring.",
+
     color: "#e5c94b",
   },
 
@@ -719,6 +737,9 @@ export const FORMULA_DETAILS = {
       "Nausea from chemotherapy",
     ],
 
+    dpiRemarks: "Qi type formula. Ban xia tree. The overall ban xia condition is either hard to diagnose or the patient has epigastric stiffness with a shift condition, fever, chill, tend to damp or phlegm cold or hot. In most conditions there will be no splashing water. Don't modify - move to the next stage.",
+    treatmentTime: "Subacute to chronic. High mid to lower dosage. Overuse or high dosage will weaken the SP, but less common. Post ban xia xie xin tang can be many conditions. From qi xu to qi xu...",
+
     color: "#4bc9e5",
   },
 
@@ -795,6 +816,14 @@ export const FORMULA_DETAILS = {
       { condition: "Liver Yin Xu with eye symptoms", herbs_add: "Gou Qi Zi 12g, Ju Hua 9g → becomes Qi Ju Di Huang Wan" },
       { condition: "Lung Yin Xu with cough", herbs_add: "Mai Dong 12g, Wu Wei Zi 6g → becomes Mai Wei Di Huang Wan" },
       { condition: "Night sweats severe", herbs_add: "Mu Li 30g (煅), Wu Wei Zi 6g" },
+      { condition: "Whizzing or when formula doesn't work well", herbs_add: "→ Du Qi Wan. If dry caught add Mai Men Dong (Bu Xiang Chang Shuo Wan)" },
+      { condition: "Night sweating", herbs_add: "→ Zhi Bai Di Huang Wan" },
+      { condition: "Excessive sweating during day with xue xu", herbs_add: "→ Ba Wei Di Huang Wan (not the classical, this is du qi wan + huang qi)" },
+      { condition: "Neck disorders with dizziness, vertigo, tinnitus", herbs_add: "+ Tian Ma or → Tian Ma Gou Teng Wan" },
+      { condition: "Back / knee pain", herbs_add: "Niu Xi, Du Zhong" },
+      { condition: "Excessive urination", herbs_add: "Yi Zhi Ren or add Tu Si Zi Wan" },
+      { condition: "Tinnitus", herbs_add: "Wu Wei Zi, Shi Chang Pu, Ci Shi" },
+      { condition: "Insomnia", herbs_add: "Suan Zao Ren, Bai Zi Ren. Or add Suan Zao Ren Tang" },
     ],
 
     modern_applications: [
@@ -807,6 +836,9 @@ export const FORMULA_DETAILS = {
       "Premature aging",
       "Chronic fatigue from overwork",
     ],
+
+    dpiRemarks: "Xue type formula. Classic SHAO YIN formula that nourishes K yin and clear empty heat from above with dryness at the upper part of the body. Main function is to produce urination, activate the kidney organ and by that making the person drink more water. Usually Du qi wan is more common to use since its more potent or a stronger version. That's why more of the modification/variation formulas are for Du qi wan. The night sweating at Liu wei di huang wan it's not that common.",
+    treatmentTime: "4 months to 1 year. Mid to low dosage level.",
 
     color: "#3d85c6",
   },
@@ -1356,6 +1388,9 @@ export const FORMULA_DETAILS = {
       "Postpartum depression with deficiency pattern",
     ],
 
+    dpiRemarks: "Xue type formula. Classic qi & blood tonification. Ba zhen tang is the combination of Si Jun Zi Tang (qi) + Si Wu Tang (blood). When yang xu is more prominent, add Huang Qi and Rou Gui to become Shi Quan Da Bu Tang. For women with weak type and low food quality. Monitor GY cycle and bleeding for progress.",
+    treatmentTime: "2-4 months mid to low dosage. Post shi quan da bu tang can be ba zhen tang. According to condition (pregnancy or after giving birth). Recommended nutritional supplements and sports.",
+
     color: "#b8860b",
   },
 
@@ -1537,6 +1572,9 @@ export const FORMULA_DETAILS = {
       "Obsessive-compulsive tendencies (Blood stasis disturbing Shen)",
       "Constipation with Blood stasis pattern",
     ],
+
+    dpiRemarks: "Xue type formula. Of a dry nature. With Tao he cheng qi tang we can treat also same GY disorders of xue yu type, mainly with dysmenorrhea. Very distinct formula. Noncompromising formula structure. 1st is the constipation, that also a xue yu type. 2nd the fever that effecting the H / mind in an OCD nature. All symptoms are strong and aggressive. Xue type.",
+    treatmentTime: "1-3 months high to mid dosage level. 1st the stool, 2nd the fever... Overuse will cause loss stool / diarrhea, chill, and sleepy feeling. If stool goes soft but rest of symptoms stay, then move from Da huang formulas to a Tao ren type. Post tao he cheng qi tang: when fever is broke and xue yu still use Tao hong si wu tang. IF LV mai with xue yu use xue fu zhu yu tang.",
 
     color: "#a0522d",
   },
@@ -1721,6 +1759,9 @@ export const FORMULA_DETAILS = {
       "Menopausal emotional lability",
     ],
 
+    dpiRemarks: "Qi type formula. Gan Mai Da Zao Tang (甘麦大枣汤) is used to address conditions characterized by a combination of emotional instability and gastrointestinal (GIT) weakness. 1) Regulating the Heart rate and producing calmness: known for its ability to calm the Shen and stabilize emotions. 2) Weak GIT / SP qi xu: the formula is for individuals with a weak GIT system. Can be used for long or short time depending on age and condition. Modifications: calm the shen, clear heat forms the H and nourishes the xue.",
+    treatmentTime: "Variable - can be used for long or short time depending on age and condition. Wide range of modifications.",
+
     color: "#d4a574",
   },
 
@@ -1811,6 +1852,9 @@ export const FORMULA_DETAILS = {
       "Metabolic syndrome (Phlegm-Damp pattern)",
       "Post-illness appetite recovery",
     ],
+
+    dpiRemarks: "Qi type formula. Ren shen tree formula. Common chronic or subacute condition of 50% shi and 50% shi, on a weak type of person. Can be post other formulas. ST accumulation or post LV qi yu or shao yang conditions. Can be used during pregnancy. Post liu jun zi tang is si jun zi tang. Or ding zhi wan.",
+    treatmentTime: "2 months to 1 year. Mid to low dosage level.",
 
     color: "#daa520",
   },
@@ -1993,6 +2037,9 @@ export const FORMULA_DETAILS = {
       "Chronic gastritis (cold dominant)",
       "Meniere's-like syndrome (cold type with vertex symptoms)",
     ],
+
+    dpiRemarks: "Qi type formula. Subacute to chronic condition. This is a splashing water formula, that the liver mai is dominate, effecting the head due to SubCardiac or the liver mai stress at the ovary or tactical. (shi cold at the liver mai).",
+    treatmentTime: "1-3 months, mid to low dosage. Post wu zhu yu tang can be qi yu: yue ju wan or liver qi yu si ni san or chai hu shu gan wan.",
 
     color: "#c17817",
   },
@@ -2179,6 +2226,8 @@ export const FORMULA_DETAILS = {
       "Bipolar disorder — manic phase (adjunct)",
     ],
 
+    dpiRemarks: "Qi type formula. This formula can treat all 3 types of yang wei conditions. Without shao yang. Treating stress, pain at the 3 yang at the face (yang ming), side of the neck mainly R (shao yang) and back also mainly R side (tai yang). But the origin of the stiffness / stress is at the R side of the head/neck = shao yang or more precise yang wei. This formula is more subcostal and secondary SubCardiac. Means the palpitations are not a most condition. Can be used by itself or as add up formulas. Modifications to other formulas. Acute, subacute to chronic. High mid to lower dosage. Overuse or high dosage will make the patient chills and fatigue with loss stool. Recommend to give afternoon and evening when the stress is building up.",
+
     color: "#4a6741",
   },
 
@@ -2270,6 +2319,9 @@ export const FORMULA_DETAILS = {
       "Adrenal fatigue pattern",
     ],
 
+    dpiRemarks: "Qi formula. Gui zhi tree fever that effects the shao yin. Rectus tension and spasm. Redish face 'fire type' in nature. It's a vascular person, vasovagal that can manifest HBP. Usually gui zhi tree formulas are chill type. But GZJLGMLT is fever type. Chronic condition, usually constitutional based. Comparing to other shao yin formulas like liu wei di huang wan based. The heart fever condition is more dominant unlike liu wei di huang wan based formulas that the K is more dominant.",
+    treatmentTime: "1-3 months mid to low dosage level. Slow steady progression is recommended. Overuse will cause loss stool / diarrhea, chill, and sleepy feeling. Post Gui zhi jia long gu mu li tang can be on the gui zhi tree formulas or ren shen tree qi and xue xu formulas, gui pi tang.",
+
     color: "#8b6f47",
   },
 
@@ -2355,6 +2407,9 @@ export const FORMULA_DETAILS = {
       "Nervous stomach before events",
       "Chronic non-specific diarrhea (stress-related)",
     ],
+
+    dpiRemarks: "Tong Xie Yao Fang addresses Spleen Qi deficiency more effectively than Xiao Yao Wan. While the abdominal presentation may appear similar, if taking Xiao Yao Wan leads to diarrhea, it's better to use Tong Xie Yao Fang. Another way to differentiate is that IBS symptoms are more definitively treated by Tong Xie Yao Fang than by Xiao Yao Wan. Tong Xie Yao Fang also regulates the Liver meridian, but to a lesser extent compared to Xiao Yao Wan.",
+    treatmentTime: "4 months to 1 year mid to low dosage level.",
 
     color: "#6b9e8a",
   },
@@ -2725,14 +2780,17 @@ export const FORMULA_DETAILS = {
       "Premature aging syndrome",
     ],
 
+    dpiRemarks: "Xue type formula. You gui wan it's a K mai formula. Focuses mainly at the lower part of the body reinforcing the Pelvic Floor. Worming the lower abdomen treat urinary retention and BPH. It's a male formula.",
+    treatmentTime: "1-6 months high to mid dosage. Post xiang sha liu jun zi tang, liu jun zi tang and then si jun zi tang.",
+
     color: "#d2691e",
   },
 
   // ============================================================
   // 31. ZUO GUI YIN 左归饮
   // ============================================================
-  "zuo-gui-yin": {
-    id: "zuo-gui-yin",
+  "zuo-gui-wan": {
+    id: "zuo-gui-wan",
     name_pinyin: "Zuǒ Guī Yǐn",
     name_chinese: "左归饮",
     name_english: "Restore the Left Kidney Drink",
@@ -2815,6 +2873,9 @@ export const FORMULA_DETAILS = {
       "Premature ovarian failure",
       "Chronic low-grade fever of unknown origin",
     ],
+
+    dpiRemarks: "Xue type formula. It's a K yin xu mai condition. That's why the focus on the lower part of the body, with dryness weakness and stiffness of the lower part. The heat sensation effecting mainly the feet and the leg or the sexual organs. Zuo gui wan treats prematurely aging at the ovarian causing infertility.",
+    treatmentTime: "3-9 months, same time even more. Mid dosage level. Post Zuo gui wan its zuo gui yin.",
 
     color: "#4682b4",
   },
@@ -2904,6 +2965,9 @@ export const FORMULA_DETAILS = {
       "Chronic fatigue with cold digestion",
       "Irritable Bowel Syndrome (cold-dominant type)",
     ],
+
+    dpiRemarks: "Qi type formula. Subacute, Chronic conditions. Li zhong wan it's a no liver condition. The shi cold give up pain and diaphragm stiffness that might affect the SubCardiac. The range of syndromes, symptoms that this condition can produce its vast, that's why it's very important to focus on the physical diagnosis TCM. Splashing water is a predominant condition. Most of the cases there will be loss stool with undigested food. In some cases there will be mild constipation, dry stool due to lack of water consumption.",
+    treatmentTime: "1-3 month treatment. Acute use high dosage. In most conditions use mid to low dosage. Post li zhong wan, use REN SHEN tree formulas.",
 
     color: "#cd853f",
   },
@@ -3080,6 +3144,9 @@ export const FORMULA_DETAILS = {
       "Anxiety with oral and urinary symptoms",
     ],
 
+    dpiRemarks: "Qi formula. Subacute or acute condition. The upper jiao symptoms, manic behavior with mania talking like will be dominant. There should be same what UTI as feeling or sore on the tongue. The eyes open wide with over alert look. High dosage will make the stool soft.",
+    treatmentTime: "1 to 3 weeks on mid to high dosage. Post Dao Chi San can be 1st yu nu jing or qing wei san. 2nd sha shen mai men dong tang. 2nd mai men dong tang.",
+
     color: "#dc3545",
   },
 
@@ -3163,6 +3230,9 @@ export const FORMULA_DETAILS = {
       "Esophageal spasm",
       "Chronic epigastric pain syndrome",
     ],
+
+    dpiRemarks: "Xue formula. Xue yu at the ST and PC, effecting the chest with pain. The chest pain is dominant, what we called cardiac condition. Since its vasovagal condition it will affect the epigastric region with pain. In some cases there is mai pain disorders: CTS, TF. Shoulder pain, then 1st use huo luo xian ling dan. Chronic condition. Low to mid dosage formula. Overuse or high dosage will make the patient chills and exhausted.",
+    treatmentTime: "Chronic condition. Use low to mid dosage formula. Overuse or high dosage will make the patient chills and exhausted.",
 
     color: "#c41e3a",
   },
@@ -3263,6 +3333,9 @@ export const FORMULA_DETAILS = {
       "Chronic fatigue with insomnia",
       "Functional cardiac arrhythmia (Yin deficiency type)",
     ],
+
+    dpiRemarks: "Xue type formula. Chronic that can be used as a classic TCM shao yin xu condition when the H is more dominant then the K, hens the insomnia. There are almost no K symptoms at this formula, and for that reason we can use it for short term condition of insomnia for any fever xu cases just before sleeping time.",
+    treatmentTime: "3 months to 1 year mid to low dosage level. Post tian wang bu xin dan: yang xin tang. IF there is still fever and dominant shao yin, use liu wei di huang wan based formulas. IF the fever broke down change to gui pi tang, gui pi tang it's a post yang xin tang formula.",
 
     color: "#6a0dad",
   },
@@ -3446,7 +3519,3559 @@ export const FORMULA_DETAILS = {
       "SIBO-like presentation (Spleen Qi deficiency pattern)",
     ],
 
+    dpiRemarks: "Qi formula. Ren shen tree formula. Chai shao liu jun zi tang it's a well known condition or shao yang and or LV mai when the use of xiao yao wan for LV mai or the use of xiao chai hu tang for shao yang are overwhelming and produce SP qi xu. When using Chai shao liu jun zi tang its like looking on the shao yang or LV mai from the SP area.",
+    treatmentTime: "2-6 months use. Mid to low dosage formula. Post Chai shao liu jun zi tang can be liu jun zi tang and then si jun zi tang.",
+
     color: "#8fbc8f",
+  },
+
+  // ============================================================
+  // LING GUI ZHU GAN TANG 苓桂术甘汤
+  // ============================================================
+  "ling-gui-zhu-gan-tang": {
+    id: "ling-gui-zhu-gan-tang",
+    name_pinyin: "Líng Guì Zhú Gān Tāng",
+    name_chinese: "苓桂术甘汤",
+    name_english: "Ginseng and Ginger Combination",
+    category: "Formulas that Warm and Transform Phlegm-Dampness",
+    source: "Shang Han Lun (Zhang Zhongjing)",
+
+    composition: [
+      { pinyin: "Fu Ling", chinese: "茯苓", latin: "Poria", dosage: "12g", role: "jun", role_name: "King", function: "Strengthens Spleen, leaches Dampness, promotes urination" },
+      { pinyin: "Gui Zhi", chinese: "桂枝", latin: "Ramulus Cinnamomi", dosage: "9g", role: "chen", role_name: "Minister", function: "Warms Yang, transforms thin mucus, promotes Qi circulation" },
+      { pinyin: "Bai Zhu", chinese: "白术", latin: "Rhizoma Atractylodis Macrocephalae", dosage: "6g", role: "zuo", role_name: "Assistant", function: "Strengthens Spleen, dries Dampness" },
+      { pinyin: "Zhi Gan Cao", chinese: "炙甘草", latin: "Radix Glycyrrhizae Praeparata", dosage: "6g", role: "shi", role_name: "Envoy", function: "Harmonizes all herbs, tonifies Qi" },
+    ],
+
+    clinical_picture: {
+      summary: "Fluid type formula for Spleen Yang deficiency with thin mucus accumulation. Subacute to chronic condition, often age-related, due to SP yang xu with mild Kidney xu. May have splashing water sound or CV9 water accumulation. If severe SP yang xu, more fluid accumulation causing cardio conditions with tinnitus, dizziness, and other neck symptoms. Treat the Spleen and it will affect the cardiovascular system.",
+      tongue: "Pale, swollen, teeth marks, white coating",
+      pulse: "Deep, weak",
+      key_symptoms: [
+        "Weakness and shortness of breath with palpitations",
+        "Nausea and vomiting",
+        "GIT weakness",
+        "Loose stool",
+        "Edema with cold feet",
+        "Difficulty urinating",
+        "Splashing water sound in abdomen",
+      ],
+    },
+
+    actions: [
+      "Tonifies Spleen Yang",
+      "Warms and transforms thin mucus",
+      "Eliminates dampness",
+      "Treats edema",
+    ],
+
+    pattern: "Spleen Yang Deficiency with Thin Mucus Accumulation",
+
+    modifications: [
+      { condition: "Fatigue", herbs_add: "Dang Shen" },
+      { condition: "Fatigue with hypotension", herbs_add: "Zhen Wu Tang" },
+      { condition: "Accumulation of damp", herbs_add: "Ping Wei San" },
+      { condition: "Leg edema", herbs_add: "Fang Ji Huang Qi Tang" },
+      { condition: "Cardiac failure / CHD", herbs_add: "Sheng Mai San" },
+    ],
+
+    differentiators: [
+      { formula: "Gan Cao Gan Jiang Fu Ling Bai Zhu Tang", difference: "Ling Gui Zhu Gan Tang = SP yang xu with edema, CHD, GIT weakness. Gan Cao Gan Jiang Fu Ling Bai Zhu Tang = SP yang xu with rebellious qi (ST)/vomiting, nausea." },
+    ],
+
+    dpiRemarks: "Fluid type formula. Subacute, chronic, due to SP yang xu with mild K xu. Age related. Night have Splashing water or CV9 water accumulation. If severe SP yang xu more accumulation causing more cardio condition with tinnitus dizziness and other neck symptoms. Treat the SP it will affect the cardio.",
+    treatmentTime: "4 months to 2 years, mid to low dosage",
+
+    modern_applications: [
+      "Chronic heart disease (CHD)",
+      "Edema",
+      "Chronic gastritis",
+      "Vertigo and dizziness",
+      "Palpitations",
+      "Chronic bronchitis with thin sputum",
+    ],
+
+    color: "#5f9ea0",
+  },
+
+  // ============================================================
+  // MU LI SAN 牡蛎散
+  // ============================================================
+  "mu-li-san": {
+    id: "mu-li-san",
+    name_pinyin: "Mǔ Lì Sǎn",
+    name_chinese: "牡蛎散",
+    name_english: "Oyster Shell Powder",
+    category: "Formulas that Stabilize and Bind",
+    source: "Tai Ping Hui Min He Ji Ju Fang",
+
+    composition: [
+      { pinyin: "Mu Li", chinese: "牡蛎", latin: "Concha Ostreae", dosage: "20g", role: "jun", role_name: "King", function: "Astringes sweating, calms spirit, anchors Yang" },
+      { pinyin: "Huang Qi", chinese: "黄芪", latin: "Radix Astragali", dosage: "20g", role: "chen", role_name: "Minister", function: "Tonifies Wei Qi, consolidates exterior" },
+      { pinyin: "Ma Huang Gen", chinese: "麻黄根", latin: "Radix Ephedrae", dosage: "20g", role: "zuo", role_name: "Assistant", function: "Stops sweating" },
+      { pinyin: "Fu Xiao Mai", chinese: "浮小麦", latin: "Fructus Tritici Levis", dosage: "20g", role: "zuo", role_name: "Assistant", function: "Inhibits sweating, nourishes Heart" },
+    ],
+
+    clinical_picture: {
+      summary: "A formula for excessive sweating due to weakness. The patient has a deficient constitution with poor Wei Qi, leading to spontaneous sweating or night sweats. Often presents with palpitations and shortness of breath due to the loss of fluids and Qi through sweating.",
+      tongue: "Pale or red",
+      pulse: "Thin",
+      key_symptoms: [
+        "Excessive sweating especially in weakness",
+        "Palpitations",
+        "Shortness of breath",
+        "Low immune defense",
+      ],
+    },
+
+    actions: [
+      "Tonifies Wei Qi",
+      "Treats hyper-sweating due to weakness",
+      "Consolidates the exterior",
+    ],
+
+    pattern: "Wei Qi Deficiency with Excessive Sweating",
+
+    modifications: [
+      { condition: "Enhance effect", herbs_add: "Wu Wei Zi" },
+    ],
+
+    differentiators: [
+      { formula: "Yu Ping Feng San", difference: "Mu Li San = weakness with sweating, palpitation from static to moving. Yu Ping Feng San = weakness with mild sweating, weak immune system, NOT LUNG." },
+    ],
+
+    modern_applications: [
+      "Spontaneous sweating",
+      "Night sweats",
+      "Autonomic nervous dysfunction",
+      "Postpartum sweating",
+      "Immune deficiency",
+    ],
+
+    color: "#7b68ee",
+  },
+
+  // ============================================================
+  // QING WEI SAN 清胃散
+  // ============================================================
+  "qing-wei-san": {
+    id: "qing-wei-san",
+    name_pinyin: "Qīng Wèi Sǎn",
+    name_chinese: "清胃散",
+    name_english: "Coptis and Rehmannia Formula",
+    category: "Formulas that Clear Heat",
+    source: "Pi Wei Lun (Li Dong-Yuan)",
+
+    composition: [
+      { pinyin: "Huang Lian", chinese: "黄连", latin: "Rhizoma Coptidis", dosage: "6g", role: "jun", role_name: "King", function: "Clears Stomach fire, resolves toxicity" },
+      { pinyin: "Sheng Di", chinese: "生地", latin: "Radix Rehmanniae", dosage: "12g", role: "chen", role_name: "Minister", function: "Cools blood, nourishes Yin" },
+      { pinyin: "Mu Dan Pi", chinese: "牡丹皮", latin: "Cortex Moutan", dosage: "12g", role: "chen", role_name: "Minister", function: "Cools blood, clears heat" },
+      { pinyin: "Dang Gui", chinese: "当归", latin: "Radix Angelicae Sinensis", dosage: "12g", role: "zuo", role_name: "Assistant", function: "Nourishes blood, harmonizes" },
+      { pinyin: "Sheng Ma", chinese: "升麻", latin: "Rhizoma Cimicifugae", dosage: "15g", role: "shi", role_name: "Envoy", function: "Clears heat from Yang Ming, guides herbs upward to gums and teeth" },
+    ],
+
+    clinical_picture: {
+      summary: "An excess Yang Ming fire pattern affecting the mouth, gums, and face. The Stomach fire blazes upward causing inflammation of the gums, mouth ulcers, and facial redness. This is an excess condition requiring clearing of heat and cooling of blood.",
+      tongue: "Red, dry",
+      pulse: "Rapid, flooding",
+      key_symptoms: [
+        "Inflammation of gums",
+        "Ulcer of mouth",
+        "Dry/cracked lips",
+        "Hunger for raw food/meat",
+        "Red face",
+        "Nose bleeding",
+        "Dry mouth and tongue",
+        "Thirst",
+      ],
+    },
+
+    actions: [
+      "Clears Stomach Yang Ming heat/fire",
+      "Cools blood",
+      "Nourishes Yin",
+    ],
+
+    pattern: "Stomach Fire / Yang Ming Fire with Blood Heat",
+
+    modifications: [],
+
+    differentiators: [
+      { formula: "Ju Pi Zhu Ru Tang", difference: "Qing Wei San = Excess condition / Yang Ming fire, cools blood nourish Yin, epigastrium, gums, teeth, lips. Ju Pi Zhu Ru Tang = Weak condition with rebellious ST qi and heat, clear heat tonify SP, hiccups vomiting." },
+    ],
+
+    modern_applications: [
+      "Gingivitis",
+      "Stomatitis and oral ulcers",
+      "Periodontitis",
+      "Epistaxis (nosebleed)",
+      "Trigeminal neuralgia (heat type)",
+    ],
+
+    color: "#dc143c",
+  },
+
+  // ============================================================
+  // QING QI HUA TAN WAN 清气化痰丸
+  // ============================================================
+  "qing-qi-hua-tan-wan": {
+    id: "qing-qi-hua-tan-wan",
+    name_pinyin: "Qīng Qì Huà Tán Wán",
+    name_chinese: "清气化痰丸",
+    name_english: "Clear the Qi and Transform Phlegm Pill",
+    category: "Formulas that Clear Heat and Transform Phlegm",
+    source: "Yi Fang Kao (Wu Kun)",
+
+    composition: [
+      { pinyin: "Dan Nan Xing", chinese: "胆南星", latin: "Arisaema cum Bile", dosage: "9g", role: "jun", role_name: "King", function: "Clears heat, transforms phlegm" },
+      { pinyin: "Huang Qin", chinese: "黄芩", latin: "Radix Scutellariae", dosage: "9g", role: "chen", role_name: "Minister", function: "Clears heat from Lungs" },
+      { pinyin: "Gua Lou Ren", chinese: "瓜蒌仁", latin: "Semen Trichosanthis", dosage: "9g", role: "chen", role_name: "Minister", function: "Clears heat, transforms phlegm, moistens Lungs" },
+      { pinyin: "Ban Xia", chinese: "半夏", latin: "Rhizoma Pinelliae", dosage: "9g", role: "zuo", role_name: "Assistant", function: "Dries dampness, transforms phlegm, descends rebellious Qi" },
+      { pinyin: "Zhi Shi", chinese: "枳实", latin: "Fructus Aurantii Immaturus", dosage: "6g", role: "zuo", role_name: "Assistant", function: "Breaks Qi stagnation, directs Qi downward" },
+      { pinyin: "Chen Pi", chinese: "陈皮", latin: "Pericarpium Citri Reticulatae", dosage: "6g", role: "zuo", role_name: "Assistant", function: "Regulates Qi, dries dampness" },
+      { pinyin: "Xing Ren", chinese: "杏仁", latin: "Semen Armeniacae", dosage: "9g", role: "zuo", role_name: "Assistant", function: "Descends Lung Qi, stops coughing" },
+      { pinyin: "Fu Ling", chinese: "茯苓", latin: "Poria", dosage: "9g", role: "shi", role_name: "Envoy", function: "Strengthens Spleen, resolves dampness" },
+    ],
+
+    clinical_picture: {
+      summary: "A disease formula for cough with thick yellow phlegm that is hard to expectorate, due to heat-phlegm accumulation in the Lungs. The chest and upper epigastric region feel stiff and congested. Sometimes accompanied by nausea.",
+      tongue: "Red, sticky yellow coating",
+      pulse: "Rapid, slippery",
+      key_symptoms: [
+        "Cough with thick yellow phlegm hard to expectorate",
+        "Stiffness of chest and upper-epigastric region",
+        "Sometimes nausea",
+      ],
+    },
+
+    actions: [
+      "Clears heat",
+      "Transforms phlegm",
+      "Directs rebellious Qi downward",
+      "Stops coughing",
+    ],
+
+    pattern: "Heat-Phlegm Accumulation in the Lungs",
+
+    modifications: [],
+    differentiators: [],
+
+    modern_applications: [
+      "Acute bronchitis with yellow sputum",
+      "Pneumonia (phlegm-heat type)",
+      "COPD exacerbation with heat-phlegm",
+    ],
+
+    color: "#daa520",
+  },
+
+  // ============================================================
+  // QIN JIN HUA TAN WAN 芩金化痰丸
+  // ============================================================
+  "qin-jin-hua-tan-wan": {
+    id: "qin-jin-hua-tan-wan",
+    name_pinyin: "Qín Jīn Huà Tán Wán",
+    name_chinese: "芩金化痰丸",
+    name_english: "Clear the Qi and Transform Phlegm Pill (Lung variant)",
+    category: "Formulas that Clear Heat and Transform Phlegm",
+    source: "Yi Xue Tong Zhi",
+
+    composition: [
+      { pinyin: "Huang Qin", chinese: "黄芩", latin: "Radix Scutellariae", dosage: "12g", role: "jun", role_name: "King", function: "Clears Lung fire" },
+      { pinyin: "Zhi Zi", chinese: "栀子", latin: "Fructus Gardeniae", dosage: "12g", role: "jun", role_name: "King", function: "Clears heat, drains fire" },
+      { pinyin: "Zhi Mu", chinese: "知母", latin: "Rhizoma Anemarrhenae", dosage: "15g", role: "chen", role_name: "Minister", function: "Clears heat, nourishes Yin, moistens dryness" },
+      { pinyin: "Gua Lou Ren", chinese: "瓜蒌仁", latin: "Semen Trichosanthis", dosage: "15g", role: "chen", role_name: "Minister", function: "Clears heat, transforms phlegm" },
+      { pinyin: "Zhi Bei Mu", chinese: "制贝母", latin: "Bulbus Fritillariae", dosage: "10g", role: "chen", role_name: "Minister", function: "Clears heat, transforms phlegm, moistens Lung" },
+      { pinyin: "Mai Men Dong", chinese: "麦门冬", latin: "Radix Ophiopogonis", dosage: "15g", role: "zuo", role_name: "Assistant", function: "Nourishes Yin, moistens Lung" },
+      { pinyin: "Chen Pi", chinese: "陈皮", latin: "Pericarpium Citri Reticulatae", dosage: "10g", role: "zuo", role_name: "Assistant", function: "Regulates Qi, dries dampness" },
+      { pinyin: "Fu Ling", chinese: "茯苓", latin: "Poria", dosage: "10g", role: "zuo", role_name: "Assistant", function: "Strengthens Spleen, resolves dampness" },
+      { pinyin: "Jie Geng", chinese: "桔梗", latin: "Radix Platycodonis", dosage: "10g", role: "zuo", role_name: "Assistant", function: "Opens and raises Lung Qi, expels phlegm" },
+      { pinyin: "Sang Bai Pi", chinese: "桑白皮", latin: "Cortex Mori", dosage: "12g", role: "zuo", role_name: "Assistant", function: "Drains Lung heat, stops coughing" },
+      { pinyin: "Gan Cao", chinese: "甘草", latin: "Radix Glycyrrhizae", dosage: "6g", role: "shi", role_name: "Envoy", function: "Harmonizes all herbs" },
+    ],
+
+    clinical_picture: {
+      summary: "A disease formula for Lung fire with dryness and phlegm. Clears Lung fire, moistens dryness, and transforms phlegm. The condition presents with a cough producing yellow or dark sputum that is hard to expectorate, with chest pain and fullness.",
+      tongue: "Yellow coating",
+      pulse: "Rapid, slippery",
+      key_symptoms: [
+        "Cough with yellow or dark sputum hard to expectorate",
+        "Asthma",
+        "Chest pain",
+        "Epigastric and chest fullness",
+      ],
+    },
+
+    actions: [
+      "Clears Lung fire",
+      "Moistens dryness",
+      "Transforms phlegm",
+    ],
+
+    pattern: "Lung Fire with Dryness and Phlegm",
+
+    modifications: [],
+    differentiators: [],
+
+    modern_applications: [
+      "Bronchitis with yellow sputum",
+      "Asthma (heat-phlegm type)",
+      "Lung abscess",
+      "COPD with heat-phlegm pattern",
+    ],
+
+    color: "#cd853f",
+  },
+
+  // ============================================================
+  // RUN CHANG TANG 润肠汤
+  // ============================================================
+  "run-chang-tang": {
+    id: "run-chang-tang",
+    name_pinyin: "Rùn Cháng Tāng",
+    name_chinese: "润肠汤",
+    name_english: "Linum & Rhubarb Combination",
+    category: "Formulas that Moisten the Intestines and Unblock the Bowels",
+    source: "Traditional",
+
+    composition: [
+      { pinyin: "Dang Gui", chinese: "当归", latin: "Radix Angelicae Sinensis", dosage: "10g", role: "jun", role_name: "King", function: "Nourishes blood, moistens intestines" },
+      { pinyin: "Sheng Di", chinese: "生地", latin: "Radix Rehmanniae", dosage: "10g", role: "chen", role_name: "Minister", function: "Cools blood, generates fluids" },
+      { pinyin: "Tao Ren", chinese: "桃仁", latin: "Semen Persicae", dosage: "10g", role: "chen", role_name: "Minister", function: "Moistens intestines, promotes bowel movement" },
+      { pinyin: "Ma Zi Ren", chinese: "麻子仁", latin: "Fructus Cannabis", dosage: "15g", role: "zuo", role_name: "Assistant", function: "Moistens intestines, promotes bowel movement" },
+      { pinyin: "Xing Ren", chinese: "杏仁", latin: "Semen Armeniacae", dosage: "10g", role: "zuo", role_name: "Assistant", function: "Descends Qi, moistens intestines" },
+      { pinyin: "Zhi Ke", chinese: "枳壳", latin: "Fructus Aurantii", dosage: "10g", role: "shi", role_name: "Envoy", function: "Moves Qi, promotes bowel movement" },
+    ],
+
+    clinical_picture: {
+      summary: "A formula for habitual constipation, common in the elderly, or constipation due to blood deficiency and dryness. The intestines lack moisture, leading to dry and hard stools. Often seen in patients with hypertension and dry skin.",
+      tongue: "Dry",
+      pulse: "Thin",
+      key_symptoms: [
+        "Habitual constipation, common in elderly",
+        "Constipation due to hypertension",
+        "Dry skin",
+        "Dry stool",
+      ],
+    },
+
+    actions: [
+      "Clears heat",
+      "Moistens intestines",
+      "Promotes bowel movements",
+    ],
+
+    pattern: "Blood Deficiency and Dryness of the Intestines",
+
+    modifications: [],
+    differentiators: [],
+
+    modern_applications: [
+      "Chronic constipation in elderly",
+      "Constipation associated with hypertension",
+      "Habitual constipation with dry skin",
+    ],
+
+    color: "#8b4513",
+  },
+
+  // ============================================================
+  // SAN HUANG XIE XIN TANG 三黄泻心汤
+  // ============================================================
+  "san-huang-xie-xin-tang": {
+    id: "san-huang-xie-xin-tang",
+    name_pinyin: "Sān Huáng Xiè Xīn Tāng",
+    name_chinese: "三黄泻心汤",
+    name_english: "Three Yellow Decoctions to Drain the Epigastrium",
+    category: "Formulas that Clear Heat and Resolve Toxicity",
+    source: "Jin Gui Yao Lue (Zhang Zhongjing)",
+
+    composition: [
+      { pinyin: "Da Huang", chinese: "大黄", latin: "Radix et Rhizoma Rhei", dosage: "6g", role: "jun", role_name: "King", function: "Purges fire, drains heat, cools blood" },
+      { pinyin: "Huang Lian", chinese: "黄连", latin: "Rhizoma Coptidis", dosage: "3g", role: "chen", role_name: "Minister", function: "Clears Heart and Stomach fire, resolves toxicity" },
+      { pinyin: "Huang Qin", chinese: "黄芩", latin: "Radix Scutellariae", dosage: "3g", role: "chen", role_name: "Minister", function: "Clears upper Jiao heat, drains fire" },
+    ],
+
+    clinical_picture: {
+      summary: "A powerful purging formula for excess Shi fire in the Yang Ming. Bleeding due to excess fire with irritability, nosebleeding or bloody vomiting. Jaundice and fever from damp-heat accumulation with fullness in chest and epigastrium. Flushed-up fire causing painful eyes and mouth ulcers.",
+      tongue: "Red with yellow coating",
+      pulse: "Strong",
+      key_symptoms: [
+        "Bleeding due to Shi fire with irritability",
+        "Nose bleeding or bloody vomiting",
+        "Jaundice with fever",
+        "Accumulation of damp heat with fullness in chest and epigastrium",
+        "Flushed-up fire",
+        "Painful eyes",
+        "Mouth ulcers",
+      ],
+    },
+
+    actions: [
+      "Purges fire",
+      "Eliminates toxicity and dampness",
+      "Yang Ming pattern clearing",
+    ],
+
+    pattern: "Excess Shi Fire / Yang Ming Fire with Damp-Heat",
+
+    modifications: [
+      { condition: "Severe constipation", herbs_add: "Mang Xiao, Zhi Shi, Hou Po. Or use Xiao Cheng Qi Tang" },
+      { condition: "Bleeding due to heat", herbs_add: "Mu Dan Pi, Sheng Di" },
+      { condition: "Skin abscesses and sores", herbs_add: "Jin Yin Hua, Lian Qiao, Zi Hua Di Ding. Or use Wu Wei Xiao Du Yin" },
+    ],
+
+    differentiators: [],
+
+    modern_applications: [
+      "Upper GI bleeding (excess heat type)",
+      "Epistaxis",
+      "Hematemesis",
+      "Acute jaundice (damp-heat type)",
+      "Acute conjunctivitis",
+      "Oral ulcers (excess heat type)",
+    ],
+
+    color: "#b22222",
+  },
+
+  // ============================================================
+  // SHAO FU ZHU YU TANG 少腹逐瘀汤
+  // ============================================================
+  "shao-fu-zhu-yu-tang": {
+    id: "shao-fu-zhu-yu-tang",
+    name_pinyin: "Shǎo Fù Zhú Yū Tāng",
+    name_chinese: "少腹逐瘀汤",
+    name_english: "Cnidium & Bulrush Combination",
+    category: "Formulas that Invigorate Blood and Dispel Stasis",
+    source: "Yi Lin Gai Cuo (Wang Qing-Ren)",
+
+    composition: [
+      { pinyin: "Dang Gui", chinese: "当归", latin: "Radix Angelicae Sinensis", dosage: "10g", role: "jun", role_name: "King", function: "Nourishes and invigorates blood" },
+      { pinyin: "Chuan Xiong", chinese: "川芎", latin: "Rhizoma Chuanxiong", dosage: "6g", role: "chen", role_name: "Minister", function: "Invigorates blood, moves Qi, alleviates pain" },
+      { pinyin: "Chi Shao", chinese: "赤芍", latin: "Radix Paeoniae Rubra", dosage: "10g", role: "chen", role_name: "Minister", function: "Invigorates blood, dispels stasis, clears heat" },
+      { pinyin: "Hui Xiang", chinese: "茴香", latin: "Fructus Foeniculi", dosage: "6g", role: "zuo", role_name: "Assistant", function: "Warms meridians, alleviates pain" },
+      { pinyin: "Yan Hu Suo", chinese: "延胡索", latin: "Rhizoma Corydalis", dosage: "6g", role: "zuo", role_name: "Assistant", function: "Invigorates blood, moves Qi, alleviates pain" },
+      { pinyin: "Wu Ling Zhi", chinese: "五灵脂", latin: "Faeces Trogopterori", dosage: "6g", role: "zuo", role_name: "Assistant", function: "Dispels blood stasis, alleviates pain" },
+      { pinyin: "Mo Yao", chinese: "没药", latin: "Myrrha", dosage: "6g", role: "zuo", role_name: "Assistant", function: "Invigorates blood, alleviates pain" },
+      { pinyin: "Rou Gui", chinese: "肉桂", latin: "Cortex Cinnamomi", dosage: "6g", role: "zuo", role_name: "Assistant", function: "Warms the meridians, disperses cold" },
+      { pinyin: "Gan Jiang", chinese: "干姜", latin: "Rhizoma Zingiberis", dosage: "3-6g", role: "zuo", role_name: "Assistant", function: "Warms the middle, disperses cold" },
+      { pinyin: "Pu Huang", chinese: "蒲黄", latin: "Pollen Typhae", dosage: "10g", role: "shi", role_name: "Envoy", function: "Invigorates blood, stops bleeding" },
+    ],
+
+    clinical_picture: {
+      summary: "A warming formula that dispels blood stagnation from the lower abdomen. Particularly effective for gynecological conditions involving cold and blood stasis in the lower Jiao. The lower abdomen is painful and may have palpable masses.",
+      tongue: "Purple or dark",
+      pulse: "Wiry, choppy",
+      key_symptoms: [
+        "Dysmenorrhea",
+        "Amenorrhea",
+        "Irregular menstruation",
+        "Abdominal pain/cramps",
+        "PMS",
+        "Infertility",
+        "Abdominal mass",
+        "Uterine/ovary cysts or tumors",
+      ],
+    },
+
+    actions: [
+      "Warms the meridians",
+      "Alleviates abdominal pain",
+      "Dispels blood stagnation from lower abdomen",
+    ],
+
+    pattern: "Blood Stasis with Cold in the Lower Abdomen",
+
+    modifications: [
+      { condition: "Infertility due to absence of ovulation", herbs_add: "Shan Yao, Zi He Che" },
+      { condition: "Menstrual pain", herbs_add: "Mu Xiang, Bai Shao" },
+      { condition: "Uterine myoma", herbs_add: "Chuan Lian Zi, San Leng, E Zhu" },
+    ],
+
+    differentiators: [],
+
+    modern_applications: [
+      "Dysmenorrhea",
+      "Endometriosis",
+      "Uterine fibroids",
+      "Ovarian cysts",
+      "Infertility (cold-stasis type)",
+      "Pelvic inflammatory disease (cold type)",
+    ],
+
+    color: "#8b0000",
+  },
+
+  // ============================================================
+  // SHEN MI TANG 神秘汤
+  // ============================================================
+  "shen-mi-tang": {
+    id: "shen-mi-tang",
+    name_pinyin: "Shén Mì Tāng",
+    name_chinese: "神秘汤",
+    name_english: "Ma Huang and Magnolia Combination / Mysterious Decoction",
+    category: "Formulas that Release the Exterior and Transform Phlegm",
+    source: "Traditional",
+
+    composition: [
+      { pinyin: "Ma Huang", chinese: "麻黄", latin: "Herba Ephedrae", dosage: "6g", role: "jun", role_name: "King", function: "Opens Lung Qi, relieves wheezing" },
+      { pinyin: "Xing Ren", chinese: "杏仁", latin: "Semen Armeniacae", dosage: "6g", role: "chen", role_name: "Minister", function: "Descends Lung Qi, stops coughing" },
+      { pinyin: "Chen Pi", chinese: "陈皮", latin: "Pericarpium Citri Reticulatae", dosage: "3g", role: "zuo", role_name: "Assistant", function: "Regulates Qi, dries dampness" },
+      { pinyin: "Hou Po", chinese: "厚朴", latin: "Cortex Magnoliae Officinalis", dosage: "6g", role: "zuo", role_name: "Assistant", function: "Moves Qi, reduces distension, calms wheezing" },
+      { pinyin: "Zi Su Ye", chinese: "紫苏叶", latin: "Folium Perillae", dosage: "3g", role: "zuo", role_name: "Assistant", function: "Releases exterior, moves Qi" },
+      { pinyin: "Chai Hu", chinese: "柴胡", latin: "Radix Bupleuri", dosage: "3g", role: "zuo", role_name: "Assistant", function: "Spreads Liver Qi, harmonizes" },
+      { pinyin: "Zhi Gan Cao", chinese: "炙甘草", latin: "Radix Glycyrrhizae Praeparata", dosage: "3g", role: "shi", role_name: "Envoy", function: "Harmonizes all herbs" },
+    ],
+
+    clinical_picture: {
+      summary: "A formula for asthma (especially in children) with cough. It redirects rebellious Qi downward, clears the Lungs, and eliminates phlegm. Also addresses abdominal weakness that may accompany respiratory conditions.",
+      tongue: "Normal",
+      pulse: "Floating, tight, or floating wiry",
+      key_symptoms: [
+        "Asthma (especially in children) with cough",
+        "Bronchial asthma",
+        "COPD",
+        "Abdominal weakness",
+      ],
+    },
+
+    actions: [
+      "Redirects rebellious Qi downward",
+      "Clears the Lungs",
+      "Eliminates phlegm",
+    ],
+
+    pattern: "Lung Qi Rebellion with Phlegm",
+
+    modifications: [],
+    differentiators: [],
+
+    modern_applications: [
+      "Childhood asthma",
+      "Bronchial asthma",
+      "COPD",
+      "Chronic cough with wheezing",
+    ],
+
+    color: "#4682b4",
+  },
+
+  // ============================================================
+  // SHENG MAI SAN 生脉散
+  // ============================================================
+  "sheng-mai-san": {
+    id: "sheng-mai-san",
+    name_pinyin: "Shēng Mài Sǎn",
+    name_chinese: "生脉散",
+    name_english: "Ginseng and Ophiopogon Formula",
+    category: "Formulas that Tonify Qi and Yin",
+    source: "Nei Wai Shang Bian Huo Lun (Li Dong-Yuan)",
+
+    composition: [
+      { pinyin: "Ren Shen", chinese: "人参", latin: "Radix Ginseng", dosage: "9g", role: "jun", role_name: "King", function: "Tonifies Qi, generates fluids" },
+      { pinyin: "Mai Men Dong", chinese: "麦门冬", latin: "Radix Ophiopogonis", dosage: "9g", role: "chen", role_name: "Minister", function: "Nourishes Yin, moistens Lung, clears Heart" },
+      { pinyin: "Wu Wei Zi", chinese: "五味子", latin: "Fructus Schisandrae", dosage: "6g", role: "zuo", role_name: "Assistant", function: "Astringes Lung Qi, stops sweating, generates fluids" },
+    ],
+
+    clinical_picture: {
+      summary: "A formula to augment Qi, generate fluids, stop excessive sweating, and preserve Yin. The patient presents with both Qi and Yin deficiency, often with sweating, thirst, and fatigue. The three herbs work synergistically: Ren Shen tonifies, Mai Men Dong nourishes, and Wu Wei Zi astringes.",
+      tongue: "Pale or red, teeth marks",
+      pulse: "Weak, slightly rapid",
+      key_symptoms: [
+        "Sweating during day and night",
+        "Thirst and dry mouth",
+        "Palpitations",
+        "Weakness and fatigue",
+        "Chronic cough with sparse sputum difficult to expectorate",
+        "Shortness of breath",
+      ],
+    },
+
+    actions: [
+      "Augments Qi",
+      "Generates fluids",
+      "Stops excessive sweating",
+      "Preserves Yin",
+    ],
+
+    pattern: "Qi and Yin Deficiency",
+
+    modifications: [
+      { condition: "Insomnia", herbs_add: "Suan Zao Ren, He Huan Pi" },
+      { condition: "Palpitation and insomnia", herbs_add: "Gui Zhi, Long Gu, Mu Li" },
+      { condition: "Qi xu", herbs_add: "Ren Shen (or Xi Yang Shen) + Huang Qi" },
+      { condition: "Severe weakness with sweating", herbs_add: "Mu Li San. Or use 1st Mu Li San then Sheng Mai San" },
+    ],
+
+    differentiators: [],
+
+    modern_applications: [
+      "Chronic heart failure",
+      "Coronary heart disease",
+      "Arrhythmia",
+      "Chronic fatigue syndrome",
+      "Heat stroke recovery",
+      "Post-illness recovery with sweating",
+    ],
+
+    color: "#e6b422",
+  },
+
+  // ============================================================
+  // SHI QUAN DA BU TANG 十全大补汤
+  // ============================================================
+  "shi-quan-da-bu-tang": {
+    id: "shi-quan-da-bu-tang",
+    name_pinyin: "Shí Quán Dà Bǔ Tāng",
+    name_chinese: "十全大补汤",
+    name_english: "All Inclusive Great Tonifying Decoction",
+    category: "Formulas that Tonify Qi and Blood",
+    source: "Tai Ping Hui Min He Ji Ju Fang",
+
+    composition: [
+      { pinyin: "Huang Qi", chinese: "黄芪", latin: "Radix Astragali", dosage: "10g", role: "jun", role_name: "King", function: "Tonifies Qi, raises Yang" },
+      { pinyin: "Rou Gui", chinese: "肉桂", latin: "Cortex Cinnamomi", dosage: "6g", role: "jun", role_name: "King", function: "Warms Yang, disperses cold" },
+      { pinyin: "Ren Shen", chinese: "人参", latin: "Radix Ginseng", dosage: "10g", role: "chen", role_name: "Minister", function: "Tonifies Qi, generates fluids" },
+      { pinyin: "Shu Di", chinese: "熟地", latin: "Radix Rehmanniae Praeparata", dosage: "10g", role: "chen", role_name: "Minister", function: "Nourishes blood, tonifies Yin" },
+      { pinyin: "Bai Zhu", chinese: "白术", latin: "Rhizoma Atractylodis Macrocephalae", dosage: "10g", role: "zuo", role_name: "Assistant", function: "Strengthens Spleen, dries dampness" },
+      { pinyin: "Dang Gui", chinese: "当归", latin: "Radix Angelicae Sinensis", dosage: "10g", role: "zuo", role_name: "Assistant", function: "Nourishes and invigorates blood" },
+      { pinyin: "Bai Shao", chinese: "白芍", latin: "Radix Paeoniae Alba", dosage: "10g", role: "zuo", role_name: "Assistant", function: "Nourishes blood, softens Liver" },
+      { pinyin: "Chuan Xiong", chinese: "川芎", latin: "Rhizoma Chuanxiong", dosage: "10g", role: "zuo", role_name: "Assistant", function: "Invigorates blood, moves Qi" },
+      { pinyin: "Fu Ling", chinese: "茯苓", latin: "Poria", dosage: "10g", role: "zuo", role_name: "Assistant", function: "Strengthens Spleen, leaches dampness" },
+      { pinyin: "Zhi Gan Cao", chinese: "炙甘草", latin: "Radix Glycyrrhizae Praeparata", dosage: "3g", role: "shi", role_name: "Envoy", function: "Harmonizes all herbs" },
+      { pinyin: "Sheng Jiang", chinese: "生姜", latin: "Rhizoma Zingiberis Recens", dosage: "3g", role: "shi", role_name: "Envoy", function: "Warms Middle Jiao" },
+      { pinyin: "Da Zao", chinese: "大枣", latin: "Fructus Jujubae", dosage: "3 pieces", role: "shi", role_name: "Envoy", function: "Nourishes Qi and blood" },
+    ],
+
+    clinical_picture: {
+      summary: "A comprehensive tonifying formula for both Qi and Blood deficiency with Yang xu. It is essentially Ba Zhen Tang with the addition of Huang Qi and Rou Gui to address Yang deficiency. This formula treats the same conditions as Ba Zhen Tang but with more severity at the anemia and weakness due to Yang xu condition. For women, commonly used due to weak constitution and low food quality/quantity.",
+      tongue: "Pale, thin body",
+      pulse: "Thready and weak",
+      key_symptoms: [
+        "Weakness with cold extremities",
+        "Depression",
+        "Weak deficient cough",
+        "Palpitations (xu type) with spontaneous sweating",
+        "Listlessness and anemia",
+        "Dry skin",
+        "Dizziness and blurred vision",
+        "Headache due to low blood pressure",
+        "Weight loss",
+        "Weakness of back and legs with pain",
+        "GY: Uterine bleeding, irregular menses, light bleeding",
+        "Amenorrhea, infertility",
+        "Postpartum weakness, no milk to breastfeed",
+      ],
+    },
+
+    actions: [
+      "Replenishes Yang",
+      "Warms and tonifies Qi and Blood",
+    ],
+
+    pattern: "Qi and Blood Deficiency with Yang Xu",
+
+    modifications: [],
+
+    differentiators: [],
+
+    dpiRemarks: "Xue type formula. Chill type. Yang xu condition. It's a 'ba zhen tang' condition with yang xu, thus treats almost same condition of ba zhen tang, just with more severity at the anemia and weakness due to yang xu condition. For female due to weak type and low food quality/quantity. Can tell progress by looking at GY cycle and bleeding. When administering, advise to eat quality and quantity of food that produce qi & xue. Protein. With hot spices and hot nature.",
+    treatmentTime: "2-4 months, mid to low dosage. Post: can be ba zhen tang. According to woman's condition (pregnancy or after giving birth). Recommended nutritional supplements and sports.",
+
+    modern_applications: [
+      "Anemia",
+      "Chronic fatigue syndrome",
+      "Postpartum weakness",
+      "Recovery from surgery or chronic illness",
+      "Infertility (deficiency type)",
+      "Irregular menstruation (deficiency type)",
+      "Cancer support therapy",
+    ],
+
+    color: "#9b2335",
+  },
+
+  // ============================================================
+  // SI MO TANG 四磨汤
+  // ============================================================
+  "si-mo-tang": {
+    id: "si-mo-tang",
+    name_pinyin: "Sì Mó Tāng",
+    name_chinese: "四磨汤",
+    name_english: "Four Milled Herb Decoction",
+    category: "Formulas that Regulate Qi",
+    source: "Ji Sheng Fang",
+
+    composition: [
+      { pinyin: "Ren Shen", chinese: "人参", latin: "Radix Ginseng", dosage: "3g", role: "jun", role_name: "King", function: "Tonifies Qi, prevents excessive dispersal" },
+      { pinyin: "Bing Lang", chinese: "槟榔", latin: "Semen Arecae", dosage: "10g", role: "chen", role_name: "Minister", function: "Moves Qi downward, reduces stagnation" },
+      { pinyin: "Chen Xiang", chinese: "沉香", latin: "Lignum Aquilariae Resinatum", dosage: "3g", role: "zuo", role_name: "Assistant", function: "Warms and moves Qi, directs Qi downward" },
+      { pinyin: "Wu Yao", chinese: "乌药", latin: "Radix Linderae", dosage: "6g", role: "zuo", role_name: "Assistant", function: "Moves Qi, disperses cold, alleviates pain" },
+    ],
+
+    clinical_picture: {
+      summary: "A formula for upper Jiao Qi stagnation clumping in the chest. The patient experiences a stiffness sensation in the chest and diaphragm, with difficulty breathing and wheezing. The Qi is blocked in the upper Jiao, failing to descend properly.",
+      tongue: "Normal",
+      pulse: "Wiry",
+      key_symptoms: [
+        "Upper Jiao stagnation clumping in the chest",
+        "Stiffness sensation in chest and diaphragm",
+        "Hard breathing",
+        "Wheezing",
+        "Anorexia",
+      ],
+    },
+
+    actions: [
+      "Regulates Qi",
+      "Treats rebellious Qi",
+      "Expands the chest",
+    ],
+
+    pattern: "Qi Stagnation in the Upper Jiao",
+
+    modifications: [
+      { condition: "Constipation", herbs_add: "Zhi Shi, Da Huang" },
+    ],
+
+    differentiators: [],
+
+    modern_applications: [
+      "Functional dyspnea",
+      "Chest tightness (non-cardiac)",
+      "GERD with chest oppression",
+      "Asthma (Qi stagnation type)",
+    ],
+
+    color: "#556b2f",
+  },
+
+  // ============================================================
+  // SHU GAN TANG 舒肝汤
+  // ============================================================
+  "shu-gan-tang": {
+    id: "shu-gan-tang",
+    name_pinyin: "Shū Gān Tāng",
+    name_chinese: "舒肝汤",
+    name_english: "Spread the Liver Decoction",
+    category: "Formulas that Regulate Liver Qi and Blood",
+    source: "Traditional",
+
+    composition: [
+      { pinyin: "Chai Hu", chinese: "柴胡", latin: "Radix Bupleuri", dosage: "5g", role: "jun", role_name: "King", function: "Spreads Liver Qi" },
+      { pinyin: "Dang Gui", chinese: "当归", latin: "Radix Angelicae Sinensis", dosage: "5g", role: "chen", role_name: "Minister", function: "Nourishes and invigorates blood" },
+      { pinyin: "Chuan Xiong", chinese: "川芎", latin: "Rhizoma Chuanxiong", dosage: "3g", role: "chen", role_name: "Minister", function: "Invigorates blood, moves Qi" },
+      { pinyin: "Tao Ren", chinese: "桃仁", latin: "Semen Persicae", dosage: "3g", role: "zuo", role_name: "Assistant", function: "Invigorates blood, dispels stasis" },
+      { pinyin: "Hong Hua", chinese: "红花", latin: "Flos Carthami", dosage: "2g", role: "zuo", role_name: "Assistant", function: "Invigorates blood, dispels stasis" },
+      { pinyin: "Zhi Shi", chinese: "枳实", latin: "Fructus Aurantii Immaturus", dosage: "2g", role: "zuo", role_name: "Assistant", function: "Breaks Qi stagnation" },
+      { pinyin: "Bai Shao", chinese: "白芍", latin: "Radix Paeoniae Alba", dosage: "3g", role: "zuo", role_name: "Assistant", function: "Nourishes blood, softens Liver" },
+      { pinyin: "Qing Pi", chinese: "青皮", latin: "Pericarpium Citri Reticulatae Viride", dosage: "3g", role: "zuo", role_name: "Assistant", function: "Moves Liver Qi, breaks stagnation" },
+      { pinyin: "Huang Lian", chinese: "黄连", latin: "Rhizoma Coptidis", dosage: "2g", role: "zuo", role_name: "Assistant", function: "Clears heat from Liver and Stomach" },
+      { pinyin: "Wu Zhu Yu", chinese: "吴茱萸", latin: "Fructus Evodiae", dosage: "1g", role: "shi", role_name: "Envoy", function: "Warms Liver, redirects Qi downward" },
+    ],
+
+    clinical_picture: {
+      summary: "A formula for Liver invading Stomach on the Blood level. The patient presents with pain beneath the hypochondria, mainly at the left rectus muscle, associated with stress and anger. This formula addresses both Qi and Blood stagnation in the Liver and Stomach.",
+      tongue: "Purple",
+      pulse: "Wiry",
+      key_symptoms: [
+        "Pain beneath hypochondria mainly at left rectus muscle",
+        "Stress and anger",
+      ],
+    },
+
+    actions: [
+      "Regulates Liver blood and Qi",
+      "Treats pain",
+    ],
+
+    pattern: "Liver Qi and Blood Stagnation Invading the Stomach",
+
+    modifications: [],
+
+    differentiators: [
+      { formula: "Xue Fu Zhu Yu Tang", difference: "Shu Gan Tang = LV invading ST on Xue level, Chai Hu/Zhi Shi/Dang Gui/Tao Ren/Hong Hua/Chuan Xiong/Bai Shao/Qing Pi/Huang Lian/Wu Zhu Yu. Xue Fu Zhu Yu Tang = Xue Yu at the lower Jiao producing heat and invade the chest, Chai Hu/Zhi Shi/Dang Gui/Tao Ren/Hong Hua/Chuan Xiong/Bai Shao + Sheng Di/Niu Xi/Jie Geng/Gan Cao." },
+    ],
+
+    modern_applications: [
+      "Chronic gastritis with hypochondriac pain",
+      "Peptic ulcer (Liver-Stomach disharmony)",
+      "Intercostal neuralgia",
+      "Stress-related epigastric pain",
+    ],
+
+    color: "#6a5acd",
+  },
+
+  // ============================================================
+  // TAO HONG SI WU TANG 桃红四物汤
+  // ============================================================
+  "tao-hong-si-wu-tang": {
+    id: "tao-hong-si-wu-tang",
+    name_pinyin: "Táo Hóng Sì Wù Tāng",
+    name_chinese: "桃红四物汤",
+    name_english: "Four Substances Decoction with Safflower and Peach Pit",
+    category: "Formulas that Invigorate Blood and Dispel Stasis",
+    source: "Yi Zong Jin Jian",
+
+    composition: [
+      { pinyin: "Tao Ren", chinese: "桃仁", latin: "Semen Persicae", dosage: "15g", role: "jun", role_name: "King", function: "Invigorates blood, dispels stasis" },
+      { pinyin: "Da Huang", chinese: "大黄", latin: "Radix et Rhizoma Rhei", dosage: "12g", role: "chen", role_name: "Minister", function: "Purges heat, invigorates blood, promotes bowel movement" },
+      { pinyin: "Gui Zhi", chinese: "桂枝", latin: "Ramulus Cinnamomi", dosage: "10g", role: "chen", role_name: "Minister", function: "Warms meridians, promotes blood circulation" },
+      { pinyin: "Mang Xiao", chinese: "芒硝", latin: "Natrii Sulfas", dosage: "10g", role: "zuo", role_name: "Assistant", function: "Softens hardness, purges accumulation" },
+      { pinyin: "Zhi Gan Cao", chinese: "炙甘草", latin: "Radix Glycyrrhizae Praeparata", dosage: "6g", role: "shi", role_name: "Envoy", function: "Harmonizes all herbs" },
+    ],
+
+    clinical_picture: {
+      summary: "A Xue type formula of a dry nature. It is a Si Wu Tang type person with severe xue yu (blood stasis) based on Tao Ren. Menstruation blood is dark and purple, blood is sticky thus painful. Short cycle. May have neck disorders, wind aversion, eye disorders, blurred vision, dizziness, tinnitus.",
+      tongue: "Pale",
+      pulse: "Thin",
+      key_symptoms: [
+        "GY: Dysmenorrhea, amenorrhea, irregular menstruation, PMS",
+        "Endometriosis, ovarian/uterine cysts or cancer",
+        "Infertility",
+        "Migraine, headache, trigeminal neuralgia",
+        "Chronic liver disease/infection, hepatitis",
+        "Coronary heart disease, IHD",
+        "Eczema, psoriasis, purpura, alopecia",
+        "Dry skin, dark skin pigmentation, skin warts",
+      ],
+    },
+
+    actions: [
+      "Regulates blood",
+      "Dissolves blood stasis",
+      "Nourishes blood",
+    ],
+
+    pattern: "Blood Stasis with Blood Deficiency (Dry Nature)",
+
+    modifications: [],
+
+    differentiators: [
+      { formula: "Run Chang Wan", difference: "Tao Hong Si Wu Tang = xue yu with dry stool, sho formula. Run Chang Wan = dry stool chronic constipation, disease formula." },
+      { formula: "Xue Fu Zhu Yu Tang", difference: "Tao Hong Si Wu Tang = xue yu with dry stool, sho formula. Xue Fu Zhu Yu Tang = xue yu with LV qi stagnation, can effect mid and upper jiao." },
+    ],
+
+    dpiRemarks: "Xue type formula. Of a dry nature. Menstruation blood is dark and purple, blood is sticky thus painful. Short cycle. Neck disorders, wind aversion, eyes disorders, blurred vision, dizziness, tinnitus... It's a si wu tang type person with severe xue yu tao ren based stasis.",
+    treatmentTime: "1-6 months mid dosage level. 1st the stool and xue yu, 2nd the irritation. Overuse will cause loss stool/diarrhea, chill, and sleepy feeling. If xue yu also above the abdomen with LV mai use xue fu zhu yu tang.",
+
+    modern_applications: [
+      "Dysmenorrhea",
+      "Endometriosis",
+      "Uterine/ovarian cysts",
+      "Infertility (blood stasis type)",
+      "Migraine and headache",
+      "Chronic hepatitis",
+      "Coronary heart disease",
+      "Skin disorders (eczema, psoriasis, alopecia)",
+    ],
+
+    color: "#c71585",
+  },
+
+  // ============================================================
+  // WU ZI YAN ZONG WAN 五子衍宗丸
+  // ============================================================
+  "wu-zi-yan-zong-wan": {
+    id: "wu-zi-yan-zong-wan",
+    name_pinyin: "Wǔ Zǐ Yǎn Zōng Wán",
+    name_chinese: "五子衍宗丸",
+    name_english: "Five Ancestors' Tea Pills",
+    category: "Formulas that Tonify the Kidneys",
+    source: "She Sheng Zhong Miao Fang",
+
+    composition: [
+      { pinyin: "Gou Qi Zi", chinese: "枸杞子", latin: "Fructus Lycii", dosage: "10g", role: "jun", role_name: "King", function: "Tonifies Kidney and Liver, nourishes Jing and blood, benefits eyes" },
+      { pinyin: "Tu Si Zi", chinese: "菟丝子", latin: "Semen Cuscutae", dosage: "10g", role: "chen", role_name: "Minister", function: "Tonifies Kidney Yang, nourishes Jing" },
+      { pinyin: "Che Qian Zi", chinese: "车前子", latin: "Semen Plantaginis", dosage: "10g", role: "zuo", role_name: "Assistant", function: "Promotes urination, benefits eyes" },
+      { pinyin: "Wu Wei Zi", chinese: "五味子", latin: "Fructus Schisandrae", dosage: "10g", role: "zuo", role_name: "Assistant", function: "Astringes Kidney Qi, preserves Jing" },
+      { pinyin: "Fu Pen Zi", chinese: "覆盆子", latin: "Fructus Rubi", dosage: "10g", role: "zuo", role_name: "Assistant", function: "Tonifies Kidney, astringes Jing, benefits eyes" },
+    ],
+
+    clinical_picture: {
+      summary: "A formula to tonify Kidney Yang, nourish Jing and blood, and benefit the eyes. Particularly effective for male reproductive and urinary disorders related to Kidney deficiency. Addresses general weakness and lower back pain with sexual dysfunction.",
+      tongue: "Red",
+      pulse: "Thin",
+      key_symptoms: [
+        "General weakness",
+        "Lower back pain",
+        "Sexual dysfunction (impotence, premature ejaculation)",
+        "Male infertility, lower sperm count",
+        "Weak bladder, frequent urination",
+        "Dribbling of urine",
+      ],
+    },
+
+    actions: [
+      "Tonifies Kidney Yang",
+      "Nourishes Jing and blood",
+      "Benefits eyes",
+    ],
+
+    pattern: "Kidney Yang Deficiency with Jing Insufficiency",
+
+    modifications: [
+      { condition: "Infertility", herbs_add: "Jin Ying Zi, Sang Shen, Yin Yang Huo" },
+    ],
+
+    differentiators: [],
+
+    modern_applications: [
+      "Male infertility",
+      "Erectile dysfunction",
+      "Premature ejaculation",
+      "Oligospermia",
+      "Benign prostatic hyperplasia",
+      "Frequent urination",
+      "Lower back pain (Kidney deficiency type)",
+    ],
+
+    color: "#2e8b57",
+  },
+
+  // ============================================================
+  // YI QI CHONG MING TANG 益气聪明汤
+  // ============================================================
+  "yi-qi-chong-ming-tang": {
+    id: "yi-qi-chong-ming-tang",
+    name_pinyin: "Yì Qì Cōng Míng Tāng",
+    name_chinese: "益气聪明汤",
+    name_english: "Eucommia and Rehmannia Formula",
+    category: "Formulas that Tonify and Raise Yang Qi",
+    source: "Pi Wei Lun (Li Dong-Yuan)",
+
+    composition: [
+      { pinyin: "Huang Qi", chinese: "黄芪", latin: "Radix Astragali", dosage: "15g", role: "jun", role_name: "King", function: "Tonifies Qi, raises Yang" },
+      { pinyin: "Ren Shen", chinese: "人参", latin: "Radix Ginseng", dosage: "15g", role: "jun", role_name: "King", function: "Tonifies Qi, generates fluids" },
+      { pinyin: "Sheng Ma", chinese: "升麻", latin: "Rhizoma Cimicifugae", dosage: "10g", role: "chen", role_name: "Minister", function: "Raises Yang Qi" },
+      { pinyin: "Ge Gen", chinese: "葛根", latin: "Radix Puerariae", dosage: "10g", role: "chen", role_name: "Minister", function: "Raises Yang Qi, generates fluids" },
+      { pinyin: "Man Jing Zi", chinese: "蔓荆子", latin: "Fructus Viticis", dosage: "5g", role: "zuo", role_name: "Assistant", function: "Clears head and eyes, disperses wind" },
+      { pinyin: "Bai Shao", chinese: "白芍", latin: "Radix Paeoniae Alba", dosage: "3g", role: "zuo", role_name: "Assistant", function: "Nourishes blood, softens Liver" },
+      { pinyin: "Huang Bai", chinese: "黄柏", latin: "Cortex Phellodendri", dosage: "3g", role: "zuo", role_name: "Assistant", function: "Clears deficient heat" },
+      { pinyin: "Gan Cao", chinese: "甘草", latin: "Radix Glycyrrhizae", dosage: "15g", role: "shi", role_name: "Envoy", function: "Harmonizes all herbs, tonifies Qi" },
+    ],
+
+    clinical_picture: {
+      summary: "A formula to tonify and raise Yang Qi to improve eye and ear function. Based on Li Dong-Yuan's approach of raising clear Yang to the head. The patient has Spleen Qi deficiency with sinking Yang leading to diminished sensory function of the eyes and ears.",
+      tongue: "Pale, swollen, teeth marks",
+      pulse: "Minute",
+      key_symptoms: [
+        "Fatigue",
+        "Loose stool, chronic diarrhea",
+        "Dizziness",
+        "Blurred vision, diminution of vision",
+        "Tinnitus, hearing loss",
+      ],
+    },
+
+    actions: [
+      "Tonifies and raises Yang Qi",
+      "Improves eye and ear function",
+    ],
+
+    pattern: "Spleen Qi Deficiency with Sinking Yang Affecting Eyes and Ears",
+
+    modifications: [],
+
+    differentiators: [
+      { formula: "Bu Zhong Yi Qi Tang", difference: "Yi Qi Chong Ming Tang = Tonify and raises yang qi and improve eye/ear function, slightly support K and LV. Bu Zhong Yi Qi Tang = Tonify and raises yang qi, support SP, support intestinal aspect of SP." },
+    ],
+
+    modern_applications: [
+      "Age-related hearing loss",
+      "Tinnitus",
+      "Age-related vision decline",
+      "Chronic fatigue with sensory decline",
+      "Vertigo (Qi deficiency type)",
+    ],
+
+    color: "#6b8e23",
+  },
+
+  // ============================================================
+  // FANG JI HUANG QI TANG 防己黄芪汤
+  // ============================================================
+  "fang-ji-huang-qi-tang": {
+    id: "fang-ji-huang-qi-tang",
+    name_pinyin: "Fáng Jǐ Huáng Qí Tāng",
+    name_chinese: "防己黄芪汤",
+    name_english: "Stephania and Astragalus Combination",
+    category: "Formulas that Dispel Wind-Dampness",
+    source: "Jin Gui Yao Lue (Zhang Zhongjing)",
+
+    composition: [
+      { pinyin: "Fang Ji", chinese: "防己", latin: "Radix Stephaniae Tetrandrae", dosage: "12g", role: "jun", role_name: "King", function: "Dispels wind-dampness, promotes urination" },
+      { pinyin: "Huang Qi", chinese: "黄芪", latin: "Radix Astragali", dosage: "15g", role: "chen", role_name: "Minister", function: "Tonifies Qi, consolidates exterior" },
+      { pinyin: "Bai Zhu", chinese: "白术", latin: "Rhizoma Atractylodis Macrocephalae", dosage: "9g", role: "zuo", role_name: "Assistant", function: "Strengthens Spleen, dries dampness" },
+      { pinyin: "Zhi Gan Cao", chinese: "炙甘草", latin: "Radix Glycyrrhizae Praeparata", dosage: "6g", role: "zuo", role_name: "Assistant", function: "Harmonizes all herbs" },
+      { pinyin: "Sheng Jiang", chinese: "生姜", latin: "Rhizoma Zingiberis Recens", dosage: "3g", role: "shi", role_name: "Envoy", function: "Warms Middle Jiao" },
+      { pinyin: "Da Zao", chinese: "大枣", latin: "Fructus Jujubae", dosage: "4 pieces", role: "shi", role_name: "Envoy", function: "Nourishes Qi, harmonizes" },
+    ],
+
+    clinical_picture: {
+      summary: "A formula for edema and heaviness due to Qi deficiency with wind-dampness. The patient has a weak constitution with poor fluid metabolism, leading to edema especially in the legs and joint swelling.",
+      tongue: "Pale with white coating",
+      pulse: "Floating",
+      key_symptoms: [
+        "Edema",
+        "Heaviness in legs",
+        "Joint swelling",
+      ],
+    },
+
+    actions: [
+      "Tonifies Qi",
+      "Dispels wind-dampness",
+      "Promotes urination",
+    ],
+
+    pattern: "Qi Deficiency with Wind-Dampness and Edema",
+
+    modifications: [],
+    differentiators: [],
+
+    modern_applications: [
+      "Edema (Qi deficiency type)",
+      "Rheumatoid arthritis",
+      "Osteoarthritis with swelling",
+      "Obesity with edema",
+      "Nephrotic syndrome",
+    ],
+
+    color: "#20b2aa",
+  },
+
+  // ============================================================
+  // GUI ZHI SHAO YAO ZHI MU TANG 桂枝芍药知母汤
+  // ============================================================
+  "gui-zhi-shao-yao-zhi-mu-tang": {
+    id: "gui-zhi-shao-yao-zhi-mu-tang",
+    name_pinyin: "Guì Zhī Sháo Yào Zhī Mǔ Tāng",
+    name_chinese: "桂枝芍药知母汤",
+    name_english: "Cinnamon Twig, Peony, Anemarrhena Decoction",
+    category: "Formulas that Dispel Wind-Dampness",
+    source: "Jin Gui Yao Lue (Zhang Zhongjing)",
+
+    composition: [
+      { pinyin: "Gui Zhi", chinese: "桂枝", latin: "Ramulus Cinnamomi", dosage: "12g", role: "jun", role_name: "King", function: "Warms meridians, dispels wind" },
+      { pinyin: "Bai Shao", chinese: "白芍", latin: "Radix Paeoniae Alba", dosage: "9g", role: "chen", role_name: "Minister", function: "Nourishes blood, alleviates pain" },
+      { pinyin: "Zhi Mu", chinese: "知母", latin: "Rhizoma Anemarrhenae", dosage: "12g", role: "chen", role_name: "Minister", function: "Clears heat, nourishes Yin" },
+      { pinyin: "Ma Huang", chinese: "麻黄", latin: "Herba Ephedrae", dosage: "6g", role: "zuo", role_name: "Assistant", function: "Opens exterior, dispels wind-cold" },
+      { pinyin: "Fu Zi", chinese: "附子", latin: "Radix Aconiti Lateralis Praeparata", dosage: "6g", role: "zuo", role_name: "Assistant", function: "Warms Yang, dispels cold, alleviates pain" },
+      { pinyin: "Fang Feng", chinese: "防风", latin: "Radix Saposhnikoviae", dosage: "12g", role: "zuo", role_name: "Assistant", function: "Dispels wind, alleviates pain" },
+      { pinyin: "Bai Zhu", chinese: "白术", latin: "Rhizoma Atractylodis Macrocephalae", dosage: "15g", role: "zuo", role_name: "Assistant", function: "Strengthens Spleen, dries dampness" },
+      { pinyin: "Sheng Jiang", chinese: "生姜", latin: "Rhizoma Zingiberis Recens", dosage: "15g", role: "zuo", role_name: "Assistant", function: "Warms Middle Jiao, disperses cold" },
+      { pinyin: "Gan Cao", chinese: "甘草", latin: "Radix Glycyrrhizae", dosage: "6g", role: "shi", role_name: "Envoy", function: "Harmonizes all herbs" },
+    ],
+
+    clinical_picture: {
+      summary: "A formula for joint Bi syndrome with both wind-cold-dampness and heat. The joints are painful, swollen, and may be hot. This formula simultaneously dispels wind-dampness, clears heat, and warms Yang -- addressing the complex mixed pattern of joint disease.",
+      tongue: "Red with thin coating",
+      pulse: "Wiry, rapid",
+      key_symptoms: [
+        "Joint pain with swelling",
+        "Heaviness",
+        "Heat in the joints",
+      ],
+    },
+
+    actions: [
+      "Dispels wind-dampness",
+      "Clears heat",
+      "Tonifies",
+    ],
+
+    pattern: "Wind-Cold-Dampness Bi Syndrome with Heat",
+
+    modifications: [],
+    differentiators: [],
+
+    modern_applications: [
+      "Rheumatoid arthritis",
+      "Gout",
+      "Osteoarthritis with inflammation",
+      "Ankylosing spondylitis",
+      "Joint pain with swelling and heat",
+    ],
+
+    color: "#8a2be2",
+  },
+
+  // ============================================================
+  // HUANG LIAN JIE DU TANG 黄连解毒汤
+  // ============================================================
+  "huang-lian-jie-du-tang": {
+    id: "huang-lian-jie-du-tang",
+    name_pinyin: "Huáng Lián Jiě Dú Tāng",
+    name_chinese: "黄连解毒汤",
+    name_english: "Coptis Decoction to Clear Toxins",
+    category: "Formulas that Clear Heat and Resolve Toxicity",
+    source: "Wai Tai Mi Yao",
+
+    composition: [
+      { pinyin: "Huang Lian", chinese: "黄连", latin: "Rhizoma Coptidis", dosage: "9g", role: "jun", role_name: "King", function: "Clears Heart and Middle Jiao fire" },
+      { pinyin: "Huang Qin", chinese: "黄芩", latin: "Radix Scutellariae", dosage: "6g", role: "chen", role_name: "Minister", function: "Clears Upper Jiao fire" },
+      { pinyin: "Huang Bai", chinese: "黄柏", latin: "Cortex Phellodendri", dosage: "6g", role: "zuo", role_name: "Assistant", function: "Clears Lower Jiao fire" },
+      { pinyin: "Zhi Zi", chinese: "栀子", latin: "Fructus Gardeniae", dosage: "9g", role: "shi", role_name: "Envoy", function: "Clears heat from all three Jiao, drains fire via urination" },
+    ],
+
+    clinical_picture: {
+      summary: "A powerful formula to clear fire and resolve toxicity from all three Jiao. Uses three 'yellow' bitter-cold herbs (Huang Lian, Huang Qin, Huang Bai) plus Zhi Zi to systematically clear excess heat and fire toxins throughout the body.",
+      tongue: "Red with yellow coating",
+      pulse: "Rapid, forceful",
+      key_symptoms: [
+        "High fever",
+        "Irritability",
+        "Insomnia",
+        "Mouth ulcers",
+        "Nosebleed",
+      ],
+    },
+
+    actions: [
+      "Clears fire from all three Jiao",
+      "Resolves toxicity",
+    ],
+
+    pattern: "Fire Toxin in All Three Jiao",
+
+    modifications: [],
+    differentiators: [],
+
+    modern_applications: [
+      "Acute infections with high fever",
+      "Sepsis (supportive, heat-toxin pattern)",
+      "Acute conjunctivitis",
+      "Oral ulcers (excess heat type)",
+      "Acute hepatitis (heat-toxin type)",
+      "Skin infections and abscesses",
+    ],
+
+    color: "#ff4500",
+  },
+
+  // ============================================================
+  // YAO TONG PAIN 腰痛方
+  // ============================================================
+  "yao-tong-pain-formula": {
+    id: "yao-tong-pain-formula",
+    name_pinyin: "Yāo Tòng Pain",
+    name_chinese: "腰痛方",
+    name_english: "Angelica & Eucommia Support Formula",
+    category: "Formulas that Tonify Kidney Yang and Regulate Blood",
+    source: "Traditional",
+
+    composition: [
+      { pinyin: "Du Zhong", chinese: "杜仲", latin: "Cortex Eucommiae", dosage: "20g", role: "jun", role_name: "King", function: "Tonifies Kidney Yang, strengthens bones and sinews" },
+      { pinyin: "Bu Gu Zhi", chinese: "补骨脂", latin: "Fructus Psoraleae", dosage: "12g", role: "chen", role_name: "Minister", function: "Tonifies Kidney Yang, strengthens bones" },
+      { pinyin: "Ba Ji Tian", chinese: "巴戟天", latin: "Radix Morindae Officinalis", dosage: "12g", role: "chen", role_name: "Minister", function: "Tonifies Kidney Yang, strengthens sinews" },
+      { pinyin: "Huai Niu Xi", chinese: "怀牛膝", latin: "Radix Achyranthis Bidentatae", dosage: "12g", role: "zuo", role_name: "Assistant", function: "Strengthens lower back and knees, invigorates blood" },
+      { pinyin: "Dang Gui", chinese: "当归", latin: "Radix Angelicae Sinensis", dosage: "12g", role: "zuo", role_name: "Assistant", function: "Nourishes and invigorates blood" },
+      { pinyin: "Qin Jiao", chinese: "秦艽", latin: "Radix Gentianae Macrophyllae", dosage: "12g", role: "zuo", role_name: "Assistant", function: "Dispels wind-dampness from meridians" },
+      { pinyin: "Ru Xiang", chinese: "乳香", latin: "Olibanum", dosage: "10g", role: "zuo", role_name: "Assistant", function: "Invigorates blood, alleviates pain" },
+      { pinyin: "Bai Zhu", chinese: "白术", latin: "Rhizoma Atractylodis Macrocephalae", dosage: "10g", role: "shi", role_name: "Envoy", function: "Strengthens Spleen, supports Qi" },
+    ],
+
+    clinical_picture: {
+      summary: "A formula to tonify Kidney Yang, regulate blood, and clear wind-cold from the meridians. Targets lower back pain and weakness of joints and bones due to Kidney Yang deficiency with blood stasis and wind-cold obstruction in the meridians.",
+      tongue: "Pale or purple pale",
+      pulse: "Thin, wiry",
+      key_symptoms: [
+        "Lower back pain",
+        "Weakness of joints and bones",
+      ],
+    },
+
+    actions: [
+      "Tonifies Kidney Yang",
+      "Regulates blood",
+      "Clears wind-cold from meridians",
+    ],
+
+    pattern: "Kidney Yang Deficiency with Blood Stasis and Wind-Cold in Meridians",
+
+    modifications: [
+      { condition: "Yang xu", herbs_add: "Fu Zi, Rou Gui. Or add You Gui Yin" },
+      { condition: "Women with lower back pain", herbs_add: "Add Zuo Gui Yin" },
+    ],
+
+    differentiators: [],
+
+    modern_applications: [
+      "Chronic lower back pain",
+      "Lumbar disc herniation",
+      "Osteoporosis",
+      "Degenerative joint disease",
+      "Sciatica (Kidney deficiency type)",
+    ],
+
+    color: "#a0522d",
+  },
+
+  // ============================================================
+  // DING XIANG SHI DI TANG 丁香柿蒂汤
+  // ============================================================
+  "ding-xiang-shi-di-tang": {
+    id: "ding-xiang-shi-di-tang",
+    name_pinyin: "Dīng Xiāng Shì Dì Tāng",
+    name_chinese: "丁香柿蒂汤",
+    name_english: "Clove and Persimmon Calyx Decoction",
+    category: "Formulas that Warm the Middle and Direct Qi Downward",
+    source: "Ji Sheng Fang",
+
+    composition: [
+      { pinyin: "Ding Xiang", chinese: "丁香", latin: "Flos Caryophylli", dosage: "6g", role: "jun", role_name: "King", function: "Warms the middle, directs Qi downward, stops hiccups" },
+      { pinyin: "Shi Di", chinese: "柿蒂", latin: "Calyx Kaki", dosage: "9g", role: "chen", role_name: "Minister", function: "Directs Stomach Qi downward, stops hiccups" },
+      { pinyin: "Ren Shen", chinese: "人参", latin: "Radix Ginseng", dosage: "3g", role: "zuo", role_name: "Assistant", function: "Tonifies Qi, supports Middle Jiao" },
+      { pinyin: "Sheng Jiang", chinese: "生姜", latin: "Rhizoma Zingiberis Recens", dosage: "6g", role: "shi", role_name: "Envoy", function: "Warms the Stomach, stops vomiting" },
+    ],
+
+    clinical_picture: {
+      summary: "A formula for persistent hiccups caused by cold in the Stomach. The Stomach Qi rebels upward due to cold, causing continuous hiccups. This formula warms the middle and redirects the rebellious Qi downward.",
+      tongue: "Pale with white coating",
+      pulse: "Slow, deep",
+      key_symptoms: [
+        "Persistent hiccups from cold in the stomach",
+      ],
+    },
+
+    actions: [
+      "Warms the middle",
+      "Directs rebellious Qi downward",
+      "Stops hiccups",
+    ],
+
+    pattern: "Stomach Cold with Rebellious Qi (Hiccups)",
+
+    modifications: [],
+    differentiators: [],
+
+    modern_applications: [
+      "Persistent hiccups",
+      "Post-surgical hiccups",
+      "Gastric cold with nausea",
+    ],
+
+    color: "#d2691e",
+  },
+
+  // ============================================================
+  // BEI XIE FEN QING YIN 萆薢分清饮
+  // ============================================================
+  "bei-xie-fen-qing-yin": {
+    id: "bei-xie-fen-qing-yin",
+    name_pinyin: "Bēi Xiè Fēn Qīng Yǐn",
+    name_chinese: "萆薢分清饮",
+    name_english: "Dioscorea Formula to Separate the Turbid",
+    category: "Formulas that Transform Dampness",
+    source: "Dan Xi Xin Fa",
+
+    composition: [
+      { pinyin: "Bei Xie", chinese: "萆薢", latin: "Rhizoma Dioscoreae Hypoglaucae", dosage: "12g", role: "jun", role_name: "King", function: "Separates clear from turbid, resolves dampness" },
+      { pinyin: "Yi Zhi Ren", chinese: "益智仁", latin: "Fructus Alpiniae Oxyphyllae", dosage: "9g", role: "chen", role_name: "Minister", function: "Warms Kidney, controls urination" },
+      { pinyin: "Wu Yao", chinese: "乌药", latin: "Radix Linderae", dosage: "6g", role: "zuo", role_name: "Assistant", function: "Moves Qi, warms lower Jiao" },
+      { pinyin: "Shi Chang Pu", chinese: "石菖蒲", latin: "Rhizoma Acori Tatarinowii", dosage: "9g", role: "zuo", role_name: "Assistant", function: "Opens orifices, transforms dampness" },
+    ],
+
+    clinical_picture: {
+      summary: "A formula for turbid or milky urination due to Kidney Yang deficiency with dampness in the lower Jiao. The Kidney fails to separate clear from turbid, leading to cloudy urine and frequent urination.",
+      tongue: "Pale",
+      pulse: "Slow",
+      key_symptoms: [
+        "Turbid/milky urination",
+        "Frequent urination",
+      ],
+    },
+
+    actions: [
+      "Warms and transforms turbid dampness",
+      "Separates clear from turbid",
+    ],
+
+    pattern: "Kidney Yang Deficiency with Turbid Dampness in Lower Jiao",
+
+    modifications: [],
+    differentiators: [],
+
+    modern_applications: [
+      "Chyluria",
+      "Chronic urinary tract infections",
+      "Prostatic fluid discharge",
+      "Turbid urine",
+    ],
+
+    color: "#4169e1",
+  },
+
+  // ============================================================
+  // QING XIN LIAN ZI YIN 清心莲子饮
+  // ============================================================
+  "qing-xin-lian-zi-yin": {
+    id: "qing-xin-lian-zi-yin",
+    name_pinyin: "Qīng Xīn Lián Zǐ Yǐn",
+    name_chinese: "清心莲子饮",
+    name_english: "Lotus Seed Combination",
+    category: "Formulas that Clear Heart Fire and Tonify Qi",
+    source: "Tai Ping Hui Min He Ji Ju Fang",
+
+    composition: [
+      { pinyin: "Lian Zi", chinese: "莲子", latin: "Semen Nelumbinis", dosage: "22g", role: "jun", role_name: "King", function: "Clears Heart fire, tonifies Spleen and Kidney" },
+      { pinyin: "Mai Men Dong", chinese: "麦门冬", latin: "Radix Ophiopogonis", dosage: "15g", role: "chen", role_name: "Minister", function: "Nourishes Yin, clears heat" },
+      { pinyin: "Ren Shen", chinese: "人参", latin: "Radix Ginseng", dosage: "22g", role: "chen", role_name: "Minister", function: "Tonifies Qi" },
+      { pinyin: "Huang Qin", chinese: "黄芩", latin: "Radix Scutellariae", dosage: "15g", role: "zuo", role_name: "Assistant", function: "Clears heat, drains fire" },
+      { pinyin: "Huang Qi", chinese: "黄芪", latin: "Radix Astragali", dosage: "22g", role: "zuo", role_name: "Assistant", function: "Tonifies Qi, consolidates exterior" },
+      { pinyin: "Che Qian Zi", chinese: "车前子", latin: "Semen Plantaginis", dosage: "15g", role: "zuo", role_name: "Assistant", function: "Promotes urination, clears damp-heat" },
+      { pinyin: "Di Gu Pi", chinese: "地骨皮", latin: "Cortex Lycii", dosage: "15g", role: "zuo", role_name: "Assistant", function: "Clears deficient heat, cools blood" },
+      { pinyin: "Fu Ling", chinese: "茯苓", latin: "Poria", dosage: "22g", role: "zuo", role_name: "Assistant", function: "Strengthens Spleen, promotes urination" },
+      { pinyin: "Gan Cao", chinese: "甘草", latin: "Radix Glycyrrhizae", dosage: "15g", role: "shi", role_name: "Envoy", function: "Harmonizes all herbs" },
+    ],
+
+    clinical_picture: {
+      summary: "A formula for Heart fire with both Qi and Yin deficiency complicated by damp-heat. The patient has irritability, urinary symptoms, and symptoms triggered by mental stress. Kidney Yin deficiency affects the Heart causing palpitations with insomnia and low energy. Addresses the complex interplay of Heart fire, Qi/Yin deficiency, and damp-heat in the lower Jiao.",
+      tongue: "Dry",
+      pulse: "Thin, rapid",
+      key_symptoms: [
+        "Heart fire with both Qi and Yin xu and damp heat",
+        "Irritability",
+        "Painful urination",
+        "Hypermenorrhea",
+        "Symptoms triggered by mental stress",
+        "Palpitations with insomnia and low energy",
+        "Low grade fever",
+      ],
+    },
+
+    actions: [
+      "Tonifies Qi",
+      "Nourishes Yin",
+      "Clears Heart fire",
+      "Treats urinary disorders",
+    ],
+
+    pattern: "Heart Fire with Qi and Yin Deficiency and Damp-Heat",
+
+    modifications: [],
+    differentiators: [],
+
+    modern_applications: [
+      "Chronic gonorrhea",
+      "Diabetes mellitus",
+      "Uterine bleeding (deficiency-heat type)",
+      "Coronary heart disease",
+      "Nephritis",
+      "Benign prostatic hyperplasia",
+      "Urinary tract infection",
+    ],
+
+    color: "#db7093",
+  },
+
+  // ============================================================
+  // SI JUN ZI TANG 四君子汤
+  // ============================================================
+  "si-jun-zi-tang": {
+    id: "si-jun-zi-tang",
+    name_pinyin: "Sì Jūn Zǐ Tāng",
+    name_chinese: "四君子汤",
+    name_english: "Four Major Herb Combinations",
+    category: "Qi Tonifying Formulas (补气剂)",
+    source: "Tai Ping Hui Min He Ji Ju Fang",
+
+    composition: [
+      { pinyin: "Ren Shen", chinese: "人参", latin: "Radix Ginseng", dosage: "6-10g", role: "jun", role_name: "King", function: "Strongly tonifies Yuan Qi, strengthens Spleen" },
+      { pinyin: "Bai Zhu", chinese: "白术", latin: "Rhizoma Atractylodis Macrocephalae", dosage: "6-10g", role: "chen", role_name: "Minister", function: "Strengthens Spleen, dries Dampness" },
+      { pinyin: "Fu Ling", chinese: "茯苓", latin: "Poria", dosage: "6-10g", role: "zuo", role_name: "Assistant", function: "Strengthens Spleen, leaches Dampness, promotes urination" },
+      { pinyin: "Gan Cao", chinese: "甘草", latin: "Radix Glycyrrhizae", dosage: "3-10g", role: "shi", role_name: "Envoy", function: "Harmonizes all herbs, tonifies Qi" },
+    ],
+
+    clinical_picture: {
+      summary: "Classic formula for Spleen Qi deficiency. This situation is very common. In most cases, the outcome of poor longevity creates a wide variety of syndromes that, when treated correctly, will almost always reach the initial state which is si jun zi tang.",
+      tongue: "Pale with teeth marks",
+      pulse: "Weak",
+      key_symptoms: [
+        "Fatigue with sugar craving",
+        "Low appetite",
+        "Loose stools or diarrhea",
+        "Borborygmus",
+        "Weakness in arms and legs",
+      ],
+    },
+
+    actions: [
+      "Tonifies Qi",
+      "Strengthens Spleen",
+    ],
+
+    pattern: "SP Qi Xu",
+
+    contraindications: [
+      "Excess heat patterns",
+      "Overuse will cause dry stool and irritation = LV qi yu",
+    ],
+
+    modifications: [],
+
+    differentiators: [
+      { formula: "Ding Zhi Wan", difference: "Si jun zi tang = Physical qi xu, fatigue. Ding zhi wan = Mental qi xu, depression." },
+    ],
+
+    modern_applications: [
+      "Chronic fatigue syndrome",
+      "Functional dyspepsia",
+      "Chronic gastritis",
+      "General debility",
+    ],
+
+    dpiRemarks: "Qi type formula. Classic formula. Ren shen tree. This situation is very common. In most cases, the outcome of poor longevity creates a wide variety of syndromes that, when treated correctly, will almost always reach the initial state which is si jun zi tang. Using si jun zi tang reduces the chance of another repeat in the pathological chain.",
+    treatmentTime: "2-6 months mid to low dosage. Overuse will cause dry stool and irritation = LV qi yu. Post si jun zi tang, sport.",
+
+    color: "#6b8e23",
+  },
+
+  // ============================================================
+  // PING WEI SAN 平胃散
+  // ============================================================
+  "ping-wei-san": {
+    id: "ping-wei-san",
+    name_pinyin: "Píng Wèi Sǎn",
+    name_chinese: "平胃散",
+    name_english: "Magnolia and Ginger Formula",
+    category: "Formulas that Dry Dampness and Transform Phlegm (祛湿剂)",
+    source: "Tai Ping Hui Min He Ji Ju Fang",
+
+    composition: [
+      { pinyin: "Cang Zhu", chinese: "苍术", latin: "Rhizoma Atractylodis", dosage: "15g", role: "jun", role_name: "King", function: "Strongly dries Dampness, strengthens Spleen" },
+      { pinyin: "Hou Po", chinese: "厚朴", latin: "Cortex Magnoliae Officinalis", dosage: "9g", role: "chen", role_name: "Minister", function: "Moves Qi, transforms Dampness, reduces distention" },
+      { pinyin: "Chen Pi", chinese: "陈皮", latin: "Pericarpium Citri Reticulatae", dosage: "9g", role: "zuo", role_name: "Assistant", function: "Regulates Qi, dries Dampness, resolves phlegm" },
+      { pinyin: "Gan Cao", chinese: "甘草", latin: "Radix Glycyrrhizae", dosage: "5g", role: "shi", role_name: "Envoy", function: "Harmonizes all herbs, tonifies Qi" },
+    ],
+
+    clinical_picture: {
+      summary: "Basic formula to treat pancreas imbalance that affects the Stomach causing helicobacter infection disorder. If damp accumulation with no fever, use ping wei san. Treats DM disorder mainly type 2. Post gallstone removal surgery can cause ping wei san condition. Overuse of animal fat and protein diet can cause ping wei san condition.",
+      tongue: "Thick sticky white coating",
+      pulse: "Slippery",
+      key_symptoms: [
+        "Indigestion",
+        "Abdominal bloating (mainly epigastrium)",
+        "Low appetite",
+        "Gas",
+        "Borborygmus",
+        "Diarrhea / loose stools",
+        "Fatigue mainly after eating",
+        "Nausea, vomiting, belching, acid reflux",
+        "Fullness of chest",
+        "Headache due to strong smells",
+        "Bitter taste",
+        "Chronic gastritis",
+        "Gastroenteritis",
+      ],
+    },
+
+    actions: [
+      "Dries Dampness",
+      "Strengthens Spleen",
+      "Promotes Qi movement",
+      "Harmonizes Stomach",
+    ],
+
+    pattern: "Damp Accumulation",
+
+    contraindications: [
+      "Yin deficiency with dry symptoms",
+      "Patients with no dampness signs",
+    ],
+
+    modifications: [],
+
+    differentiators: [],
+
+    modern_applications: [
+      "Chronic gastritis",
+      "Gastroenteritis",
+      "Diabetes mellitus type 2",
+      "Post-cholecystectomy syndrome",
+      "Functional dyspepsia",
+      "Helicobacter pylori infection",
+    ],
+
+    dpiRemarks: "Qi type formula. Ping wei san is a basic formula to treat pancreas imbalance, that effect the ST causing helicobacter infection disorder. If its damp accumulation no fever use ping wei san. Treat DM disorder mainly type 2. Post Gallstone removal surgery can cause ping wei san condition. Overuse animal fat and protein diet can cause ping wei san condition. Ping wei san like ban xia xie xin tang and yue jue wan have a 4 sub conditions. See modifications.",
+    treatmentTime: "2-6 months can be longer in DM. Mid to low dosage level. Post ping wei san: si jun zi tang.",
+
+    color: "#cd853f",
+  },
+
+  // ============================================================
+  // ER CHEN TANG 二陈汤
+  // ============================================================
+  "er-chen-tang": {
+    id: "er-chen-tang",
+    name_pinyin: "Èr Chén Tāng",
+    name_chinese: "二陈汤",
+    name_english: "Citrus and Pinellia Combination",
+    category: "Formulas that Dry Dampness and Transform Phlegm (祛湿剂)",
+    source: "Tai Ping Hui Min He Ji Ju Fang",
+
+    composition: [
+      { pinyin: "Ban Xia", chinese: "半夏", latin: "Rhizoma Pinelliae", dosage: "15g", role: "jun", role_name: "King", function: "Dries Dampness, transforms Phlegm, descends rebellious Qi" },
+      { pinyin: "Chen Pi", chinese: "陈皮", latin: "Pericarpium Citri Reticulatae", dosage: "15g", role: "chen", role_name: "Minister", function: "Regulates Qi, dries Dampness, resolves phlegm" },
+      { pinyin: "Fu Ling", chinese: "茯苓", latin: "Poria", dosage: "9g", role: "zuo", role_name: "Assistant", function: "Strengthens Spleen, leaches Dampness" },
+      { pinyin: "Gan Cao", chinese: "甘草", latin: "Radix Glycyrrhizae", dosage: "4.5g", role: "shi", role_name: "Envoy", function: "Harmonizes all herbs, tonifies Qi" },
+    ],
+
+    clinical_picture: {
+      summary: "Main and basic formula of the ban xia tree formulas. It is a post all ban xia tree formulas when treating chronic shi phlegm accumulation condition. It is a GIT shi formula. The cough is a symptom. It is a diaphragm formula like any ban xia tree formula but the light one.",
+      tongue: "Sticky coating",
+      pulse: "Slippery",
+      key_symptoms: [
+        "Nausea, vomiting",
+        "Epigastric distention",
+        "Coughing with copious white sputum easily expectorated",
+        "Chest and epigastric congestion",
+        "Palpitations",
+        "Depression anxiety",
+        "Headache",
+        "No appetite",
+        "Dizziness and or vertigo",
+      ],
+    },
+
+    actions: [
+      "Dries Dampness",
+      "Transforms Phlegm",
+      "Regulates Qi",
+      "Harmonizes Middle Jiao",
+    ],
+
+    pattern: "Damp-Phlegm",
+
+    contraindications: [
+      "Dry cough due to Yin deficiency",
+      "Cough with blood-streaked sputum",
+    ],
+
+    modifications: [],
+    differentiators: [],
+
+    modern_applications: [
+      "Chronic bronchitis",
+      "Chronic gastritis",
+      "Vertigo",
+      "Morning sickness",
+      "Anxiety with phlegm pattern",
+    ],
+
+    dpiRemarks: "Qi type formula. Ban xia tree main formula. Er chen tang is the main and basic formula of the ban xia tree's formulas. It's a post all ban xia tree formulas when treating chronic shi phlegm accumulation condition. It's a GIT shi formula. The cough is a symptom. It is a diaphragm formula like any ban xie tree formula but the light one. Most modifications are different types of ban xie tree formulas.",
+    treatmentTime: "2-6 months, mid to low dosage.",
+
+    color: "#b8860b",
+  },
+
+  // ============================================================
+  // GUI PI TANG 归脾汤
+  // ============================================================
+  "gui-pi-tang": {
+    id: "gui-pi-tang",
+    name_pinyin: "Guī Pí Tāng",
+    name_chinese: "归脾汤",
+    name_english: "Ginseng and Longan Combination",
+    category: "Qi and Blood Tonifying Formulas (气血双补剂)",
+    source: "Ji Sheng Fang (Yan Yonghe)",
+
+    composition: [
+      { pinyin: "Huang Qi", chinese: "黄芪", latin: "Radix Astragali", dosage: "30g", role: "jun", role_name: "King", function: "Tonifies Qi, raises Yang, strengthens Spleen" },
+      { pinyin: "Ren Shen", chinese: "人参", latin: "Radix Ginseng", dosage: "15g", role: "jun", role_name: "King", function: "Strongly tonifies Yuan Qi, strengthens Spleen" },
+      { pinyin: "Fu Shen", chinese: "茯神", latin: "Poria cum Ligno Hospite", dosage: "30g", role: "chen", role_name: "Minister", function: "Calms the Heart, strengthens Spleen" },
+      { pinyin: "Bai Zhu", chinese: "白术", latin: "Rhizoma Atractylodis Macrocephalae", dosage: "30g", role: "chen", role_name: "Minister", function: "Strengthens Spleen, dries Dampness" },
+      { pinyin: "Long Yan Rou", chinese: "龙眼肉", latin: "Arillus Longan", dosage: "30g", role: "chen", role_name: "Minister", function: "Nourishes Blood, calms the Spirit" },
+      { pinyin: "Suan Zao Ren", chinese: "酸枣仁", latin: "Semen Ziziphi Spinosae", dosage: "30g", role: "zuo", role_name: "Assistant", function: "Nourishes Heart Blood, calms the Spirit" },
+      { pinyin: "Dang Gui", chinese: "当归", latin: "Radix Angelicae Sinensis", dosage: "3g", role: "zuo", role_name: "Assistant", function: "Nourishes Blood, harmonizes Blood" },
+      { pinyin: "Yuan Zhi", chinese: "远志", latin: "Radix Polygalae", dosage: "3g", role: "zuo", role_name: "Assistant", function: "Calms the Spirit, opens Heart orifices" },
+      { pinyin: "Mu Xiang", chinese: "木香", latin: "Radix Aucklandiae", dosage: "15g", role: "zuo", role_name: "Assistant", function: "Moves Qi, prevents cloying from tonics" },
+      { pinyin: "Gan Cao", chinese: "甘草", latin: "Radix Glycyrrhizae", dosage: "7.5g", role: "shi", role_name: "Envoy", function: "Harmonizes all herbs, tonifies Qi" },
+    ],
+
+    clinical_picture: {
+      summary: "A xue & qi xu type formula. It is a Ren shen based formula on the level of xue. The person cannot produce memories / cannot produce xue, that is why developing anemia with mental issues focusing on depression. When administering gui pi tang, we need to advise the patient to eat good quality food that produces qi & xue. Protein.",
+      tongue: "Pale, swollen, teeth marks, thin white coating",
+      pulse: "Weak, thin",
+      key_symptoms: [
+        "Anemia",
+        "Memory loss, forgetfulness, absent mindedness",
+        "Palpitations (xu type)",
+        "No appetite",
+        "Pale face",
+        "Dizziness, blurred vision all due to LBP",
+        "GY: long cycle, irregular menstruation, menorrhagia",
+        "Depression, weakness, fear",
+      ],
+    },
+
+    actions: [
+      "Tonifies Qi",
+      "Nourishes Blood",
+      "Strengthens Spleen",
+      "Nourishes Heart",
+      "Calms the Spirit",
+    ],
+
+    pattern: "SP & Heart Blood Xu",
+
+    contraindications: [
+      "Excess heat patterns",
+      "Blood stasis requiring strong moving herbs",
+    ],
+
+    modifications: [],
+
+    differentiators: [
+      { formula: "Ba Zhen Tang", difference: "Gui pi tang = Tonify qi & xue treat mental disorder. Depression, weakness, anemia. Ba zhen tang = Tonify qi & xue treat GY disorders. Irregular menses, amenorrhea, infertility." },
+    ],
+
+    modern_applications: [
+      "Anemia",
+      "Depression",
+      "Insomnia",
+      "Memory disorders",
+      "Irregular menstruation",
+      "Menorrhagia",
+      "Palpitations (functional)",
+    ],
+
+    dpiRemarks: "Xue type formula. Chill type. Gui pi tang it's a xue & qi xu type formula. It's a Ren shen based formula on the level of xue. The person can't produce memories / can't produce xue, that why developing anemia with mental issue focusing on depression. Gui pi tang have same GY issue, but the focus on this formula it's the mental issue. When administering gui pi tang, we need to advice the patient to eat good quality food that produce qi & xue. Protein.",
+    treatmentTime: "2-6 months, mid to low dosage. Post gui pi tang: Dietary supplements and proper nutrition. When the patient is stronger strength-based sports.",
+
+    color: "#c71585",
+  },
+
+  // ============================================================
+  // SHEN LING BAI ZHU SAN 参苓白术散
+  // ============================================================
+  "shen-ling-bai-zhu-san": {
+    id: "shen-ling-bai-zhu-san",
+    name_pinyin: "Shēn Líng Bái Zhú Sǎn",
+    name_chinese: "参苓白术散",
+    name_english: "Ginseng and Atractylodes Formula",
+    category: "Qi Tonifying Formulas (补气剂)",
+    source: "Tai Ping Hui Min He Ji Ju Fang",
+
+    composition: [
+      { pinyin: "Ren Shen", chinese: "人参", latin: "Radix Ginseng", dosage: "9g", role: "jun", role_name: "King", function: "Strongly tonifies Yuan Qi, strengthens Spleen" },
+      { pinyin: "Bai Zhu", chinese: "白术", latin: "Rhizoma Atractylodis Macrocephalae", dosage: "9g", role: "chen", role_name: "Minister", function: "Strengthens Spleen, dries Dampness" },
+      { pinyin: "Fu Ling", chinese: "茯苓", latin: "Poria", dosage: "9g", role: "chen", role_name: "Minister", function: "Strengthens Spleen, leaches Dampness, promotes urination" },
+      { pinyin: "Gan Cao", chinese: "甘草", latin: "Radix Glycyrrhizae", dosage: "10g", role: "shi", role_name: "Envoy", function: "Harmonizes all herbs, tonifies Qi" },
+      { pinyin: "Shan Yao", chinese: "山药", latin: "Rhizoma Dioscoreae", dosage: "9g", role: "zuo", role_name: "Assistant", function: "Tonifies Spleen, nourishes Kidney" },
+      { pinyin: "Lian Zi Rou", chinese: "莲子肉", latin: "Semen Nelumbinis", dosage: "9g", role: "zuo", role_name: "Assistant", function: "Tonifies Spleen, astringes diarrhea, calms Spirit" },
+      { pinyin: "Yi Yi Ren", chinese: "薏苡仁", latin: "Semen Coicis", dosage: "15g", role: "zuo", role_name: "Assistant", function: "Strengthens Spleen, leaches Dampness" },
+      { pinyin: "Bai Bian Dou", chinese: "白扁豆", latin: "Semen Lablab Album", dosage: "6g", role: "zuo", role_name: "Assistant", function: "Strengthens Spleen, resolves Dampness" },
+      { pinyin: "Sha Ren", chinese: "砂仁", latin: "Fructus Amomi", dosage: "3g", role: "zuo", role_name: "Assistant", function: "Transforms Dampness, moves Qi, warms Middle Jiao" },
+      { pinyin: "Jie Geng", chinese: "桔梗", latin: "Radix Platycodonis", dosage: "6g", role: "shi", role_name: "Envoy", function: "Opens Lung Qi, guides herbs upward" },
+    ],
+
+    clinical_picture: {
+      summary: "A ren shen formula that focuses on the lower jiao chill discharge disorders. There will be all the characteristics of Si jun zi tang / SP qi xu but the main issue in Shen ling bai zhu san is the watery stool, discharge and feet fungus. Due to the severe SP qi xu and the watery condition there might be some cases of congestion in the GIT that manifest with indigestion, nausea and even vomiting but it is less common. The patient should avoid eating dairy products and simple carbs.",
+      tongue: "Pale, thin white coating",
+      pulse: "Weak or thin",
+      key_symptoms: [
+        "Fatigue with weakness of extremities",
+        "Loose stool or watery diarrhea",
+        "Pale complexion",
+        "Navel and lower abdomen distention with borborygmus",
+        "Indigestion",
+        "No appetite",
+        "Leukorrhea",
+      ],
+    },
+
+    actions: [
+      "Tonifies Qi",
+      "Strengthens Spleen",
+      "Leaches Dampness",
+      "Stops diarrhea",
+    ],
+
+    pattern: "SP Xu + Watery Diarrhea",
+
+    contraindications: [
+      "Excess heat patterns",
+      "Diarrhea due to damp-heat",
+    ],
+
+    modifications: [],
+    differentiators: [],
+
+    modern_applications: [
+      "Chronic diarrhea",
+      "Irritable Bowel Syndrome (diarrhea-predominant)",
+      "Leukorrhea",
+      "Chronic fatigue with digestive weakness",
+      "Malabsorption syndrome",
+      "Fungal infections of the feet",
+    ],
+
+    dpiRemarks: "Qi type formula. Chill type. Shen ling bai zhu san it's a ren she formula that focuses on the lower jiao chill discharge disorders. There will be all the cholestatic of Si jun zi tang / SP qi xu but the main issue in Shen ling bai zhu san is the watery stool, discharge and feet fungus. Due to the severe SP qi xu and the watery condition there might be same cases of congested in the GIT that manifest with indigestion, nausea and even vomiting but its less common. At Shen ling bai zhu san condition the patient should avoid eating dairy products and simple carbs.",
+    treatmentTime: "2-4 month mid to low dosage formula. Post Shen ling bai zhu san it's a si jun zi tang.",
+
+    color: "#2e8b57",
+  },
+
+  // ============================================================
+  // HUANG LIAN E JIAO TANG 黄连阿胶汤
+  // ============================================================
+  "huang-lian-e-jiao-tang": {
+    id: "huang-lian-e-jiao-tang",
+    name_pinyin: "Huáng Lián Ē Jiāo Tāng",
+    name_chinese: "黄连阿胶汤",
+    name_english: "Coptis and Ass-Hide Gelatin Decoction",
+    category: "Formulas that Clear Heat (清热剂)",
+    source: "Shang Han Lun (Zhang Zhongjing)",
+
+    composition: [
+      { pinyin: "Huang Lian", chinese: "黄连", latin: "Rhizoma Coptidis", dosage: "12g", role: "jun", role_name: "King", function: "Clears Heart fire, dries Dampness" },
+      { pinyin: "Huang Qin", chinese: "黄芩", latin: "Radix Scutellariae", dosage: "6g", role: "chen", role_name: "Minister", function: "Clears heat, dries Dampness" },
+      { pinyin: "Bai Shao", chinese: "白芍", latin: "Radix Paeoniae Alba", dosage: "6g", role: "zuo", role_name: "Assistant", function: "Nourishes Yin, softens Liver" },
+      { pinyin: "E Jiao", chinese: "阿胶", latin: "Colla Corii Asini", dosage: "9g", role: "chen", role_name: "Minister", function: "Nourishes Yin and Blood" },
+      { pinyin: "Ji Zi Huang", chinese: "鸡子黄", latin: "Egg Yolk", dosage: "2 pieces", role: "zuo", role_name: "Assistant", function: "Nourishes Yin, harmonizes formula" },
+    ],
+
+    clinical_picture: {
+      summary: "Epigastric formula with a soft abdomen. Damp accumulation. This formula treats chronic gastritis condition, that due to the heat and the damp nature its effect the patient behavior, make them eat late at night. This patient usually fat or obese. This is an overweight treatment that should be combined with nutrition consultation.",
+      tongue: "Red",
+      pulse: "Rapid, thin",
+      key_symptoms: [
+        "Shao Yin disease with Heart Fire",
+        "Insomnia",
+        "Palpitations",
+        "Dry mouth & throat",
+        "Neurosis",
+        "DM",
+        "Impotence",
+        "Schizophrenia",
+        "Cerebral hemorrhage",
+      ],
+    },
+
+    actions: [
+      "Clears Heart fire",
+      "Nourishes Kidney Yin",
+      "Calms the Spirit",
+    ],
+
+    pattern: "Heart Fire + K Yin Xu",
+
+    contraindications: [
+      "Cold patterns with diarrhea",
+      "Overuse will cause the patient to be chills, sleepy with dry stool",
+    ],
+
+    modifications: [],
+    differentiators: [],
+
+    modern_applications: [
+      "Insomnia",
+      "Neurosis",
+      "Diabetes mellitus",
+      "High cholesterol",
+      "Coronary heart disease",
+      "Obesity with late-night eating",
+      "Chronic gastritis",
+    ],
+
+    dpiRemarks: "Qi wet formula huang lian tree. Epigastric formula with a soft abdomen. Damp accumulation. This formula treats chronic gastritis condition, that due to the heat and the damp nature its effect the patient behavior, make them eat late at night. Thus patient usually fat or obese. This is an overweight treatment that should be combined with nutrition consultation. Using this formula may treat many internal conditions, from high cholesterol to CHD.",
+    treatmentTime: "3 weeks to 2 months high to mid dosage. After 1.5 month look for a reason why the patient still at that condition. Miss diagnosis is one of them. Overuse will cause the patient to be chills, sleepy with dry stool. Post Huang lian e jiao tang can be 1st huang lian tang, ban xia xie xin tang. 2nd xiang sha liu jun zi tan, liu jun zi tang. 3rd si jun zi tang.",
+
+    color: "#8b0000",
+  },
+
+  // ============================================================
+  // HUANG LIAN TANG 黄连汤
+  // ============================================================
+  "huang-lian-tang": {
+    id: "huang-lian-tang",
+    name_pinyin: "Huáng Lián Tāng",
+    name_chinese: "黄连汤",
+    name_english: "Coptis Decoction",
+    category: "Formulas that Clear Heat (清热剂)",
+    source: "Shang Han Lun (Zhang Zhongjing)",
+
+    composition: [
+      { pinyin: "Huang Lian", chinese: "黄连", latin: "Rhizoma Coptidis", dosage: "9g", role: "jun", role_name: "King", function: "Clears Stomach heat, dries Dampness" },
+      { pinyin: "Gan Jiang", chinese: "干姜", latin: "Rhizoma Zingiberis", dosage: "9g", role: "chen", role_name: "Minister", function: "Warms Middle Jiao, disperses cold" },
+      { pinyin: "Gui Zhi", chinese: "桂枝", latin: "Ramulus Cinnamomi", dosage: "9g", role: "chen", role_name: "Minister", function: "Warms Yang, unblocks channels" },
+      { pinyin: "Ban Xia", chinese: "半夏", latin: "Rhizoma Pinelliae", dosage: "9g", role: "zuo", role_name: "Assistant", function: "Descends rebellious Qi, resolves phlegm" },
+      { pinyin: "Ren Shen", chinese: "人参", latin: "Radix Ginseng", dosage: "9g", role: "zuo", role_name: "Assistant", function: "Tonifies Qi, strengthens Spleen" },
+      { pinyin: "Da Zao", chinese: "大枣", latin: "Fructus Jujubae", dosage: "6g", role: "shi", role_name: "Envoy", function: "Nourishes Qi, harmonizes herbs" },
+      { pinyin: "Zhi Gan Cao", chinese: "炙甘草", latin: "Radix Glycyrrhizae Praeparata", dosage: "9g", role: "shi", role_name: "Envoy", function: "Harmonizes all herbs, tonifies Qi" },
+    ],
+
+    clinical_picture: {
+      summary: "Huang lian tang formula is a midway between the huang lian fever damp formulas to ping wei san or ban xia tree formulas that have no fever. In some cases we can skip the in-between formulas like huang lian tang, but some patients that had chronic fever / huang lian formula might need this formula.",
+      tongue: "Slippery coating",
+      pulse: "Wiry, floating strong at cun",
+      key_symptoms: [
+        "Heat sensation in chest (gastritis, gastric ulcer)",
+        "Irritability",
+        "Nausea",
+        "Abdominal pain",
+        "Lower abdomen with diarrhea",
+        "Acute gastritis",
+        "Stomach acid",
+      ],
+    },
+
+    actions: [
+      "Clears Stomach heat",
+      "Warms Middle Jiao",
+      "Descends rebellious Qi",
+      "Harmonizes Stomach",
+    ],
+
+    pattern: "ST Damp-Heat",
+
+    contraindications: [
+      "Pure cold patterns without heat",
+      "Severe Yin deficiency",
+    ],
+
+    modifications: [],
+    differentiators: [],
+
+    modern_applications: [
+      "Acute gastritis",
+      "Gastric ulcer",
+      "Acid reflux",
+      "Gastroenteritis",
+    ],
+
+    dpiRemarks: "Qi wet formula huang lian tree. Huang lian tang formula is a midway between the huang lian fever damp formulas to ping wei san or ban xia tree formulas that have no fever. In same cases we can skip the 'in-between formulas' like huang lian tang, but same patient that had chronic fever / huang lian formula might need this formula.",
+    treatmentTime: "1-3 month. Mid to low dosage if acute condition uses high dosage 3 weeks to 1 month. Post huang lian tang can be ban xia xie xin tang or ping wei san if damp or er chen tang if phlegm.",
+
+    color: "#dc143c",
+  },
+
+  // ============================================================
+  // BAI HU TANG 白虎汤
+  // ============================================================
+  "bai-hu-tang": {
+    id: "bai-hu-tang",
+    name_pinyin: "Bái Hǔ Tāng",
+    name_chinese: "白虎汤",
+    name_english: "White Tiger Decoction",
+    category: "Formulas that Clear Heat (清热剂)",
+    source: "Shang Han Lun (Zhang Zhongjing)",
+
+    composition: [
+      { pinyin: "Shi Gao", chinese: "石膏", latin: "Gypsum Fibrosum", dosage: "16g", role: "jun", role_name: "King", function: "Clears Qi-level heat, drains Stomach fire" },
+      { pinyin: "Zhi Mu", chinese: "知母", latin: "Rhizoma Anemarrhenae", dosage: "6g", role: "chen", role_name: "Minister", function: "Clears heat, nourishes Yin, generates fluids" },
+      { pinyin: "Geng Mi", chinese: "粳米", latin: "Semen Oryzae", dosage: "8g", role: "zuo", role_name: "Assistant", function: "Protects Stomach Qi, generates fluids" },
+      { pinyin: "Zhi Gan Cao", chinese: "炙甘草", latin: "Radix Glycyrrhizae Praeparata", dosage: "2g", role: "shi", role_name: "Envoy", function: "Harmonizes all herbs, protects Stomach" },
+    ],
+
+    clinical_picture: {
+      summary: "Acute or acute attack on subacute condition. Due to HBP, allergy, reaction to vaccination. Excessive fever attack on shi gao / fever yang ming dry constitution, due to alcohol, drugs or medicines. Can use this formula for a fever condition dry nature with no excessive 4 Bigs but with low dosage for getting a clear diagnosis after 1-2 weeks.",
+      tongue: "Red, with yellow coating",
+      pulse: "Strong, or large. Slippery.",
+      key_symptoms: [
+        "4 Bigs: High fever, profuse sweating, rapid palpitations, extreme thirst",
+        "Red face, eyes, irritability, insomnia",
+        "Bleeding gums, epistaxis",
+        "Dry tongue, lips, mouth",
+        "Skin rush with severe itching",
+        "Soft but abdominal fullness",
+      ],
+    },
+
+    actions: [
+      "Clears Qi-level heat",
+      "Drains Stomach fire",
+      "Generates fluids",
+      "Relieves thirst",
+    ],
+
+    pattern: "Yang Ming Qi-level Heat",
+
+    contraindications: [
+      "Cold patterns",
+      "True cold / false heat patterns",
+      "Overuse may cause the patient to be sleepy chills with diarrhea",
+    ],
+
+    modifications: [],
+    differentiators: [],
+
+    modern_applications: [
+      "High fever",
+      "Hypertension",
+      "Allergic reactions",
+      "Severe skin rash with itching",
+      "Diabetes (heat type)",
+      "Epistaxis",
+    ],
+
+    dpiRemarks: "Qi formula. Acute or acute attack on subacute condition. Due to HBP, allergy, reaction to vaccination. Excessive fever attack on shi gao / fever yang ming dry constitution, due to alcohol, drugs or medicines. Can use this formula for a fever condition dry nature with no excessive 4Bigs but with low dosage for getting a clear diagnosis after 1-2 weeks.",
+    treatmentTime: "1-3 weeks high to mid dosage. Overuse of the formula may cause the patient to be sleepy chills with diarrhea. Post Bai hu tang can be 1st yu nu jing or qing wei san. 2nd sha shen mai men dong tang. 2nd mai men dong tang.",
+
+    color: "#f0e68c",
+  },
+
+  // ============================================================
+  // WEN DAN TANG 温胆汤
+  // ============================================================
+  "wen-dan-tang": {
+    id: "wen-dan-tang",
+    name_pinyin: "Wēn Dǎn Tāng",
+    name_chinese: "温胆汤",
+    name_english: "Warm the Gallbladder Decoction",
+    category: "Formulas that Dry Dampness and Transform Phlegm (祛湿剂)",
+    source: "Bei Ji Qian Jin Yao Fang (Sun Simiao)",
+
+    composition: [
+      { pinyin: "Ban Xia", chinese: "半夏", latin: "Rhizoma Pinelliae", dosage: "6g", role: "jun", role_name: "King", function: "Dries Dampness, transforms Phlegm, descends rebellious Qi" },
+      { pinyin: "Zhu Ru", chinese: "竹茹", latin: "Caulis Bambusae in Taenia", dosage: "6g", role: "chen", role_name: "Minister", function: "Clears heat, transforms phlegm, stops vomiting" },
+      { pinyin: "Zhi Shi", chinese: "枳实", latin: "Fructus Aurantii Immaturus", dosage: "6g", role: "chen", role_name: "Minister", function: "Breaks Qi stagnation, resolves phlegm" },
+      { pinyin: "Chen Pi", chinese: "陈皮", latin: "Pericarpium Citri Reticulatae", dosage: "9g", role: "zuo", role_name: "Assistant", function: "Regulates Qi, dries Dampness" },
+      { pinyin: "Fu Ling", chinese: "茯苓", latin: "Poria", dosage: "4.5g", role: "zuo", role_name: "Assistant", function: "Strengthens Spleen, leaches Dampness" },
+      { pinyin: "Gan Cao", chinese: "甘草", latin: "Radix Glycyrrhizae", dosage: "3g", role: "shi", role_name: "Envoy", function: "Harmonizes all herbs" },
+      { pinyin: "Sheng Jiang", chinese: "生姜", latin: "Rhizoma Zingiberis Recens", dosage: "3 slices", role: "shi", role_name: "Envoy", function: "Warms Middle Jiao, assists Ban Xia" },
+      { pinyin: "Da Zao", chinese: "大枣", latin: "Fructus Jujubae", dosage: "1 piece", role: "shi", role_name: "Envoy", function: "Nourishes Qi, harmonizes herbs" },
+    ],
+
+    clinical_picture: {
+      summary: "Phlegm-heat in the Stomach and Gallbladder affecting the diaphragm. Treats GB and ST disharmony with phlegm-heat causing insomnia, anxiety, palpitations, nausea, and dizziness.",
+      tongue: "Greasy yellow coating",
+      pulse: "Slippery, rapid",
+      key_symptoms: [
+        "Insomnia with disturbing dreams",
+        "Anxiety, palpitations",
+        "Nausea, vomiting",
+        "Dizziness",
+        "Bitter taste in mouth",
+        "Epigastric distention",
+      ],
+    },
+
+    actions: [
+      "Regulates Qi",
+      "Transforms Phlegm",
+      "Clears Gallbladder",
+      "Harmonizes Stomach",
+    ],
+
+    pattern: "GB Phlegm-Heat",
+
+    contraindications: [
+      "Yin deficiency with empty heat",
+      "Blood deficiency insomnia",
+    ],
+
+    modifications: [],
+
+    differentiators: [
+      { formula: "Huang Lian Jie Du Tang", difference: "Huang Lian Jie Du Tang = Shi fire in the San jiao with damp heat / With LV fire. Wen Dan Tang = Phlegm heat in the ST & GB / Effecting the diaphragm." },
+    ],
+
+    modern_applications: [
+      "Insomnia",
+      "Anxiety disorders",
+      "Vertigo",
+      "Chronic gastritis",
+      "Neurosis",
+      "Epilepsy (phlegm type)",
+    ],
+
+    color: "#556b2f",
+  },
+
+  // ============================================================
+  // BAN XIA HOU PO TANG 半夏厚朴汤
+  // ============================================================
+  "ban-xia-hou-po-tang": {
+    id: "ban-xia-hou-po-tang",
+    name_pinyin: "Bàn Xià Hòu Pò Tāng",
+    name_chinese: "半夏厚朴汤",
+    name_english: "Pinellia and Magnolia Combination",
+    category: "Formulas that Regulate Qi (理气剂)",
+    source: "Jin Gui Yao Lue (Zhang Zhongjing)",
+
+    composition: [
+      { pinyin: "Ban Xia", chinese: "半夏", latin: "Rhizoma Pinelliae", dosage: "12g", role: "jun", role_name: "King", function: "Dries Dampness, transforms Phlegm, descends rebellious Qi" },
+      { pinyin: "Hou Po", chinese: "厚朴", latin: "Cortex Magnoliae Officinalis", dosage: "9g", role: "chen", role_name: "Minister", function: "Moves Qi, transforms Dampness, reduces distention" },
+      { pinyin: "Zi Su Ye", chinese: "紫苏叶", latin: "Folium Perillae", dosage: "6g", role: "zuo", role_name: "Assistant", function: "Moves Qi, releases exterior, opens chest" },
+      { pinyin: "Fu Ling", chinese: "茯苓", latin: "Poria", dosage: "12g", role: "zuo", role_name: "Assistant", function: "Strengthens Spleen, leaches Dampness" },
+      { pinyin: "Sheng Jiang", chinese: "生姜", latin: "Rhizoma Zingiberis Recens", dosage: "15g", role: "shi", role_name: "Envoy", function: "Warms Middle Jiao, descends Qi, assists Ban Xia" },
+    ],
+
+    clinical_picture: {
+      summary: "The main condition here is distress, due to diaphragm condition. In most conditions there will be no splashing water. Plum-pit Qi due to phlegm accumulation with qi stagnation.",
+      tongue: "White greasy coating",
+      pulse: "Slippery, wiry",
+      key_symptoms: [
+        "Plum-pit Qi due to phlegm accumulation with qi stagnation",
+        "Stifling sensation in chest and throat",
+        "Nausea, vomiting",
+      ],
+    },
+
+    actions: [
+      "Moves Qi",
+      "Transforms Phlegm",
+      "Descends rebellious Qi",
+      "Dissipates lumps",
+    ],
+
+    pattern: "Plum-Pit Qi",
+
+    contraindications: [
+      "Yin deficiency with dry throat",
+      "Overuse or high dosage will make constipation. If so, add da huang or mu xiang bing lang wan.",
+    ],
+
+    modifications: [],
+
+    differentiators: [
+      { formula: "Ban Xia Xie Xin Tang", difference: "Ban Xia Hou Po Tang = Subcardiac phlegm, Mental depression. Ban Xia Xie Xin Tang = Epigastric phlegm, No mental only physical." },
+    ],
+
+    modern_applications: [
+      "Globus hystericus (plum-pit qi)",
+      "Neurosis",
+      "Depression with phlegm pattern",
+      "Chronic pharyngitis",
+      "Functional dysphagia",
+    ],
+
+    dpiRemarks: "Qi type formula. Ban xia tree. The main condition here is distress, due to diaphragm condition. In most conditions there will be no splashing water.",
+    treatmentTime: "Acute, subacute to chronic condition. High mid to lower dosage. Overuse or high dosage will make constipation. If so, add da huang or mu xiang bing lang wan. Post ban xia hou po tang, can be any er chen tang formulas.",
+
+    color: "#4682b4",
+  },
+
+  // ============================================================
+  // BAN XIA BAI ZHU TIAN MA TANG 半夏白术天麻汤
+  // ============================================================
+  "ban-xia-bai-zhu-tian-ma-tang": {
+    id: "ban-xia-bai-zhu-tian-ma-tang",
+    name_pinyin: "Bàn Xià Bái Zhú Tiān Má Tāng",
+    name_chinese: "半夏白术天麻汤",
+    name_english: "Pinellia & Gastrodia Combination",
+    category: "Formulas that Dry Dampness and Transform Phlegm (祛湿剂)",
+    source: "Yi Xue Xin Wu (Cheng Guopeng)",
+
+    composition: [
+      { pinyin: "Ban Xia", chinese: "半夏", latin: "Rhizoma Pinelliae", dosage: "4.5g", role: "jun", role_name: "King", function: "Dries Dampness, transforms Phlegm, descends rebellious Qi" },
+      { pinyin: "Tian Ma", chinese: "天麻", latin: "Rhizoma Gastrodiae", dosage: "3g", role: "jun", role_name: "King", function: "Extinguishes Liver Wind, stops dizziness" },
+      { pinyin: "Bai Zhu", chinese: "白术", latin: "Rhizoma Atractylodis Macrocephalae", dosage: "9g", role: "chen", role_name: "Minister", function: "Strengthens Spleen, dries Dampness" },
+      { pinyin: "Fu Ling", chinese: "茯苓", latin: "Poria", dosage: "3g", role: "zuo", role_name: "Assistant", function: "Strengthens Spleen, leaches Dampness" },
+      { pinyin: "Chen Pi", chinese: "陈皮", latin: "Pericarpium Citri Reticulatae", dosage: "3g", role: "zuo", role_name: "Assistant", function: "Regulates Qi, dries Dampness" },
+      { pinyin: "Gan Cao", chinese: "甘草", latin: "Radix Glycyrrhizae", dosage: "1g", role: "shi", role_name: "Envoy", function: "Harmonizes all herbs" },
+    ],
+
+    clinical_picture: {
+      summary: "Epigastric hardness, phlegm. With neck stiffness. It is a diaphragm condition. In most conditions there will be no splashing water.",
+      tongue: "White greasy coating",
+      pulse: "Wiry & slippery",
+      key_symptoms: [
+        "Neck, shoulders & head disorders",
+        "Meniere's disease",
+        "Blurry vision, tinnitus",
+        "Hypertension / hypotension",
+        "Vertigo, dizziness",
+        "GIT: desire to sleep after eating",
+      ],
+    },
+
+    actions: [
+      "Strengthens Spleen",
+      "Dries Dampness",
+      "Transforms Phlegm",
+      "Extinguishes Liver Wind",
+    ],
+
+    pattern: "Phlegm + Liver Wind",
+
+    contraindications: [
+      "Liver Yang rising from Yin deficiency (without phlegm)",
+      "Overuse or high dosage will make constipation. If so, add da huang or mu xiang bing lang wan.",
+    ],
+
+    modifications: [],
+    differentiators: [],
+
+    modern_applications: [
+      "Meniere's disease",
+      "Vertigo",
+      "Hypertension",
+      "Tinnitus",
+      "Cervical spondylosis",
+    ],
+
+    dpiRemarks: "Qi type formula. Ban xia tree. Epigastric hardness, phlegm. With neck stiffness. It's a diaphragm condition. In most conditions there will be no splashing water.",
+    treatmentTime: "Acute, subacute to chronic. High mid to lower dosage. Overuse or high dosage will make constipation. If so, add da huang or mu xiang bing lang wan. Post ban xia bai zhu tian ma tang. Can be any er chen tang formulas.",
+
+    color: "#708090",
+  },
+
+  // ============================================================
+  // DA CHENG QI TANG 大承气汤
+  // ============================================================
+  "da-cheng-qi-tang": {
+    id: "da-cheng-qi-tang",
+    name_pinyin: "Dà Chéng Qì Tāng",
+    name_chinese: "大承气汤",
+    name_english: "Major Rhubarb Combination",
+    category: "Purgative Formulas (泻下剂)",
+    source: "Shang Han Lun (Zhang Zhongjing)",
+
+    composition: [
+      { pinyin: "Da Huang", chinese: "大黄", latin: "Radix et Rhizoma Rhei", dosage: "12g", role: "jun", role_name: "King", function: "Purges heat accumulation, moves stool, clears heat" },
+      { pinyin: "Mang Xiao", chinese: "芒硝", latin: "Natrii Sulfas", dosage: "9g", role: "chen", role_name: "Minister", function: "Softens hardness, moistens dryness, purges accumulation" },
+      { pinyin: "Zhi Shi", chinese: "枳实", latin: "Fructus Aurantii Immaturus", dosage: "12g", role: "zuo", role_name: "Assistant", function: "Breaks Qi stagnation, reduces distention" },
+      { pinyin: "Hou Po", chinese: "厚朴", latin: "Cortex Magnoliae Officinalis", dosage: "15g", role: "zuo", role_name: "Assistant", function: "Moves Qi, reduces distention, transforms Dampness" },
+    ],
+
+    clinical_picture: {
+      summary: "Yang ming pattern with interior heat accumulation. Severe constipation with abdominal pain and distention. This is a strong purgative formula for acute excess heat conditions.",
+      tongue: "Red, yellow coating",
+      pulse: "Rapid slippery",
+      key_symptoms: [
+        "Yang ming pattern with interior heat accumulation",
+        "Abdominal pain worse with pressure",
+        "Constipation, dry stool",
+        "Epigastric focal distention",
+        "Fever",
+        "Acute appendicitis, cholecystitis, pancreatitis",
+        "HBP",
+        "Intestinal obstruction",
+      ],
+    },
+
+    actions: [
+      "Vigorously purges heat accumulation",
+      "Breaks stagnation",
+      "Moves stool",
+    ],
+
+    pattern: "Yang Ming Interior Heat (Severe)",
+
+    contraindications: [
+      "Pregnancy",
+      "Deficiency cold patterns",
+      "Elderly or weak patients (use with caution)",
+    ],
+
+    modifications: [],
+    differentiators: [],
+
+    modern_applications: [
+      "Acute appendicitis",
+      "Acute cholecystitis",
+      "Acute pancreatitis",
+      "Intestinal obstruction",
+      "Severe constipation",
+      "Hypertension (excess heat type)",
+    ],
+
+    color: "#b22222",
+  },
+
+  // ============================================================
+  // DA HUANG MU DAN PI TANG 大黄牡丹皮汤
+  // ============================================================
+  "da-huang-mu-dan-pi-tang": {
+    id: "da-huang-mu-dan-pi-tang",
+    name_pinyin: "Dà Huáng Mǔ Dān Pí Tāng",
+    name_chinese: "大黄牡丹皮汤",
+    name_english: "Rhubarb & Moutan Combination",
+    category: "Purgative Formulas (泻下剂)",
+    source: "Jin Gui Yao Lue (Zhang Zhongjing)",
+
+    composition: [
+      { pinyin: "Da Huang", chinese: "大黄", latin: "Radix et Rhizoma Rhei", dosage: "12g", role: "jun", role_name: "King", function: "Purges heat accumulation, clears heat, moves Blood" },
+      { pinyin: "Mu Dan Pi", chinese: "牡丹皮", latin: "Cortex Moutan", dosage: "10g", role: "chen", role_name: "Minister", function: "Clears heat, cools Blood, activates Blood" },
+      { pinyin: "Tao Ren", chinese: "桃仁", latin: "Semen Persicae", dosage: "10g", role: "chen", role_name: "Minister", function: "Activates Blood, dispels Blood stasis" },
+      { pinyin: "Dong Gua Ren", chinese: "冬瓜仁", latin: "Semen Benincasae", dosage: "30g", role: "zuo", role_name: "Assistant", function: "Clears heat, expels pus, promotes discharge" },
+      { pinyin: "Mang Xiao", chinese: "芒硝", latin: "Natrii Sulfas", dosage: "10g", role: "zuo", role_name: "Assistant", function: "Softens hardness, moistens dryness, purges accumulation" },
+    ],
+
+    clinical_picture: {
+      summary: "Intestinal inflammation with blood stasis and heat accumulation. Treats conditions with hardness, constipation, and localized inflammation in the lower abdomen.",
+      tongue: "Greasy yellow coating",
+      pulse: "Slow tense and strong",
+      key_symptoms: [
+        "Accumulation and hardness, constipation",
+        "Intestinal inflammation, appendicitis, colitis, diverticulitis",
+        "IBS, hemorrhoids",
+        "PID (Pelvic inflammatory disease)",
+        "Abdominal masses / tumors",
+      ],
+    },
+
+    actions: [
+      "Purges heat",
+      "Breaks Blood stasis",
+      "Reduces swelling",
+      "Expels pus",
+    ],
+
+    pattern: "Intestinal Blood Stasis + Heat",
+
+    contraindications: [
+      "Pregnancy",
+      "Deficiency cold patterns",
+      "Patients with weak constitution",
+    ],
+
+    modifications: [],
+    differentiators: [],
+
+    modern_applications: [
+      "Acute appendicitis",
+      "Colitis",
+      "Diverticulitis",
+      "IBS",
+      "Hemorrhoids",
+      "Pelvic inflammatory disease",
+      "Abdominal tumors",
+    ],
+
+    color: "#a0522d",
+  },
+
+  // ============================================================
+  // QI BAO MEI RAN DAN 七宝美髯丹
+  // ============================================================
+  "qi-bao-mei-ran-dan": {
+    id: "qi-bao-mei-ran-dan",
+    name_pinyin: "Qī Bǎo Měi Rán Dān",
+    name_chinese: "七宝美髯丹",
+    name_english: "Seven Treasures Special Pill",
+    category: "Formulas that Tonify Yin and Blood (补阴剂)",
+    source: "Ben Cao Gang Mu (Li Shizhen)",
+
+    composition: [
+      { pinyin: "He Shou Wu", chinese: "何首乌", latin: "Radix Polygoni Multiflori", dosage: "10g", role: "jun", role_name: "King", function: "Nourishes Jing and Blood, darkens hair" },
+      { pinyin: "Gou Qi Zi", chinese: "枸杞子", latin: "Fructus Lycii", dosage: "5g", role: "chen", role_name: "Minister", function: "Nourishes Liver and Kidney Yin, benefits Jing" },
+      { pinyin: "Dang Gui", chinese: "当归", latin: "Radix Angelicae Sinensis", dosage: "5g", role: "chen", role_name: "Minister", function: "Nourishes Blood, harmonizes Blood" },
+      { pinyin: "Tu Si Zi", chinese: "菟丝子", latin: "Semen Cuscutae", dosage: "5g", role: "zuo", role_name: "Assistant", function: "Tonifies Kidney Yang and Yin, secures Jing" },
+      { pinyin: "Bu Gu Zhi", chinese: "补骨脂", latin: "Fructus Psoraleae", dosage: "2.5g", role: "zuo", role_name: "Assistant", function: "Warms Kidney Yang, strengthens bones" },
+      { pinyin: "Niu Xi", chinese: "牛膝", latin: "Radix Achyranthis Bidentatae", dosage: "5g", role: "zuo", role_name: "Assistant", function: "Nourishes Liver and Kidney, strengthens sinews and bones" },
+      { pinyin: "Fu Ling", chinese: "茯苓", latin: "Poria", dosage: "5g", role: "shi", role_name: "Envoy", function: "Strengthens Spleen, leaches Dampness" },
+    ],
+
+    clinical_picture: {
+      summary: "Qi bao mei ran dan can be used as main formula or to add to other formulas to reinforce them with jing support. Very good for male infertility with low sperm count.",
+      tongue: "Pale",
+      pulse: "Thin, weak",
+      key_symptoms: [
+        "Infertility, menopausal syndrome, plastic anemia, hair loss",
+        "Weakness of back and knees, osteopenia, osteoporosis",
+        "Premature aging",
+        "Low sex drive, impotence, low sperm count",
+        "Low ovarian reserve",
+        "Frequent urination",
+        "Menopause",
+      ],
+    },
+
+    actions: [
+      "Nourishes Kidney and Liver Jing",
+      "Tonifies Blood",
+      "Strengthens bones and sinews",
+      "Darkens hair",
+    ],
+
+    pattern: "KD & LV Jing/Blood Xu",
+
+    contraindications: [
+      "Excess heat patterns",
+      "Damp-heat in lower jiao",
+    ],
+
+    modifications: [],
+    differentiators: [],
+
+    modern_applications: [
+      "Male infertility",
+      "Female infertility",
+      "Menopausal syndrome",
+      "Osteoporosis",
+      "Premature graying / hair loss",
+      "Low sperm count",
+      "Low ovarian reserve",
+    ],
+
+    dpiRemarks: "Xue type formula. Qi bao mei ran dan can be used as main formula or to add to their formula to reinforce it with jing support. Qi bao mei ran dan very good for male infertility with low sperm count.",
+    treatmentTime: "4 month to 1 year. mid to low dosage formula.",
+
+    color: "#483d8b",
+  },
+
+  // ============================================================
+  // SI NI SAN 四逆散
+  // ============================================================
+  "si-ni-san": {
+    id: "si-ni-san",
+    name_pinyin: "Sì Nì Sǎn",
+    name_chinese: "四逆散",
+    name_english: "Bupleurum and Chih Shih Formula",
+    category: "Formulas that Harmonize",
+    source: "Shang Han Lun",
+
+    composition: [
+      { pinyin: "Chai Hu", chinese: "柴胡", latin: "Radix Bupleuri", dosage: "10g", role: "jun", role_name: "King", function: "Spreads Liver Qi, relieves constraint" },
+      { pinyin: "Bai Shao", chinese: "白芍", latin: "Radix Paeoniae Alba", dosage: "10g", role: "chen", role_name: "Minister", function: "Nourishes blood, softens the Liver, alleviates pain" },
+      { pinyin: "Zhi Shi", chinese: "枳实", latin: "Fructus Aurantii Immaturus", dosage: "10g", role: "zuo", role_name: "Assistant", function: "Breaks up stagnant Qi, reduces accumulation" },
+      { pinyin: "Gan Cao", chinese: "甘草", latin: "Radix Glycyrrhizae", dosage: "10g", role: "shi", role_name: "Envoy", function: "Harmonizes the formula, moderates urgency" },
+    ],
+
+    clinical_picture: {
+      summary: "A formula for Liver Qi stagnation invading the Stomach with cold sensation of the extremities. The patient presents with chest and abdominal distension and fullness, irritability and mood swings. The coldness of the hands and feet is due to Qi constraint rather than Yang deficiency.",
+      tongue: "No specific tongue description",
+      pulse: "Wiry, slight wiry",
+      key_symptoms: [
+        "Coldness sensation of the hands and feet",
+        "Chest & abdominal distension & fullness",
+        "Irritability and/or mood swings",
+      ],
+    },
+
+    actions: [
+      "Spreads Liver Qi",
+      "Regulates Stomach Qi",
+      "Relieves constraint",
+    ],
+
+    pattern: "LV/ST Qi Regulation",
+
+    contraindications: [
+      "True Yang deficiency with cold extremities",
+    ],
+
+    modifications: [
+      { condition: "Abdominal pain", herbs_add: "Chuan Lian Zi, Yan Hu Suo. See Jin Lin Zi San" },
+      { condition: "Painful menses", herbs_add: "Dang Gui, Wu Yao, Xiang Fu, Yan Hu Suo" },
+      { condition: "Painful cold abdomen", herbs_add: "Fu Zi" },
+    ],
+
+    differentiators: [
+      { formula: "Chai Hu Shu Gan Wan", difference: "Si Ni San = Area: abdomen, HF: cold. Chai Hu Shu Gan Wan = Area: mid to lower abdomen, E: cold." },
+    ],
+
+    modern_applications: [
+      "Irritable bowel syndrome",
+      "Chronic hepatitis",
+      "Gastritis",
+      "Intercostal neuralgia",
+      "Premenstrual syndrome",
+      "Mood disorders",
+    ],
+
+    color: "#2f8b57",
+  },
+
+  // ============================================================
+  // XIANG SHA LIU JUN ZI TANG 香砂六君子汤
+  // ============================================================
+  "xiang-sha-liu-jun-zi-tang": {
+    id: "xiang-sha-liu-jun-zi-tang",
+    name_pinyin: "Xiāng Shā Liù Jūn Zǐ Tāng",
+    name_chinese: "香砂六君子汤",
+    name_english: "Saussurea and Cardamom Combination",
+    category: "Formulas that Tonify Qi",
+    source: "Yi Fang Ji Jie",
+
+    composition: [
+      { pinyin: "Ren Shen", chinese: "人参", latin: "Radix Ginseng", dosage: "3g", role: "jun", role_name: "King", function: "Strongly tonifies SP Qi" },
+      { pinyin: "Bai Zhu", chinese: "白术", latin: "Rhizoma Atractylodis Macrocephalae", dosage: "6g", role: "chen", role_name: "Minister", function: "Strengthens SP, dries dampness" },
+      { pinyin: "Fu Ling", chinese: "茯苓", latin: "Poria", dosage: "6g", role: "chen", role_name: "Minister", function: "Strengthens SP, drains dampness" },
+      { pinyin: "Ban Xia", chinese: "半夏", latin: "Rhizoma Pinelliae", dosage: "3g", role: "zuo", role_name: "Assistant", function: "Dries dampness, transforms phlegm, descends rebellious Qi" },
+      { pinyin: "Chen Pi", chinese: "陈皮", latin: "Pericarpium Citri Reticulatae", dosage: "3g", role: "zuo", role_name: "Assistant", function: "Regulates Qi, dries dampness" },
+      { pinyin: "Mu Xiang", chinese: "木香", latin: "Radix Aucklandiae", dosage: "3g", role: "zuo", role_name: "Assistant", function: "Promotes Qi movement, alleviates pain" },
+      { pinyin: "Sha Ren", chinese: "砂仁", latin: "Fructus Amomi", dosage: "3g", role: "zuo", role_name: "Assistant", function: "Transforms dampness, promotes Qi movement, strengthens SP" },
+      { pinyin: "Zhi Gan Cao", chinese: "炙甘草", latin: "Radix Glycyrrhizae Praeparata", dosage: "3g", role: "shi", role_name: "Envoy", function: "Tonifies SP Qi, harmonizes the formula" },
+    ],
+
+    clinical_picture: {
+      summary: "A formula for Spleen Qi deficiency with dampness and rebellious Qi. The patient has indigestion with nausea and vomiting tendency, fullness after eating, food and water stagnation, low appetite, loose stools or diarrhea, subcardiac distension causing heavy breathing, anxiety-like disorder, and epigastric pain.",
+      tongue: "Pale, swollen with thin white coating",
+      pulse: "Slippery, weak",
+      key_symptoms: [
+        "Indigestion with nausea and more like vomiting",
+        "Feeling of fullness after eating / food and water stagnation",
+        "Low appetite",
+        "Loose stools or diarrhea",
+        "Subcardiac distension causing heavy breathing, anxiety like disorder",
+        "Epigastric pain",
+      ],
+    },
+
+    actions: [
+      "Tonifies SP Qi",
+      "Transforms dampness and phlegm",
+      "Regulates Qi and descends rebellious Qi",
+      "Harmonizes the Middle Jiao",
+    ],
+
+    pattern: "SP Xu + Rebellious Qi",
+
+    contraindications: [
+      "Yin deficiency with heat signs",
+      "Excess heat patterns",
+    ],
+
+    modifications: [],
+    differentiators: [],
+
+    modern_applications: [
+      "Chronic gastritis",
+      "Functional dyspepsia",
+      "Irritable bowel syndrome",
+      "Nausea during pregnancy",
+      "Post-illness digestive weakness",
+    ],
+
+    dpiRemarks: "Qi type formula. Ren shen tree. Xiang sha liu jun zi tang can be a post fever damp or phlegm condition. Post huang lian e jiao tang or wen dan tang. This is a shi condition of accumulation and rebellious qi, but the source of this condition is xu of the SP. See post treatment. Can be used during pregnancy.",
+    treatmentTime: "1-6 months high to mid dosage. Post xiang sha liu jun zi tang. Liu jun zi tang and then si jun zi tang.",
+
+    color: "#5f9ea0",
+  },
+
+  // ============================================================
+  // YIN CHEN HAO TANG 茵陈蒿汤
+  // ============================================================
+  "yin-chen-hao-tang": {
+    id: "yin-chen-hao-tang",
+    name_pinyin: "Yīn Chén Hāo Tāng",
+    name_chinese: "茵陈蒿汤",
+    name_english: "Artemisia Scopariae Decoction",
+    category: "Formulas that Clear Heat and Drain Dampness",
+    source: "Shang Han Lun",
+
+    composition: [
+      { pinyin: "Yin Chen", chinese: "茵陈", latin: "Herba Artemisiae Scopariae", dosage: "18g", role: "jun", role_name: "King", function: "Clears damp-heat, relieves jaundice" },
+      { pinyin: "Zhi Zi", chinese: "栀子", latin: "Fructus Gardeniae", dosage: "9g", role: "chen", role_name: "Minister", function: "Clears heat, drains dampness through urination" },
+      { pinyin: "Da Huang", chinese: "大黄", latin: "Radix et Rhizoma Rhei", dosage: "6g", role: "zuo", role_name: "Assistant", function: "Drains heat, purges accumulation through stool" },
+    ],
+
+    clinical_picture: {
+      summary: "A formula for damp-heat jaundice and liver infections. The patient presents with jaundice, abdominal distention mainly in the epigastric area, thirst, head sweating, pale stool, nausea or vomiting, yellow sclera, chest discomfort, edema, and constipation.",
+      tongue: "No specific color or with yellow and greasy coating",
+      pulse: "Slippery, rapid, deep and shi or rolling and rapid",
+      key_symptoms: [
+        "Jaundice / liver infection",
+        "Abdominal distention, mainly epigastric",
+        "Thirst",
+        "Head sweating",
+        "Pale stool",
+        "Nausea/vomiting",
+        "Yellow sclera",
+        "Chest discomfort",
+        "Edema",
+        "Constipation",
+      ],
+    },
+
+    actions: [
+      "Clears damp-heat",
+      "Relieves jaundice",
+      "Treats liver infections",
+    ],
+
+    pattern: "Damp-Heat / LV Infections",
+
+    contraindications: [
+      "Yin jaundice (cold-damp type)",
+      "Spleen Yang deficiency",
+    ],
+
+    modifications: [
+      { condition: "Combine with Shao Yang formulas", herbs_add: "Use with Xiao Chai Hu Tang or Da Chai Hu Tang" },
+      { condition: "No constipation", herbs_add: "Use Qin Jiao or Dong Gua Ren instead of Da Huang" },
+    ],
+
+    differentiators: [],
+
+    modern_applications: [
+      "Acute hepatitis",
+      "Jaundice",
+      "Cholecystitis",
+      "Gallstones",
+      "Liver cirrhosis",
+      "Neonatal jaundice",
+    ],
+
+    dpiRemarks: "Qi type formula. Yin chen hao tang usually used as a formula in severe conditions of liver infection. At most condition use with SHAO YANG formulas.",
+    treatmentTime: "1-3 months high to mid dosage. Post yin chen hao tang is xiao chai hu tang formulas.",
+
+    color: "#8b8000",
+  },
+
+  // ============================================================
+  // ER XIAN TANG 二仙汤
+  // ============================================================
+  "er-xian-tang": {
+    id: "er-xian-tang",
+    name_pinyin: "Èr Xiān Tāng",
+    name_chinese: "二仙汤",
+    name_english: "Cuculigo and Epimedium Combination",
+    category: "Formulas that Tonify Yang",
+    source: "Clinical Experience Formula",
+
+    composition: [
+      { pinyin: "Yin Yang Hua", chinese: "淫羊藿", latin: "Herba Epimedii", dosage: "9g", role: "jun", role_name: "King", function: "Tonifies Kidney Yang, strengthens bones" },
+      { pinyin: "Xian Mao", chinese: "仙茅", latin: "Rhizoma Curculiginis", dosage: "9g", role: "jun", role_name: "King", function: "Warms Kidney Yang, expels cold-damp" },
+      { pinyin: "Ba Ji Tian", chinese: "巴戟天", latin: "Radix Morindae Officinalis", dosage: "9g", role: "chen", role_name: "Minister", function: "Tonifies Kidney Yang, strengthens sinews" },
+      { pinyin: "Dang Gui", chinese: "当归", latin: "Radix Angelicae Sinensis", dosage: "9g", role: "chen", role_name: "Minister", function: "Nourishes blood, regulates menses" },
+      { pinyin: "Huang Bai", chinese: "黄柏", latin: "Cortex Phellodendri", dosage: "4.5g", role: "zuo", role_name: "Assistant", function: "Clears deficiency heat, drains Kidney fire" },
+      { pinyin: "Zhi Mu", chinese: "知母", latin: "Rhizoma Anemarrhenae", dosage: "4.5g", role: "zuo", role_name: "Assistant", function: "Nourishes Yin, clears heat" },
+    ],
+
+    clinical_picture: {
+      summary: "A formula for menopausal syndrome due to Kidney Yin and Yang deficiency. The patient presents with hot flashes and other menopausal symptoms. This formula simultaneously tonifies Kidney Yang while clearing deficiency heat.",
+      tongue: "Red or normal",
+      pulse: "Rapid, or normal, thin",
+      key_symptoms: [
+        "Menopause with hot flashes",
+        "Menopause",
+      ],
+    },
+
+    actions: [
+      "Tonifies Kidney Yang",
+      "Nourishes Kidney Yin",
+      "Clears deficiency heat",
+      "Regulates the Chong and Ren",
+    ],
+
+    pattern: "KD Yin & Yang Xu",
+
+    contraindications: [
+      "Excess heat patterns",
+      "Damp-heat in the lower Jiao",
+    ],
+
+    modifications: [
+      { condition: "Back and knee pain", herbs_add: "Du Zhong, Niu Xi" },
+    ],
+
+    differentiators: [],
+
+    modern_applications: [
+      "Menopausal syndrome",
+      "Hot flashes",
+      "Hypertension during menopause",
+      "Irregular menstruation",
+      "Infertility",
+    ],
+
+    color: "#b8860b",
+  },
+
+  // ============================================================
+  // MA XING SHI GAN TANG 麻杏石甘汤
+  // ============================================================
+  "ma-xing-shi-gan-tang": {
+    id: "ma-xing-shi-gan-tang",
+    name_pinyin: "Má Xìng Shí Gān Tāng",
+    name_chinese: "麻杏石甘汤",
+    name_english: "Ma Huang and Apricot Seed Combination",
+    category: "Formulas that Release the Exterior",
+    source: "Shang Han Lun",
+
+    composition: [
+      { pinyin: "Ma Huang", chinese: "麻黄", latin: "Herba Ephedrae", dosage: "10g", role: "jun", role_name: "King", function: "Disperses Lung Qi, relieves wheezing and cough" },
+      { pinyin: "Shi Gao", chinese: "石膏", latin: "Gypsum Fibrosum", dosage: "30g", role: "chen", role_name: "Minister", function: "Clears Lung heat, generates fluids" },
+      { pinyin: "Xing Ren", chinese: "杏仁", latin: "Semen Armeniacae", dosage: "10g", role: "zuo", role_name: "Assistant", function: "Descends Lung Qi, stops cough" },
+      { pinyin: "Gan Cao", chinese: "甘草", latin: "Radix Glycyrrhizae", dosage: "6g", role: "shi", role_name: "Envoy", function: "Harmonizes the formula, moderates Ma Huang" },
+    ],
+
+    clinical_picture: {
+      summary: "A formula for Lung heat with wheezing and cough. The patient presents with wheezing, cough with thirst, headache, vertigo, dizziness, and asthma. The pulse is rapid and flooding, indicating significant heat in the Lung.",
+      tongue: "Red & red tip",
+      pulse: "Rapid, flooding",
+      key_symptoms: [
+        "Wheezing, cough with thirst",
+        "Headache",
+        "Vertigo",
+        "Dizziness",
+        "Asthma",
+      ],
+    },
+
+    actions: [
+      "Clears wind-heat from the Lung",
+      "Relieves wheezing and asthma",
+      "Descends Lung Qi",
+    ],
+
+    pattern: "Lung Heat + Wheezing",
+
+    contraindications: [
+      "Wind-cold without heat signs",
+      "Lung Qi deficiency wheezing",
+    ],
+
+    modifications: [],
+
+    differentiators: [
+      { formula: "Xie Bai San", difference: "Ma Xing Shi Gan Tang = Clear wind heat from the LU, treat Asthma. Dry throat. Flushed. Rapid strong pulse. Slight dry cough. Xie Bai San = LU fire with mild LV fire. Cough due to Yin Xu and Shi LU heat. Cough with dry throat." },
+      { formula: "Ding Chuan Tang", difference: "Ma Xing Shi Gan Tang = Clear wind heat from the LU, treat Asthma. Ding Chuan Tang = Regulate LU qi, treat Asthma with cough, clear heat & transforms phlegm. Mild heat with phlegm." },
+    ],
+
+    modern_applications: [
+      "Bronchial asthma",
+      "Acute bronchitis",
+      "Pneumonia",
+      "Upper respiratory infection with cough",
+      "Whooping cough",
+    ],
+
+    color: "#e54b4b",
+  },
+
+  // ============================================================
+  // DING CHUAN TANG 定喘汤
+  // ============================================================
+  "ding-chuan-tang": {
+    id: "ding-chuan-tang",
+    name_pinyin: "Dìng Chuǎn Tāng",
+    name_chinese: "定喘汤",
+    name_english: "Ma-Huang and Ginko Combination",
+    category: "Formulas that Relieve Coughing and Wheezing",
+    source: "She Sheng Zhong Miao Fang",
+
+    composition: [
+      { pinyin: "Bai Guo", chinese: "白果", latin: "Semen Ginkgo", dosage: "9g", role: "jun", role_name: "King", function: "Astringes Lung Qi, stops wheezing, transforms phlegm" },
+      { pinyin: "Ma Huang", chinese: "麻黄", latin: "Herba Ephedrae", dosage: "9g", role: "jun", role_name: "King", function: "Disperses Lung Qi, relieves wheezing" },
+      { pinyin: "Sang Bai Pi", chinese: "桑白皮", latin: "Cortex Mori", dosage: "9g", role: "chen", role_name: "Minister", function: "Drains Lung heat, stops cough" },
+      { pinyin: "Huang Qin", chinese: "黄芩", latin: "Radix Scutellariae", dosage: "4.5g", role: "chen", role_name: "Minister", function: "Clears Lung heat, dries dampness" },
+      { pinyin: "Xing Ren", chinese: "杏仁", latin: "Semen Armeniacae", dosage: "4.5g", role: "zuo", role_name: "Assistant", function: "Descends Lung Qi, stops cough" },
+      { pinyin: "Ban Xia", chinese: "半夏", latin: "Rhizoma Pinelliae", dosage: "9g", role: "zuo", role_name: "Assistant", function: "Dries dampness, transforms phlegm" },
+      { pinyin: "Kuan Dong Hua", chinese: "款冬花", latin: "Flos Farfarae", dosage: "9g", role: "zuo", role_name: "Assistant", function: "Moistens Lung, stops cough" },
+      { pinyin: "Zi Su Zi", chinese: "紫苏子", latin: "Fructus Perillae", dosage: "6g", role: "zuo", role_name: "Assistant", function: "Descends Qi, transforms phlegm" },
+      { pinyin: "Gan Cao", chinese: "甘草", latin: "Radix Glycyrrhizae", dosage: "3g", role: "shi", role_name: "Envoy", function: "Harmonizes the formula" },
+    ],
+
+    clinical_picture: {
+      summary: "A formula for asthma and wheezing with yellow phlegm due to phlegm-heat obstructing the Lung. The patient presents with wheezing and coughing with yellow phlegm, asthma, and acute or chronic bronchitis symptoms.",
+      tongue: "Sticky yellow coating",
+      pulse: "Slippery and rapid",
+      key_symptoms: [
+        "Wheezing and coughing with yellow phlegm",
+        "Asthma",
+        "Acute or chronic bronchitis",
+      ],
+    },
+
+    actions: [
+      "Regulates Lung Qi",
+      "Descends rebellious Qi",
+      "Clears heat and transforms hot phlegm",
+      "Relieves wheezing",
+    ],
+
+    pattern: "Asthma + Yellow Phlegm",
+
+    contraindications: [
+      "Cold phlegm asthma",
+      "Lung Qi deficiency wheezing without phlegm-heat",
+    ],
+
+    modifications: [
+      { condition: "Phlegm", herbs_add: "Er Chen Tang" },
+    ],
+
+    differentiators: [
+      { formula: "Su Zi Jiang Qi Tang", difference: "Ding Chuan Tang = Regulate LU & transforms hot phlegm. Su Zi Jiang Qi Tang = Regulate LU & transforms Cold Phlegm." },
+    ],
+
+    modern_applications: [
+      "Bronchial asthma",
+      "Acute bronchitis",
+      "Chronic bronchitis",
+      "Chronic obstructive pulmonary disease",
+    ],
+
+    color: "#e57a4b",
+  },
+
+  // ============================================================
+  // SU ZI JIANG QI TANG 苏子降气汤
+  // ============================================================
+  "su-zi-jiang-qi-tang": {
+    id: "su-zi-jiang-qi-tang",
+    name_pinyin: "Sū Zǐ Jiàng Qì Tāng",
+    name_chinese: "苏子降气汤",
+    name_english: "Perilla Fruit Combination",
+    category: "Formulas that Relieve Coughing and Wheezing",
+    source: "Tai Ping Hui Min He Ji Ju Fang",
+
+    composition: [
+      { pinyin: "Su Zi", chinese: "紫苏子", latin: "Fructus Perillae", dosage: "9g", role: "jun", role_name: "King", function: "Descends Lung Qi, transforms phlegm, stops wheezing" },
+      { pinyin: "Ban Xia", chinese: "半夏", latin: "Rhizoma Pinelliae", dosage: "8g", role: "chen", role_name: "Minister", function: "Dries dampness, transforms phlegm, descends rebellious Qi" },
+      { pinyin: "Hou Po", chinese: "厚朴", latin: "Cortex Magnoliae Officinalis", dosage: "6g", role: "zuo", role_name: "Assistant", function: "Promotes Qi movement, transforms dampness" },
+      { pinyin: "Qian Hu", chinese: "前胡", latin: "Radix Peucedani", dosage: "6g", role: "zuo", role_name: "Assistant", function: "Descends Qi, expels phlegm" },
+      { pinyin: "Chen Pi", chinese: "陈皮", latin: "Pericarpium Citri Reticulatae", dosage: "6g", role: "zuo", role_name: "Assistant", function: "Regulates Qi, dries dampness" },
+      { pinyin: "Rou Gui", chinese: "肉桂", latin: "Cortex Cinnamomi", dosage: "6g", role: "zuo", role_name: "Assistant", function: "Warms Kidney Yang, guides Qi downward" },
+      { pinyin: "Dang Gui", chinese: "当归", latin: "Radix Angelicae Sinensis", dosage: "6g", role: "zuo", role_name: "Assistant", function: "Nourishes blood, moistens dryness" },
+      { pinyin: "Zhi Gan Cao", chinese: "炙甘草", latin: "Radix Glycyrrhizae Praeparata", dosage: "6g", role: "shi", role_name: "Envoy", function: "Harmonizes the formula" },
+      { pinyin: "Sheng Jiang", chinese: "生姜", latin: "Rhizoma Zingiberis Recens", dosage: "6g", role: "shi", role_name: "Envoy", function: "Warms the Middle, assists in transforming phlegm" },
+    ],
+
+    clinical_picture: {
+      summary: "A formula for cold phlegm obstruction in the Lung with Kidney Yang deficiency. The patient presents with cough and dyspnea, shortness of breath, asthma or wheezing, profuse saliva or sputum, epigastric fullness, weakness of feet and body, and dizziness or vertigo.",
+      tongue: "Sticky white coating",
+      pulse: "Slippery, weak",
+      key_symptoms: [
+        "Cough with dyspnea",
+        "Shortness of breath",
+        "Asthma/wheezing",
+        "Profuse saliva/sputum",
+        "Epigastric fullness",
+        "Weakness of feet and body",
+        "Dizziness and/or vertigo",
+      ],
+    },
+
+    actions: [
+      "Descends Qi and calms wheezing",
+      "Warms and transforms cold phlegm",
+      "Warms Kidney Yang",
+    ],
+
+    pattern: "Cold Phlegm Asthma",
+
+    contraindications: [
+      "Phlegm-heat cough and wheezing",
+      "Yin deficiency with dry cough",
+    ],
+
+    modifications: [
+      { condition: "Qi xu", herbs_add: "Liu Jun Zi Tang. See Chuan Liu Jun Zi Tang" },
+    ],
+
+    differentiators: [],
+
+    modern_applications: [
+      "Chronic bronchitis",
+      "Bronchial asthma",
+      "Emphysema",
+      "Chronic obstructive pulmonary disease",
+    ],
+
+    color: "#4a9b8e",
+  },
+
+  // ============================================================
+  // CANG ER ZI SAN 苍耳子散
+  // ============================================================
+  "cang-er-zi-san": {
+    id: "cang-er-zi-san",
+    name_pinyin: "Cāng Ěr Zǐ Sǎn",
+    name_chinese: "苍耳子散",
+    name_english: "Xanthium Powder",
+    category: "Formulas that Release the Exterior",
+    source: "Ji Sheng Fang",
+
+    composition: [
+      { pinyin: "Cang Er Zi", chinese: "苍耳子", latin: "Fructus Xanthii", dosage: "10g", role: "jun", role_name: "King", function: "Opens nasal passages, expels wind-dampness" },
+      { pinyin: "Xin Yi", chinese: "辛夷", latin: "Flos Magnoliae", dosage: "6g", role: "chen", role_name: "Minister", function: "Opens nasal passages, expels wind-cold" },
+      { pinyin: "Bai Zhi", chinese: "白芷", latin: "Radix Angelicae Dahuricae", dosage: "6g", role: "zuo", role_name: "Assistant", function: "Expels wind, opens nasal passages, alleviates pain" },
+      { pinyin: "Bo He", chinese: "薄荷", latin: "Herba Menthae", dosage: "6g", role: "zuo", role_name: "Assistant", function: "Disperses wind-heat, clears the head" },
+    ],
+
+    clinical_picture: {
+      summary: "A formula for wind-cold affecting the nasal passages, causing nasal congestion, sinusitis, or rhinitis. This is a Tai Yang level formula primarily used for common cold with nasal symptoms.",
+      tongue: "White coating",
+      pulse: "Floating",
+      key_symptoms: [
+        "Common cold and nasal congestion",
+        "Sinusitis",
+        "Rhinitis",
+      ],
+    },
+
+    actions: [
+      "Opens nasal passages",
+      "Expels wind",
+      "Alleviates nasal congestion",
+    ],
+
+    pattern: "Nasal Congestion / Tai Yang",
+
+    contraindications: [
+      "Yin deficiency with dry nasal passages",
+      "Blood heat nosebleeds",
+    ],
+
+    modifications: [
+      { condition: "Weak immune, rhinitis", herbs_add: "Yu Ping Feng San" },
+      { condition: "LU heat", herbs_add: "Di Gu Pi, Sang Bai Pi" },
+      { condition: "Sinusitis fever and inflammation", herbs_add: "Jin Yin Hua, E Bu Shi Cao. Or with Yin Qiao San" },
+    ],
+
+    differentiators: [],
+
+    modern_applications: [
+      "Allergic rhinitis",
+      "Sinusitis",
+      "Nasal polyps",
+      "Common cold with nasal congestion",
+    ],
+
+    color: "#6b9e50",
+  },
+
+  // ============================================================
+  // BU FEI TANG 补肺汤
+  // ============================================================
+  "bu-fei-tang": {
+    id: "bu-fei-tang",
+    name_pinyin: "Bǔ Fèi Tāng",
+    name_chinese: "补肺汤",
+    name_english: "Astragalus and Aster Combination",
+    category: "Formulas that Tonify Qi",
+    source: "Yong Lei Qian Fang",
+
+    composition: [
+      { pinyin: "Huang Qi", chinese: "黄芪", latin: "Radix Astragali", dosage: "30g", role: "jun", role_name: "King", function: "Tonifies Lung Qi, strengthens Wei Qi" },
+      { pinyin: "Ren Shen", chinese: "人参", latin: "Radix Ginseng", dosage: "10g", role: "chen", role_name: "Minister", function: "Strongly tonifies Lung and SP Qi" },
+      { pinyin: "Zi Wan", chinese: "紫菀", latin: "Radix Asteris", dosage: "10g", role: "zuo", role_name: "Assistant", function: "Descends Lung Qi, resolves phlegm, stops cough" },
+      { pinyin: "Sang Bai Pi", chinese: "桑白皮", latin: "Cortex Mori", dosage: "12g", role: "zuo", role_name: "Assistant", function: "Drains Lung heat, calms wheezing" },
+      { pinyin: "Wu Wei Zi", chinese: "五味子", latin: "Fructus Schisandrae", dosage: "6g", role: "zuo", role_name: "Assistant", function: "Astringes Lung Qi, stops cough" },
+      { pinyin: "Shu Di Huang", chinese: "熟地黄", latin: "Radix Rehmanniae Praeparata", dosage: "12g", role: "zuo", role_name: "Assistant", function: "Nourishes Kidney Yin, tonifies Jing" },
+    ],
+
+    clinical_picture: {
+      summary: "A formula for Lung Qi deficiency with cough, asthma, shortness of breath, weakness, low voice, low immune condition, and spontaneous sweating. The patient has a weak constitution with chronic Lung Qi insufficiency.",
+      tongue: "Pale, thin white coating",
+      pulse: "Weak/thin",
+      key_symptoms: [
+        "Cough/asthma",
+        "Shortness of breath",
+        "Weakness",
+        "Low voice",
+        "Low immune condition",
+        "Spontaneous sweating",
+      ],
+    },
+
+    actions: [
+      "Tonifies Lung Qi",
+      "Stops cough and wheezing",
+      "Strengthens Wei Qi",
+    ],
+
+    pattern: "Lung Qi Xu",
+
+    contraindications: [
+      "Excess patterns with phlegm-heat",
+      "Acute wind-cold or wind-heat invasion",
+    ],
+
+    modifications: [
+      { condition: "Qi xu", herbs_add: "Si Jun Zi Tang" },
+      { condition: "Spontaneous sweating", herbs_add: "Mu Li Tang" },
+      { condition: "Asthma", herbs_add: "Xing Ren, Hou Po" },
+    ],
+
+    differentiators: [],
+
+    modern_applications: [
+      "Chronic bronchitis",
+      "Emphysema",
+      "Chronic obstructive pulmonary disease",
+      "Immune deficiency",
+      "Chronic fatigue with respiratory weakness",
+    ],
+
+    color: "#4b8e6b",
+  },
+
+  // ============================================================
+  // BEI MU GUA LOU SAN 贝母瓜蒌散
+  // ============================================================
+  "bei-mu-gua-lou-san": {
+    id: "bei-mu-gua-lou-san",
+    name_pinyin: "Bèi Mǔ Guā Lóu Sǎn",
+    name_chinese: "贝母瓜蒌散",
+    name_english: "Fritillaria and Trichosanthes Formula",
+    category: "Formulas that Treat Phlegm",
+    source: "Yi Xue Xin Wu",
+
+    composition: [
+      { pinyin: "Chuan Bei Mu", chinese: "川贝母", latin: "Bulbus Fritillariae Cirrhosae", dosage: "4.5g", role: "jun", role_name: "King", function: "Clears heat, moistens the Lungs, transforms phlegm" },
+      { pinyin: "Gua Lou Ren", chinese: "瓜蒌仁", latin: "Semen Trichosanthis", dosage: "3g", role: "chen", role_name: "Minister", function: "Clears heat, transforms phlegm, moistens the Lungs" },
+      { pinyin: "Fu Ling", chinese: "茯苓", latin: "Poria", dosage: "2.4g", role: "zuo", role_name: "Assistant", function: "Strengthens Spleen, leaches dampness" },
+      { pinyin: "Ju Hong", chinese: "橘红", latin: "Exocarpium Citri Rubrum", dosage: "2.4g", role: "zuo", role_name: "Assistant", function: "Regulates Qi, dries dampness, transforms phlegm" },
+      { pinyin: "Tian Hua Fen", chinese: "天花粉", latin: "Radix Trichosanthis", dosage: "2.4g", role: "zuo", role_name: "Assistant", function: "Clears heat, generates fluids, moistens dryness" },
+      { pinyin: "Jie Geng", chinese: "桔梗", latin: "Radix Platycodonis", dosage: "2.4g", role: "shi", role_name: "Envoy", function: "Opens and disseminates Lung Qi, guides herbs upward" },
+    ],
+
+    clinical_picture: {
+      summary: "A formula for dryness in the Lung with phlegm that is very dry and sticky, making it hard to expectorate. The patient has a dry cough with wheezing and dryness of the mouth and throat.",
+      tongue: "Red, dry, yellow coating",
+      pulse: "Empty, thin or slippery",
+      key_symptoms: [
+        "Cough with very dry and sticky phlegm that is hard to expectorate",
+        "Wheezing",
+        "Dry mouth and throat",
+      ],
+    },
+
+    actions: [
+      "Moistens the Lungs",
+      "Clears heat",
+      "Regulates the Qi and transforms phlegm",
+    ],
+
+    pattern: "Lung Dryness with Phlegm-Heat",
+
+    contraindications: [
+      "Cold-phlegm patterns",
+      "Spleen Yang deficiency with watery phlegm",
+    ],
+
+    differentiators: [
+      { formula: "Qing Qi Hua Tan Wan", difference: "Bei Mu Gua Lou San = Dryness in the Lung, Severe sticky dry cough. vs Qing Qi Hua Tan Wan = Phlegm heat in the Lung, Cough with yellow phlegm that hard to expectorant." },
+    ],
+
+    modifications: [],
+
+    modern_applications: [
+      "Dry cough with sticky phlegm",
+      "Chronic bronchitis with dry pattern",
+      "Wheezing due to Lung dryness",
+    ],
+
+    color: "#c4a94d",
+  },
+
+  // ============================================================
+  // CHUAN XIONG CHA TIAO SAN 川芎茶调散
+  // ============================================================
+  "chuan-xiong-cha-tiao-san": {
+    id: "chuan-xiong-cha-tiao-san",
+    name_pinyin: "Chuān Xiōng Chá Tiáo Sǎn",
+    name_chinese: "川芎茶调散",
+    name_english: "Ligusticum and Tea Formula",
+    category: "Formulas that Release the Exterior",
+    source: "Tai Ping Hui Min He Ji Ju Fang",
+
+    composition: [
+      { pinyin: "Chuan Xiong", chinese: "川芎", latin: "Rhizoma Chuanxiong", dosage: "10g", role: "jun", role_name: "King", function: "Expels wind, alleviates pain, moves Blood and Qi" },
+      { pinyin: "Qiang Huo", chinese: "羌活", latin: "Rhizoma et Radix Notopterygii", dosage: "10g", role: "chen", role_name: "Minister", function: "Releases exterior, disperses wind-cold, alleviates pain" },
+      { pinyin: "Bai Zhi", chinese: "白芷", latin: "Radix Angelicae Dahuricae", dosage: "10g", role: "chen", role_name: "Minister", function: "Expels wind, alleviates pain, opens nasal passages" },
+      { pinyin: "Xi Xin", chinese: "细辛", latin: "Herba Asari", dosage: "6g", role: "zuo", role_name: "Assistant", function: "Disperses wind-cold, alleviates pain, opens orifices" },
+      { pinyin: "Jing Jie", chinese: "荆芥", latin: "Herba Schizonepetae", dosage: "10g", role: "zuo", role_name: "Assistant", function: "Releases exterior, expels wind" },
+      { pinyin: "Fang Feng", chinese: "防风", latin: "Radix Saposhnikoviae", dosage: "10g", role: "zuo", role_name: "Assistant", function: "Releases exterior, expels wind, alleviates pain" },
+      { pinyin: "Bo He", chinese: "薄荷", latin: "Herba Menthae", dosage: "6g", role: "zuo", role_name: "Assistant", function: "Disperses wind-heat, clears the head" },
+      { pinyin: "Cha Ye", chinese: "茶叶", latin: "Folium Camelliae Sinensis", dosage: "appropriate amount", role: "shi", role_name: "Envoy", function: "Clears the head, restrains the ascending nature of wind herbs" },
+      { pinyin: "Gan Cao", chinese: "甘草", latin: "Radix Glycyrrhizae", dosage: "6g", role: "shi", role_name: "Envoy", function: "Harmonizes all herbs" },
+    ],
+
+    clinical_picture: {
+      summary: "The primary formula for headache due to external wind-cold. Disperses wind and alleviates pain. Commonly used for various types of headaches including vertex pain, temporal headache, and headaches from common cold.",
+      tongue: "Thin white coating",
+      pulse: "Floating",
+      key_symptoms: [
+        "Headache due to external wind cold",
+        "Chills",
+        "Nasal congestion",
+        "Vertex pain",
+        "Dizziness",
+        "Neck tension",
+      ],
+    },
+
+    actions: [
+      "Disperses wind",
+      "Alleviates pain",
+    ],
+
+    pattern: "External Wind-Cold with Headache",
+
+    contraindications: [
+      "Headache due to Liver Yang rising (deficiency pattern)",
+      "Headache due to Blood deficiency",
+      "Yin deficiency headache",
+    ],
+
+    differentiators: [],
+
+    modifications: [
+      { condition: "Tai yang headache", herbs_add: "Gao Ben" },
+      { condition: "Shao yang headache", herbs_add: "Chai Hu" },
+      { condition: "Rhinitis", herbs_add: "Cang Er Zi, Xin Yi Hua. Or Cang Er Zi San" },
+      { condition: "Headache due to wind heat", herbs_add: "Ju Hua, Jiang Cao, Zhi Gan Cao. See Ju Hua Cha Tiao San" },
+    ],
+
+    modern_applications: [
+      "Allergy",
+      "Common cold with headache",
+      "Trigeminal neuralgia (TN)",
+      "Post-concussion headache",
+      "Migraine due to wind-cold",
+      "Sinusitis headache",
+    ],
+
+    color: "#5a8fbf",
+  },
+
+  // ============================================================
+  // DING ZHI WAN 定志丸
+  // ============================================================
+  "ding-zhi-wan": {
+    id: "ding-zhi-wan",
+    name_pinyin: "Dìng Zhì Wán",
+    name_chinese: "定志丸",
+    name_english: "Settle the Emotions Pill",
+    category: "Formulas that Calm the Spirit",
+    source: "Bei Ji Qian Jin Yao Fang",
+
+    composition: [
+      { pinyin: "Ren Shen", chinese: "人参", latin: "Radix Ginseng", dosage: "10g", role: "jun", role_name: "King", function: "Strongly tonifies Heart and Spleen Qi" },
+      { pinyin: "Fu Ling", chinese: "茯苓", latin: "Poria", dosage: "10g", role: "chen", role_name: "Minister", function: "Strengthens Spleen, calms the spirit" },
+      { pinyin: "Shi Chang Pu", chinese: "石菖蒲", latin: "Rhizoma Acori Tatarinowii", dosage: "6g", role: "zuo", role_name: "Assistant", function: "Opens the orifices, calms the Shen, transforms phlegm" },
+      { pinyin: "Yuan Zhi", chinese: "远志", latin: "Radix Polygalae", dosage: "6g", role: "zuo", role_name: "Assistant", function: "Calms the Shen, expels phlegm from the Heart" },
+    ],
+
+    clinical_picture: {
+      summary: "A Qi formula for Heart and Spleen Qi deficiency manifesting primarily on the mental-emotional level. The patient presents with depression, worry, timidity, and restlessness — a Qi Xu condition with prominent mental aspects.",
+      tongue: "Pale",
+      pulse: "Weak",
+      key_symptoms: [
+        "Depression",
+        "Post natal depression",
+        "Worry",
+        "Timidity, restlessness, fearfulness",
+        "Palpitation (weak type)",
+        "Shortness of breath",
+        "Fatigue",
+        "Spontaneous sweating",
+        "Insomnia",
+        "Frequent waking",
+        "Unable to fall back to sleep",
+      ],
+    },
+
+    actions: [
+      "Tonifies Heart Qi and Spleen Qi",
+      "Calms the Shen",
+      "Treats timidity",
+    ],
+
+    pattern: "Heart and Spleen Qi Xu (mental aspect)",
+
+    contraindications: [
+      "Excess heat patterns with irritability",
+      "Liver Fire rising",
+      "Yin deficiency with empty heat",
+    ],
+
+    differentiators: [
+      { formula: "Si Jun Zi Tang", difference: "Ding Zhi Wan = SP and H qi xu on a mental aspect. vs Si Jun Zi Tang = SP qi xu, physical aspect." },
+    ],
+
+    modifications: [
+      { condition: "Mild LV qi yu with irritation", herbs_add: "He Huan Pi" },
+      { condition: "Spontaneous sweating", herbs_add: "Gan Mai Da Zao Tang formula or Ma Huang Gen, Fu Xiao Mai, Mu Li" },
+    ],
+
+    modern_applications: [
+      "Depression",
+      "Post natal depression",
+      "Anxiety with fatigue",
+      "Insomnia due to Qi deficiency",
+      "Palpitations (weak type)",
+    ],
+
+    dpiRemarks: "This is a qi formula. Ding zhi wan it's a qi xu condition, when the fucus on the mental aspect of it, most common depression. Physically will give the same diagnostic picture of si jun zi tang.",
+    treatmentTime: "3 to 6 months mid to low dosage. High dosage will make the stool harder.",
+
+    color: "#c45a7d",
+  },
+
+  // ============================================================
+  // HUO XIANG ZHENG QI SAN 藿香正气散
+  // ============================================================
+  "huo-xiang-zheng-qi-san": {
+    id: "huo-xiang-zheng-qi-san",
+    name_pinyin: "Huò Xiāng Zhèng Qì Sǎn",
+    name_chinese: "藿香正气散",
+    name_english: "Agastache Formula",
+    category: "Formulas that Expel Dampness",
+    source: "Tai Ping Hui Min He Ji Ju Fang",
+
+    composition: [
+      { pinyin: "Huo Xiang", chinese: "藿香", latin: "Herba Agastachis", dosage: "9g", role: "jun", role_name: "King", function: "Aromatically transforms dampness, harmonizes the middle Jiao, releases the exterior" },
+      { pinyin: "Zi Su Ye", chinese: "紫苏叶", latin: "Folium Perillae", dosage: "3g", role: "chen", role_name: "Minister", function: "Releases the exterior, regulates Qi" },
+      { pinyin: "Bai Zhi", chinese: "白芷", latin: "Radix Angelicae Dahuricae", dosage: "3g", role: "chen", role_name: "Minister", function: "Expels wind-cold, opens nasal passages" },
+      { pinyin: "Ban Xia", chinese: "半夏", latin: "Rhizoma Pinelliae", dosage: "6g", role: "zuo", role_name: "Assistant", function: "Dries dampness, transforms phlegm, descends rebellious Qi" },
+      { pinyin: "Chen Pi", chinese: "陈皮", latin: "Pericarpium Citri Reticulatae", dosage: "6g", role: "zuo", role_name: "Assistant", function: "Regulates Qi, dries dampness" },
+      { pinyin: "Hou Po", chinese: "厚朴", latin: "Cortex Magnoliae Officinalis", dosage: "6g", role: "zuo", role_name: "Assistant", function: "Moves Qi, transforms dampness, reduces distention" },
+      { pinyin: "Da Fu Pi", chinese: "大腹皮", latin: "Pericarpium Arecae", dosage: "3g", role: "zuo", role_name: "Assistant", function: "Moves Qi downward, reduces distention" },
+      { pinyin: "Jie Geng", chinese: "桔梗", latin: "Radix Platycodonis", dosage: "6g", role: "zuo", role_name: "Assistant", function: "Opens and disseminates Lung Qi" },
+      { pinyin: "Bai Zhu", chinese: "白术", latin: "Rhizoma Atractylodis Macrocephalae", dosage: "6g", role: "zuo", role_name: "Assistant", function: "Strengthens Spleen, dries dampness" },
+      { pinyin: "Fu Ling", chinese: "茯苓", latin: "Poria", dosage: "6g", role: "zuo", role_name: "Assistant", function: "Strengthens Spleen, leaches dampness" },
+      { pinyin: "Zhi Gan Cao", chinese: "炙甘草", latin: "Radix Glycyrrhizae Praeparata", dosage: "7.5g", role: "shi", role_name: "Envoy", function: "Harmonizes all herbs, tonifies Qi" },
+      { pinyin: "Da Zao", chinese: "大枣", latin: "Fructus Jujubae", dosage: "1pc", role: "shi", role_name: "Envoy", function: "Tonifies Spleen Qi, harmonizes" },
+      { pinyin: "Sheng Jiang", chinese: "生姜", latin: "Rhizoma Zingiberis Recens", dosage: "6g", role: "shi", role_name: "Envoy", function: "Warms the middle Jiao, transforms dampness" },
+    ],
+
+    clinical_picture: {
+      summary: "A formula for wind-cold with internal dampness affecting the middle Jiao. The patient presents with gastrointestinal symptoms — abdominal distention, nausea, vomiting, diarrhea, and weakness after eating with indigestion. Commonly used for gastric flu or common cold with digestive involvement.",
+      tongue: "Sticky white coating",
+      pulse: "Soggy or slippery",
+      key_symptoms: [
+        "Abdominal distention",
+        "Nausea, might lead to vomiting",
+        "Abdominal pain",
+        "Diarrhea",
+        "Weakness mainly after eating with indigestion",
+        "Gastric flu / common cold",
+      ],
+    },
+
+    actions: [
+      "Dispels damp phlegm",
+      "Regulates the Stomach Qi",
+      "Mildly clears heat",
+    ],
+
+    pattern: "Wind-Cold with Internal Dampness",
+
+    contraindications: [
+      "Yin deficiency with heat signs",
+      "Dry patterns without dampness",
+    ],
+
+    differentiators: [
+      { formula: "Ping Wei San", difference: "Huo Xiang Zheng Qi Tang = Strong effect of regulating qi, transforming damp & tonify the middle Jiao. Wind cold internal damp. vs Ping Wei San = Strong reaction on drying dampness, activating the SP but do not Releasing the exterior. Retention of damp in the SP & ST." },
+    ],
+
+    modifications: [],
+
+    modern_applications: [
+      "Gastric flu",
+      "Acute gastroenteritis",
+      "Common cold with digestive symptoms",
+      "Food poisoning (mild)",
+      "Motion sickness",
+    ],
+
+    color: "#8b6e4b",
+  },
+
+  // ============================================================
+  // JU PI ZHU RU TANG 橘皮竹茹汤
+  // ============================================================
+  "ju-pi-zhu-ru-tang": {
+    id: "ju-pi-zhu-ru-tang",
+    name_pinyin: "Jú Pí Zhú Rú Tāng",
+    name_chinese: "橘皮竹茹汤",
+    name_english: "Aurantium and Bamboo Combination",
+    category: "Formulas that Regulate Qi",
+    source: "Jin Gui Yao Lue",
+
+    composition: [
+      { pinyin: "Zhu Ru", chinese: "竹茹", latin: "Caulis Bambusae in Taenia", dosage: "12g", role: "jun", role_name: "King", function: "Clears heat, transforms phlegm, stops vomiting and hiccups" },
+      { pinyin: "Chen Pi", chinese: "陈皮", latin: "Pericarpium Citri Reticulatae", dosage: "12g", role: "jun", role_name: "King", function: "Regulates Qi, directs rebellious Qi downward, dries dampness" },
+      { pinyin: "Ren Shen", chinese: "人参", latin: "Radix Ginseng", dosage: "3g", role: "chen", role_name: "Minister", function: "Tonifies Stomach Qi, augments the source Qi" },
+      { pinyin: "Sheng Jiang", chinese: "生姜", latin: "Rhizoma Zingiberis Recens", dosage: "9g", role: "zuo", role_name: "Assistant", function: "Warms the Stomach, descends rebellious Qi, stops vomiting" },
+      { pinyin: "Da Zao", chinese: "大枣", latin: "Fructus Jujubae", dosage: "5pc", role: "zuo", role_name: "Assistant", function: "Tonifies Spleen and Stomach Qi" },
+      { pinyin: "Zhi Gan Cao", chinese: "炙甘草", latin: "Radix Glycyrrhizae Praeparata", dosage: "6g", role: "shi", role_name: "Envoy", function: "Harmonizes all herbs, tonifies the middle Jiao" },
+    ],
+
+    clinical_picture: {
+      summary: "A formula for hiccough and belching due to heat and weakness of the Stomach. The rebellious Stomach Qi rises upward causing hiccups, and in severe cases nausea or vomiting. The patient has a weak constitution with heat signs — dry mouth and thirst.",
+      tongue: "Red and dry",
+      pulse: "Thin and rapid",
+      key_symptoms: [
+        "Hiccough and belching (due to heat and weakness of the Stomach)",
+        "Nausea or vomiting in severe cases",
+        "Dry mouth",
+        "Thirst",
+      ],
+    },
+
+    actions: [
+      "Directs rebellious Qi downward",
+      "Stops hiccup",
+      "Augments the Qi",
+      "Clears heat",
+    ],
+
+    pattern: "Stomach Qi Xu with Heat and Rebellious Qi",
+
+    contraindications: [
+      "Hiccups due to excess cold",
+      "Strong excess heat patterns",
+    ],
+
+    differentiators: [
+      { formula: "Ding Xiang Shi Di Tang", difference: "Ju Pi Zhu Ru Tang = Weak condition with rebellious ST Qi and heat. vs Ding Xiang Shi Di Tang = Weak condition with rebellious ST Qi and cold." },
+    ],
+
+    modifications: [
+      { condition: "Fever shi", herbs_add: "Huang Lian" },
+      { condition: "Qi xu", herbs_add: "Ren Shen" },
+      { condition: "Phlegm", herbs_add: "Ban Xia, Fu Ling. Er Chen Tang" },
+      { condition: "Hiccups", herbs_add: "Shi Di, or Shi Di Tang (Shi Di, Ding Xiang)" },
+      { condition: "Hiccups with phlegm", herbs_add: "Ban Xia, Fu Ling, Gua Lou Ren" },
+    ],
+
+    modern_applications: [
+      "Persistent hiccups",
+      "Nausea and vomiting (deficiency-heat type)",
+      "Gastroesophageal reflux",
+      "Post-surgical hiccups",
+      "Pregnancy-related nausea",
+    ],
+
+    color: "#a0875a",
+  },
+
+  // ============================================================
+  // TIAN TAI WU YAO SAN 天台乌药散
+  // ============================================================
+  "tian-tai-wu-yao-san": {
+    id: "tian-tai-wu-yao-san",
+    name_pinyin: "Tiān Tái Wū Yào Sǎn",
+    name_chinese: "天台乌药散",
+    name_english: "Top Quality Lindera Powder",
+    category: "Formulas that Regulate Qi",
+    source: "Yi Xue Fa Ming",
+
+    composition: [
+      { pinyin: "Wu Yao", chinese: "乌药", latin: "Radix Linderae", dosage: "10g", role: "jun", role_name: "King", function: "Promotes the movement of Qi, warms the Kidneys, disperses cold" },
+      { pinyin: "Mu Xiang", chinese: "木香", latin: "Radix Aucklandiae", dosage: "10g", role: "chen", role_name: "Minister", function: "Promotes the movement of Qi, alleviates pain" },
+      { pinyin: "Xiao Hui Xiang", chinese: "小茴香", latin: "Fructus Foeniculi", dosage: "10g", role: "chen", role_name: "Minister", function: "Warms the Liver channel, disperses cold, alleviates pain" },
+      { pinyin: "Qing Pi", chinese: "青皮", latin: "Pericarpium Citri Reticulatae Viride", dosage: "10g", role: "zuo", role_name: "Assistant", function: "Spreads Liver Qi, breaks up stagnant Qi" },
+      { pinyin: "Gao Liang Jiang", chinese: "高良姜", latin: "Rhizoma Alpiniae Officinarum", dosage: "10g", role: "zuo", role_name: "Assistant", function: "Warms the middle, disperses cold, alleviates pain" },
+      { pinyin: "Bing Lang", chinese: "槟榔", latin: "Semen Arecae", dosage: "10g", role: "zuo", role_name: "Assistant", function: "Promotes the movement of Qi, reduces accumulation" },
+      { pinyin: "Chuan Lian Zi", chinese: "川楝子", latin: "Fructus Toosendan", dosage: "10g", role: "zuo", role_name: "Assistant", function: "Promotes the movement of Qi, clears Liver heat, alleviates pain" },
+      { pinyin: "Ba Dou", chinese: "巴豆", latin: "Fructus Crotonis", dosage: "10g", role: "shi", role_name: "Envoy", function: "Warms the interior, unblocks, expels cold accumulation" },
+    ],
+
+    clinical_picture: {
+      summary: "Regulate LV Qi treat worm LV meridian, treat hernia and pain. Hernia due to cold stagnation of the LV meridian. Testicular pain with swollen or distention. Abdominal pain, mobile abdominal mass.",
+      tongue: "Normal",
+      pulse: "Wiry",
+      key_symptoms: [
+        "Hernia due to cold stagnation of the LV meridian",
+        "Testicular pain with swollen or distention",
+        "Abdominal pain",
+        "Mobile abdominal mass",
+      ],
+    },
+
+    actions: [
+      "Promotes the movement of Qi",
+      "Scatters cold",
+      "Alleviates pain",
+      "Treats hernia",
+    ],
+
+    pattern: "Cold stagnation of the Liver meridian with hernia",
+
+    contraindications: [
+      "Hernia due to damp-heat",
+      "Yin deficiency with heat signs",
+    ],
+
+    differentiators: [
+      { formula: "Dao Qi Tang", difference: "Tian tai wu yao san = cold hernia and pain, Testicular swollen and pain. More qi stagnation. vs Dao qi tang = simple version of tian tai wu yao san (chuan lian zi, mu xiang, xiao hui xiang, wu zhu yu). More shi cold and mainly hernia that effect the testicular area." },
+    ],
+
+    modifications: [],
+
+    modern_applications: [
+      "Inguinal hernia",
+      "Testicular pain",
+      "Epididymitis",
+      "Abdominal pain due to cold",
+    ],
+
+    color: "#6a8d4e",
+  },
+
+  // ============================================================
+  // TU SI ZI WAN 菟丝子丸
+  // ============================================================
+  "tu-si-zi-wan": {
+    id: "tu-si-zi-wan",
+    name_pinyin: "Tú Sī Zǐ Wán",
+    name_chinese: "菟丝子丸",
+    name_english: "Cuscuta Seed Pill",
+    category: "Formulas that Tonify Yang",
+    source: "Unknown",
+
+    composition: [
+      { pinyin: "Tu Si Zi", chinese: "菟丝子", latin: "Semen Cuscutae", dosage: "10g", role: "jun", role_name: "King", function: "Tonifies Kidney Yang and Yin, secures essence, stops leakage" },
+      { pinyin: "Lu Rong", chinese: "鹿茸", latin: "Cornu Cervi Pantotrichum", dosage: "6g", role: "jun", role_name: "King", function: "Tonifies Kidney Yang, strengthens Jing, strengthens bones" },
+      { pinyin: "Shan Yao", chinese: "山药", latin: "Rhizoma Dioscoreae", dosage: "10g", role: "chen", role_name: "Minister", function: "Tonifies Spleen and Kidney, stabilizes and binds" },
+      { pinyin: "Rou Cong Rong", chinese: "肉苁蓉", latin: "Herba Cistanches", dosage: "10g", role: "chen", role_name: "Minister", function: "Tonifies Kidney Yang, augments Jing and Blood" },
+      { pinyin: "Wu Wei Zi", chinese: "五味子", latin: "Fructus Schisandrae", dosage: "6g", role: "zuo", role_name: "Assistant", function: "Astringes leakage, tonifies Kidney, calms the Spirit" },
+      { pinyin: "Sang Piao Xiao", chinese: "桑螵蛸", latin: "Ootheca Mantidis", dosage: "6g", role: "zuo", role_name: "Assistant", function: "Tonifies Kidney, assists Yang, retains urine and secures essence" },
+      { pinyin: "Wu Yao", chinese: "乌药", latin: "Radix Linderae", dosage: "6g", role: "zuo", role_name: "Assistant", function: "Warms the Kidney, promotes Qi movement" },
+      { pinyin: "Yi Zhi Ren", chinese: "益智仁", latin: "Fructus Alpiniae Oxyphyllae", dosage: "10g", role: "zuo", role_name: "Assistant", function: "Warms the Kidney, retains urine, controls saliva" },
+      { pinyin: "Fu Zi", chinese: "附子", latin: "Radix Aconiti Lateralis Praeparata", dosage: "3g", role: "zuo", role_name: "Assistant", function: "Rescues devastated Yang, warms Kidney fire" },
+      { pinyin: "Mu Li", chinese: "牡蛎", latin: "Concha Ostreae", dosage: "10g", role: "zuo", role_name: "Assistant", function: "Astringes and stabilizes, calms the Spirit" },
+      { pinyin: "Ji Nei Jin", chinese: "鸡内金", latin: "Endothelium Corneum Gigeriae Galli", dosage: "3g", role: "shi", role_name: "Envoy", function: "Aids digestion, transforms accumulation" },
+    ],
+
+    clinical_picture: {
+      summary: "Warm the Kidney and stop abnormal leakage. Frequent, scanty urination with continuous dripping. Exhaustion. Aversion to cold. Weak physique. Dizziness. Lower back pain. Weakness of the lower extremities.",
+      tongue: "Pale",
+      pulse: "Submerged, thin mainly at the chi position",
+      key_symptoms: [
+        "Frequent, scanty urination with continuous dripping",
+        "Exhaustion",
+        "Aversion to cold",
+        "Weak physique",
+        "Dizziness",
+        "Lower back pain",
+        "Weakness of the lower extremities",
+      ],
+    },
+
+    actions: [
+      "Warms the Kidney",
+      "Tonifies Yang",
+      "Stops abnormal leakage",
+      "Secures essence",
+    ],
+
+    pattern: "Kidney Yang Xu with failure to retain urine",
+
+    contraindications: [
+      "Damp-heat in the lower Jiao",
+      "Yin deficiency with heat signs",
+    ],
+
+    differentiators: [],
+
+    modifications: [],
+
+    modern_applications: [
+      "Urinary incontinence",
+      "Frequent urination",
+      "Low sperm count",
+      "Premature aging",
+      "Chronic fatigue with cold signs",
+    ],
+
+    dpiRemarks: "This is a xue type formula. Tu si zi wan. Can treat low sperm count like wu zi yan zhong wan but focusing on urinary disorder in a weak person. It's a classical K yang xu with weakness of the jing. Aging faster.",
+    treatmentTime: "4 months to 1 year mid to low dosage level.",
+
+    color: "#4a6fa5",
+  },
+
+  // ============================================================
+  // ZHI BAI DI HUANG WAN 知柏地黄丸
+  // ============================================================
+  "zhi-bai-di-huang-wan": {
+    id: "zhi-bai-di-huang-wan",
+    name_pinyin: "Zhī Bǎi Dì Huáng Wán",
+    name_chinese: "知柏地黄丸",
+    name_english: "Anemarrhena, Phellodendron, and Rehmannia Formula",
+    category: "Formulas that Tonify Yin",
+    source: "Yi Zong Jin Jian",
+
+    composition: [
+      { pinyin: "Shu Di", chinese: "熟地", latin: "Radix Rehmanniae Praeparata", dosage: "24g", role: "jun", role_name: "King", function: "Nourishes Kidney Yin, fills the essence" },
+      { pinyin: "Shan Yao", chinese: "山药", latin: "Rhizoma Dioscoreae", dosage: "12g", role: "chen", role_name: "Minister", function: "Tonifies Spleen and Kidney, stabilizes and binds" },
+      { pinyin: "Shan Zhu Yu", chinese: "山茱萸", latin: "Fructus Corni", dosage: "12g", role: "chen", role_name: "Minister", function: "Nourishes Liver and Kidney, astringes essence" },
+      { pinyin: "Fu Ling", chinese: "茯苓", latin: "Poria", dosage: "9g", role: "zuo", role_name: "Assistant", function: "Drains dampness, strengthens Spleen" },
+      { pinyin: "Ze Xie", chinese: "泽泻", latin: "Rhizoma Alismatis", dosage: "9g", role: "zuo", role_name: "Assistant", function: "Drains Kidney fire, promotes urination" },
+      { pinyin: "Mu Dan Pi", chinese: "牡丹皮", latin: "Cortex Moutan", dosage: "9g", role: "zuo", role_name: "Assistant", function: "Clears heat, cools Blood, invigorates Blood" },
+      { pinyin: "Zhi Mu", chinese: "知母", latin: "Rhizoma Anemarrhenae", dosage: "6g", role: "zuo", role_name: "Assistant", function: "Clears heat, nourishes Yin, generates fluids" },
+      { pinyin: "Huang Bai", chinese: "黄柏", latin: "Cortex Phellodendri", dosage: "6g", role: "shi", role_name: "Envoy", function: "Clears heat, dries dampness, drains Kidney fire" },
+    ],
+
+    clinical_picture: {
+      summary: "Nourish Kidney Yin and clear heat. 5 center heat. Afternoon heat. Dry throat and mouth. Dry stool. Night sweating, hot flashes. Excessive sexual desire. Menopause. Chronic throat inflammation. Hoarseness and sore throat. Lower back / knee pain.",
+      tongue: "Red",
+      pulse: "Thin, rapid",
+      key_symptoms: [
+        "5 center heat",
+        "Afternoon heat",
+        "Dry throat and mouth",
+        "Dry stool",
+        "Night sweating, hot flashes",
+        "Excessive sexual desire",
+        "Menopause symptoms",
+        "Chronic throat inflammation",
+        "Hoarseness and sore throat",
+        "Lower back and knee pain",
+      ],
+    },
+
+    actions: [
+      "Nourishes Kidney Yin",
+      "Clears deficiency heat",
+      "Drains fire",
+    ],
+
+    pattern: "Kidney Yin Xu with deficiency fire",
+
+    contraindications: [
+      "Spleen Yang deficiency with dampness",
+      "True cold false heat patterns",
+    ],
+
+    differentiators: [],
+
+    modifications: [
+      { condition: "Severe night flashes", herbs_add: "Gui Ban" },
+      { condition: "Neck stiffness", herbs_add: "Tian Ma" },
+      { condition: "HBP", herbs_add: "Tian Ma Gou Teng Yin" },
+    ],
+
+    modern_applications: [
+      "Menopausal syndrome",
+      "Chronic pharyngitis",
+      "Night sweats",
+      "Hot flashes",
+      "Hyperthyroidism (Yin Xu type)",
+      "Chronic urinary tract infection",
+    ],
+
+    dpiRemarks: "This is a xue type formula. Chronic condition. It's a shao yin with stronger then liu wei di huang wan fever singes of insomnia, sweating.",
+    treatmentTime: "2 - 4 month, same time even more. mid dosage level. Post zhi bai di huang wan. Liu wei di huang wan.",
+
+    color: "#5b8c5a",
+  },
+
+  // ============================================================
+  // XUAN FU DAI ZHI SHI TANG 旋覆代赭汤
+  // ============================================================
+  "xuan-fu-dai-zhi-shi-tang": {
+    id: "xuan-fu-dai-zhi-shi-tang",
+    name_pinyin: "Xuán Fù Dài Zhě Tāng",
+    name_chinese: "旋覆代赭汤",
+    name_english: "Inula and Hematite Combination",
+    category: "Formulas that Regulate Qi",
+    source: "Shang Han Lun",
+
+    composition: [
+      { pinyin: "Xuan Fu Hua", chinese: "旋覆花", latin: "Flos Inulae", dosage: "10g", role: "jun", role_name: "King", function: "Directs Qi downward, transforms phlegm, stops vomiting" },
+      { pinyin: "Dai Zhe Shi", chinese: "代赭石", latin: "Haematitum", dosage: "12g", role: "jun", role_name: "King", function: "Directs rebellious Qi downward, cools Blood" },
+      { pinyin: "Ren Shen", chinese: "人参", latin: "Radix Ginseng", dosage: "10g", role: "chen", role_name: "Minister", function: "Tonifies Qi, strengthens the Spleen and Stomach" },
+      { pinyin: "Ban Xia", chinese: "半夏", latin: "Rhizoma Pinelliae", dosage: "10g", role: "chen", role_name: "Minister", function: "Dries dampness, transforms phlegm, directs rebellious Qi downward" },
+      { pinyin: "Sheng Jiang", chinese: "生姜", latin: "Rhizoma Zingiberis Recens", dosage: "6g", role: "zuo", role_name: "Assistant", function: "Warms the Stomach, stops vomiting" },
+      { pinyin: "Da Zao", chinese: "大枣", latin: "Fructus Jujubae", dosage: "5pc", role: "zuo", role_name: "Assistant", function: "Tonifies Spleen and Stomach Qi" },
+      { pinyin: "Gan Cao", chinese: "甘草", latin: "Radix Glycyrrhizae", dosage: "6g", role: "shi", role_name: "Envoy", function: "Harmonizes all herbs, tonifies the middle Jiao" },
+    ],
+
+    clinical_picture: {
+      summary: "Direct rebellious Qi downwards, transform phlegm, augment the Qi and harmonize the ST. Hiccups, vomiting with saliva and sputum. Nausea, belching. Abdominal distention and fullness. Gas in the upper abdomen.",
+      tongue: "Pale, white sticky coating",
+      pulse: "Frail, slippery or wiry",
+      key_symptoms: [
+        "Hiccups",
+        "Vomiting with saliva and sputum",
+        "Nausea, belching",
+        "Abdominal distention and fullness",
+        "Gas in the upper abdomen",
+      ],
+    },
+
+    actions: [
+      "Directs rebellious Qi downward",
+      "Transforms phlegm",
+      "Augments the Qi",
+      "Harmonizes the Stomach",
+    ],
+
+    pattern: "Stomach Qi Xu with phlegm and rebellious Qi",
+
+    contraindications: [
+      "Excess heat patterns with strong fire",
+      "Yin deficiency without phlegm",
+    ],
+
+    differentiators: [],
+
+    modifications: [
+      { condition: "Phlegm accumulation", herbs_add: "Hou Po, Chen Pi, Fu Ling. Or Er Chen Tang" },
+      { condition: "Shi cold", herbs_add: "Wu Zhu Yu, Ding Xiang. Or use Shi Di Tang or Ding Xiang Shi Di Tang" },
+      { condition: "Fever", herbs_add: "Huang Qin, Huang Lian, Zhu Ru. Or use Zhu Ru Wan Dan Tang" },
+    ],
+
+    modern_applications: [
+      "Persistent hiccups",
+      "Gastroesophageal reflux",
+      "Nausea and vomiting",
+      "Functional dyspepsia",
+      "Gastroparesis",
+    ],
+
+    color: "#7a6e5d",
+  },
+
+  // ============================================================
+  // XIAO JIAN ZHONG TANG 小建中汤
+  // ============================================================
+  "xiao-jian-zhong-tang": {
+    id: "xiao-jian-zhong-tang",
+    name_pinyin: "Xiǎo Jiàn Zhōng Tāng",
+    name_chinese: "小建中汤",
+    name_english: "Hoelen and Jujube Combination (Minor Construct the Middle Decoction)",
+    category: "Formulas that Warm the Interior",
+    source: "Shang Han Lun",
+
+    composition: [
+      { pinyin: "Jiao Yi", chinese: "饴糖", latin: "Saccharum Granorum", dosage: "90g", role: "jun", role_name: "King", function: "Warms and tonifies the middle Jiao, relaxes tension, alleviates pain" },
+      { pinyin: "Gui Zhi", chinese: "桂枝", latin: "Ramulus Cinnamomi", dosage: "6g", role: "chen", role_name: "Minister", function: "Warms the Yang, releases the exterior, warms the channels" },
+      { pinyin: "Bai Shao Yao", chinese: "白芍药", latin: "Radix Paeoniae Alba", dosage: "9g", role: "chen", role_name: "Minister", function: "Nourishes Blood, softens the Liver, alleviates pain" },
+      { pinyin: "Ban Xia", chinese: "半夏", latin: "Rhizoma Pinelliae", dosage: "9g", role: "zuo", role_name: "Assistant", function: "Dries dampness, transforms phlegm, directs rebellious Qi downward" },
+      { pinyin: "Sheng Jiang", chinese: "生姜", latin: "Rhizoma Zingiberis Recens", dosage: "9g", role: "zuo", role_name: "Assistant", function: "Warms the middle, stops vomiting" },
+      { pinyin: "Gan Cao", chinese: "甘草", latin: "Radix Glycyrrhizae", dosage: "9g", role: "zuo", role_name: "Assistant", function: "Tonifies Spleen Qi, harmonizes the herbs" },
+      { pinyin: "Da Zao", chinese: "大枣", latin: "Fructus Jujubae", dosage: "50pc", role: "shi", role_name: "Envoy", function: "Tonifies Spleen and Stomach, nourishes Blood" },
+    ],
+
+    clinical_picture: {
+      summary: "Warm & Tonify, harmonize the Yin and Yang arrests vomiting treat accumulation condition. Fatigue & lassitude, pale complexion, abdominal pain that relieved by warming and pressing. Vomiting and belching after meals.",
+      tongue: "Pale with white coating",
+      pulse: "Wiry, slow",
+      key_symptoms: [
+        "Fatigue and lassitude",
+        "Pale complexion",
+        "Abdominal pain relieved by warming and pressing",
+        "Vomiting and belching after meals",
+      ],
+    },
+
+    actions: [
+      "Warms and tonifies the middle Jiao",
+      "Harmonizes Yin and Yang",
+      "Arrests vomiting",
+      "Alleviates abdominal pain",
+    ],
+
+    pattern: "Middle Jiao Yang Xu with cold and deficiency",
+
+    contraindications: [
+      "Excess heat patterns",
+      "Vomiting due to food stagnation with heat",
+    ],
+
+    differentiators: [],
+
+    modifications: [],
+
+    modern_applications: [
+      "Peptic ulcer (cold type)",
+      "Chronic gastritis",
+      "Irritable bowel syndrome",
+      "Functional abdominal pain",
+      "Chronic fatigue with digestive weakness",
+    ],
+
+    color: "#b8860b",
   },
 };
 // Helper function to find formula details by name
