@@ -356,6 +356,25 @@ const SIX_LAYERS = [
 const ABDOMEN_ZONES = [
   { id:"subcardiac", name:"תת-לבבי", nameEn:"Subcardiac", element:"fire", points:"CV15, CV14",
     description:"לב ופריקרד — נדודי שינה, חרדה, מצוקה לבבית. CV14=מכני, CV15=נפשי (דורש יותר תמיכה מילולית)",
+    clinicalInfo: {
+      title:"אזור אש — לב ופריקרד (心下 Xin Xia)",
+      keyPoints:[
+        { label:"CV15 (נפשי/Ren Mai)", text:"רגישות כאן קשורה לחרדה, דיכאון והפרעות נפשיות. מטופלים לעיתים מרימים ידיים מעל הראש להקלה. דורש תמיכה ארוכת טווח גם לאחר שיפור פיזי" },
+        { label:"CV14 (מכני/Yin Wei Mai)", text:"רגישות קשורה לבעיות קרדיו-וסקולריות מבניות — הולכה חשמלית, מסתמים. מטופלים שמים ידיים על החזה. לרוב לא צריך המשך תמיכה לאחר שחרור המתח" },
+      ],
+      diagnosticRules:[
+        { rule:"כלל 70/30", text:"70% מממצאי תת-לבבי הם תוצאה של לחץ מאפיגסטריום (CV12) — גזים, נוזלים, ריפלוקס הדוחפים למעלה. רק 30% הם גורם ראשוני — גיל, לחץ דם, או התניה רגשית" },
+        { rule:"שפת גוף", text:"ידיים מעל הראש = CV15 (רן מאי/נפשי) | ידיים על החזה = CV14 (מכני/יין ווי)" },
+      ],
+      patterns:[
+        { pattern:"חרדה", text:"מתבטאת בצד שמאל של הבטן, קשורה למערכת הפאראסימפתטית" },
+        { pattern:"דפיקות מהירות", text:"מעידות על חום (Fever Shi)" },
+        { pattern:"דפיקות איטיות וחזקות", text:"משקפות לחץ דם נמוך או חסר כליות" },
+        { pattern:"נדודי שינה", text:"שינה קלה, קושי להירדם — Suan Zao Ren Tang או Tian Wang Bu Xin Dan" },
+      ],
+      treatmentNotes:"אם יש קשיחות — חובה לטפל קודם בגב עליון (T4-T7) לשחרור העודף",
+      keyFormulas:{ shi:"Dao Chi San (אש לב), Wen Dan Tang (ליחה חמה), Dan Shen Yin (סטגנציית דם)", xu:"Tian Wang Bu Xin Dan (יין/דם שו), Zhi Gan Cao Tang (דופק לא סדיר)" },
+    },
     findings:["רגישות","קשיחות","דפיקות","מתח שמאל"],
     findingToFormulas: {
       "רגישות": ["Dao Chi San", "Tian Wang Bu Xin Dan", "Huang Lian E Jiao Tang"],
@@ -381,6 +400,26 @@ const ABDOMEN_ZONES = [
   { id:"subcostal", name:"תת-צלעי", nameEn:"Subcostal", element:"wood", points:"ST21L, ST21R",
     description:"אזור תת-צלעי — ST21 משני הצדדים. שני אזורים קליניים נפרדים: ימין = שאו יאנג (מרה/ליחה), שמאל = יאנג מינג (קיבה/חום-רטיבות). מתח תת-צלעי = סימן היכר לסטגנציית כבד",
     diagnosticGuide:"ST21R קשיח → עץ Ban Xia (ליחה-שומן, Wen Dan Tang). ST21L רך → רטיבות סוכר/לבלב. ST21L קשיח → עץ Huang Lian (חום-רטיבות, Huang Lian Tang). פעימה צפה = שי (Gui Zhi), פעימה עמוקה = שו (Tian Wang Bu Xin Dan)",
+    clinicalInfo: {
+      title:"אזור עץ — תת-צלעי (胸脇苦滿)",
+      keyPoints:[
+        { label:"ST21R — שאו יאנג (כבד/מרה)", text:"קשיחות מצד ימין = ליחה-שומן מצריכת חלבון מהחי, שומן ומוצרי חלב. הפרעות מטבוליות, ויראליות או דלקתיות. מלאות אובייקטיבית. גוש Pigen = סטגנציית דם כרונית עמוקה" },
+        { label:"ST21L — יאנג מינג (קיבה/לבלב)", text:"רכות = הצטברות לחות מסוכר ופחמימות ריקות (לבלב חלש). קשיחות = ליחה/דלקת בלבלב מהעמסת סוכר כרונית. יובש, חום וסטגנציית Qi קיבה" },
+      ],
+      diagnosticRules:[
+        { rule:"הבחנת מרקם", text:"'מלא' (סובייקטיבי למטופל אך רך למגע) ≠ 'קשיח' (ליחה אובייקטיבית). חשוב להבדיל במישוש" },
+        { rule:"דופק בטני ST21L", text:"דופק שטחי/צף (Level 1) = עודף וחום ברמת Qi של Yang Ming. דופק עמוק (Level 3) בבטן חלשה = חוסר קונסטיטוציוני של טחול או כליות" },
+        { rule:"לבלב", text:"רגישות ב-ST21L ללא חסר SP Qi = לבלב מאותגר. אם משולב עם רגישות Da Bao (SP21) וחום → פורמולות מעץ Huang Lian" },
+        { rule:"אימות גב", text:"נקודות T8-T10 (Huato) משמשות לאימות ושחרור העודף מהשאו יאנג" },
+      ],
+      patterns:[
+        { pattern:"טעם מר בבוקר + חום/צמרמורות לסירוגין", text:"אישור שאו יאנג — Xiao Chai Hu Tang" },
+        { pattern:"חומצת קיבה + בחילות + ריח רע", text:"חום-רטיבות קיבה — Huang Lian Tang" },
+        { pattern:"תשוקה למתוק + רכות ST21L", text:"רטיבות טחול — Ping Wei San" },
+        { pattern:"Dan Nang Xin רגיש", text:"אישור כיס מרה — Da Chai Hu Tang" },
+      ],
+      treatmentNotes:"ST21R קשיח עם עצירות = שאו יאנג + יאנג מינג → Da Chai Hu Tang. נוקשות קשה ST21L → Ban Xia לניקוז ליחה",
+    },
     subcostalZones: {
       right: {
         name:"תת-צלעי ימין — שאו יאנג",
@@ -446,6 +485,25 @@ const ABDOMEN_ZONES = [
     ]},
   { id:"epigastric", name:"אפיגסטרי", nameEn:"Epigastrium", element:"earth", points:"CV12",
     description:"קיבה — עיכול, גזים, צלילי מים. 'אכילת זוחל' = סטגנציית קיבה",
+    clinicalInfo: {
+      title:"אזור אדמה — אפיגסטריום (心下 / CV12)",
+      keyPoints:[
+        { label:"מצבי עודף (שי)", text:"אזור זה מעריך בעיקר מצבי שי של קיבה וג'יאו אמצעי. קשיחות = ליחה (אובייקטיבית וסובייקטיבית). רכות = רטיבות בלבד" },
+        { label:"צלילי מים (振水音)", text:"מעידים על אגירת נוזלים בקיבה או מעיים. נמצאים רק בדפוסי קור (Chills). פורמולות: Li Zhong Wan (קור שי) או Zhen Wu Tang (יאנג שו עם רטיבות)" },
+      ],
+      diagnosticRules:[
+        { rule:"סטגנציית Qi — יאנג vs יין", text:"יאנג: כאב חד 'כמו קו' לאורך Linea Alba — כאב ממוקד | יין (הצטברות): נפיחות ומלאות ללא כאב ב-Linea Alba — מפושט" },
+        { rule:"קשיחות לוח", text:"קשיחות חמורה עם כאב ברמת יאנג מינג → Da Cheng Qi Tang. בטן קשה כלוח = סטגנציה חמורה" },
+      ],
+      patterns:[
+        { pattern:"צלילי מים + בטן קרה", text:"קור שי — Li Zhong Wan" },
+        { pattern:"גזים + דופק מתוח + לשון ללא ציפוי", text:"סטגנציית Qi קיבה (Stomach Qi Yu)" },
+        { pattern:"קשיחות + חום", text:"ליחה-חום — Huang Lian E Jiao Tang" },
+        { pattern:"מלאות + בחילות", text:"הצטברות — Huo Xiang Zheng Qi Tang" },
+      ],
+      treatmentNotes:"כאב חד לאורך Linea Alba מתחת ל-CV12 → הוסף CV11/CV9. Qi Ni (צ'י עולה) → Xuan Fu Dai Zhi Shi Tang",
+      keyFormulas:{ shi:"Da Cheng Qi Tang (לוח קשיח), Huo Xiang Zheng Qi Tang (הצטברות)", xu:"Li Zhong Wan (קור), Xiao Jian Zhong Tang (כאב)" },
+    },
     findings:["צליל מים","גז","כאב בלחיצה","קשיחות","לוח קשיח"],
     findingToFormulas: {
       "צליל מים": ["Li Zhong Wan", "Wu Zhu Yu Tang", "Zhen Wu Tang"],
@@ -469,6 +527,25 @@ const ABDOMEN_ZONES = [
     ]},
   { id:"navel", name:"טבור", nameEn:"Navel", element:"earth", points:"CV8",
     description:"טחול — חולשת מבנה, חסר צ'י. טבור נע = חולשה מבנית. כיוון הזזת הטבור מעיד: למעלה=קיבה שי/כליות שו, למטה=כליות/GIT, שמאלה=כבד שי, ימינה=ריאות/כבד Xue Yu",
+    clinicalInfo: {
+      title:"אזור אדמה — טבור (臍 / CV8)",
+      keyPoints:[
+        { label:"נקודת כניסת כוח החיים", text:"הטבור נחשב 'נקודת כניסה לכוח החיים' — מרכז ההערכה הקונסטיטוציונית. טבור בריא = עמוק, מעוצב היטב, מלא, עם רקמה חזקה סביבו — מעיד על חיוניות גבוהה ואריכות ימים" },
+        { label:"טבור רך", text:"טבור רך ללא התנגדות (ללא 'Level 1') = חסר Qi טחול. קשור לעייפות, תיאבון ירוד, וצניחת איברים" },
+      ],
+      diagnosticRules:[
+        { rule:"הזזת טבור — כיוונים", text:"למעלה: קיבה שי (צעירים) או כליות שו (מבוגרים) | למטה: כליות שי (קשור לכבד), כליות שו, או חולשת GIT | שמאלה: כבד שי | ימינה: ריאות שי (דלקת כרונית), ריאות שו, או כבד Xue Yu" },
+        { rule:"מוקסה על מלח", text:"CV8 — מוקסה על מלח משמשת ספציפית לטיפול בשלשולים" },
+        { rule:"Qi Zhong Bian (צ'י ג'ונג ביאן)", text:"4 נקודות סביב הטבור — משמשות בשילובי טחול, במיוחד לשלשולים או חסר SP Qi חמור" },
+      ],
+      patterns:[
+        { pattern:"טבור רך + עייפות + תיאבון ירוד", text:"חסר Qi טחול — Si Jun Zi Tang, Bu Zhong Yi Qi Tang" },
+        { pattern:"הזזה שמאלה + מתח", text:"כבד שי — Xiao Yao San" },
+        { pattern:"הזזה ימינה + עור יבש", text:"סטגנציית דם כרונית — Gui Zhi Fu Ling Wan" },
+        { pattern:"אטוניה כללית + שלשול", text:"חסר חמור — מוקסה CV8 + Qi Zhong Bian" },
+      ],
+      treatmentNotes:"טבור = הערכה קונסטיטוציונית. שינוי בצורה/עומק/כיוון לאורך זמן = שינוי במצב הבריאות הכללי",
+    },
     navelShifting: true,
     findings:["רכות","הזזה למעלה","הזזה למטה","הזזה שמאלה","הזזה ימינה","אטוניה","רגישות סביב"],
     findingToFormulas: {
@@ -497,6 +574,25 @@ const ABDOMEN_ZONES = [
     ]},
   { id:"left", name:"בטן שמאל", nameEn:"Left Abdomen", element:"wood", points:"ST25L",
     description:"כבד — רמת צ'י. סטגנציה תפקודית, סטרס, הורמונים, מתח שריר רקטוס שמאלי. קשור להפרעות שחלות/אשכים ומתח רגשי. מתח קיצוני ברקטוס שמאלי = ג'ואה יין (Wu Mei Wan). סטגנציית דם 'חדשה' → עץ Tao Ren. פעימה עמוקה עם PP = צ'י כבד, דורש Long Gu + Mu Li לעיגון",
+    clinicalInfo: {
+      title:"אזור עץ — בטן שמאל / כבד (ST25L)",
+      keyPoints:[
+        { label:"מרידיאן כבד ושחלות/אשכים", text:"אזור כבד ראשי — כולל שאו יאנג, יאנג ווי ודאי מאי. מרידיאן הכבד 'נעצר' ב-ST25L לבעיות שחלתיות. מתח כאן יכול לנבוע מ'טסטוסטרון לא מעובד' או תסכול מיני → מקצר את מרידיאן הכבד ו'תופס' את הדאי מאי בצד שמאל" },
+        { label:"מתח רקטוס — ג'ואה יין (Jue Yin)", text:"מתח קיצוני בשריר רקטוס שמאלי = סימן קלאסי לדפוס ג'ואה יין. קשור לבעיות מפשעה או הפרעות קצב לב. Shao Yao Gan Cao Tang = פורמולה ראשונית להרפיית עוויתות רקטוס חריפות" },
+        { label:"פעימה עמוקה", text:"דופק ברמת אבחון 3 ב-ST25L = חוסר איזון כבד/עץ. מורגש הדוק ועמוק עם PP (Pressure Pain)" },
+      ],
+      diagnosticRules:[
+        { rule:"הורמונים", text:"מתח ST25L + מחזור לא סדיר / בעיות פוריות = קשר הורמונלי ישיר דרך מרידיאן הכבד" },
+        { rule:"סטרס", text:"היפר-עצבנות + מתח בטני = שאו יאנג סטרס → Chai Hu Jia Long Gu Mu Li Tang" },
+      ],
+      patterns:[
+        { pattern:"מתח רקטוס שמאלי קיצוני", text:"ג'ואה יין — Wu Mei Wan (חום למעלה/קור למטה)" },
+        { pattern:"מתח + PMS/מחזור לא סדיר", text:"סטגנציית Qi כבד — Xiao Yao Wan" },
+        { pattern:"כאב כרוני + סימני Xue Yu", text:"סטגנציית דם מערכתית — Xue Fu Zhu Yu Tang" },
+        { pattern:"עוויתות רקטוס חריפות", text:"Shao Yao Gan Cao Tang להרפיה מיידית" },
+      ],
+      treatmentNotes:"פעימה עמוקה עם PP דורשת Long Gu + Mu Li לעיגון. סטגנציית דם 'חדשה' → עץ Tao Ren",
+    },
     findings:["מתח","כאב","קשיחות","גוש","מתח רקטוס","פעימה עמוקה"],
     findingToFormulas: {
       "מתח": ["Xiao Yao San", "Chai Hu Shu Gan Wan"],
@@ -524,6 +620,27 @@ const ABDOMEN_ZONES = [
     ]},
   { id:"right", name:"בטן ימין", nameEn:"Right Abdomen", element:"metal", points:"ST25R",
     description:"ריאות/מעי גס — רמת דם (Xue). סטגנציית דם כרונית 'ישנה', חיסון/לימפה, דלקת מעי כרונית. ממצאי Xue Yu: קשיחות, גושים קבועים (Ji), בטן כלוח, עור יבש/מפוספס, פיגמנטציה כהה, ורידים סגולים תת-לשוניים. צמחים עדיפים על דיקור — עץ Da Huang לסטגנציה ישנה. PP פריאומביליקלי ימין = 10 נק' ב-Xue Yu",
+    clinicalInfo: {
+      title:"אזור מתכת — בטן ימין / ריאות (ST25R)",
+      keyPoints:[
+        { label:"Xue Yu וניקוד PP", text:"PP (Pressure Pain) פריאומביליקלי ימין (LRQ) נושא משקל גבוה של 10 נקודות במערכת ניקוד Kampo ל-Xue Yu. פעימה עמוקה וקבועה ב-ST25R = סמן קליני משמעותי לסטגנציית דם כרונית" },
+        { label:"גושי Ji (積)", text:"גושים קשים וקבועים באזור זה = Ji (או Zheng) — מייצגים Xue Yu חמור וכרוני, לא סתם גזים או צואה" },
+        { label:"חיסון ודלקת", text:"ST25R + ST26R ('נקודת החיסון') = אבחון דלקת חיידקית כרונית ומערכת חיסון מדוכאת. זיהומים חיידקיים ולחץ לימפתי קשורים ספציפית לאזור מתכת (ויראלי = כבד)" },
+      ],
+      diagnosticRules:[
+        { rule:"ממצאי עור", text:"פתולוגיות מתכת = עור יבש, מחוספס או סדוק. בשילוב עם עצירות = אישור דפוס מתכת/יאנג מינג" },
+        { rule:"עץ Da Huang", text:"פורמולות Da Huang 'שוברות' את הקשיחות של Xue Yu ישן ומטפלות בעצירות חריפה או גושים קבועים" },
+        { rule:"צמחים > דיקור", text:"לסטגנציית דם כרונית באזור זה, צמחים יעילים יותר מדיקור" },
+      ],
+      patterns:[
+        { pattern:"PP ימין + קשיחות + עור יבש", text:"Xue Yu כרוני — Da Huang Mu Dan Pi Tang" },
+        { pattern:"גוש Ji קבוע", text:"סטגנציית דם חמורה — Ge Xia Zhu Yu Tang" },
+        { pattern:"חיסון חלש + דלקות חוזרות", text:"Wei Qi חלש — Yu Ping Feng San" },
+        { pattern:"דלקת מעי + עצירות", text:"דלקת מקומית — Bai Tou Weng Tang" },
+        { pattern:"זיהומי עור כרוניים", text:"Wu Wei Xiao Du Yin" },
+      ],
+      treatmentNotes:"PP פריאומביליקלי ימין = 10 נקודות ב-Xue Yu. פרוטוקול שחרור: ST25/26R, LU2R, LU9L",
+    },
     findings:["מתח","רגישות","קשיחות","גוש קבוע (Ji)","עור יבש/מפוספס","פעימה עמוקה"],
     findingToFormulas: {
       "מתח": ["Xue Fu Zhu Yu Tang", "Da Huang Mu Dan Pi Tang"],
@@ -551,6 +668,26 @@ const ABDOMEN_ZONES = [
     ]},
   { id:"lower", name:"בטן תחתונה", nameEn:"Lower Abdomen", element:"water", points:"CV4, CV6",
     description:"כליות — חיוניות, הורמונים, אנרגיה. בדיקת רגל היפרטונית (יין) vs אטונית (יאנג)",
+    clinicalInfo: {
+      title:"אזור מים — בטן תחתונה / כליות (CV4, CV6)",
+      keyPoints:[
+        { label:"בדיקת רגליים", text:"רגל היפרטונית (הדוקה) = חסר Qi כליות יין | רגל אטונית (רכה/חלשה) = חסר Qi כליות יאנג. ממצא פיזי זה קובע את שילוב הדיקור בגפיים התחתונות" },
+        { label:"Linea Alba", text:"קשורה לרן מאי. רגישות או חוסר טונוס = ירידה ביכולת 'לעשות'. מתחת ל-CV8 = בעיות שאו יין/כליות. Linea Alba עמוקה ברמה 3 = חסר יאנג כליות. עמוקה ודקה בג'יאו תחתון = Xue Yu" },
+        { label:"Qipang", text:"רגישות ב-Qipang = סמן אבחוני ראשי לעייפות אדרנלית/הורמונלית" },
+      ],
+      diagnosticRules:[
+        { rule:"קור בבטן תחתונה", text:"עור קר או סלידה סובייקטיבית מקור = דפוס 'Chills Xu' — לעיתים עם קושי במתן שתן או כאב" },
+        { rule:"תשישות הורמונלית בצעירים", text:"חסר Qi כליות בצעירים נובע לרוב מעבודת יתר או ממריצים מוגזמים (קפאין/ריטלין) — מותש את מערכת האנדוקרינית והאדרנל" },
+        { rule:"יין vs יאנג", text:"בטן הדוקה + חום + זיעות לילה = יין שו (Liu Wei Di Huang Wan) | בטן אטונית + קור + גפיים קרות = יאנג שו (Ba Wei Di Huang Wan)" },
+      ],
+      patterns:[
+        { pattern:"בטן אטונית + קור + ליבידו ירוד", text:"חסר יאנג כליות — Ba Wei Di Huang Wan (Jin Gui Shen Qi Wan)" },
+        { pattern:"בטן הדוקה + זיעות לילה + גרון יבש", text:"חסר יין כליות — Liu Wei Di Huang Wan" },
+        { pattern:"אטוניה + צלילי מים + בצקת", text:"יאנג שו + רטיבות — Zhen Wu Tang" },
+        { pattern:"תשישות עמוקה של Qi, דם וג'ינג", text:"Huan Shao Dan" },
+      ],
+      treatmentNotes:"רגל אטונית → פרוטוקול יאנג עם מוקסה על מחט. רגל היפרטונית → פרוטוקול יין בצד ההיפרטוני. Kyotoshin (מוקסה על מחט) = טכניקה מועדפת לדפוסי כליות",
+    },
     findings:["הדוקות","אטוניה","קור","רגישות עמוקה","Linea Alba עמוקה"],
     findingToFormulas: {
       "הדוקות": ["Liu Wei Di Huang Wan", "Zhi Bai Di Huang Wan"],
@@ -2627,18 +2764,125 @@ export default function TCMApp() {
             {kbTab === "layers" && renderSixLayers()}
             {kbTab === "zones" && <div>
               <AbdomenDiagram selectedZones={selectedZones} onToggleZone={toggleZone} abdominalFindings={diagData.abdominalFindings} />
-              <div style={{ marginTop:12, display:"grid", gap:8 }}>{ABDOMEN_ZONES.map(z => (
-                <Card key={z.id} onClick={() => toggleZone(z.id)} style={{ cursor:"pointer", padding:12, border:selectedZones.includes(z.id)?`2px solid ${ELEMENTS[z.element].color}`:"1px solid #2d2d44" }}>
-                  <div style={{ display:"flex", alignItems:"center", gap:6, marginBottom:4 }}><ElementBadge element={z.element} /><span style={{ fontSize:14, fontWeight:700 }}>{z.name}</span><span style={{ fontSize:11, color:"#64748b" }}>{z.points}</span></div>
-                  <div style={{ fontSize:12, color:"#94a3b8", marginBottom:6 }}>{z.description}</div>
-                  {z.protocols.map((p,i) => <div key={i} style={{ fontSize:11, marginBottom:2 }}><span style={{ color:"#818cf8", fontWeight:600 }}>{p.name}:</span> <span style={{ color:"#e2e8f0" }}>{p.points}</span></div>)}
-                  <div style={{ marginTop:6, fontSize:11, color:"#64748b" }}>
-                    <span style={{ fontWeight:600 }}>פורמולות {ELEMENTS[z.element].name}: </span>
-                    {FORMULAS.filter(f => f.element === z.element).slice(0,5).map(f => f.name).join(", ")}
-                    {FORMULAS.filter(f => f.element === z.element).length > 5 && ` (+${FORMULAS.filter(f => f.element === z.element).length - 5})`}
+              <p style={{ fontSize:11, color:"#64748b", textAlign:"center", marginTop:6 }}>💡 לחץ על אזור לפתיחת מידע קליני מפורט</p>
+              <div style={{ marginTop:12, display:"grid", gap:10 }}>{ABDOMEN_ZONES.map(z => {
+                const el = ELEMENTS[z.element]; const isOpen = selectedZones.includes(z.id);
+                return (
+                <Card key={z.id} style={{ padding:0, border:isOpen?`2px solid ${el.color}`:"1px solid #2d2d44", overflow:"hidden" }}>
+                  <div onClick={() => toggleZone(z.id)} style={{ cursor:"pointer", padding:12, display:"flex", alignItems:"center", gap:6, background:isOpen?el.color+"11":"transparent" }}>
+                    <ElementBadge element={z.element} />
+                    <span style={{ fontSize:15, fontWeight:700 }}>{z.name}</span>
+                    <span style={{ fontSize:12, color:"#94a3b8" }}>{z.nameEn}</span>
+                    <span style={{ fontSize:11, color:"#64748b" }}>{z.points}</span>
+                    <span style={{ marginRight:"auto", fontSize:14, color:"#64748b", transition:"transform 0.2s", transform:isOpen?"rotate(180deg)":"rotate(0)" }}>▼</span>
                   </div>
+                  {isOpen && (
+                    <div style={{ padding:"0 12px 12px" }}>
+                      <div style={{ fontSize:12, color:"#94a3b8", marginBottom:10, lineHeight:1.6 }}>{z.description}</div>
+                      {z.diagnosticGuide && <div style={{ padding:8, background:"#1e1b4b", borderRadius:8, marginBottom:10, fontSize:11, color:"#c084fc", lineHeight:1.6 }}>📐 <b>מדריך אבחון:</b> {z.diagnosticGuide}</div>}
+
+                      {/* Clinical Info from NotebookLM */}
+                      {z.clinicalInfo && (
+                        <div style={{ marginBottom:14, background:"#0d0d1a", borderRadius:10, border:"1px solid #2d2d44", overflow:"hidden" }}>
+                          <div style={{ padding:"8px 12px", background:`linear-gradient(90deg,${el.color}22,transparent)`, borderBottom:"1px solid #2d2d44", display:"flex", alignItems:"center", gap:6 }}>
+                            <span style={{ fontSize:14 }}>📚</span>
+                            <span style={{ fontSize:13, fontWeight:700, color:el.color }}>{z.clinicalInfo.title}</span>
+                            <span style={{ fontSize:9, color:"#64748b", marginRight:"auto" }}>מקור: NotebookLM</span>
+                          </div>
+                          <div style={{ padding:12 }}>
+                            {z.clinicalInfo.keyPoints && (<>
+                              <div style={{ fontSize:11, fontWeight:700, color:"#c084fc", marginBottom:6 }}>🔑 נקודות מפתח:</div>
+                              {z.clinicalInfo.keyPoints.map((kp,i) => (
+                                <div key={i} style={{ padding:"6px 8px", background:"#16162a", borderRadius:8, marginBottom:4, borderRight:`3px solid ${el.color}44` }}>
+                                  <div style={{ fontSize:11, fontWeight:700, color:el.color, marginBottom:2 }}>{kp.label}</div>
+                                  <div style={{ fontSize:11, color:"#94a3b8", lineHeight:1.5 }}>{kp.text}</div>
+                                </div>
+                              ))}
+                            </>)}
+                            {z.clinicalInfo.diagnosticRules && (<>
+                              <div style={{ fontSize:11, fontWeight:700, color:"#f59e0b", marginTop:10, marginBottom:6 }}>📐 כללי אבחון:</div>
+                              {z.clinicalInfo.diagnosticRules.map((dr,i) => (
+                                <div key={i} style={{ padding:"5px 8px", background:"rgba(245,158,11,0.05)", borderRadius:6, marginBottom:3, fontSize:11 }}>
+                                  <span style={{ color:"#f59e0b", fontWeight:700 }}>{dr.rule}: </span>
+                                  <span style={{ color:"#94a3b8" }}>{dr.text}</span>
+                                </div>
+                              ))}
+                            </>)}
+                            {z.clinicalInfo.patterns && (<>
+                              <div style={{ fontSize:11, fontWeight:700, color:"#34d399", marginTop:10, marginBottom:6 }}>🧩 דפוסים קליניים:</div>
+                              {z.clinicalInfo.patterns.map((pt,i) => (
+                                <div key={i} style={{ display:"flex", gap:6, padding:"4px 8px", background:"rgba(52,211,153,0.05)", borderRadius:6, marginBottom:3, fontSize:11 }}>
+                                  <span style={{ color:"#34d399", fontWeight:600, minWidth:"40%" }}>{pt.pattern}</span>
+                                  <span style={{ color:"#94a3b8" }}>→ {pt.text}</span>
+                                </div>
+                              ))}
+                            </>)}
+                            {z.clinicalInfo.treatmentNotes && (
+                              <div style={{ marginTop:10, padding:"6px 8px", background:"rgba(129,140,248,0.08)", borderRadius:6, fontSize:11, color:"#a5b4fc", lineHeight:1.5 }}>
+                                💊 <b>הערות טיפול:</b> {z.clinicalInfo.treatmentNotes}
+                              </div>
+                            )}
+                            {z.clinicalInfo.keyFormulas && (
+                              <div style={{ marginTop:8, display:"grid", gridTemplateColumns:"1fr 1fr", gap:6 }}>
+                                <div style={{ padding:"5px 8px", background:"#1a0a0a", borderRadius:6, fontSize:10 }}>
+                                  <span style={{ color:"#ef4444", fontWeight:700 }}>שי: </span><span style={{ color:"#94a3b8" }}>{z.clinicalInfo.keyFormulas.shi}</span>
+                                </div>
+                                <div style={{ padding:"5px 8px", background:"#0a0a1a", borderRadius:6, fontSize:10 }}>
+                                  <span style={{ color:"#60a5fa", fontWeight:700 }}>שו: </span><span style={{ color:"#94a3b8" }}>{z.clinicalInfo.keyFormulas.xu}</span>
+                                </div>
+                              </div>
+                            )}
+                          </div>
+                        </div>
+                      )}
+
+                      {/* Subcostal sub-zones */}
+                      {z.subcostalZones && <div style={{ display:"grid", gridTemplateColumns:"1fr 1fr", gap:8, marginBottom:12 }}>
+                        {[z.subcostalZones.right, z.subcostalZones.left].map((sz, i) => {
+                          const szEl = ELEMENTS[sz.element]||ELEMENTS.wood;
+                          return <div key={i} style={{ padding:10, background:"#0f0f20", borderRadius:10, border:`1px solid ${szEl.color}33`, borderTop:`3px solid ${szEl.color}` }}>
+                            <div style={{ fontSize:13, fontWeight:700, color:szEl.color, marginBottom:4 }}>{sz.name}</div>
+                            <div style={{ fontSize:10, color:"#64748b", marginBottom:6 }}>{sz.keyPoint} • {sz.organ}</div>
+                            <div style={{ fontSize:11, color:"#94a3b8", lineHeight:1.5, marginBottom:6 }}>{sz.description}</div>
+                            <div style={{ fontSize:10, fontWeight:600, color:"#c084fc", marginBottom:3 }}>עצים:</div>
+                            {sz.trees.map((tr,j) => <div key={j} style={{ fontSize:10, color:"#a5b4fc", marginBottom:2 }}>• {tr}</div>)}
+                            <div style={{ fontSize:10, fontWeight:600, color:"#c084fc", marginTop:4, marginBottom:3 }}>פורמולות:</div>
+                            {sz.formulas.map((fm,j) => <div key={j} style={{ fontSize:10, color:"#94a3b8", marginBottom:2 }}>• {fm}</div>)}
+                            {sz.clinicalNotes && <div style={{ fontSize:10, color:"#f59e0b", marginTop:6, padding:"4px 6px", background:"rgba(245,158,11,0.08)", borderRadius:4 }}>💡 {sz.clinicalNotes}</div>}
+                          </div>;
+                        })}
+                      </div>}
+
+                      {/* Protocols */}
+                      <div style={{ fontSize:12, fontWeight:600, color:"#94a3b8", marginBottom:6 }}>פרוטוקולי דיקור:</div>
+                      {z.protocols.map((p,i) => (
+                        <div key={i} style={{ padding:8, background:"#0f0f20", borderRadius:8, marginBottom:4, fontSize:12 }}>
+                          <span style={{ color:"#c084fc", fontWeight:600 }}>{p.name}: </span><span style={{ color:"#e2e8f0" }}>{p.points}</span>
+                        </div>
+                      ))}
+
+                      {/* Navel shifting */}
+                      {z.navelShifting && (<div style={{ marginTop:10 }}>
+                        <div style={{ fontSize:12, fontWeight:600, color:"#94a3b8", marginBottom:6 }}>כיוון הזזת טבור:</div>
+                        {NAVEL_SHIFTING.map((ns, i) => (
+                          <div key={i} style={{ display:"flex", gap:8, alignItems:"center", padding:"6px 8px", background:"#0f0f20", borderRadius:8, marginBottom:4 }}>
+                            <span style={{ fontSize:16 }}>{ns.icon}</span>
+                            <span style={{ fontSize:12, fontWeight:700, color:ns.color, minWidth:50 }}>{ns.direction}</span>
+                            <span style={{ fontSize:12, color:"#94a3b8" }}>{ns.meaning}</span>
+                          </div>
+                        ))}
+                      </div>)}
+
+                      {/* Formulas */}
+                      <div style={{ marginTop:8, fontSize:11, color:"#64748b" }}>
+                        <span style={{ fontWeight:600 }}>פורמולות {el.name}: </span>
+                        {FORMULAS.filter(f => f.element === z.element).slice(0,5).map(f => f.name).join(", ")}
+                        {FORMULAS.filter(f => f.element === z.element).length > 5 && ` (+${FORMULAS.filter(f => f.element === z.element).length - 5})`}
+                      </div>
+                    </div>
+                  )}
                 </Card>
-              ))}</div>
+              );})}</div>
             </div>}
             {kbTab === "ev" && <div style={{ display:"grid", gap:8 }}>{EV_PROTOCOLS.map(ev => (
               <Card key={ev.id} style={{ padding:12 }}>
