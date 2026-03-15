@@ -1432,25 +1432,28 @@ export default function TCMApp() {
   const recommendedFormulas = useMemo(() => {
     const findings = diagData.abdominalFindings;
     const activeZones = Object.keys(findings).filter(k => findings[k]?.length > 0);
-    if (!activeZones.length) return [];
-    // Collect specific formula names from findingToFormulas mappings
-    const specificNames = new Set();
-    activeZones.forEach(zoneId => {
-      const zone = ABDOMEN_ZONES.find(z => z.id === zoneId);
-      if (!zone?.findingToFormulas) return;
-      (findings[zoneId] || []).forEach(f => {
-        (zone.findingToFormulas[f] || []).forEach(name => specificNames.add(name));
+    let c = [];
+    if (activeZones.length > 0) {
+      // PRIMARY: Collect specific formula names from findingToFormulas mappings
+      const specificNames = new Set();
+      activeZones.forEach(zoneId => {
+        const zone = ABDOMEN_ZONES.find(z => z.id === zoneId);
+        if (!zone?.findingToFormulas) return;
+        (findings[zoneId] || []).forEach(f => {
+          (zone.findingToFormulas[f] || []).forEach(name => specificNames.add(name));
+        });
       });
-    });
-    // Match by formula name from the FORMULAS array
-    let c;
-    if (specificNames.size > 0) {
-      c = FORMULAS.filter(f => specificNames.has(f.name));
-    } else {
-      // Fallback: filter by element if no specific mappings found
-      const elements = activeZones.map(k => ABDOMEN_ZONES.find(z => z.id === k)?.element).filter(Boolean);
-      c = FORMULAS.filter(f => elements.includes(f.element));
+      if (specificNames.size > 0) {
+        c = FORMULAS.filter(f => specificNames.has(f.name));
+      } else {
+        const elements = activeZones.map(k => ABDOMEN_ZONES.find(z => z.id === k)?.element).filter(Boolean);
+        c = FORMULAS.filter(f => elements.includes(f.element));
+      }
+    } else if (diagData.heatCold || diagData.shiXu) {
+      // FALLBACK: No abdominal findings — recommend based on pattern (heatCold/shiXu)
+      c = [...FORMULAS];
     }
+    // Apply heatCold filter
     if (diagData.heatCold === "heat") c = c.filter(f => f.heatCold !== "cold");
     if (diagData.heatCold === "cold") c = c.filter(f => f.heatCold !== "heat");
     return c;
@@ -1857,9 +1860,14 @@ export default function TCMApp() {
           {/* No abdominal findings — main warning */}
           {!hasAbdominalFindings && (
             <Card style={{ borderRight:"3px solid #f59e0b", padding:14, marginBottom:16 }}>
-              <div style={{ fontSize:13, fontWeight:700, color:"#f59e0b", marginBottom:6 }}>⚠️ לא סומנו ממצאים בטניים</div>
-              <div style={{ fontSize:12, color:"#94a3b8", marginBottom:10 }}>האבחון הבטני הוא הבסיס להמלצת הטיפול. יש לסמן ממצאים באבחון בטני כדי לקבל פורמולות ופרוטוקולים מותאמים.</div>
-              <button onClick={() => setDiagStep(2)} style={s.btn("#818cf8")}>🫃 חזרה לאבחון בטני</button>
+              <div style={{ fontSize:13, fontWeight:700, color:"#f59e0b", marginBottom:6 }}>💡 אין ממצאים בטניים — המלצות לפי דפוס בלבד</div>
+              <div style={{ fontSize:12, color:"#94a3b8", marginBottom:10 }}>
+                {recommendedFormulas.length > 0
+                  ? `מוצגות ${recommendedFormulas.length} פורמולות כלליות לפי הדפוס (חם/קר). לתוצאות מדויקות יותר — סמן ממצאים בטניים.`
+                  : "סמן ממצאים באבחון בטני או הגדר דפוס (חם/קר) כדי לקבל המלצות טיפול."
+                }
+              </div>
+              <button onClick={() => setDiagStep(2)} style={s.btn("#818cf8")}>🫃 לאבחון בטני</button>
             </Card>
           )}
 
