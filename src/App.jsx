@@ -1629,7 +1629,7 @@ export default function TCMApp() {
                       <div style={{ fontSize:12, fontWeight:600, color:"#94a3b8", marginBottom:6 }}>ממצאים:</div>
                       <div style={{ display:"flex", gap:5, flexWrap:"wrap", marginBottom:12 }}>
                         {zone.findings.map(f => { const on = (diagData.abdominalFindings[zoneId]||[]).includes(f);
-                          return <span key={f} onClick={() => { const cur=diagData.abdominalFindings[zoneId]||[]; ud("abdominalFindings",{...diagData.abdominalFindings,[zoneId]:on?cur.filter(x=>x!==f):[...cur,f]}); }} style={s.tag(on,el.color)}>{f}</span>;
+                          return <span key={f} onClick={() => { setDiagData(prev => { const cur = prev.abdominalFindings[zoneId]||[]; const isOn = cur.includes(f); return {...prev, abdominalFindings:{...prev.abdominalFindings,[zoneId]:isOn?cur.filter(x=>x!==f):[...cur,f]}}; }); }} style={s.tag(on,el.color)}>{f}</span>;
                         })}
                       </div>
                       <div style={{ fontSize:12, fontWeight:600, color:"#94a3b8", marginBottom:6 }}>פרוטוקולי דיקור:</div>
@@ -1693,9 +1693,7 @@ export default function TCMApp() {
                     {["Line A (שי)","Line B (כרוני)","Line C (שו)","ללא ממצא"].map(f => {
                       const on = findings.includes(f);
                       return <span key={f} onClick={() => {
-                        const cur = diagData.backFindings || {};
-                        const curEl = cur[el] || [];
-                        ud("backFindings", { ...cur, [el]: on ? curEl.filter(x=>x!==f) : [...curEl.filter(x=>x!=="ללא ממצא"), ...(f==="ללא ממצא"?["ללא ממצא"]:[f])] });
+                        setDiagData(prev => { const cur = prev.backFindings || {}; const curEl = cur[el] || []; const isOn = curEl.includes(f); return {...prev, backFindings: { ...cur, [el]: isOn ? curEl.filter(x=>x!==f) : [...curEl.filter(x=>x!=="ללא ממצא"), ...(f==="ללא ממצא"?["ללא ממצא"]:[f])] }}; });
                       }} style={s.tag(on, ELEMENTS[el].color)}>{f}</span>;
                     })}
                   </div>
@@ -1819,7 +1817,22 @@ export default function TCMApp() {
         </div>
         );
       }
-      case 6: return (
+      case 6: {
+        const hasAbdominalFindings = Object.keys(diagData.abdominalFindings).some(k => diagData.abdominalFindings[k]?.length > 0);
+        const hasBackFindings = Object.entries(diagData.backFindings || {}).some(([,v]) => v?.length && !v.includes("ללא ממצא"));
+        const hasPatternData = diagData.heatCold || diagData.shiXu;
+        const totalAbdomenFindings = Object.values(diagData.abdominalFindings).reduce((sum, arr) => sum + (arr?.length || 0), 0);
+        const activeAbdomenZones = Object.keys(diagData.abdominalFindings).filter(k => diagData.abdominalFindings[k]?.length > 0);
+
+        // Data completeness indicators
+        const completeness = [
+          { name:"בטן", done: hasAbdominalFindings, icon:"🫃", critical:true },
+          { name:"דפוס", done: hasPatternData, icon:"🧩", critical:false },
+          { name:"גב", done: hasBackFindings, icon:"🔙", critical:false },
+          { name:"Xue Yu", done: xueYuScore > 0, icon:"🩸", critical:false },
+        ];
+
+        return (
         <div>
           {/* Patient Summary Header */}
           <div style={{ padding:12, background:"#16162a", borderRadius:10, marginBottom:14, display:"flex", gap:16, flexWrap:"wrap", alignItems:"center" }}>
@@ -1829,6 +1842,26 @@ export default function TCMApp() {
             {diagData.shiXu && <span style={s.tag(true, "#f59e0b")}>{diagData.shiXu==="shi"?"💪 שי":diagData.shiXu==="xu"?"🌙 שו":"🔀 מעורב"}</span>}
             {xueYuScore > 0 && <span style={s.tag(true, xueYuLevel>=3?"#ef4444":"#f97316")}>🩸 Xue Yu: {xueYuScore} (L{xueYuLevel})</span>}
           </div>
+
+          {/* Data completeness bar */}
+          <div style={{ display:"flex", gap:6, marginBottom:14, flexWrap:"wrap", alignItems:"center" }}>
+            <span style={{ fontSize:11, color:"#64748b", fontWeight:600 }}>נתונים:</span>
+            {completeness.map(c => (
+              <span key={c.name} style={{ fontSize:11, padding:"3px 8px", borderRadius:12, background: c.done ? "#22c55e18" : "#ffffff08", border: `1px solid ${c.done ? "#22c55e44" : "#ffffff15"}`, color: c.done ? "#4ade80" : "#4b5563" }}>
+                {c.icon} {c.name} {c.done ? "✓" : "—"}
+              </span>
+            ))}
+            {hasAbdominalFindings && <span style={{ fontSize:11, color:"#818cf8", marginRight:"auto" }}>({totalAbdomenFindings} ממצאים ב-{activeAbdomenZones.length} אזורים)</span>}
+          </div>
+
+          {/* No abdominal findings — main warning */}
+          {!hasAbdominalFindings && (
+            <Card style={{ borderRight:"3px solid #f59e0b", padding:14, marginBottom:16 }}>
+              <div style={{ fontSize:13, fontWeight:700, color:"#f59e0b", marginBottom:6 }}>⚠️ לא סומנו ממצאים בטניים</div>
+              <div style={{ fontSize:12, color:"#94a3b8", marginBottom:10 }}>האבחון הבטני הוא הבסיס להמלצת הטיפול. יש לסמן ממצאים באבחון בטני כדי לקבל פורמולות ופרוטוקולים מותאמים.</div>
+              <button onClick={() => setDiagStep(2)} style={s.btn("#818cf8")}>🫃 חזרה לאבחון בטני</button>
+            </Card>
+          )}
 
           {recommendedFormulas.length > 0 && (<>
             <div style={s.sectionTitle}>🎯 פורמולות מומלצות ({recommendedFormulas.length})</div>
@@ -1844,7 +1877,7 @@ export default function TCMApp() {
           </>)}
 
           <div style={s.sectionTitle}>📍 פרוטוקולי דיקור לפי ממצא בטני</div>
-          {ABDOMEN_ZONES.filter(z => diagData.abdominalFindings[z.id]?.length).length === 0 
+          {!hasAbdominalFindings
             ? <div style={{ fontSize:12, color:"#4b5563", marginBottom:12 }}>לא סומנו ממצאים בטניים</div>
             : ABDOMEN_ZONES.filter(z => diagData.abdominalFindings[z.id]?.length).map(z => {
             const zoneFindings = diagData.abdominalFindings[z.id] || [];
@@ -1907,7 +1940,7 @@ export default function TCMApp() {
             <button onClick={saveDiagnosis} disabled={loadingStorage} style={s.btn("#22c55e")}>💾 {loadingStorage?"שומר...":"שמור אבחון"}</button>
           </div>
         </div>
-      );
+      );}
       default: return null;
     }
   };
