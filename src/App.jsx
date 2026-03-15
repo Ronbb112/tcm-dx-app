@@ -132,6 +132,10 @@ const FORMULAS = [
   { id:"f88", name:"Yao Tong Pain Formula", nameHe:"יאו טונג פיין", element:"water", tree:"Xue", pattern:"KD Yang + Wind-Cold in Meridians", indications:"כאב גב תחתון, חולשת מפרקים ועצמות", heatCold:"cold" },
   { id:"f89", name:"Ding Xiang Shi Di Tang", nameHe:"דינג שיאנג שי די טאנג", element:"earth", tree:"Qi", pattern:"ST Cold Hiccups", indications:"שיהוקים מקור בקיבה", heatCold:"cold" },
   { id:"f90", name:"Bei Xie Fen Qing Yin", nameHe:"ביי שיה פן צ'ינג יין", element:"water", tree:"Qi", pattern:"Turbid Urination", indications:"שתן עכור, חסר כליות", heatCold:"neutral" },
+  // ADDITIONAL FORMULAS from NotebookLM treatment data
+  { id:"f91", name:"Shao Yao Gan Cao Tang", nameHe:"שאו יאו גאן צאו טאנג", element:"wood", tree:"Gui Zhi", pattern:"Rectus Muscle Spasms / Cramps", indications:"עוויתות שרירי רקטוס, כאב בטני עוויתי, התכווצויות שרירים", heatCold:"neutral" },
+  { id:"f92", name:"Huan Shao Dan", nameHe:"הואן שאו דאן", element:"water", tree:"Xue", pattern:"Deep Qi/Blood/Jing Exhaustion", indications:"תשישות עמוקה, הזדקנות מוקדמת, ירידה הורמונלית חמורה", heatCold:"cold" },
+  { id:"f93", name:"Zuo Jin Wan", nameHe:"זוו ג'ין וואן", element:"wood", tree:"Huang Lian", pattern:"LV Fire Overacting on ST", indications:"חומצת קיבה, ריפלוקס, טעם מר, כאב תת-צלעי שמאלי", heatCold:"heat" },
 ];
 
 const TREES = [
@@ -451,7 +455,7 @@ const ABDOMEN_ZONES = [
     findings:["מתח ימין (שאו יאנג)","מתח שמאל (יאנג מינג)","מתח דו-צדדי","רגישות","קשיחות ימין (ליחה)","קשיחות שמאל (חום-רטיבות)","גוש Pigen (ימין)","רכות שמאל (רטיבות)","פעימה צפה (שי)","פעימה עמוקה (שו)"],
     findingToFormulas: {
       "מתח ימין (שאו יאנג)": ["Xiao Chai Hu Tang", "Da Chai Hu Tang", "Wen Dan Tang"],
-      "מתח שמאל (יאנג מינג)": ["Ping Wei San", "Huang Lian Tang"],
+      "מתח שמאל (יאנג מינג)": ["Ping Wei San", "Huang Lian Tang", "Zuo Jin Wan"],
       "מתח דו-צדדי": ["Chai Hu Jia Long Gu Mu Li Tang"],
       "רגישות": ["Xiao Chai Hu Tang", "Ban Xia Xie Xin Tang"],
       "קשיחות ימין (ליחה)": ["Wen Dan Tang", "Da Chai Hu Tang"],
@@ -508,7 +512,7 @@ const ABDOMEN_ZONES = [
     findingToFormulas: {
       "צליל מים": ["Li Zhong Wan", "Wu Zhu Yu Tang", "Zhen Wu Tang"],
       "גז": ["Huo Xiang Zheng Qi San", "Ping Wei San", "Pai Qi Yin"],
-      "כאב בלחיצה": ["Ban Xia Xie Xin Tang", "Xiao Jian Zhong Tang"],
+      "כאב בלחיצה": ["Ban Xia Xie Xin Tang", "Xiao Jian Zhong Tang", "Shao Yao Gan Cao Tang"],
       "קשיחות": ["Huang Lian E Jiao Tang", "Wen Dan Tang", "Ban Xia Xie Xin Tang"],
       "לוח קשיח": ["Bai Hu Tang", "Da Cheng Qi Tang"],
     },
@@ -595,11 +599,11 @@ const ABDOMEN_ZONES = [
     },
     findings:["מתח","כאב","קשיחות","גוש","מתח רקטוס","פעימה עמוקה"],
     findingToFormulas: {
-      "מתח": ["Xiao Yao San", "Chai Hu Shu Gan Wan"],
+      "מתח": ["Xiao Yao San", "Chai Hu Shu Gan Wan", "Tong Xie Yao Fang"],
       "כאב": ["Xue Fu Zhu Yu Tang", "Xiao Chai Hu Tang"],
       "קשיחות": ["Da Chai Hu Tang", "Wen Dan Tang"],
       "גוש": ["Gui Zhi Fu Ling Wan", "Da Huang Mu Dan Pi Tang", "Ge Xia Zhu Yu Tang"],
-      "מתח רקטוס": ["Wu Mei Wan", "Dang Gui Si Ni Tang"],
+      "מתח רקטוס": ["Wu Mei Wan", "Dang Gui Si Ni Tang", "Shao Yao Gan Cao Tang"],
       "פעימה עמוקה": ["Chai Hu Jia Long Gu Mu Li Tang"],
     },
     findingToProtocols: {
@@ -647,7 +651,7 @@ const ABDOMEN_ZONES = [
       "רגישות": ["Tao He Cheng Qi Tang", "Bai Tou Weng Tang"],
       "קשיחות": ["Da Huang Mu Dan Pi Tang", "Xue Fu Zhu Yu Tang"],
       "גוש קבוע (Ji)": ["Ge Xia Zhu Yu Tang", "Da Huang Mu Dan Pi Tang"],
-      "עור יבש/מפוספס": ["Si Wu Tang", "Bei Mu Gua Lou San"],
+      "עור יבש/מפוספס": ["Si Wu Tang", "Bei Mu Gua Lou San", "Yu Ping Feng San"],
       "פעימה עמוקה": ["Xue Fu Zhu Yu Tang", "Gui Zhi Fu Ling Wan"],
     },
     findingToProtocols: {
@@ -690,10 +694,10 @@ const ABDOMEN_ZONES = [
     },
     findings:["הדוקות","אטוניה","קור","רגישות עמוקה","Linea Alba עמוקה"],
     findingToFormulas: {
-      "הדוקות": ["Liu Wei Di Huang Wan", "Zhi Bai Di Huang Wan"],
-      "אטוניה": ["Ba Wei Di Huang Wan", "You Gui Wan"],
+      "הדוקות": ["Liu Wei Di Huang Wan", "Zhi Bai Di Huang Wan", "Zuo Gui Wan"],
+      "אטוניה": ["Ba Wei Di Huang Wan", "You Gui Wan", "Huan Shao Dan"],
       "קור": ["Ba Wei Di Huang Wan", "Zhen Wu Tang", "You Gui Wan"],
-      "רגישות עמוקה": ["Ba Wei Di Huang Wan", "Gui Zhi Fu Ling Wan"],
+      "רגישות עמוקה": ["Ba Wei Di Huang Wan", "Gui Zhi Fu Ling Wan", "Huan Shao Dan"],
       "Linea Alba עמוקה": ["Ba Wei Di Huang Wan", "Zhen Wu Tang"],
     },
     findingToProtocols: {
@@ -709,6 +713,15 @@ const ABDOMEN_ZONES = [
       { name:"כליות צ'י יין (חום)", points:"K27R, K16L, CV4, ST27L, LV8L, K10L, K6L (רגל היפרטונית)" },
       { name:"טראומת לידה (בטן רגישה)", points:"נקודות אוזן קודם: Shen Men, נקודת 0, Tranquilizer, אדרנל/כליות" },
     ]},
+];
+
+const TREATMENT_STRATEGIES = [
+  { title:"כלל 70/30 — סאבקרדיאק vs אפיגסטריום", text:"70% מממצאי תת-לבבי (CV14/15) הם תוצאה של לחץ מאפיגסטריום (CV12) — טפל קודם באפיגסטריום", zones:["subcardiac","epigastric"], icon:"⚖️" },
+  { title:"עודף (שי) → התחל מהגב", text:"במצב עודף — התחל בדיקור בגב עליון לניקוז העודף לפני מעבר לבטן", condition:"shi", icon:"🔄" },
+  { title:"חוסר (שו) → התחל מהבטן", text:"במצב חוסר — התחל ישירות בבטן/רגליים כדי להימנע מהתשת המטופל", condition:"xu", icon:"💧" },
+  { title:"קיבה לפני טחול", text:"הקיבה (שי) היא הסיבה והטחול (שו) הוא התוצאה — טפל קודם בקיבה כדי לאפשר לטחול להשתקם", zones:["epigastric","navel"], icon:"🎯" },
+  { title:"K25 vs K23 — קוצב הלב", text:"רגישות K25L (עודף) → חובה טיפול גב תחילה. רגישות K23L (חוסר) → אסור טיפול גב (עלול להחליש עד אי-תפקוד)", zones:["subcardiac"], icon:"❤️" },
+  { title:"צמחים עדיפים על דיקור — מתכת/Xue Yu", text:"לסטגנציית דם כרונית באזור בטן ימין (ST25R), צמחים יעילים יותר מדיקור. עץ Da Huang שובר קשיחות ישנה", zones:["right"], icon:"🌿" },
 ];
 
 const EV_PROTOCOLS = [
@@ -1830,6 +1843,15 @@ export default function TCMApp() {
             {xueYuScore > 0 && <span style={s.tag(true, xueYuLevel>=3?"#ef4444":"#f97316")}>🩸 Xue Yu: {xueYuScore} (L{xueYuLevel})</span>}
           </div>
 
+          {/* No findings warning with navigation */}
+          {ABDOMEN_ZONES.filter(z => diagData.abdominalFindings[z.id]?.length).length === 0 && (
+            <Card style={{ borderRight:"3px solid #f59e0b", padding:14, marginBottom:14 }}>
+              <div style={{ fontSize:13, fontWeight:700, color:"#f59e0b", marginBottom:6 }}>⚠️ לא סומנו ממצאים בטניים</div>
+              <div style={{ fontSize:12, color:"#94a3b8", marginBottom:10 }}>יש לסמן ממצאים באבחון בטני (שלב 3) כדי לקבל המלצות טיפול מותאמות — פורמולות, פרוטוקולי דיקור ואסטרטגיות קליניות</div>
+              <button onClick={() => setDiagStep(2)} style={{ ...s.btn("#818cf8"), fontSize:12, padding:"6px 14px" }}>← חזור לאבחון בטני</button>
+            </Card>
+          )}
+
           {recommendedFormulas.length > 0 && (<>
             <div style={s.sectionTitle}>🎯 פורמולות מומלצות ({recommendedFormulas.length})</div>
             <div style={{ display:"grid", gap:6, marginBottom:16 }}>
@@ -1843,9 +1865,69 @@ export default function TCMApp() {
             </div>
           </>)}
 
+          {/* Treatment Strategies - show relevant ones based on findings and diagnosis */}
+          {(() => {
+            const activeZoneIds = Object.keys(diagData.abdominalFindings).filter(k => diagData.abdominalFindings[k]?.length > 0);
+            if (!activeZoneIds.length) return null;
+            const relevant = TREATMENT_STRATEGIES.filter(ts => {
+              if (ts.condition) {
+                if (ts.condition === "shi" && diagData.shiXu !== "shi") return false;
+                if (ts.condition === "xu" && diagData.shiXu !== "xu") return false;
+              }
+              if (ts.zones) return ts.zones.some(z => activeZoneIds.includes(z));
+              return true;
+            });
+            if (!relevant.length) return null;
+            return (<>
+              <div style={s.sectionTitle}>📋 אסטרטגיית טיפול</div>
+              <div style={{ display:"grid", gap:6, marginBottom:16 }}>
+                {relevant.map((ts,i) => (
+                  <div key={i} style={{ padding:10, background:"#16162a", borderRadius:10, borderRight:"3px solid #c084fc" }}>
+                    <div style={{ fontSize:13, fontWeight:700, color:"#c084fc", marginBottom:3 }}>{ts.icon} {ts.title}</div>
+                    <div style={{ fontSize:12, color:"#94a3b8" }}>{ts.text}</div>
+                  </div>
+                ))}
+              </div>
+            </>);
+          })()}
+
+          {/* Clinical pearls per zone */}
+          {(() => {
+            const activeZones = ABDOMEN_ZONES.filter(z => diagData.abdominalFindings[z.id]?.length > 0);
+            if (!activeZones.length) return null;
+            const pearls = activeZones.map(z => {
+              const findings = diagData.abdominalFindings[z.id];
+              const matched = (z.clinicalInfo?.patterns || []).filter(p =>
+                findings.some(f => p.pattern.includes(f) || f.includes(p.pattern.split(" ")[0]))
+              );
+              return { zone:z, pearls: matched.length ? matched : (z.clinicalInfo?.patterns || []).slice(0,2) };
+            }).filter(x => x.pearls.length > 0);
+            if (!pearls.length) return null;
+            return (<>
+              <div style={s.sectionTitle}>💡 פנינים קליניות</div>
+              <div style={{ display:"grid", gap:6, marginBottom:16 }}>
+                {pearls.map((p,i) => (
+                  <Card key={i} style={{ padding:10 }}>
+                    <div style={{ display:"flex", alignItems:"center", gap:6, marginBottom:4 }}>
+                      <ElementBadge element={p.zone.element} small /><span style={{ fontWeight:600, fontSize:12 }}>{p.zone.name}</span>
+                    </div>
+                    {p.pearls.map((cl,j) => (
+                      <div key={j} style={{ fontSize:11, color:"#94a3b8", marginBottom:3, paddingRight:8, borderRight:"2px solid #2d2d44" }}>
+                        <span style={{ color:"#f59e0b", fontWeight:600 }}>{cl.pattern}: </span>{cl.text}
+                      </div>
+                    ))}
+                    {p.zone.clinicalInfo?.treatmentNotes && (
+                      <div style={{ fontSize:11, color:"#60a5fa", marginTop:4 }}>📐 {p.zone.clinicalInfo.treatmentNotes}</div>
+                    )}
+                  </Card>
+                ))}
+              </div>
+            </>);
+          })()}
+
           <div style={s.sectionTitle}>📍 פרוטוקולי דיקור לפי ממצא בטני</div>
-          {ABDOMEN_ZONES.filter(z => diagData.abdominalFindings[z.id]?.length).length === 0 
-            ? <div style={{ fontSize:12, color:"#4b5563", marginBottom:12 }}>לא סומנו ממצאים בטניים</div>
+          {ABDOMEN_ZONES.filter(z => diagData.abdominalFindings[z.id]?.length).length === 0
+            ? <div style={{ fontSize:12, color:"#4b5563", marginBottom:12 }}>סמן ממצאים בשלב 3 לקבלת פרוטוקולים</div>
             : ABDOMEN_ZONES.filter(z => diagData.abdominalFindings[z.id]?.length).map(z => {
             const zoneFindings = diagData.abdominalFindings[z.id] || [];
             // Collect relevant protocol names from findingToProtocols
